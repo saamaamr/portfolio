@@ -31,6 +31,14 @@
   --shape-2: rgba(124, 58, 237, 0.20);
   --shape-3: rgba(219, 39, 119, 0.18);
   --transition: all 0.3s ease;
+  
+  /* Responsive base values */
+  --font-size-base: 16px;
+  --spacing-unit: 0.5rem;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
 }
 
 [data-theme="dark"] {
@@ -73,6 +81,7 @@
 html {
   scroll-behavior: smooth;
   min-height: 100%;
+  font-size: 100%; /* 16px base for better scaling */
 }
 
 body {
@@ -82,6 +91,23 @@ body {
   color: var(--text);
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+  font-size: 1rem; /* Base font size */
+}
+
+/* Mobile-first base styles - ensure readability on small screens */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem; /* Slightly smaller base on mobile */
+    line-height: 1.7; /* More line height for readability */
+  }
+}
+
+/* Larger screens - increase base size */
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.05rem;
+  }
 }
 
 img {
@@ -121,8 +147,8 @@ textarea {
 }
 
 .shape-1 {
-  width: 320px;
-  height: 320px;
+  width: 20vmin;
+  height: 20vmin;
   background: var(--shape-1);
   top: 10%;
   right: 8%;
@@ -130,8 +156,8 @@ textarea {
 }
 
 .shape-2 {
-  width: 220px;
-  height: 220px;
+  width: 14vmin;
+  height: 14vmin;
   background: var(--shape-2);
   bottom: 18%;
   left: 8%;
@@ -139,12 +165,30 @@ textarea {
 }
 
 .shape-3 {
-  width: 260px;
-  height: 260px;
+  width: 16vmin;
+  height: 16vmin;
   background: var(--shape-3);
   top: 52%;
   left: 52%;
   animation-duration: 10s;
+}
+
+/* Mobile adjustments for glow shapes */
+@media (max-width: 768px) {
+  .shape-1 {
+    width: 25vmin;
+    height: 25vmin;
+  }
+  
+  .shape-2 {
+    width: 18vmin;
+    height: 18vmin;
+  }
+  
+  .shape-3 {
+    width: 22vmin;
+    height: 22vmin;
+  }
 }
 
 @keyframes float {
@@ -250,6 +294,8 @@ textarea {
   gap: 6px;
   flex-direction: column;
   justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .navbar-toggle span {
@@ -258,6 +304,7 @@ textarea {
   border-radius: 999px;
   background: var(--text);
   transition: var(--transition);
+  display: block;
 }
 
 .navbar-toggle.active span:nth-child(1) {
@@ -315,10 +362,37 @@ textarea {
 }
 
 .hero {
-  min-height: 94vh;
-  padding: 8rem 0 6rem;
+  min-height: calc(100vh - 4rem); /* Account for navbar and footer */
+  padding: 4rem 0;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh - 3rem);
+    padding: 3rem 0;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hero-text {
+    max-width: 100%;
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
+    margin-bottom: 2rem;
+  }
 }
 
 .hero-container {
