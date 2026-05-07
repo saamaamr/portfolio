@@ -446,6 +446,24 @@ textarea {
   color: var(--muted);
   line-height: 1.9;
   margin-bottom: 2rem;
+  max-width: 100%;
+}
+
+/* Mobile optimizations for hero section */
+@media (max-width: 768px) {
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-role {
+    font-size: 1.2rem;
+  }
 }
 
 .hero-actions {
@@ -1097,6 +1115,21 @@ textarea {
   .contact-cards {
     grid-template-columns: 1fr;
   }
+
+  /* Enhanced hero section responsiveness */
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text {
+    order: 1;
+    text-align: center;
+  }
+
+  .hero-image {
+    order: 2;
+    margin-top: 2rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1137,6 +1170,20 @@ textarea {
   .contact-form {
     padding: 1.8rem;
   }
+
+  /* Enhanced contact section for mobile */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-cards {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1168,6 +1215,28 @@ textarea {
   .form-group input,
   .form-group textarea {
     padding: 0.85rem 0.9rem;
+  }
+
+  /* Enhanced responsiveness for very small screens */
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    gap: 0.75rem;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-card {
+    padding: 0.75rem 1rem;
   }
 }
 
