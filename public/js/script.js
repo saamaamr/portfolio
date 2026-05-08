@@ -120,42 +120,43 @@ initTheme();
 // Mobile Menu
 const mobileBtn = document.getElementById("mobile-menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
-let mobileOpen = false;
 
-const toggleMobile = (force) => {
-  mobileOpen = force !== undefined ? force : !mobileOpen;
-  mobileMenu.classList.toggle("open", mobileOpen);
-  mobileBtn.setAttribute("aria-expanded", String(mobileOpen));
-  mobileBtn.innerHTML = mobileOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-  if (mobileOpen) {
-    mobileMenu.querySelector("a")?.focus();
+const closeMobile = () => {
+  if (!mobileMenu || !mobileBtn) return;
+  mobileMenu.classList.add("hidden");
+  mobileBtn.setAttribute("aria-expanded", "false");
+  mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+};
+
+const openMobile = () => {
+  if (!mobileMenu || !mobileBtn) return;
+  mobileMenu.classList.remove("hidden");
+  mobileBtn.setAttribute("aria-expanded", "true");
+  mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
+  mobileMenu.querySelector("a")?.focus();
+};
+
+const toggleMobile = () => {
+  if (mobileMenu.classList.contains("hidden")) {
+    openMobile();
+  } else {
+    closeMobile();
   }
 };
 
 if (mobileBtn && mobileMenu) {
-  mobileBtn.addEventListener("click", () => toggleMobile());
+  mobileBtn.addEventListener("click", toggleMobile);
 
   mobileMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => toggleMobile(false));
-    link.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") toggleMobile(false);
-    });
+    link.addEventListener("click", closeMobile);
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mobileOpen) toggleMobile(false);
-    if (e.key === "Tab" && mobileOpen) {
-      const focusable = mobileMenu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last?.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first?.focus();
-      }
-    }
+    if (e.key === "Escape") closeMobile();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1024) closeMobile();
   });
 }
 

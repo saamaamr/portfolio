@@ -171,13 +171,6 @@ html {
   animation-delay: var(--leaf-delay, 0s);
 }
 
-/* Mobile Menu Open State */
-#mobile-menu.open {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Focus Styles */
 :focus-visible {
   outline: 2px solid var(--color-accent);
