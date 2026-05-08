@@ -26,8 +26,18 @@ app.use((err, req, res, next) => {
   res.status(500).json({ status: 'error', message: 'Internal server error.' });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Portfolio server running on http://localhost:${PORT}`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Kill the existing process with: fuser -k ${PORT}/tcp`);
+    process.exit(1);
+  } else {
+    console.error('Server error:', err.message);
+    process.exit(1);
+  }
 });
 
 module.exports = app;

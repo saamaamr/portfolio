@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon --delay 2.5 app.js & npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "dev": "fuser -k 3000/tcp 2>/dev/null; nodemon --delay 2.5 app.js & npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "dev:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
     "dev:kill": "fuser -k 3000/tcp 2>/dev/null; nodemon --delay 2.5 app.js",
