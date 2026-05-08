@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@custom-variant reduced (&:where(.reduced-motion, .reduced-motion *));
+
 @theme {
   --color-bg-primary: #FAFAFA;
   --color-surface: #FFFFFF;
@@ -167,4 +169,89 @@ html {
 .skill-tag {
   animation: var(--leaf-anim, leaf-drift) 4s ease-in-out infinite;
   animation-delay: var(--leaf-delay, 0s);
+}
+
+/* Mobile Menu Open State */
+#mobile-menu.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip to Content */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  padding: 8px 16px;
+  background: var(--color-accent);
+  color: white;
+  border-radius: 0 0 8px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-float,
+  .animate-glow,
+  .tech-item,
+  .skill-tag {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Card Cursor */
+.card {
+  cursor: default;
+}
+
+a.card, button.card, [role="button"].card {
+  cursor: pointer;
+}
+
+/* Section spacing consistency */
+section {
+  scroll-margin-top: 100px;
+}
+
+/* Glass refinement for both themes */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(226, 232, 240, 0.8);
+}
+
+.dark {
+  --glass-bg: rgba(15, 23, 42, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }

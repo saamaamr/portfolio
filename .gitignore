@@ -12,3 +12,5 @@ server.log
 .env.local
 .env.*.local
 .vercel
+.env.vercel
+public/css/output.css

@@ -26,32 +26,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ status: 'error', message: 'Internal server error.' });
 });
 
-const server = app.listen(PORT, () => {
-  console.log(`Portfolio server is running on http://localhost:${PORT}`);
-});
-
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`Port ${PORT} is in use. Retrying in 3 seconds...`);
-    setTimeout(() => {
-      server.close();
-      app.listen(PORT, () => {
-        console.log(`Portfolio server is running on http://localhost:${PORT}`);
-      });
-    }, 3000);
-  } else {
-    console.error('Server error:', err.message);
-  }
-});
-
-process.on('uncaughtException', (err) => {
-  if (err.code === 'EADDRINUSE') return;
-  console.error('Uncaught exception:', err.message);
-});
-
-process.on('unhandledRejection', (err) => {
-  if (err.code === 'EADDRINUSE') return;
-  console.error('Unhandled rejection:', err.message);
+app.listen(PORT, () => {
+  console.log(`Portfolio server running on http://localhost:${PORT}`);
 });
 
 module.exports = app;
