@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg-primary: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F1F5F9;
+  --color-accent: #8B5CF6;
+  --color-accent-light: #22D3EE;
+  --color-accent-dark: #7C3AED;
+  --color-text-primary: #0F172A;
+  --color-text-muted: #475569;
+  --color-text-dim: #64748B;
+  --color-border: #E2E8F0;
+  --color-glass: rgba(255, 255, 255, 0.8);
+  --font-family-sans: "Poppins", "Roboto", sans-serif;
+}
+
+.dark {
+  --color-bg-primary: #0F172A;
+  --color-surface: #1E293B;
+  --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-accent: #8B5CF6;
+  --color-accent-light: #22D3EE;
+  --color-accent-dark: #7C3AED;
+  --color-text-primary: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-text-dim: #64748B;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-glass: rgba(255, 255, 255, 0.03);
+}
+
+body {
+  font-family: "Poppins", "Roboto", sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
+}
+
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+}
+
+.progress-bar {
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-surface-hover);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
+  transition: width 1s ease;
+}
+
+.text-body { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-muted); }
+.text-dim { color: var(--color-text-dim); }
+.border-default { border-color: var(--color-border); }
+.bg-subtle { background-color: var(--color-surface-hover); }
+.placeholder-dim::placeholder { color: var(--color-text-dim); }
+
+.active-nav {
+  background: var(--color-surface-hover) !important;
+  color: var(--color-text-primary) !important;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-glow {
+  animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes drift-up {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes drift-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes drift-left {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-8px); }
+}
+
+@keyframes drift-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+.tech-item {
+  animation: var(--anim, drift-up) 3s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes leaf-drift {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  25% { transform: translateY(-6px) translateX(4px) rotate(2deg); }
+  50% { transform: translateY(3px) translateX(-3px) rotate(-1deg); }
+  75% { transform: translateY(-4px) translateX(5px) rotate(3deg); }
+}
+
+@keyframes leaf-drift-alt {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  25% { transform: translateY(5px) translateX(-4px) rotate(-2deg); }
+  50% { transform: translateY(-4px) translateX(3px) rotate(1deg); }
+  75% { transform: translateY(3px) translateX(-5px) rotate(-3deg); }
+}
+
+.skill-tag {
+  animation: var(--leaf-anim, leaf-drift) 4s ease-in-out infinite;
+  animation-delay: var(--leaf-delay, 0s);
+}

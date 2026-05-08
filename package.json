@@ -5,8 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon --delay 2.5 app.js",
-    "dev:kill": "fuser -k 3000/tcp 2>/dev/null; nodemon --delay 2.5 app.js"
+    "dev": "nodemon --delay 2.5 app.js & npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "dev:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
+    "dev:kill": "fuser -k 3000/tcp 2>/dev/null; nodemon --delay 2.5 app.js",
+    "vercel-build": "npm run build:css"
   },
   "keywords": [
     "portfolio",
@@ -21,9 +24,13 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-rate-limit": "^8.5.1",
+    "gsap": "^3.15.0",
     "nodemailer": "^8.0.7"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@tailwindcss/cli": "^4.2.4",
+    "@tailwindcss/forms": "^0.5.11",
+    "nodemon": "^3.0.1",
+    "tailwindcss": "^4.2.4"
   }
 }

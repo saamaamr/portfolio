@@ -1,501 +1,265 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <%- include('partials/head') %>
   <body>
-    <div class="bg-effects">
-      <div class="glow-shape shape-1"></div>
-      <div class="glow-shape shape-2"></div>
-      <div class="glow-shape shape-3"></div>
-    </div>
     <%- include('partials/navbar') %>
 
-    <main>
-      <!-- Hero Section -->
-      <section id="home" class="hero">
-        <div class="hero-container">
-          <div class="hero-content">
-            <div class="hero-text reveal-up">
-              <span class="hero-subtitle">
-                <i class="fas fa-wave-hand"></i>
-                Hello, I'm
-              </span>
-              <h1 class="hero-title">Abdullah Al Mamun</h1>
-              <div class="hero-role">
-                <span class="typed-text"></span>
-                <span class="cursor">&nbsp;</span>
-              </div>
-              <p class="hero-description">
-                I build responsive, user-friendly web applications and help businesses solve technical problems with clean, practical solutions.
-              </p>
-              <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">
-                  <i class="fas fa-briefcase"></i>
-                  View Projects
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                  <i class="fas fa-envelope"></i>
-                  Contact Me
-                </a>
-                <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="btn btn-resume">
-                  <i class="fab fa-github"></i>
-                  GitHub
-                </a>
-                <a href="https://drive.google.com/uc?export=download&id=1I0-uhq-r7okManroJF7f85YIZI0bIuXW" class="btn btn-download" download>
-                  <i class="fas fa-download"></i>
-                  Resume
-                </a>
-              </div>
-              <div class="hero-social">
-                <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="GitHub">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.facebook.com/saamaamr1" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="Facebook">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="mailto:mamun872381cpi@gmail.com" class="hero-social-link" aria-label="Email">
-                  <i class="fas fa-envelope"></i>
-                </a>
-              </div>
-            </div>
-            <div class="hero-image reveal-up">
-              <div class="image-wrapper">
-                <div class="image-border"></div>
-                <img src="/assets/mamun image 1.jpeg" alt="Abdullah Al Mamun - Full Stack Web Developer" class="profile-image" />
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20">
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div class="flex-1 text-center lg:text-left">
+          <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium gradient-bg text-white mb-6">Welcome to my Portfolio</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            Hi, I'm <span class="gradient-text"><span id="typed-text"></span><span class="animate-pulse">|</span></span>
+          </h1>
+          <p class="text-lg sm:text-xl text-secondary max-w-xl mb-8">I build responsive, user-friendly web applications and help businesses solve technical problems with clean, practical solutions.</p>
+          <div class="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition-opacity"><i class="fas fa-briefcase"></i> View Projects</a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fas fa-envelope"></i> Contact Me</a>
+            <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://drive.google.com/uc?export=download&id=1I0-uhq-r7okManroJF7f85YIZI0bIuXW" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fas fa-download"></i> Resume</a>
+          </div>
+          <div class="flex items-center gap-4 mt-8 justify-center lg:justify-start">
+            <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="text-dim hover:text-body transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+            <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer" class="text-dim hover:text-body transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
+            <a href="https://www.facebook.com/saamaamr1" target="_blank" rel="noopener noreferrer" class="text-dim hover:text-body transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+            <a href="mailto:mamun872381cpi@gmail.com" class="text-dim hover:text-body transition-colors" aria-label="Email"><i class="fas fa-envelope text-xl"></i></a>
+          </div>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80">
+            <div class="absolute -inset-4 rounded-full bg-gradient-to-br from-violet-500/15 to-cyan-400/15 blur-2xl animate-glow"></div>
+            <div class="w-full h-full rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 p-[3px] animate-float shadow-xl shadow-violet-500/10">
+              <div class="w-full h-full rounded-full overflow-hidden bg-[#0F172A]">
+                <img src="/assets/mamun image 1.jpeg" alt="Abdullah Al Mamun" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- About Section -->
-      <section id="about" class="section about">
-        <div class="container">
-          <h2 class="section-title reveal-up">About Me</h2>
-          <div class="about-grid reveal-up">
-            <div class="about-text">
-              <p>Creative and innovative IT professional with almost four years of experience in technical and customer-facing roles. Skilled in web development, IT support, data management, troubleshooting, and building user-friendly web applications.</p>
-              <p>Experienced in technical support, data management, hardware/software installation, website development, and communication. Passionate about clean code, responsive design, and practical digital solutions.</p>
-              <div class="about-details">
-                <div class="detail-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>Chattogram, Bangladesh</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-envelope"></i>
-                  <span>mamun872381cpi@gmail.com</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fab fa-github"></i>
-                  <span>saamaamr</span>
-                </div>
-                <div class="detail-item">
-                  <i class="fab fa-linkedin-in"></i>
-                  <span>Abdullah Al Mamun</span>
-                </div>
-              </div>
-            </div>
-            <div class="about-stats">
-              <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
-                <div class="stat-number">4+</div>
-                <div class="stat-label">Years Experience</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-                <div class="stat-number">3+</div>
-                <div class="stat-label">Projects Built</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
-                <div class="stat-number">B.Sc.</div>
-                <div class="stat-label">Computer Science</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-icon"><i class="fas fa-tools"></i></div>
-                <div class="stat-number">IT</div>
-                <div class="stat-label">Support Certified</div>
-              </div>
+    <!-- About -->
+    <section id="about" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <p class="text-secondary leading-relaxed mb-4">Creative and innovative IT professional with almost four years of experience in technical and customer-facing roles. Skilled in web development, IT support, data management, troubleshooting, and building user-friendly web applications.</p>
+            <p class="text-secondary leading-relaxed">Experienced in technical support, data management, hardware/software installation, website development, and communication. Passionate about clean code, responsive design, and practical digital solutions.</p>
+            <div class="flex flex-wrap gap-4 mt-6">
+              <div class="flex items-center gap-2 text-sm text-dim"><i class="fas fa-map-marker-alt text-dim"></i> Chattogram, Bangladesh</div>
+              <div class="flex items-center gap-2 text-sm text-dim"><i class="fas fa-envelope text-dim"></i> mamun872381cpi@gmail.com</div>
             </div>
           </div>
+          <div class="grid grid-cols-2 gap-4 reveal">
+            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">4+</div><div class="text-sm text-dim mt-1">Years Exp.</div></div>
+            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">3+</div><div class="text-sm text-dim mt-1">Projects</div></div>
+            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">B.Sc.</div><div class="text-sm text-dim mt-1">Computer Science</div></div>
+            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">IT</div><div class="text-sm text-dim mt-1">Support Certified</div></div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Education Section -->
-      <section id="education" class="section education">
-        <div class="container">
-          <h2 class="section-title reveal-up">Education</h2>
-          <div class="education-grid">
-            <div class="timeline-item reveal-up" data-delay="0">
-              <span class="timeline-date">May 2023</span>
-              <div class="timeline-content">
-                <h4>B.Sc. in Computer Science Engineering</h4>
-                <h5><i class="fas fa-map-marker-alt"></i> Port City International University, Chattogram</h5>
-                <p>GPA: <strong>3.76 / 4.00</strong></p>
-              </div>
-            </div>
-            <div class="timeline-item reveal-up" data-delay="100">
-              <span class="timeline-date">August 2018</span>
-              <div class="timeline-content">
-                <h4>Diploma in Engineering (Computer Technology)</h4>
-                <h5><i class="fas fa-map-marker-alt"></i> Chittagong Polytechnic Institute, Chattogram</h5>
-                <p>GPA: <strong>2.62 / 4.00</strong></p>
-              </div>
-            </div>
-            <div class="timeline-item reveal-up" data-delay="200">
-              <span class="timeline-date">May 2014</span>
-              <div class="timeline-content">
-                <h4>S.S.C (Business Studies)</h4>
-                <h5><i class="fas fa-map-marker-alt"></i> South-East Sandwip High School, Sandwip</h5>
-                <p>GPA: <strong>4.31 / 5.00</strong></p>
-              </div>
-            </div>
-            <div class="timeline-item reveal-up" data-delay="300">
-              <span class="timeline-date">2017</span>
-              <div class="timeline-content">
-                <h4>IT Support Technician Level 1 & 2</h4>
-                <h5><i class="fas fa-map-marker-alt"></i> Bangladesh-Korea Technical Training Centre, Chattogram</h5>
-                <p>Professional Certification</p>
-              </div>
-            </div>
+    <!-- Education -->
+    <section id="education" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Education</h2>
+        <div class="space-y-6">
+          <div class="card p-6 reveal">
+            <span class="text-sm gradient-text font-medium">May 2023</span>
+            <h3 class="text-lg font-semibold mt-2">B.Sc. in Computer Science Engineering</h3>
+            <p class="text-dim text-sm">Port City International University, Chattogram</p>
+            <p class="text-dim text-sm">GPA: <span class="text-body font-medium">3.76 / 4.00</span></p>
+          </div>
+          <div class="card p-6 reveal">
+            <span class="text-sm gradient-text font-medium">August 2018</span>
+            <h3 class="text-lg font-semibold mt-2">Diploma in Engineering (Computer Technology)</h3>
+            <p class="text-dim text-sm">Chittagong Polytechnic Institute, Chattogram</p>
+            <p class="text-dim text-sm">GPA: <span class="text-body font-medium">2.62 / 4.00</span></p>
+          </div>
+          <div class="card p-6 reveal">
+            <span class="text-sm gradient-text font-medium">May 2014</span>
+            <h3 class="text-lg font-semibold mt-2">S.S.C (Business Studies)</h3>
+            <p class="text-dim text-sm">South-East Sandwip High School, Sandwip</p>
+            <p class="text-dim text-sm">GPA: <span class="text-body font-medium">4.31 / 5.00</span></p>
+          </div>
+          <div class="card p-6 reveal">
+            <span class="text-sm gradient-text font-medium">2017</span>
+            <h3 class="text-lg font-semibold mt-2">IT Support Technician Level 1 & 2</h3>
+            <p class="text-dim text-sm">Bangladesh-Korea Technical Training Centre, Chattogram</p>
+            <p class="text-dim text-sm">Professional Certification</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Experience Section -->
-      <section id="experience" class="section experience">
-        <div class="container">
-          <h2 class="section-title reveal-up">Work Experience</h2>
-          <div class="timeline">
-            <div class="timeline-item reveal-up" data-delay="0">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-date">January 2020 - February 2023</span>
-                <h3 class="timeline-title">Junior Executive</h3>
-                <span class="timeline-company"><i class="fas fa-building"></i> Kurnia Holiday Travels</span>
-                <p class="timeline-description">
-                  Communication, data analysis, service promotion, budget monitoring, service management, hardware and software installation.
-                </p>
-                <div class="timeline-tags">
-                  <span class="tag">Communication</span>
-                  <span class="tag">Data Analysis</span>
-                  <span class="tag">IT Support</span>
-                </div>
-              </div>
-            </div>
-            <div class="timeline-item reveal-up" data-delay="100">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-date">January 2019 - December 2019</span>
-                <h3 class="timeline-title">Junior IT Officer</h3>
-                <span class="timeline-company"><i class="fas fa-building"></i> Century Securities Limited</span>
-                <p class="timeline-description">
-                  Data management, hardware and software installation, communication, and technical support.
-                </p>
-                <div class="timeline-tags">
-                  <span class="tag">IT Support</span>
-                  <span class="tag">Data Management</span>
-                  <span class="tag">Hardware</span>
-                </div>
-              </div>
-            </div>
+    <!-- Experience -->
+    <section id="experience" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Work Experience</h2>
+        <div class="space-y-6">
+          <div class="card p-6 reveal">
+            <span class="text-sm gradient-text font-medium">Jan 2020 - Feb 2023</span>
+            <h3 class="text-lg font-semibold mt-2">Junior Executive</h3>
+            <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> Kurnia Holiday Travels</p>
+            <p class="text-secondary text-sm">Communication, data analysis, service promotion, budget monitoring, service management, hardware and software installation.</p>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Communication</span><span class="tag">Data Analysis</span><span class="tag">IT Support</span></div>
+          </div>
+          <div class="card p-6 reveal">
+            <span class="text-sm gradient-text font-medium">Jan 2019 - Dec 2019</span>
+            <h3 class="text-lg font-semibold mt-2">Junior IT Officer</h3>
+            <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> Century Securities Limited</p>
+            <p class="text-secondary text-sm">Data management, hardware and software installation, communication, and technical support.</p>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="tag">IT Support</span><span class="tag">Data Management</span><span class="tag">Hardware</span></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Skills Section -->
-      <section id="skills" class="section skills">
-        <div class="container">
-          <h2 class="section-title reveal-up">Skills & Expertise</h2>
-          <div class="skills-container">
-            <div class="skill-category reveal-up" data-delay="0">
-              <h3 class="skill-category-title">
-                <i class="fas fa-code"></i> Frontend
-              </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">HTML</span>
-                <span class="skill-tag">CSS</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">EJS</span>
-                <span class="skill-tag">Responsive Design</span>
-              </div>
-            </div>
-            <div class="skill-category reveal-up" data-delay="100">
-              <h3 class="skill-category-title">
-                <i class="fas fa-server"></i> Backend
-              </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Express.js</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Database Management</span>
-              </div>
-            </div>
-            <div class="skill-category reveal-up" data-delay="200">
-              <h3 class="skill-category-title">
-                <i class="fas fa-tools"></i> IT Support
-              </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">PC Troubleshooting</span>
-                <span class="skill-tag">Hardware Installation</span>
-                <span class="skill-tag">Software Installation</span>
-                <span class="skill-tag">File Maintenance</span>
-              </div>
-            </div>
-            <div class="skill-category reveal-up" data-delay="300">
-              <h3 class="skill-category-title">
-                <i class="fas fa-file-alt"></i> Tools
-              </h3>
-              <div class="skill-tags">
-                <span class="skill-tag">MS Word</span>
-                <span class="skill-tag">MS Excel</span>
-                <span class="skill-tag">MS Access</span>
-                <span class="skill-tag">PowerPoint</span>
-                <span class="skill-tag">Photoshop CC</span>
-                <span class="skill-tag">GitHub</span>
-              </div>
-            </div>
+    <!-- Skills -->
+    <section id="skills" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Skills & Expertise</h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-code gradient-text mr-2"></i> Frontend</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">HTML</span><span class="tag skill-tag">CSS</span><span class="tag skill-tag">JavaScript</span><span class="tag skill-tag">EJS</span><span class="tag skill-tag">Responsive</span></div></div>
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-server gradient-text mr-2"></i> Backend</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">Node.js</span><span class="tag skill-tag">Express.js</span><span class="tag skill-tag">SQL</span><span class="tag skill-tag">DB Mgmt</span></div></div>
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-tools gradient-text mr-2"></i> IT Support</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">PC Troubleshoot</span><span class="tag skill-tag">Hardware</span><span class="tag skill-tag">Software</span><span class="tag skill-tag">File Mgmt</span></div></div>
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-file-alt gradient-text mr-2"></i> Tools</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">MS Office</span><span class="tag skill-tag">Photoshop</span><span class="tag skill-tag">GitHub</span></div></div>
           </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Tech Stack Section -->
-      <section id="tech" class="section tech-stack">
-        <div class="container">
-          <h2 class="section-title reveal-up">Technologies I Work With</h2>
-          <div class="tech-grid reveal-up">
-            <div class="tech-item" data-delay="0">
-              <i class="fab fa-html5"></i>
-              <span>HTML5</span>
-            </div>
-            <div class="tech-item" data-delay="50">
-              <i class="fab fa-css3-alt"></i>
-              <span>CSS3</span>
-            </div>
-            <div class="tech-item" data-delay="100">
-              <i class="fab fa-js"></i>
-              <span>JavaScript</span>
-            </div>
-            <div class="tech-item" data-delay="150">
-              <i class="fab fa-node-js"></i>
-              <span>Node.js</span>
-            </div>
-            <div class="tech-item" data-delay="200">
-              <i class="fas fa-server"></i>
-              <span>Express</span>
-            </div>
-            <div class="tech-item" data-delay="250">
-              <i class="fas fa-database"></i>
-              <span>SQL</span>
-            </div>
-            <div class="tech-item" data-delay="300">
-              <i class="fab fa-git-alt"></i>
-              <span>Git</span>
-            </div>
-            <div class="tech-item" data-delay="350">
-              <i class="fab fa-windows"></i>
-              <span>MS Office</span>
-            </div>
-            <div class="tech-item" data-delay="400">
-              <i class="fas fa-paint-brush"></i>
-              <span>Photoshop</span>
-            </div>
+    <!-- Tech Stack -->
+    <section id="tech" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Technologies I Work With</h2>
+          <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-html5 text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">HTML5</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-css3-alt text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">CSS3</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-js text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">JavaScript</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-node-js text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Node.js</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-server text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Express</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-database text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">SQL</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-git-alt text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Git</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-windows text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">MS Office</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-paint-brush text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Photoshop</p></div>
           </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="section projects">
-        <div class="container">
-          <h2 class="section-title reveal-up">Featured Projects</h2>
-          <div class="projects-grid">
-             <div class="project-card reveal-up" data-delay="0">
-               <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="House Shifting Service" loading="lazy" />
-                <div class="project-overlay">
-                  <a href="#" class="project-link">
-                    <i class="fas fa-external-link-alt"></i>
-                    View Project
-                  </a>
-                </div>
-              </div>
-              <div class="project-content">
-                <span class="project-type">Web Application</span>
-                <h3>House Shifting Service</h3>
-                <p>A web application concept designed to help users find and manage house shifting services more easily.</p>
-                <div class="project-tags">
-                  <span class="tag">HTML</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">Node.js</span>
-                </div>
-              </div>
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Featured Projects</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card overflow-hidden reveal">
+            <div class="relative group overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="House Shifting Service" loading="lazy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><a href="#" class="text-white border border-default px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all"><i class="fas fa-external-link-alt mr-1"></i> View</a></div>
             </div>
-            <div class="project-card reveal-up" data-delay="100">
-              <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=400&fit=crop" alt="Emergency Medicine Finder" loading="lazy" />
-                <div class="project-overlay">
-                  <a href="#" class="project-link">
-                    <i class="fas fa-external-link-alt"></i>
-                    View Project
-                  </a>
-                </div>
-              </div>
-              <div class="project-content">
-                <span class="project-type">Web Application</span>
-                <h3>Emergency Medicine Finder</h3>
-                <p>A web application designed to help users search for emergency medicine information quickly.</p>
-                <div class="project-tags">
-                  <span class="tag">HTML</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">Database</span>
-                </div>
-              </div>
+            <div class="p-5">
+              <span class="text-xs gradient-text font-medium">Web Application</span>
+              <h3 class="font-semibold mt-1">House Shifting Service</h3>
+              <p class="text-sm text-dim mt-1">A web application concept designed to help users find and manage house shifting services more easily.</p>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Node.js</span></div>
             </div>
-            <div class="project-card reveal-up" data-delay="200">
-              <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&h=400&fit=crop" alt="PCIU CG Calculator" loading="lazy" />
-                <div class="project-overlay">
-                  <a href="#" class="project-link">
-                    <i class="fas fa-external-link-alt"></i>
-                    View Project
-                  </a>
-                </div>
-              </div>
-              <div class="project-content">
-                <span class="project-type">Web Application</span>
-                <h3>PCIU CG Calculator</h3>
-                <p>A calculator web app built to help PCIU students calculate their CGPA more conveniently.</p>
-                <div class="project-tags">
-                  <span class="tag">HTML</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">JavaScript</span>
-                </div>
-              </div>
+          </div>
+          <div class="card overflow-hidden reveal">
+            <div class="relative group overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=400&fit=crop" alt="Emergency Medicine Finder" loading="lazy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><a href="#" class="text-white border border-default px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all"><i class="fas fa-external-link-alt mr-1"></i> View</a></div>
+            </div>
+            <div class="p-5">
+              <span class="text-xs gradient-text font-medium">Web Application</span>
+              <h3 class="font-semibold mt-1">Emergency Medicine Finder</h3>
+              <p class="text-sm text-dim mt-1">A web application designed to help users search for emergency medicine information quickly.</p>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Database</span></div>
+            </div>
+          </div>
+          <div class="card overflow-hidden reveal">
+            <div class="relative group overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&h=400&fit=crop" alt="PCIU CG Calculator" loading="lazy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><a href="#" class="text-white border border-default px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all"><i class="fas fa-external-link-alt mr-1"></i> View</a></div>
+            </div>
+            <div class="p-5">
+              <span class="text-xs gradient-text font-medium">Web Application</span>
+              <h3 class="font-semibold mt-1">PCIU CG Calculator</h3>
+              <p class="text-sm text-dim mt-1">A calculator web app built to help PCIU students calculate their CGPA more conveniently.</p>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Languages Section -->
-      <section id="languages" class="section languages">
-        <div class="container">
-          <h2 class="section-title reveal-up">Languages</h2>
-          <div class="languages-grid reveal-up">
-            <div class="language-item" data-delay="0">
-              <h4>Bangla</h4>
-              <div class="language-progress">
-                <div class="language-progress-fill" style="width: 95%"></div>
-              </div>
-              <span class="language-level">Fluent</span>
-            </div>
-            <div class="language-item" data-delay="100">
-              <h4>English</h4>
-              <div class="language-progress">
-                <div class="language-progress-fill" style="width: 75%"></div>
-              </div>
-              <span class="language-level">Good</span>
-            </div>
+    <!-- Languages -->
+    <section id="languages" class="py-20 px-4">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Languages</h2>
+        <div class="space-y-6">
+          <div class="reveal">
+            <div class="flex justify-between items-center mb-2"><span class="font-medium">Bangla</span><span class="text-sm text-dim">Fluent</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+          </div>
+          <div class="reveal">
+            <div class="flex justify-between items-center mb-2"><span class="font-medium">English</span><span class="text-sm text-dim">Good</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Interests Section -->
-      <section id="interests" class="section interests">
-        <div class="container">
-          <h2 class="section-title reveal-up">Interests</h2>
-          <div class="interests-grid reveal-up">
-            <div class="interest-item" data-delay="0">
-              <div class="interest-icon"><i class="fas fa-plane"></i></div>
-              <h4>Travelling</h4>
-            </div>
-            <div class="interest-item" data-delay="50">
-              <div class="interest-icon"><i class="fas fa-seedling"></i></div>
-              <h4>Gardening</h4>
-            </div>
-            <div class="interest-item" data-delay="100">
-              <div class="interest-icon"><i class="fas fa-bicycle"></i></div>
-              <h4>Cycling</h4>
-            </div>
-            <div class="interest-item" data-delay="150">
-              <div class="interest-icon"><i class="fas fa-camera"></i></div>
-              <h4>Photography</h4>
-            </div>
-          </div>
+    <!-- Interests -->
+    <section id="interests" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Interests</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div class="card p-6 text-center reveal"><div class="text-3xl gradient-text mb-2"><i class="fas fa-plane"></i></div><span class="text-secondary">Travelling</span></div>
+          <div class="card p-6 text-center reveal"><div class="text-3xl gradient-text mb-2"><i class="fas fa-seedling"></i></div><span class="text-secondary">Gardening</span></div>
+          <div class="card p-6 text-center reveal"><div class="text-3xl gradient-text mb-2"><i class="fas fa-bicycle"></i></div><span class="text-secondary">Cycling</span></div>
+          <div class="card p-6 text-center reveal"><div class="text-3xl gradient-text mb-2"><i class="fas fa-camera"></i></div><span class="text-secondary">Photography</span></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="section contact-section">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-subtitle">Contact</span>
-            <h2 class="section-title">Get In Touch</h2>
-            <p>Have a project, idea, or opportunity? Feel free to reach out.</p>
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-4 reveal">Get In Touch</h2>
+        <p class="text-center text-dim mb-12 reveal">Have a project, idea, or opportunity? Feel free to reach out.</p>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-4 reveal">
+            <a href="mailto:mamun872381cpi@gmail.com" class="card p-4 flex items-center gap-4 hover:no-underline">
+              <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-white"></i></div>
+              <div><p class="text-xs text-dim">Email</p><p class="text-sm text-body">mamun872381cpi@gmail.com</p></div>
+            </a>
+            <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="card p-4 flex items-center gap-4 hover:no-underline">
+              <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center flex-shrink-0"><i class="fab fa-github text-white"></i></div>
+              <div><p class="text-xs text-dim">GitHub</p><p class="text-sm text-body">@saamaamr</p></div>
+            </a>
+            <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer" class="card p-4 flex items-center gap-4 hover:no-underline">
+              <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center flex-shrink-0"><i class="fab fa-linkedin-in text-white"></i></div>
+              <div><p class="text-xs text-dim">LinkedIn</p><p class="text-sm text-body">Abdullah Al Mamun</p></div>
+            </a>
+            <a href="https://www.facebook.com/saamaamr1" target="_blank" rel="noopener noreferrer" class="card p-4 flex items-center gap-4 hover:no-underline">
+              <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center flex-shrink-0"><i class="fab fa-facebook-f text-white"></i></div>
+              <div><p class="text-xs text-dim">Facebook</p><p class="text-sm text-body">@saamaamr1</p></div>
+            </a>
           </div>
-          <div class="contact-wrapper reveal-up">
-            <div class="contact-info">
-              <div class="contact-cards">
-                <a href="mailto:mamun872381cpi@gmail.com" class="contact-card">
-                  <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
-                  <div>
-                    <span class="contact-card-label">Email</span>
-                    <span class="contact-card-value">mamun872381cpi@gmail.com</span>
-                  </div>
-                </a>
-                <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="contact-card">
-                  <div class="contact-card-icon"><i class="fab fa-github"></i></div>
-                  <div>
-                    <span class="contact-card-label">GitHub</span>
-                    <span class="contact-card-value">@saamaamr</span>
-                  </div>
-                </a>
-                <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer" class="contact-card">
-                  <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
-                  <div>
-                    <span class="contact-card-label">LinkedIn</span>
-                    <span class="contact-card-value">Abdullah Al Mamun</span>
-                  </div>
-                </a>
-                <a href="https://www.facebook.com/saamaamr1" target="_blank" rel="noopener noreferrer" class="contact-card">
-                  <div class="contact-card-icon"><i class="fab fa-facebook-f"></i></div>
-                  <div>
-                    <span class="contact-card-label">Facebook</span>
-                    <span class="contact-card-value">@saamaamr1</span>
-                  </div>
-                </a>
-              </div>
-              <div class="contact-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Chattogram, Bangladesh</span>
-              </div>
+          <form id="contact-form" class="card p-6 reveal">
+            <div class="space-y-4">
+              <div><label for="name" class="block text-sm text-secondary mb-1">Your Name</label><input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-4 py-2.5 rounded-lg bg-subtle border-default text-body placeholder-dim focus:border-default focus:ring-0 outline-none" /></div>
+              <div><label for="email" class="block text-sm text-secondary mb-1">Your Email</label><input type="email" id="email" name="email" placeholder="john@example.com" required class="w-full px-4 py-2.5 rounded-lg bg-subtle border-default text-body placeholder-dim focus:border-default focus:ring-0 outline-none" /></div>
+              <div><label for="message" class="block text-sm text-secondary mb-1">Message</label><textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required class="w-full px-4 py-2.5 rounded-lg bg-subtle border-default text-body placeholder-dim focus:border-default focus:ring-0 outline-none resize-none"></textarea></div>
+              <button type="submit" class="w-full px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity"><i class="fas fa-paper-plane mr-2"></i> Send Message</button>
+              <p id="form-message" class="text-sm text-center"></p>
             </div>
-            <form id="contact-form" class="contact-form">
-              <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="John Doe" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required />
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-paper-plane"></i>
-                Send Message
-              </button>
-              <p class="form-message" id="form-message"></p>
-            </form>
-          </div>
+          </form>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
     <%- include('partials/footer') %>
   </body>
