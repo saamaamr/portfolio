@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdullah Al Mamun - Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1e293b;
+    background: #f8fafc;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    min-height: 297mm;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    padding: 40px 48px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left h1 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .header-left .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #a78bfa;
+    margin-bottom: 12px;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.8;
+  }
+  .header-right a {
+    color: #a78bfa;
+    text-decoration: none;
+  }
+  .header-right a:hover { text-decoration: underline; }
+  .content { padding: 32px 48px 40px; }
+  .section { margin-bottom: 28px; }
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8b5cf6;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .summary-text {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.7;
+  }
+  .exp-item { margin-bottom: 20px; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .exp-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .exp-header .date {
+    font-size: 13px;
+    color: #8b5cf6;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .exp-company {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 6px;
+  }
+  .exp-desc {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.7;
+    padding-left: 0;
+  }
+  .exp-desc ul {
+    list-style: none;
+    padding: 0;
+  }
+  .exp-desc ul li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 4px;
+  }
+  .exp-desc ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #8b5cf6;
+  }
+  .edu-item { margin-bottom: 14px; }
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .edu-header h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  .edu-header .date {
+    font-size: 12px;
+    color: #8b5cf6;
+    font-weight: 500;
+  }
+  .edu-school {
+    font-size: 13px;
+    color: #64748b;
+  }
+  .edu-gpa {
+    font-size: 12px;
+    color: #475569;
+  }
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .skill-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+  }
+  .skill-tag.primary { background: #8b5cf6; color: #fff; border-color: #8b5cf6; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+  }
+  .cert-item {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+  .cert-item strong { color: #0f172a; }
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; max-width: 100%; }
+    .header { break-inside: avoid; }
+    .exp-item, .edu-item { break-inside: avoid; }
+  }
+  @media (max-width: 600px) {
+    .header { flex-direction: column; gap: 12px; padding: 24px; }
+    .header-right { text-align: left; }
+    .content { padding: 24px; }
+    .exp-header { flex-direction: column; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <h1>Abdullah Al Mamun</h1>
+      <div class="title">Technical Support Engineer</div>
+      <div style="font-size:13px;color:#94a3b8;line-height:1.8;">
+        Sandwip, Chattogram, Bangladesh
+      </div>
+    </div>
+    <div class="header-right">
+      mamun872381cpi@gmail.com<br>
+      <a href="https://github.com/saamaamr">github.com/saamaamr</a><br>
+      <a href="https://www.linkedin.com/in/abdullah-a-699a90117/">linkedin.com/in/abdullah-a-699a90117</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Summary -->
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-text">
+        Technical Support Engineer with a B.Sc. in Computer Science Engineering and experience across the travel, stock exchange, and software sectors. Skilled in web application development with Node.js, Express, and MySQL, as well as IT support, hardware/software troubleshooting, and technical documentation. Adept at communicating technical concepts clearly and maintaining production systems.
+      </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">Work Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Technical Support Engineer</h3>
+          <span class="date">May 2025 — Present</span>
+        </div>
+        <div class="exp-company">Bit Apps</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Provide web maintenance and development support using HTML, CSS, and WordPress.</li>
+            <li>Identify and report software bugs to the development team.</li>
+            <li>Create comprehensive troubleshooting documentation and support procedures.</li>
+            <li>Communicate technical concepts effectively across teams and with customers.</li>
+            <li>Contribute ideas for improving support processes in regular team meetings.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Senior Executive</h3>
+          <span class="date">Jan 2020 — Apr 2025</span>
+        </div>
+        <div class="exp-company">Kurnia Holiday Travels</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Managed cross-departmental communication, data analysis, and service promotion.</li>
+            <li>Monitored budgets and oversaw service management operations.</li>
+            <li>Handled hardware and software installation and maintenance.</li>
+            <li>Provided IT support to ensure operational continuity.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Junior IT Officer</h3>
+          <span class="date">Jan 2019 — Dec 2019</span>
+        </div>
+        <div class="exp-company">Century Securities Limited</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Performed data management and technical support in a stock exchange environment.</li>
+            <li>Installed and maintained hardware and software systems.</li>
+            <li>Facilitated cross-functional communication and issue resolution.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">Education</div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <h3>B.Sc. in Computer Science Engineering</h3>
+          <span class="date">May 2023</span>
+        </div>
+        <div class="edu-school">Port City International University, Chattogram</div>
+        <div class="edu-gpa">GPA: 3.76 / 4.00</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <h3>Diploma in Engineering (Computer Technology)</h3>
+          <span class="date">Aug 2018</span>
+        </div>
+        <div class="edu-school">Chittagong Polytechnic Institute, Chattogram</div>
+        <div class="edu-gpa">GPA: 2.62 / 4.00</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <h3>S.S.C (Business Studies)</h3>
+          <span class="date">May 2014</span>
+        </div>
+        <div class="edu-school">South-East Sandwip High School, Sandwip</div>
+        <div class="edu-gpa">GPA: 4.31 / 5.00</div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">Technical Skills</div>
+      <div class="two-col">
+        <div>
+          <p style="font-size:13px;font-weight:600;color:#0f172a;margin-bottom:6px;">Web Development</p>
+          <div class="skills-grid" style="margin-bottom:14px;">
+            <span class="skill-tag primary">HTML</span>
+            <span class="skill-tag primary">CSS</span>
+            <span class="skill-tag primary">JavaScript</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">EJS</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">SCSS</span>
+            <span class="skill-tag">WordPress</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">JWT</span>
+            <span class="skill-tag">bcrypt</span>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:13px;font-weight:600;color:#0f172a;margin-bottom:6px;">IT & Tools</p>
+          <div class="skills-grid" style="margin-bottom:14px;">
+            <span class="skill-tag primary">PC Troubleshooting</span>
+            <span class="skill-tag">Hardware</span>
+            <span class="skill-tag">Networking</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Nodemailer</span>
+            <span class="skill-tag">Multer</span>
+            <span class="skill-tag">Postman</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="section">
+      <div class="section-title">Certifications</div>
+      <div class="cert-item"><strong>IT Support Technician Level 1 & 2</strong> — Bangladesh-Korea Technical Training Centre, Chattogram (2017)</div>
+    </div>
+
+    <!-- Languages -->
+    <div class="section">
+      <div class="section-title">Languages</div>
+      <div class="two-col">
+        <div class="cert-item"><strong>Bangla</strong> — Fluent (Native)</div>
+        <div class="cert-item"><strong>English</strong> — Good (Professional Working)</div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">Key Projects</div>
+      <div class="exp-item">
+        <div class="exp-header"><h3>Emergency Medicine Finder</h3></div>
+        <div class="exp-desc">
+          <ul>
+            <li>Full-stack platform with three user roles, JWT authentication, 7-table MySQL database.</li>
+            <li>Medicine search and request workflows with Multer file uploads and SMTP email verification.</li>
+            <li>Parameterized SQL queries for security. Built with Node.js, Express, EJS, MySQL2.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><h3>PCIU CGPA Calculator</h3></div>
+        <div class="exp-desc">
+          <ul>
+            <li>CGPA calculator for university students deployed on Vercel.</li>
+            <li>Built with Node.js, Express, Parcel bundler, Axios, and node-html-parser.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><h3>House Shifting Service</h3></div>
+        <div class="exp-desc">
+          <ul>
+            <li>Full-stack application with three user roles, MySQL database, JWT authentication.</li>
+            <li>Secure file upload handling via Multer. Built with Node.js, Express, EJS, SCSS.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
