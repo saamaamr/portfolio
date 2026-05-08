@@ -7,21 +7,6 @@ const safeAnimations = (animFn, fallbackFn) => {
 
 // GSAP Scroll Animations
 gsap.registerPlugin(ScrollTrigger);
-safeAnimations(() => {
-  gsap.utils.toArray(".reveal").forEach((el) => {
-    gsap.from(el, {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-        toggleActions: "play reverse play reverse",
-      },
-    });
-  });
-});
 
 // Tech Stack Web Drift
 safeAnimations(() => {
@@ -46,7 +31,7 @@ safeAnimations(() => {
 // Typewriter Effect
 const typedText = document.getElementById("typed-text");
 const cursor = document.querySelector(".typed-cursor");
-const roles = ["Abdullah Al Mamun", "Full Stack Developer", "Web Application Builder"];
+const roles = ["Abdullah Al Mamun", "Technical Support Engineer", "Web Application Developer", "from Sandwip, Bangladesh"];
 
 if (typedText) {
   if (prefersReducedMotion()) {
@@ -214,6 +199,56 @@ const contactForm = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
 
 if (contactForm) {
+// Highlights Stats Count-up
+function initHighlightsStats() {
+  const stats = document.querySelectorAll("#highlights-stats .stat-number");
+  if (!stats.length) return;
+  if (prefersReducedMotion()) {
+    stats.forEach((el) => { el.textContent = el.dataset.target; });
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        const duration = Math.min(target * 20, 2000);
+        const start = performance.now();
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          el.textContent = Math.floor(progress * target);
+          if (progress < 1) requestAnimationFrame(update);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  stats.forEach((el) => observer.observe(el));
+}
+
+safeAnimations(() => {
+  // Enhanced reveal: scale + fade with stagger
+  gsap.utils.toArray(".reveal").forEach((el) => {
+    gsap.from(el, {
+      opacity: 0,
+      y: 50,
+      scale: 0.95,
+      duration: 1,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+  });
+});
+
+initHighlightsStats();
+
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(contactForm);

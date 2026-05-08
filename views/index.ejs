@@ -2,11 +2,13 @@
 <html lang="en">
   <%- include('partials/head') %>
   <body>
+    <div id="glass-overlay"></div>
     <%- include('partials/navbar') %>
 
   <a href="#main-content" id="skip-to-content" class="skip-link">Skip to content</a>
 
   <main id="main-content">
+    <div id="bg-canvas"></div>
     <!-- Hero -->
     <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20">
       <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -15,12 +17,12 @@
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
             Hi, I'm <span class="gradient-text"><span id="typed-text"></span><span class="typed-cursor">|</span></span>
           </h1>
-          <p class="text-lg sm:text-xl text-secondary max-w-xl mb-8">I build responsive, user-friendly web applications and help businesses solve technical problems with clean, practical solutions.</p>
+          <p class="text-lg sm:text-xl text-secondary max-w-xl mb-8">Technical Support Engineer with experience building web applications using Node.js, Express, and MySQL — based in Sandwip, Bangladesh.</p>
           <div class="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
             <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition-opacity"><i class="fas fa-briefcase"></i> View Projects</a>
             <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fas fa-envelope"></i> Contact Me</a>
             <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://drive.google.com/uc?export=download&id=1I0-uhq-r7okManroJF7f85YIZI0bIuXW" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fas fa-download"></i> Resume</a>
+            <a href="https://drive.google.com/uc?export=download&id=1I0-uhq-r7okManroJF7f85YIZI0bIuXW" class="resume-btn inline-flex items-center gap-2 px-6 py-3 rounded-full"><i class="fas fa-download"></i> Resume</a>
           </div>
           <div class="flex items-center gap-4 mt-8 justify-center lg:justify-start">
             <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="text-dim hover:text-body transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
@@ -32,7 +34,7 @@
         <div class="flex-shrink-0">
           <div class="relative w-64 h-64 sm:w-80 sm:h-80">
             <div class="absolute -inset-4 rounded-full bg-gradient-to-br from-violet-500/15 to-cyan-400/15 blur-2xl animate-glow"></div>
-            <div class="w-full h-full rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 p-[3px] animate-float shadow-xl shadow-violet-500/10">
+            <div class="profile-border w-full h-full rounded-full shadow-xl shadow-violet-500/10">
               <div class="w-full h-full rounded-full overflow-hidden bg-[#0F172A]">
                 <img src="/assets/mamun image 1.jpeg" alt="Abdullah Al Mamun" class="w-full h-full object-cover" />
               </div>
@@ -48,18 +50,65 @@
         <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">About Me</h2>
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="reveal">
-            <p class="text-secondary leading-relaxed mb-4">Creative and innovative IT professional with almost four years of experience in technical and customer-facing roles. Skilled in web development, IT support, data management, troubleshooting, and building user-friendly web applications.</p>
-            <p class="text-secondary leading-relaxed">Experienced in technical support, data management, hardware/software installation, website development, and communication. Passionate about clean code, responsive design, and practical digital solutions.</p>
+            <p class="text-secondary leading-relaxed mb-4">Technical Support Engineer with a B.Sc. in Computer Science Engineering. I build web applications — from frontend interfaces and database design to authentication and role-based dashboards — using Node.js, Express, and modern JavaScript.</p>
+            <p class="text-secondary leading-relaxed">My main project, Emergency Medicine Finder, is a full-featured platform with three user roles (user, medicine shop, admin), medicine search and request workflows, file uploads via Multer, SMTP email verification, and parameterized SQL queries. I also built a CGPA calculator for university students, deployed on Vercel, and hold an IT Support Technician certification from Bangladesh-Korea Technical Training Centre. Currently working as a Technical Support Engineer at Bit Apps since May 2025.</p>
             <div class="flex flex-wrap gap-4 mt-6">
-              <div class="flex items-center gap-2 text-sm text-dim"><i class="fas fa-map-marker-alt text-dim"></i> Chattogram, Bangladesh</div>
+              <div class="flex items-center gap-2 text-sm text-dim"><i class="fas fa-map-marker-alt text-dim"></i> Sandwip, Chattogram, Bangladesh</div>
               <div class="flex items-center gap-2 text-sm text-dim"><i class="fas fa-envelope text-dim"></i> mamun872381cpi@gmail.com</div>
             </div>
           </div>
           <div class="grid grid-cols-2 gap-4 reveal">
-            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">4+</div><div class="text-sm text-dim mt-1">Years Exp.</div></div>
-            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">3+</div><div class="text-sm text-dim mt-1">Projects</div></div>
+            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">5+</div><div class="text-sm text-dim mt-1">Years in Tech</div></div>
+            <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">4+</div><div class="text-sm text-dim mt-1">Projects</div></div>
             <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">B.Sc.</div><div class="text-sm text-dim mt-1">Computer Science</div></div>
             <div class="card p-6 text-center"><div class="text-3xl font-bold gradient-text">IT</div><div class="text-sm text-dim mt-1">Support Certified</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section id="highlights" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Highlights</h2>
+        <div id="highlights-stats" class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div class="card p-6 text-center reveal">
+            <div class="stat-number text-3xl font-bold gradient-text" data-target="5">0</div>
+            <div class="text-sm text-dim mt-1">Years in Tech</div>
+          </div>
+          <div class="card p-6 text-center reveal">
+            <div class="stat-number text-3xl font-bold gradient-text" data-target="4">0</div>
+            <div class="text-sm text-dim mt-1">Projects Built</div>
+          </div>
+          <div class="card p-6 text-center reveal">
+            <div class="stat-number text-3xl font-bold gradient-text" data-target="10">0</div>
+            <div class="text-sm text-dim mt-1">Technologies</div>
+          </div>
+          <div class="card p-6 text-center reveal">
+            <div class="stat-number text-3xl font-bold gradient-text" data-target="100">0</div>
+            <div class="text-sm text-dim mt-1">% Dedication</div>
+          </div>
+        </div>
+        <div class="process-flow">
+          <div class="process-step reveal">
+            <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
+            <h3 class="font-semibold">Ideate</h3>
+            <p class="text-sm text-dim">Analyze requirements and architect optimal solutions.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-icon"><i class="fas fa-paint-brush"></i></div>
+            <h3 class="font-semibold">Design</h3>
+            <p class="text-sm text-dim">Create clean, intuitive interfaces and seamless experiences.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-icon"><i class="fas fa-code"></i></div>
+            <h3 class="font-semibold">Develop</h3>
+            <p class="text-sm text-dim">Engineer with modern technologies and industry best practices.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-icon"><i class="fas fa-rocket"></i></div>
+            <h3 class="font-semibold">Launch</h3>
+            <p class="text-sm text-dim">Deploy, monitor, and maintain with ongoing attention.</p>
           </div>
         </div>
       </div>
@@ -104,17 +153,24 @@
         <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Work Experience</h2>
         <div class="space-y-6">
           <div class="card p-6 reveal">
-            <span class="text-sm gradient-text font-medium">Jan 2020 - Feb 2023</span>
-            <h3 class="text-lg font-semibold mt-2">Junior Executive</h3>
+            <span class="text-sm gradient-text font-medium">May 2025 - Present</span>
+            <h3 class="text-lg font-semibold mt-2">Technical Support Engineer</h3>
+            <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> <a href="https://bitapps.pro/about/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">Bit Apps</a></p>
+            <p class="text-secondary text-sm">Provide web maintenance and development support using HTML, CSS, and WordPress. Identify and report software bugs, create comprehensive troubleshooting documentation, and facilitate effective technical communication across teams and clients.</p>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">WordPress</span><span class="tag">Technical Support</span><span class="tag">Documentation</span></div>
+          </div>
+          <div class="card p-6 reveal">
+            <span class="text-sm gradient-text font-medium">Jan 2020 - Apr 2025</span>
+            <h3 class="text-lg font-semibold mt-2">Senior Executive</h3>
             <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> Kurnia Holiday Travels</p>
-            <p class="text-secondary text-sm">Communication, data analysis, service promotion, budget monitoring, service management, hardware and software installation.</p>
+            <p class="text-secondary text-sm">Managed cross-departmental communication, data analysis, service promotion, budget monitoring, and service management. Oversaw hardware and software installation and maintenance to ensure operational continuity.</p>
             <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Communication</span><span class="tag">Data Analysis</span><span class="tag">IT Support</span></div>
           </div>
           <div class="card p-6 reveal">
             <span class="text-sm gradient-text font-medium">Jan 2019 - Dec 2019</span>
             <h3 class="text-lg font-semibold mt-2">Junior IT Officer</h3>
             <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> Century Securities Limited</p>
-            <p class="text-secondary text-sm">Data management, hardware and software installation, communication, and technical support.</p>
+            <p class="text-secondary text-sm">Performed data management, hardware and software installation, technical support, and cross-functional communication in a stock exchange environment.</p>
             <div class="flex flex-wrap gap-2 mt-3"><span class="tag">IT Support</span><span class="tag">Data Management</span><span class="tag">Hardware</span></div>
           </div>
         </div>
@@ -126,10 +182,10 @@
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">Skills & Expertise</h2>
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-code gradient-text mr-2"></i> Frontend</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">HTML</span><span class="tag skill-tag">CSS</span><span class="tag skill-tag">JavaScript</span><span class="tag skill-tag">EJS</span><span class="tag skill-tag">Responsive</span></div></div>
-            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-server gradient-text mr-2"></i> Backend</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">Node.js</span><span class="tag skill-tag">Express.js</span><span class="tag skill-tag">SQL</span><span class="tag skill-tag">DB Mgmt</span></div></div>
-            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-tools gradient-text mr-2"></i> IT Support</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">PC Troubleshoot</span><span class="tag skill-tag">Hardware</span><span class="tag skill-tag">Software</span><span class="tag skill-tag">File Mgmt</span></div></div>
-            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-file-alt gradient-text mr-2"></i> Tools</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">MS Office</span><span class="tag skill-tag">Photoshop</span><span class="tag skill-tag">GitHub</span></div></div>
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-code gradient-text mr-2"></i> Frontend</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">HTML</span><span class="tag skill-tag">CSS</span><span class="tag skill-tag">JavaScript</span><span class="tag skill-tag">EJS</span><span class="tag skill-tag">Tailwind CSS</span><span class="tag skill-tag">SCSS</span></div></div>
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-server gradient-text mr-2"></i> Backend</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">Node.js</span><span class="tag skill-tag">Express.js</span><span class="tag skill-tag">MySQL</span><span class="tag skill-tag">JWT</span><span class="tag skill-tag">bcrypt</span><span class="tag skill-tag">REST APIs</span></div></div>
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-tools gradient-text mr-2"></i> IT Support</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">PC Troubleshoot</span><span class="tag skill-tag">Hardware</span><span class="tag skill-tag">Software</span><span class="tag skill-tag">Networking</span><span class="tag skill-tag">File Mgmt</span></div></div>
+            <div class="card p-6 reveal"><h3 class="font-semibold mb-4"><i class="fas fa-file-alt gradient-text mr-2"></i> Tools</h3><div class="flex flex-wrap gap-2"><span class="tag skill-tag">Git & GitHub</span><span class="tag skill-tag">Vercel</span><span class="tag skill-tag">Nodemailer</span><span class="tag skill-tag">MySQL</span><span class="tag skill-tag">Postman</span></div></div>
           </div>
       </div>
     </section>
@@ -144,10 +200,13 @@
             <div class="card p-4 text-center reveal tech-item"><i class="fab fa-js text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">JavaScript</p></div>
             <div class="card p-4 text-center reveal tech-item"><i class="fab fa-node-js text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Node.js</p></div>
             <div class="card p-4 text-center reveal tech-item"><i class="fas fa-server text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Express</p></div>
-            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-database text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">SQL</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-database text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">MySQL</p></div>
             <div class="card p-4 text-center reveal tech-item"><i class="fab fa-git-alt text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Git</p></div>
-            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-windows text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">MS Office</p></div>
-            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-paint-brush text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Photoshop</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-lock text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">JWT Auth</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fab fa-bootstrap text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Tailwind</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-cloud text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Vercel</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-paint-brush text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">SCSS</p></div>
+            <div class="card p-4 text-center reveal tech-item"><i class="fas fa-envelope text-3xl gradient-text"></i><p class="text-sm text-secondary mt-2">Nodemailer</p></div>
           </div>
       </div>
     </section>
@@ -165,8 +224,8 @@
             <div class="p-5">
               <span class="text-xs gradient-text font-medium">Web Application</span>
               <h3 class="font-semibold mt-1">House Shifting Service</h3>
-              <p class="text-sm text-dim mt-1">A web application concept designed to help users find and manage house shifting services more easily.</p>
-              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Node.js</span></div>
+              <p class="text-sm text-dim mt-1">A full-stack application for managing house shifting operations, featuring three user roles (user, worker, admin), MySQL database with relational schema, JWT-based authentication, and secure file upload handling via Multer.</p>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">EJS</span><span class="tag">Multer</span></div>
             </div>
           </div>
           <div class="card overflow-hidden reveal">
@@ -177,8 +236,8 @@
             <div class="p-5">
               <span class="text-xs gradient-text font-medium">Web Application</span>
               <h3 class="font-semibold mt-1">Emergency Medicine Finder</h3>
-              <p class="text-sm text-dim mt-1">A web application designed to help users search for emergency medicine information quickly.</p>
-              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Database</span></div>
+              <p class="text-sm text-dim mt-1">A production-grade healthcare platform with three user roles (user, medicine shop, admin), JWT authentication, a 7-table MySQL relational database, medicine search and request workflows, Multer-based file uploads, SMTP email verification, and parameterized SQL queries for security.</p>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL2</span><span class="tag">JWT</span><span class="tag">bcrypt</span><span class="tag">Nodemailer</span><span class="tag">Multer</span><span class="tag">EJS</span></div>
             </div>
           </div>
           <div class="card overflow-hidden reveal">
@@ -189,8 +248,8 @@
             <div class="p-5">
               <span class="text-xs gradient-text font-medium">Web Application</span>
               <h3 class="font-semibold mt-1">PCIU CG Calculator</h3>
-              <p class="text-sm text-dim mt-1">A calculator web app built to help PCIU students calculate their CGPA more conveniently.</p>
-              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+              <p class="text-sm text-dim mt-1">A CGPA calculator engineered with Node.js, Express, and the Parcel bundler, utilizing Axios and node-html-parser for data processing — deployed on Vercel for Port City International University students.</p>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Parcel</span><span class="tag">Axios</span><span class="tag">Vercel</span></div>
             </div>
           </div>
         </div>
@@ -231,7 +290,7 @@
     <section id="contact" class="py-20 px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold text-center mb-4 reveal">Get In Touch</h2>
-        <p class="text-center text-dim mb-12 reveal">Have a project, idea, or opportunity? Feel free to reach out.</p>
+        <p class="text-center text-dim mb-12 reveal">Have a project, idea, or opportunity? I'd love to hear from you.</p>
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-4 reveal">
             <a href="mailto:mamun872381cpi@gmail.com" class="card p-4 flex items-center gap-4 hover:no-underline">
