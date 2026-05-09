@@ -219,6 +219,11 @@ a[aria-label="Email"]:hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.navbar-logo {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .navbar-brand:hover {
   color: var(--color-accent);
   transform: translateX(2px);
@@ -234,6 +239,8 @@ a[aria-label="Email"]:hover {
 .nav-link {
   position: relative;
   overflow: hidden;
+  transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-link:hover {
   transform: translateY(-1px);
@@ -255,6 +262,9 @@ a[aria-label="Email"]:hover {
 }
 
 /* Theme toggle and mobile menu buttons */
+#theme-toggle, #mobile-menu-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 #theme-toggle:hover, #mobile-menu-btn:hover {
   background: var(--color-surface-hover);
   border-color: var(--color-accent) !important;
@@ -314,8 +324,13 @@ a[aria-label="Email"]:hover {
 .placeholder-dim::placeholder { color: var(--color-text-dim); }
 
 .active-nav {
-  background: var(--color-surface-hover) !important;
-  color: var(--color-text-primary) !important;
+  background: rgba(139, 92, 246, 0.1) !important;
+  color: var(--color-accent) !important;
+}
+
+.dark .active-nav {
+  background: rgba(139, 92, 246, 0.25) !important;
+  color: var(--color-accent) !important;
 }
 
 @keyframes float {
@@ -475,6 +490,46 @@ section {
     radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+}
+
+/* Scroll-driven compact nav */
+#navbar nav {
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#navbar.scrolled nav {
+  max-width: fit-content;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-brand > span:last-child {
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#navbar.scrolled .navbar-brand > span:last-child {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+#navbar.scrolled .navbar-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#navbar.scrolled .nav-link {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+
+#navbar.scrolled #theme-toggle,
+#navbar.scrolled #mobile-menu-btn {
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 /* Mobile menu slide */

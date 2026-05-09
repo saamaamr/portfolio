@@ -103,6 +103,7 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
 initTheme();
 
 // Mobile Menu
+const navbar = document.getElementById("navbar");
 const mobileBtn = document.getElementById("mobile-menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -144,6 +145,14 @@ if (mobileBtn && mobileMenu) {
     if (window.innerWidth >= 1024) closeMobile();
   });
 }
+
+// Scroll-driven compact nav
+const SCROLL_THRESHOLD = 80;
+const toggleCompactNav = () => {
+  navbar.classList.toggle("scrolled", window.scrollY > SCROLL_THRESHOLD);
+};
+toggleCompactNav();
+window.addEventListener("scroll", toggleCompactNav, { passive: true });
 
 // Active Nav Link on Scroll
 const navLinks = document.querySelectorAll(".nav-link");
