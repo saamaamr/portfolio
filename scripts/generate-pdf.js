@@ -17,7 +17,7 @@ const OUTPUT_PDF = path.resolve(__dirname, '..', 'public', 'Abdullah Al Mamun Re
   await page.pdf({
     path: OUTPUT_PDF,
     format: 'A4',
-    margin: { top: '15mm', right: '15mm', bottom: '15mm', left: '15mm' },
+    margin: { top: '5mm', right: '8mm', bottom: '5mm', left: '8mm' },
     displayHeaderFooter: false,
     printBackground: true
   });

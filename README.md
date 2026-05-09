@@ -1,6 +1,6 @@
 # Abdullah Al Mamun — Portfolio
 
-**Version:** 1.0.1
+**Version:** 1.0.2
 
 Full-stack web developer from Sandwip, Chattogram. I build complete web applications using Node.js, Express, MySQL, and modern JavaScript.
 
@@ -18,6 +18,14 @@ Full-stack web developer from Sandwip, Chattogram. I build complete web applicat
 - **This Portfolio** — Express/EJS portfolio with Tailwind CSS v4, GSAP animations, glassmorphism design, and a working contact form with auto-reply.
 
 ## Changelog
+
+### v1.0.2 — 2026-05-09
+
+#### Features
+- Add contact numbers (+8801827918142, +8801580831003) to resume and portfolio
+- Add page break in resume: Professional Summary → Education on page 1, Technical Skills → Languages on page 2
+- Expand IT Support Technician certification description with course details
+- Reduce PDF margins to 5mm top/bottom, 8mm left/right
 
 ### v1.0.1 — 2026-05-09
 

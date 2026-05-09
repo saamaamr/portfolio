@@ -11,7 +11,7 @@
     font-family: 'Inter', -apple-system, sans-serif;
     color: #1e293b;
     background: #f1f5f9;
-    line-height: 1.6;
+    line-height: 1.45;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -27,33 +27,33 @@
   .header {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #fff;
-    padding: 36px 44px 28px;
+    padding: 28px 40px 20px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
   .header-left h1 {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 800;
     letter-spacing: -0.5px;
     margin-bottom: 2px;
   }
   .header-left .title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     color: #a78bfa;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .header-left .location {
-    font-size: 13px;
+    font-size: 12.5px;
     color: #94a3b8;
-    line-height: 1.8;
+    line-height: 1.5;
   }
   .header-right {
     text-align: right;
-    font-size: 12.5px;
+    font-size: 12px;
     color: #cbd5e1;
-    line-height: 1.9;
+    line-height: 1.6;
   }
   .header-right a {
     color: #a78bfa;
@@ -61,24 +61,24 @@
     transition: color 0.2s;
   }
   .header-right a:hover { color: #c4b5fd; text-decoration: underline; }
-  .content { padding: 28px 44px 36px; }
-  .section { margin-bottom: 24px; }
+  .content { padding: 16px 40px 24px; }
+  .section { margin-bottom: 14px; }
   .section-title {
-    font-size: 14px;
+    font-size: 12.5px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #8b5cf6;
-    margin-bottom: 12px;
-    padding-bottom: 5px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
     border-bottom: 1.5px solid #e2e8f0;
   }
   .summary-text {
-    font-size: 13.5px;
+    font-size: 12.5px;
     color: #475569;
-    line-height: 1.7;
+    line-height: 1.5;
   }
-  .exp-item { margin-bottom: 18px; }
+  .exp-item { margin-bottom: 12px; }
   .exp-header {
     display: flex;
     justify-content: space-between;
@@ -86,25 +86,25 @@
     margin-bottom: 2px;
   }
   .exp-header h3 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: #0f172a;
   }
   .exp-header .date {
-    font-size: 12.5px;
+    font-size: 12px;
     color: #8b5cf6;
     font-weight: 500;
     white-space: nowrap;
   }
   .exp-company {
-    font-size: 12.5px;
+    font-size: 12px;
     color: #64748b;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
   .exp-desc {
-    font-size: 12.5px;
+    font-size: 12px;
     color: #475569;
-    line-height: 1.65;
+    line-height: 1.5;
     padding-left: 0;
   }
   .exp-desc ul {
@@ -114,7 +114,7 @@
   .exp-desc ul li {
     position: relative;
     padding-left: 14px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .exp-desc ul li::before {
     content: '—';
@@ -122,14 +122,9 @@
     left: 0;
     color: #8b5cf6;
   }
-  .edu-item { margin-bottom: 12px; }
-  .edu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
+  .edu-item { margin-bottom: 8px; }
   .edu-header h3 {
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
     color: #0f172a;
   }
@@ -139,7 +134,7 @@
     font-weight: 500;
   }
   .edu-school {
-    font-size: 12.5px;
+    font-size: 12px;
     color: #64748b;
   }
   .edu-gpa {
@@ -149,11 +144,11 @@
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 4px;
   }
   .skill-tag {
     display: inline-block;
-    padding: 3px 10px;
+    padding: 2px 8px;
     font-size: 11px;
     font-weight: 500;
     color: #475569;
@@ -164,18 +159,18 @@
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 28px;
+    gap: 0 20px;
   }
   .cert-item {
-    font-size: 12.5px;
+    font-size: 12px;
     color: #475569;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
   .cert-item strong { color: #0f172a; }
-  .proj-item { margin-bottom: 14px; }
+  .proj-item { margin-bottom: 8px; }
   .proj-item:last-child { margin-bottom: 0; }
   .proj-header h3 {
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
     color: #0f172a;
     margin-bottom: 3px;
@@ -183,9 +178,9 @@
   .proj-desc {
     font-size: 12px;
     color: #475569;
-    line-height: 1.6;
+    line-height: 1.5;
   }
-  @page { margin: 15mm; }
+  @page { margin: 5mm 8mm; }
   @media print {
     body { background: #fff; }
     .page { box-shadow: none; max-width: 100%; margin: 0; border-radius: 0; }
@@ -214,6 +209,8 @@
     </div>
     <div class="header-right">
       mamun872381cpi@gmail.com<br>
+      +8801827918142<br>
+      +8801580831003<br>
       <a href="https://github.com/saamaamr">github.com/saamaamr</a><br>
       <a href="https://www.linkedin.com/in/abdullah-a-699a90117/">linkedin.com/in/abdullah-a-699a90117</a><br>
       <a href="https://mamunsandwipi-portfolio.vercel.app/">mamunsandwipi-portfolio.vercel.app</a>
@@ -313,12 +310,12 @@
     </div>
 
     <!-- Skills -->
-    <div class="section">
+    <div class="section" style="page-break-before: always; break-before: page;">
       <div class="section-title">Technical Skills</div>
       <div class="two-col">
         <div>
-          <p style="font-size:12.5px;font-weight:600;color:#0f172a;margin-bottom:5px;">Web Development</p>
-          <div class="skills-grid" style="margin-bottom:12px;">
+          <p style="font-size:12px;font-weight:600;color:#0f172a;margin-bottom:4px;">Web Development</p>
+          <div class="skills-grid" style="margin-bottom:8px;">
             <span class="skill-tag">HTML</span>
             <span class="skill-tag">CSS</span>
             <span class="skill-tag">JavaScript</span>
@@ -335,8 +332,8 @@
           </div>
         </div>
         <div>
-          <p style="font-size:12.5px;font-weight:600;color:#0f172a;margin-bottom:5px;">IT & Tools</p>
-          <div class="skills-grid" style="margin-bottom:12px;">
+          <p style="font-size:12px;font-weight:600;color:#0f172a;margin-bottom:4px;">IT & Tools</p>
+          <div class="skills-grid" style="margin-bottom:8px;">
             <span class="skill-tag">PC Troubleshooting</span>
             <span class="skill-tag">Hardware</span>
             <span class="skill-tag">Networking</span>
@@ -377,6 +374,7 @@
     <div class="section">
       <div class="section-title">Certifications</div>
       <div class="cert-item"><strong>IT Support Technician Level 1 & 2</strong> — Bangladesh-Korea Technical Training Centre, Chattogram (2017)</div>
+      <div class="cert-item" style="margin-top: 4px;">Completed hands-on training in PC hardware troubleshooting, operating system installation and configuration, network fundamentals, peripheral device setup, and customer support best practices. Level 2 advanced into system diagnostics, software troubleshooting, and IT service management.</div>
     </div>
 
     <!-- Languages -->
