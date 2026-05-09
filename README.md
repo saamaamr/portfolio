@@ -47,7 +47,21 @@ Full-stack web developer from Sandwip, Chattogram. I build complete web applicat
 
 ```bash
 npm install
+cp .env.example .env   # then edit with your credentials
 npm run dev
 ```
 
 Visit `http://localhost:3000`
+
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `SMTP_HOST` | Yes | SMTP server hostname (default: `smtp.gmail.com`) |
+| `SMTP_PORT` | Yes | SMTP server port (default: `587`) |
+| `SMTP_USER` | Yes | Gmail address for sending emails |
+| `SMTP_PASS` | Yes | Gmail App Password (not your regular password) |
+| `CONTACT_EMAIL` | No | Where contact form submissions are sent (defaults to `SMTP_USER`) |
+| `PORT` | No | Server port (default: `3000`) |
+
+See `.env.example` for a template.
