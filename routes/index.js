@@ -55,7 +55,7 @@ router.post('/contact', contactLimiter, async (req, res) => {
     console.log(`[${new Date().toISOString()}] Contact submission received from ${email}`);
     return res.json({
       status: 'success',
-      message: 'Thank you! Your message has been received successfully. You will hear back within 48-72 hours.'
+      message: 'Thank you! Your message has been received successfully. You will hear back within 24-48 hours.'
     });
   } catch (error) {
     console.error(`[${new Date().toISOString()}] Email send failed:`, error.message);
