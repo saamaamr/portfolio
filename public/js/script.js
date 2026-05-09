@@ -31,7 +31,7 @@ safeAnimations(() => {
 // Typewriter Effect
 const typedText = document.getElementById("typed-text");
 const cursor = document.querySelector(".typed-cursor");
-const roles = ["Abdullah Al Mamun", "Technical Support Engineer", "Web Application Developer", "from Sandwip, Bangladesh"];
+const roles = ["Abdullah Al Mamun", "Technical Support Engineer", "Web Application Developer"];
 
 if (typedText) {
   if (prefersReducedMotion()) {

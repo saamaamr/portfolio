@@ -488,57 +488,12 @@ main {
   z-index: 1;
 }
 
-/* Process Flow */
-.process-flow {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  position: relative;
-}
-
-.process-flow::before {
-  content: '';
-  position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  right: 2.5rem;
-  height: 2px;
-  background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
-  opacity: 0.3;
-}
-
-.process-step {
-  text-align: center;
-  padding: 1.5rem;
-  position: relative;
-}
-
-.step-icon {
-  width: 4rem;
-  height: 4rem;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: #fff;
-  position: relative;
-  z-index: 1;
-}
-
-.process-step h3 {
-  margin-bottom: 0.25rem;
-}
-
 /* Stats count-up */
 .stat-number {
   transition: all 0.3s ease;
 }
 
 .reduced-motion .reveal,
-.reduced-motion .process-step,
 .reduced-motion .stat-number {
   opacity: 1 !important;
   transform: none !important;

@@ -3,100 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdullah Al Mamun Resume</title>
+<title>Abdullah Al Mamun — Technical Support Engineer Resume</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Inter', -apple-system, sans-serif;
     color: #1e293b;
-    background: #f8fafc;
+    background: #f1f5f9;
     line-height: 1.6;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   .page {
     max-width: 210mm;
-    margin: 0 auto;
+    margin: 24px auto;
     background: #fff;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     min-height: 297mm;
+    border-radius: 4px;
+    overflow: hidden;
   }
   .header {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #fff;
-    padding: 40px 48px 32px;
+    padding: 36px 44px 28px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
   .header-left h1 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   .header-left .title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     color: #a78bfa;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+  }
+  .header-left .location {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.8;
   }
   .header-right {
     text-align: right;
-    font-size: 13px;
+    font-size: 12.5px;
     color: #cbd5e1;
-    line-height: 1.8;
+    line-height: 1.9;
   }
   .header-right a {
     color: #a78bfa;
     text-decoration: none;
+    transition: color 0.2s;
   }
-  .header-right a:hover { text-decoration: underline; }
-  .content { padding: 32px 48px 40px; }
-  .section { margin-bottom: 28px; }
+  .header-right a:hover { color: #c4b5fd; text-decoration: underline; }
+  .content { padding: 28px 44px 36px; }
+  .section { margin-bottom: 24px; }
   .section-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #8b5cf6;
-    margin-bottom: 14px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #e2e8f0;
   }
   .summary-text {
-    font-size: 14px;
+    font-size: 13.5px;
     color: #475569;
     line-height: 1.7;
   }
-  .exp-item { margin-bottom: 20px; }
+  .exp-item { margin-bottom: 18px; }
   .exp-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   .exp-header h3 {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: #0f172a;
   }
   .exp-header .date {
-    font-size: 13px;
+    font-size: 12.5px;
     color: #8b5cf6;
     font-weight: 500;
     white-space: nowrap;
   }
   .exp-company {
-    font-size: 13px;
+    font-size: 12.5px;
     color: #64748b;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .exp-desc {
-    font-size: 13px;
+    font-size: 12.5px;
     color: #475569;
-    line-height: 1.7;
+    line-height: 1.65;
     padding-left: 0;
   }
   .exp-desc ul {
@@ -105,8 +113,8 @@
   }
   .exp-desc ul li {
     position: relative;
-    padding-left: 16px;
-    margin-bottom: 4px;
+    padding-left: 14px;
+    margin-bottom: 3px;
   }
   .exp-desc ul li::before {
     content: '—';
@@ -114,14 +122,14 @@
     left: 0;
     color: #8b5cf6;
   }
-  .edu-item { margin-bottom: 14px; }
+  .edu-item { margin-bottom: 12px; }
   .edu-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
   }
   .edu-header h3 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #0f172a;
   }
@@ -131,7 +139,7 @@
     font-weight: 500;
   }
   .edu-school {
-    font-size: 13px;
+    font-size: 12.5px;
     color: #64748b;
   }
   .edu-gpa {
@@ -141,40 +149,54 @@
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 5px;
   }
   .skill-tag {
     display: inline-block;
-    padding: 4px 12px;
-    font-size: 12px;
+    padding: 3px 10px;
+    font-size: 11px;
     font-weight: 500;
     color: #475569;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
-    border-radius: 4px;
+    border-radius: 3px;
   }
-  .skill-tag.primary { background: #8b5cf6; color: #fff; border-color: #8b5cf6; }
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 32px;
+    gap: 0 28px;
   }
   .cert-item {
-    font-size: 13px;
+    font-size: 12.5px;
     color: #475569;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .cert-item strong { color: #0f172a; }
+  .proj-item { margin-bottom: 14px; }
+  .proj-item:last-child { margin-bottom: 0; }
+  .proj-header h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 3px;
+  }
+  .proj-desc {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.6;
+  }
+  @page { margin: 15mm; }
   @media print {
     body { background: #fff; }
-    .page { box-shadow: none; max-width: 100%; }
+    .page { box-shadow: none; max-width: 100%; margin: 0; border-radius: 0; }
     .header { break-inside: avoid; }
     .exp-item, .edu-item { break-inside: avoid; }
   }
   @media (max-width: 600px) {
+    .page { margin: 0; border-radius: 0; }
     .header { flex-direction: column; gap: 12px; padding: 24px; }
     .header-right { text-align: left; }
-    .content { padding: 24px; }
+    .content { padding: 20px; }
     .exp-header { flex-direction: column; }
     .two-col { grid-template-columns: 1fr; }
   }
@@ -186,14 +208,15 @@
     <div class="header-left">
       <h1>Abdullah Al Mamun</h1>
       <div class="title">Technical Support Engineer</div>
-      <div style="font-size:13px;color:#94a3b8;line-height:1.8;">
+      <div class="location">
         Sandwip, Chattogram, Bangladesh
       </div>
     </div>
     <div class="header-right">
       mamun872381cpi@gmail.com<br>
       <a href="https://github.com/saamaamr">github.com/saamaamr</a><br>
-      <a href="https://www.linkedin.com/in/abdullah-a-699a90117/">linkedin.com/in/abdullah-a-699a90117</a>
+      <a href="https://www.linkedin.com/in/abdullah-a-699a90117/">linkedin.com/in/abdullah-a-699a90117</a><br>
+      <a href="https://mamunsandwipi-portfolio.vercel.app/">mamunsandwipi-portfolio.vercel.app</a>
     </div>
   </div>
 
@@ -202,7 +225,7 @@
     <div class="section">
       <div class="section-title">Professional Summary</div>
       <p class="summary-text">
-        Technical Support Engineer with a B.Sc. in Computer Science Engineering and experience across the travel, stock exchange, and software sectors. Skilled in web application development with Node.js, Express, and MySQL, as well as IT support, hardware/software troubleshooting, and technical documentation. Adept at communicating technical concepts clearly and maintaining production systems.
+        Technical Support Engineer and Web Developer with a B.Sc. in Computer Science Engineering and experience across the travel, stock exchange, and software sectors. Skilled in full-stack web application development with Node.js, Express, and MySQL — from database schema design and REST APIs to JWT authentication and role-based dashboards. Adept at IT support, hardware/software troubleshooting, technical documentation, and clear cross-functional communication.
       </p>
     </div>
 
@@ -218,11 +241,10 @@
         <div class="exp-company">Bit Apps</div>
         <div class="exp-desc">
           <ul>
-            <li>Provide web maintenance and development support using HTML, CSS, and WordPress.</li>
-            <li>Identify and report software bugs to the development team.</li>
-            <li>Create comprehensive troubleshooting documentation and support procedures.</li>
-            <li>Communicate technical concepts effectively across teams and with customers.</li>
-            <li>Contribute ideas for improving support processes in regular team meetings.</li>
+            <li>Maintain and enhance client websites using HTML, CSS, and WordPress.</li>
+            <li>Identify, document, and report software bugs to streamline the development workflow.</li>
+            <li>Authored comprehensive troubleshooting guides that improved support team response times.</li>
+            <li>Bridge technical communication between cross-functional teams and external clients.</li>
           </ul>
         </div>
       </div>
@@ -235,10 +257,9 @@
         <div class="exp-company">Kurnia Holiday Travels</div>
         <div class="exp-desc">
           <ul>
-            <li>Managed cross-departmental communication, data analysis, and service promotion.</li>
-            <li>Monitored budgets and oversaw service management operations.</li>
-            <li>Handled hardware and software installation and maintenance.</li>
-            <li>Provided IT support to ensure operational continuity.</li>
+            <li>Managed IT infrastructure, hardware installation, and software maintenance across departments.</li>
+            <li>Analyzed operational data to optimize service promotion strategies and budget allocation.</li>
+            <li>Ensured 24/7 system availability through proactive monitoring and cross-functional coordination.</li>
           </ul>
         </div>
       </div>
@@ -251,9 +272,9 @@
         <div class="exp-company">Century Securities Limited</div>
         <div class="exp-desc">
           <ul>
-            <li>Performed data management and technical support in a stock exchange environment.</li>
-            <li>Installed and maintained hardware and software systems.</li>
-            <li>Facilitated cross-functional communication and issue resolution.</li>
+            <li>Provided technical support and data management in a high-pressure stock exchange environment.</li>
+            <li>Installed and maintained hardware and software systems across 50+ workstations.</li>
+            <li>Facilitated cross-functional issue resolution ensuring minimal downtime during trading hours.</li>
           </ul>
         </div>
       </div>
@@ -296,11 +317,11 @@
       <div class="section-title">Technical Skills</div>
       <div class="two-col">
         <div>
-          <p style="font-size:13px;font-weight:600;color:#0f172a;margin-bottom:6px;">Web Development</p>
-          <div class="skills-grid" style="margin-bottom:14px;">
-            <span class="skill-tag primary">HTML</span>
-            <span class="skill-tag primary">CSS</span>
-            <span class="skill-tag primary">JavaScript</span>
+          <p style="font-size:12.5px;font-weight:600;color:#0f172a;margin-bottom:5px;">Web Development</p>
+          <div class="skills-grid" style="margin-bottom:12px;">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">Node.js</span>
             <span class="skill-tag">Express.js</span>
             <span class="skill-tag">MySQL</span>
@@ -314,9 +335,9 @@
           </div>
         </div>
         <div>
-          <p style="font-size:13px;font-weight:600;color:#0f172a;margin-bottom:6px;">IT & Tools</p>
-          <div class="skills-grid" style="margin-bottom:14px;">
-            <span class="skill-tag primary">PC Troubleshooting</span>
+          <p style="font-size:12.5px;font-weight:600;color:#0f172a;margin-bottom:5px;">IT & Tools</p>
+          <div class="skills-grid" style="margin-bottom:12px;">
+            <span class="skill-tag">PC Troubleshooting</span>
             <span class="skill-tag">Hardware</span>
             <span class="skill-tag">Networking</span>
             <span class="skill-tag">Git & GitHub</span>
@@ -325,6 +346,29 @@
             <span class="skill-tag">Multer</span>
             <span class="skill-tag">Postman</span>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">Key Projects</div>
+      <div class="proj-item">
+        <div class="proj-header"><h3>Emergency Medicine Finder</h3></div>
+        <div class="proj-desc">
+          Production-grade healthcare platform with 3 user roles (patient, medicine shop, admin), JWT authentication, 7-table MySQL relational schema, Multer file uploads, Nodemailer email verification, and parameterized SQL queries for injection prevention. Features medicine search, request workflows, and role-specific dashboards. Built with Node.js, Express, MySQL2, EJS.
+        </div>
+      </div>
+      <div class="proj-item">
+        <div class="proj-header"><h3>House Shifting Service</h3></div>
+        <div class="proj-desc">
+          Relocation management system supporting 3 user roles (customer, worker, admin) with MySQL relational database, JWT-based authentication, and Multer file handling. Features role-specific dashboards for managing moving requests, worker assignments, and operational oversight. Built with Node.js, Express, EJS, SCSS.
+        </div>
+      </div>
+      <div class="proj-item">
+        <div class="proj-header"><h3>PCIU CGPA Calculator</h3></div>
+        <div class="proj-desc">
+          Web-based CGPA calculator for Port City International University students. Built with Node.js, Express, and Parcel bundler, using Axios and node-html-parser for data processing. Deployed on Vercel — students input their student ID to instantly retrieve and compute academic results.
         </div>
       </div>
     </div>
@@ -341,39 +385,6 @@
       <div class="two-col">
         <div class="cert-item"><strong>Bangla</strong> — Fluent (Native)</div>
         <div class="cert-item"><strong>English</strong> — Good (Professional Working)</div>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="section">
-      <div class="section-title">Key Projects</div>
-      <div class="exp-item">
-        <div class="exp-header"><h3>Emergency Medicine Finder</h3></div>
-        <div class="exp-desc">
-          <ul>
-            <li>Full-stack platform with three user roles, JWT authentication, 7-table MySQL database.</li>
-            <li>Medicine search and request workflows with Multer file uploads and SMTP email verification.</li>
-            <li>Parameterized SQL queries for security. Built with Node.js, Express, EJS, MySQL2.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-header"><h3>PCIU CGPA Calculator</h3></div>
-        <div class="exp-desc">
-          <ul>
-            <li>CGPA calculator for university students deployed on Vercel.</li>
-            <li>Built with Node.js, Express, Parcel bundler, Axios, and node-html-parser.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-header"><h3>House Shifting Service</h3></div>
-        <div class="exp-desc">
-          <ul>
-            <li>Full-stack application with three user roles, MySQL database, JWT authentication.</li>
-            <li>Secure file upload handling via Multer. Built with Node.js, Express, EJS, SCSS.</li>
-          </ul>
-        </div>
       </div>
     </div>
 

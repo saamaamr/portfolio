@@ -13,16 +13,14 @@
     <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20">
       <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         <div class="flex-1 text-center lg:text-left">
-          <span class="inline-block px-4 py-1.5 rounded-full text-sm font-medium gradient-bg text-white mb-6">Welcome to my Portfolio</span>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
             Hi, I'm <span class="gradient-text"><span id="typed-text"></span><span class="typed-cursor">|</span></span>
           </h1>
-          <p class="text-lg sm:text-xl text-secondary max-w-xl mb-8">Technical Support Engineer with experience building web applications using Node.js, Express, and MySQL — based in Sandwip, Bangladesh.</p>
+          <p class="text-lg sm:text-xl text-secondary max-w-xl mb-8">I build full-stack web applications with Node.js, Express, and MySQL. Technical Support Engineer bridging IT support with modern web development.</p>
           <div class="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
-            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition-opacity"><i class="fas fa-briefcase"></i> View Projects</a>
-            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fas fa-envelope"></i> Contact Me</a>
-            <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all"><i class="fab fa-github"></i> GitHub</a>
-            <a href="/resume.pdf" class="resume-btn inline-flex items-center gap-2 px-6 py-3 rounded-full"><i class="fas fa-download"></i> Resume</a>
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-medium hover:opacity-90 transition-opacity cursor-pointer"><i class="fas fa-briefcase"></i> View Projects</a>
+            <a href="/Abdullah Al Mamun Resume.pdf" class="resume-btn inline-flex items-center gap-2 px-6 py-3 rounded-full cursor-pointer"><i class="fas fa-download"></i> Resume</a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-default text-body hover:border-default hover:text-body transition-all cursor-pointer"><i class="fas fa-envelope"></i> Contact Me</a>
           </div>
           <div class="flex items-center gap-4 mt-8 justify-center lg:justify-start">
             <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer" class="text-dim hover:text-body transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
@@ -50,8 +48,8 @@
         <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 reveal">About Me</h2>
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="reveal">
-            <p class="text-secondary leading-relaxed mb-4">Technical Support Engineer with a B.Sc. in Computer Science Engineering. I build web applications — from frontend interfaces and database design to authentication and role-based dashboards — using Node.js, Express, and modern JavaScript.</p>
-            <p class="text-secondary leading-relaxed">My main project, Emergency Medicine Finder, is a full-featured platform with three user roles (user, medicine shop, admin), medicine search and request workflows, file uploads via Multer, SMTP email verification, and parameterized SQL queries. I also built a CGPA calculator for university students, deployed on Vercel, and hold an IT Support Technician certification from Bangladesh-Korea Technical Training Centre. Currently working as a Technical Support Engineer at Bit Apps since May 2025.</p>
+            <p class="text-secondary leading-relaxed mb-4">I'm a Technical Support Engineer at Bit Apps with a B.Sc. in Computer Science Engineering. I bridge the gap between IT support and full-stack development — building web applications from database design and REST APIs to JWT authentication and role-based dashboards using Node.js, Express, and MySQL.</p>
+            <p class="text-secondary leading-relaxed">My flagship project, Emergency Medicine Finder, is a production-grade healthcare platform with 3 user roles, a 7-table relational database, secure file uploads, and email verification. I also built a CGPA calculator for my university, deployed on Vercel. With experience across the travel, stock exchange, and software sectors, I bring a practical, cross-industry perspective to every project I take on.</p>
             <div class="flex flex-wrap gap-4 mt-6">
               <div class="flex items-center gap-2 text-sm text-dim"><i class="fas fa-map-marker-alt text-dim"></i> Sandwip, Chattogram, Bangladesh</div>
               <div class="flex items-center gap-2 text-sm text-dim"><i class="fas fa-envelope text-dim"></i> mamun872381cpi@gmail.com</div>
@@ -89,26 +87,22 @@
             <div class="text-sm text-dim mt-1">% Dedication</div>
           </div>
         </div>
-        <div class="process-flow">
-          <div class="process-step reveal">
-            <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
-            <h3 class="font-semibold">Ideate</h3>
-            <p class="text-sm text-dim">Analyze requirements and architect optimal solutions.</p>
+        <h3 class="text-xl lg:text-2xl font-bold text-center mb-8 reveal">What I Build</h3>
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="card p-6 reveal">
+            <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mb-4"><i class="fas fa-layer-group text-white"></i></div>
+            <h4 class="font-semibold mb-2">Full-Stack Web Apps</h4>
+            <p class="text-sm text-dim">End-to-end applications with Node.js, Express, and MySQL — from database schema design to REST API development and responsive frontends.</p>
           </div>
-          <div class="process-step reveal">
-            <div class="step-icon"><i class="fas fa-paint-brush"></i></div>
-            <h3 class="font-semibold">Design</h3>
-            <p class="text-sm text-dim">Create clean, intuitive interfaces and seamless experiences.</p>
+          <div class="card p-6 reveal">
+            <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mb-4"><i class="fas fa-users-cog text-white"></i></div>
+            <h4 class="font-semibold mb-2">Role-Based Dashboards</h4>
+            <p class="text-sm text-dim">Multi-role platforms with JWT authentication, session management, and granular access control for users, admins, and service providers.</p>
           </div>
-          <div class="process-step reveal">
-            <div class="step-icon"><i class="fas fa-code"></i></div>
-            <h3 class="font-semibold">Develop</h3>
-            <p class="text-sm text-dim">Engineer with modern technologies and industry best practices.</p>
-          </div>
-          <div class="process-step reveal">
-            <div class="step-icon"><i class="fas fa-rocket"></i></div>
-            <h3 class="font-semibold">Launch</h3>
-            <p class="text-sm text-dim">Deploy, monitor, and maintain with ongoing attention.</p>
+          <div class="card p-6 reveal">
+            <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mb-4"><i class="fas fa-headset text-white"></i></div>
+            <h4 class="font-semibold mb-2">IT Support & Systems</h4>
+            <p class="text-sm text-dim">Hardware and software troubleshooting, technical documentation, and production system maintenance across diverse industries.</p>
           </div>
         </div>
       </div>
@@ -156,21 +150,21 @@
             <span class="text-sm gradient-text font-medium">May 2025 - Present</span>
             <h3 class="text-lg font-semibold mt-2">Technical Support Engineer</h3>
             <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> <a href="https://bitapps.pro/about/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">Bit Apps</a></p>
-            <p class="text-secondary text-sm">Provide web maintenance and development support using HTML, CSS, and WordPress. Identify and report software bugs, create comprehensive troubleshooting documentation, and facilitate effective technical communication across teams and clients.</p>
+            <p class="text-secondary text-sm">Maintain and enhance client websites using HTML, CSS, and WordPress. Identify and document software bugs for the development team. Authored comprehensive troubleshooting documentation that streamlined support workflows. Bridge technical communication between cross-functional teams and clients.</p>
             <div class="flex flex-wrap gap-2 mt-3"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">WordPress</span><span class="tag">Technical Support</span><span class="tag">Documentation</span></div>
           </div>
           <div class="card p-6 reveal">
             <span class="text-sm gradient-text font-medium">Jan 2020 - Apr 2025</span>
             <h3 class="text-lg font-semibold mt-2">Senior Executive</h3>
             <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> Kurnia Holiday Travels</p>
-            <p class="text-secondary text-sm">Managed cross-departmental communication, data analysis, service promotion, budget monitoring, and service management. Oversaw hardware and software installation and maintenance to ensure operational continuity.</p>
-            <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Communication</span><span class="tag">Data Analysis</span><span class="tag">IT Support</span></div>
+            <p class="text-secondary text-sm">Managed IT infrastructure, hardware, and software maintenance alongside cross-departmental communication. Analyzed operational data to optimize service promotion and budget allocation. Ensured 24/7 system availability through proactive monitoring and support.</p>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="tag">IT Infrastructure</span><span class="tag">Data Analysis</span><span class="tag">Operations</span></div>
           </div>
           <div class="card p-6 reveal">
             <span class="text-sm gradient-text font-medium">Jan 2019 - Dec 2019</span>
             <h3 class="text-lg font-semibold mt-2">Junior IT Officer</h3>
             <p class="text-dim text-sm mb-3"><i class="fas fa-building mr-1"></i> Century Securities Limited</p>
-            <p class="text-secondary text-sm">Performed data management, hardware and software installation, technical support, and cross-functional communication in a stock exchange environment.</p>
+            <p class="text-secondary text-sm">Provided technical support and data management in a high-pressure stock exchange environment. Installed and maintained hardware and software systems for 50+ workstations, ensuring minimal downtime during trading hours.</p>
             <div class="flex flex-wrap gap-2 mt-3"><span class="tag">IT Support</span><span class="tag">Data Management</span><span class="tag">Hardware</span></div>
           </div>
         </div>
@@ -218,26 +212,26 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="card overflow-hidden reveal">
             <div class="relative group overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="House Shifting Service" loading="lazy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3"><a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="text-white border border-default px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all cursor-pointer"><i class="fab fa-github mr-1"></i> Code</a></div>
-            </div>
-            <div class="p-5">
-              <span class="text-xs gradient-text font-medium">Web Application</span>
-              <h3 class="font-semibold mt-1">House Shifting Service</h3>
-              <p class="text-sm text-dim mt-1">A full-stack application for managing house shifting operations, featuring three user roles (user, worker, admin), MySQL database with relational schema, JWT-based authentication, and secure file upload handling via Multer.</p>
-              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">EJS</span><span class="tag">Multer</span></div>
-            </div>
-          </div>
-          <div class="card overflow-hidden reveal">
-            <div class="relative group overflow-hidden">
               <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=400&fit=crop" alt="Emergency Medicine Finder" loading="lazy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
               <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3"><a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="text-white border border-default px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all cursor-pointer"><i class="fab fa-github mr-1"></i> Code</a></div>
             </div>
             <div class="p-5">
-              <span class="text-xs gradient-text font-medium">Web Application</span>
+              <span class="text-xs gradient-text font-medium">Full-Stack Web App</span>
               <h3 class="font-semibold mt-1">Emergency Medicine Finder</h3>
-              <p class="text-sm text-dim mt-1">A production-grade healthcare platform with three user roles (user, medicine shop, admin), JWT authentication, a 7-table MySQL relational database, medicine search and request workflows, Multer-based file uploads, SMTP email verification, and parameterized SQL queries for security.</p>
+              <p class="text-sm text-dim mt-1">Production-grade healthcare platform with 3 user roles (patient, medicine shop, admin), JWT authentication, 7-table MySQL relational schema, Multer file uploads, Nodemailer email verification, and parameterized SQL queries for injection prevention. Features medicine search, request workflows, and role-specific dashboards.</p>
               <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL2</span><span class="tag">JWT</span><span class="tag">bcrypt</span><span class="tag">Nodemailer</span><span class="tag">Multer</span><span class="tag">EJS</span></div>
+            </div>
+          </div>
+          <div class="card overflow-hidden reveal">
+            <div class="relative group overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="House Shifting Service" loading="lazy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3"><a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="text-white border border-default px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all cursor-pointer"><i class="fab fa-github mr-1"></i> Code</a></div>
+            </div>
+            <div class="p-5">
+              <span class="text-xs gradient-text font-medium">Full-Stack Web App</span>
+              <h3 class="font-semibold mt-1">House Shifting Service</h3>
+              <p class="text-sm text-dim mt-1">Relocation management system supporting 3 user roles (customer, worker, admin) with MySQL relational database, JWT-based authentication, and Multer file handling. Features role-specific dashboards for managing moving requests, worker assignments, and operational oversight.</p>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">JWT</span><span class="tag">EJS</span><span class="tag">Multer</span></div>
             </div>
           </div>
           <div class="card overflow-hidden reveal">
@@ -246,9 +240,9 @@
               <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3"><a href="https://github.com/saamaamr/pciu-cgpa-calculator" target="_blank" rel="noopener noreferrer" class="text-white border border-default px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all cursor-pointer"><i class="fab fa-github mr-1"></i> Code</a></div>
             </div>
             <div class="p-5">
-              <span class="text-xs gradient-text font-medium">Web Application</span>
-              <h3 class="font-semibold mt-1">PCIU CG Calculator</h3>
-              <p class="text-sm text-dim mt-1">A CGPA calculator engineered with Node.js, Express, and the Parcel bundler, utilizing Axios and node-html-parser for data processing — deployed on Vercel for Port City International University students.</p>
+              <span class="text-xs gradient-text font-medium">Web App</span>
+              <h3 class="font-semibold mt-1">PCIU CGPA Calculator</h3>
+              <p class="text-sm text-dim mt-1">Web-based CGPA calculator for Port City International University students. Built with Node.js, Express, and Parcel bundler, using Axios and node-html-parser for data processing. Deployed on Vercel — students input their ID to instantly retrieve and compute academic results.</p>
               <div class="flex flex-wrap gap-2 mt-3"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Parcel</span><span class="tag">Axios</span><span class="tag">Vercel</span></div>
             </div>
           </div>
