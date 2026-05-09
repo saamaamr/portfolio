@@ -1,6 +1,6 @@
 # Abdullah Al Mamun — Portfolio
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 
 Full-stack web developer from Sandwip, Chattogram. I build complete web applications using Node.js, Express, MySQL, and modern JavaScript.
 
@@ -18,6 +18,12 @@ Full-stack web developer from Sandwip, Chattogram. I build complete web applicat
 - **This Portfolio** — Express/EJS portfolio with Tailwind CSS v4, GSAP animations, glassmorphism design, and a working contact form with auto-reply.
 
 ## Changelog
+
+### v1.0.1 — 2026-05-09
+
+#### Documentation
+- Add environment variables reference table to README
+- Document SMTP configuration and all configurable environment variables
 
 ### v1.0.0 — Initial Release
 

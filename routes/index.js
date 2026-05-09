@@ -10,6 +10,10 @@ router.get('/', (req, res) => {
 router.post('/contact', contactLimiter, async (req, res) => {
   const { name, email, message } = req.body;
 
+  const MAX_NAME = 100;
+  const MAX_EMAIL = 254;
+  const MAX_MESSAGE = 5000;
+
   if (!name || !email || !message) {
     return res.status(400).json({
       status: 'error',
@@ -17,7 +21,21 @@ router.post('/contact', contactLimiter, async (req, res) => {
     });
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
+    return res.status(400).json({
+      status: 'error',
+      message: 'Invalid input format.'
+    });
+  }
+
+  if (name.length > MAX_NAME || email.length > MAX_EMAIL || message.length > MAX_MESSAGE) {
+    return res.status(400).json({
+      status: 'error',
+      message: 'Input exceeds maximum allowed length.'
+    });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({
       status: 'error',
@@ -25,32 +43,30 @@ router.post('/contact', contactLimiter, async (req, res) => {
     });
   }
 
-  if (message.length < 10) {
+  if (message.trim().length < 20) {
     return res.status(400).json({
       status: 'error',
-      message: 'Message must be at least 10 characters long.'
+      message: 'Message must be at least 20 characters long.'
     });
   }
 
   try {
     await sendContactEmail({ name, email, message });
+    console.log(`[${new Date().toISOString()}] Contact submission received from ${email}`);
+    return res.json({
+      status: 'success',
+      message: 'Thank you! Your message has been received successfully. You will hear back within 48-72 hours.'
+    });
   } catch (error) {
-    console.error('Email send failed:', error.message);
+    console.error(`[${new Date().toISOString()}] Email send failed:`, error.message);
+    const isSmtpError = error.message.includes('SMTP') || error.message.includes('Authentication') || error.code === 'EAUTH';
     return res.status(500).json({
       status: 'error',
-      message: 'Something went wrong. Please try again later.'
+      message: isSmtpError
+        ? 'Email service is temporarily unavailable. Please try again later.'
+        : 'Something went wrong. Please try again later.'
     });
   }
-
-  console.log('New contact submission:');
-  console.log(`Name: ${name}`);
-  console.log(`Email: ${email}`);
-  console.log(`Message: ${message}`);
-
-  return res.json({
-    status: 'success',
-    message: 'Thank you! Your message has been received successfully.'
-  });
 });
 
 module.exports = router;

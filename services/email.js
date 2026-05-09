@@ -3,6 +3,10 @@ const nodemailer = require('nodemailer');
 const escapeHtml = (str) =>
   String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+  console.warn('[WARNING] SMTP credentials not configured. Email service will not work.');
+}
+
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: process.env.SMTP_PORT || 587,
@@ -68,10 +72,10 @@ const sendContactEmail = async ({ name, email, message }) => {
   });
 
   const autoReply = sendAutoReply({ name, email, message }).catch((err) => {
-    console.error('Auto-reply failed:', err.message);
+    console.error(`[${new Date().toISOString()}] Auto-reply failed:`, err.message);
   });
 
-  const [, ] = await Promise.all([notification, autoReply]);
+  await Promise.all([notification, autoReply]);
 };
 
 module.exports = { sendContactEmail };
