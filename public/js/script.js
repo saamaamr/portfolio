@@ -108,21 +108,21 @@ const mobileMenu = document.getElementById("mobile-menu");
 
 const closeMobile = () => {
   if (!mobileMenu || !mobileBtn) return;
-  mobileMenu.classList.add("hidden");
+  mobileMenu.classList.remove("open");
   mobileBtn.setAttribute("aria-expanded", "false");
   mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
 };
 
 const openMobile = () => {
   if (!mobileMenu || !mobileBtn) return;
-  mobileMenu.classList.remove("hidden");
+  mobileMenu.classList.add("open");
   mobileBtn.setAttribute("aria-expanded", "true");
   mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
   mobileMenu.querySelector("a")?.focus();
 };
 
 const toggleMobile = () => {
-  if (mobileMenu.classList.contains("hidden")) {
+  if (!mobileMenu.classList.contains("open")) {
     openMobile();
   } else {
     closeMobile();
