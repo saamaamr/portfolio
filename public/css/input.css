@@ -17,8 +17,15 @@
   --color-text-muted: #475569;
   --color-text-dim: #64748B;
   --color-border: #E2E8F0;
-  --color-glass: rgba(255, 255, 255, 0.8);
+  --color-glass: rgba(255, 255, 255, 0.35);
   --font-family-sans: "Poppins", "Roboto", sans-serif;
+}
+
+:root {
+  --transition-default: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .dark {
@@ -45,6 +52,16 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Reveal elements: visible by DEFAULT — GSAP animates FROM this state */
+.reveal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .gradient-text {
   background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
   -webkit-background-clip: text;
@@ -66,29 +83,46 @@ html {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
+  will-change: transform;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .card:hover {
   border-color: var(--color-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.1);
 }
+
+.dark .card {
+  box-shadow: none;
+}
+
+.card a:not(.tag) {
+  transition: var(--transition-fast);
+}
+
+/* Utility classes */
+.border-accent { border-color: var(--color-accent); }
 
 /* Unified hover effects */
 button, .btn-like, a:not(.nav-link):not(.card):not(.tag):not(.skip-link):not(.social-icon) {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-default);
 }
 
 button:hover, .btn-like:hover,
 a[href*="://"]:not(.nav-link):not(.card):not(.tag):not(.skip-link):not(.social-icon):hover,
 a[href^="#"]:not(.nav-link):not(.card):not(.tag):not(.skip-link):not(.social-icon):hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.15);
+}
+
+.gradient-bg {
+  transition: var(--transition-default);
 }
 
 .gradient-bg:hover {
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
   transform: translateY(-2px);
 }
 
@@ -102,7 +136,7 @@ a[href^="#"]:not(.nav-link):not(.card):not(.tag):not(.skip-link):not(.social-ico
   background-clip: padding-box;
   overflow: hidden;
   z-index: 1;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-default);
 }
 
 .resume-btn::before {
@@ -128,7 +162,7 @@ a[href^="#"]:not(.nav-link):not(.card):not(.tag):not(.skip-link):not(.social-ico
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
   opacity: 0;
   z-index: -1;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 
 .resume-btn:hover {
@@ -192,44 +226,51 @@ a[href^="#"]:not(.nav-link):not(.card):not(.tag):not(.skip-link):not(.social-ico
   50% { transform: translateY(-10px); }
 }
 
-/* Social icons */
+/* Social icons - unified across hero + footer */
 .social-icon, a[aria-label]:is(
   [aria-label="GitHub"],
   [aria-label="LinkedIn"],
   [aria-label="Facebook"],
-  [aria-label="Email"]
+  [aria-label="Email"],
+  [aria-label="Phone"]
 ) {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-default);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
 }
 
 .social-icon:hover,
 a[aria-label="GitHub"]:hover,
 a[aria-label="LinkedIn"]:hover,
 a[aria-label="Facebook"]:hover,
-a[aria-label="Email"]:hover {
-  transform: translateY(-2px) scale(1.1);
+a[aria-label="Email"]:hover,
+a[aria-label="Phone"]:hover {
+  transform: translateY(-3px) scale(1.15);
   color: var(--color-accent) !important;
 }
 
 /* Navbar brand */
 .navbar-brand {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-default);
 }
 
 .navbar-logo {
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width, height;
 }
 
 .navbar-brand:hover {
   color: var(--color-accent);
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 /* Skip link hover */
+.skip-link {
+  transition: top 0.25s ease, background 0.2s ease, transform 0.2s ease;
+}
 .skip-link:hover {
   background: var(--color-accent-dark);
   transform: translateY(1px);
@@ -239,12 +280,16 @@ a[aria-label="Email"]:hover {
 .nav-link {
   position: relative;
   overflow: hidden;
-  transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-fast);
+  will-change: transform;
 }
 .nav-link:hover {
   transform: translateY(-1px);
 }
+.nav-link:active {
+  transform: scale(0.96);
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -257,42 +302,67 @@ a[aria-label="Email"]:hover {
   transform: translateX(-50%) scaleX(0);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(0.6);
+}
 .nav-link.active-nav::after {
   transform: translateX(-50%) scaleX(1);
 }
 
 /* Theme toggle and mobile menu buttons */
 #theme-toggle, #mobile-menu-btn {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-default);
+  will-change: transform;
 }
 #theme-toggle:hover, #mobile-menu-btn:hover {
   background: var(--color-surface-hover);
   border-color: var(--color-accent) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.12);
+  color: var(--color-accent) !important;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
 }
 
-/* Contact form submit */
-#contact-form button[type="submit"]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+#theme-toggle:active, #mobile-menu-btn:active {
+  transform: scale(0.9);
 }
 
-/* Tags hover */
-.tag:hover {
-  background: var(--color-accent);
-  color: white;
-  border-color: var(--color-accent);
-  transform: translateY(-1px);
+/* Contact section card links */
+#contact a.card {
+  transition: var(--transition-default);
+  will-change: transform;
 }
-
-/* Tech items hover */
-.tech-item:hover {
-  transform: translateY(-4px) scale(1.05);
+#contact a.card:hover {
+  transform: translateX(6px) translateY(-2px);
   border-color: var(--color-accent);
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.1);
 }
 
+/* Form inputs smooth focus */
+#contact-form input,
+#contact-form textarea {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+  background-color: var(--color-surface);
+}
+
+/* Contact form submit */
+#contact-form button[type="submit"] {
+  transition: var(--transition-default);
+  will-change: transform;
+}
+#contact-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
+}
+#contact-form button[type="submit"]:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Tags */
 .tag {
   display: inline-block;
   padding: 0.25rem 0.75rem;
@@ -300,6 +370,25 @@ a[aria-label="Email"]:hover {
   font-size: 0.75rem;
   background: var(--color-surface-hover);
   border: 1px solid var(--color-border);
+  transition: var(--transition-fast);
+  will-change: transform;
+}
+.tag:hover {
+  background: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Tech items hover */
+.tech-item {
+  transition: var(--transition-default);
+  will-change: transform;
+}
+.tech-item:hover {
+  transform: translateY(-5px) scale(1.06);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.12);
 }
 
 .progress-bar {
@@ -313,7 +402,7 @@ a[aria-label="Email"]:hover {
   height: 100%;
   border-radius: 9999px;
   background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
-  transition: width 1s ease;
+  transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .text-body { color: var(--color-text-primary); }
@@ -493,10 +582,14 @@ section {
 }
 
 /* Scroll-driven compact nav */
+#navbar {
+  will-change: transform;
+}
+
 #navbar nav {
-  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #navbar.scrolled nav {
@@ -506,8 +599,9 @@ section {
 }
 
 .navbar-brand > span:last-child {
-  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
 #navbar.scrolled .navbar-brand > span:last-child {
@@ -524,6 +618,9 @@ section {
 #navbar.scrolled .nav-link {
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
+  transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s ease;
 }
 
 #navbar.scrolled #theme-toggle,
@@ -534,12 +631,15 @@ section {
 
 /* Mobile menu slide */
 .mobile-menu {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, max-height;
 }
 .mobile-menu:not(.open) {
   max-height: 0;
   opacity: 0;
-  transform: translateY(-8px) scale(0.97);
+  transform: translateY(-12px) scale(0.96);
   pointer-events: none;
   overflow: hidden;
 }
@@ -548,6 +648,14 @@ section {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
+}
+
+/* Mobile menu links */
+.mobile-menu .nav-link {
+  transition: var(--transition-fast);
+}
+.mobile-menu .nav-link:hover {
+  transform: translateX(4px);
 }
 
 /* Glass sheen */
@@ -582,7 +690,31 @@ main {
 
 /* Stats count-up */
 .stat-number {
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
+}
+
+/* Project card image overlay */
+.card .group .absolute {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card .group img {
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+.card .group:hover img {
+  transform: scale(1.08);
+}
+
+/* Project card overlay links */
+.card .group a {
+  transition: var(--transition-default);
+  will-change: transform;
+}
+.card .group a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .reduced-motion .reveal,
@@ -594,6 +726,28 @@ main {
 
 .reduced-motion #glass-overlay::after {
   animation: none !important;
+}
+
+/* Section transitions */
+section {
+  transition: opacity 0.3s ease;
+}
+
+/* Footer */
+footer {
+  transition: border-color 0.3s ease;
+  background: var(--color-surface);
+}
+
+.dark footer {
+  background: transparent;
+}
+
+/* Active scale */
+.tag:active,
+button:active,
+.btn-like:active {
+  transform: scale(0.96);
 }
 
 /* Glass refinement for both themes */

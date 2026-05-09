@@ -34,7 +34,7 @@ const sendAutoReply = async ({ name, email, message }) => {
           Thank you for reaching out to me. I have received your message and appreciate your interest.
         </p>
         <p style="color: #333; font-size: 16px; line-height: 1.6;">
-          I will review your inquiry and get back to you within <strong>48–72 hours</strong>. Please feel free to reply directly to this email if you have any additional information to share.
+          I will review your inquiry and get back to you within <strong>24-48 hours</strong>. Please feel free to reply directly to this email if you have any additional information to share.
         </p>
         <div style="background: #F8FAFC; border-left: 4px solid #8B5CF6; padding: 15px; margin: 25px 0; border-radius: 4px;">
           <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748B; font-weight: 600;">Your message:</p>

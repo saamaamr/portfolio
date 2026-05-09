@@ -5,12 +5,15 @@ const safeAnimations = (animFn, fallbackFn) => {
   animFn();
 };
 
-// GSAP Scroll Animations
-gsap.registerPlugin(ScrollTrigger);
+// GSAP Scroll Animations — guarded against missing library
+if (typeof gsap !== "undefined") {
+  try { gsap.registerPlugin(ScrollTrigger); } catch (e) {}
+}
 
 // Tech Stack Web Drift
 safeAnimations(() => {
   const techItems = document.querySelectorAll(".tech-item");
+  if (!techItems.length) return;
   const driftDirs = ["drift-up", "drift-down", "drift-left", "drift-right"];
   techItems.forEach((el, i) => {
     el.style.setProperty("--delay", (i * 0.15).toFixed(2) + "s");
@@ -21,6 +24,7 @@ safeAnimations(() => {
 // Skill Tags Leaf Drift
 safeAnimations(() => {
   const skillTags = document.querySelectorAll(".skill-tag");
+  if (!skillTags.length) return;
   const leafAnims = ["leaf-drift", "leaf-drift-alt"];
   skillTags.forEach((el, i) => {
     el.style.setProperty("--leaf-delay", (i * 0.12).toFixed(2) + "s");
@@ -31,11 +35,10 @@ safeAnimations(() => {
 // Typewriter Effect
 const typedText = document.getElementById("typed-text");
 const cursor = document.querySelector(".typed-cursor");
-const roles = ["Abdullah Al Mamun", "Technical Support Engineer", "Web Application Developer"];
 
 if (typedText) {
   if (prefersReducedMotion()) {
-    typedText.textContent = roles[0];
+    typedText.textContent = "Abdullah Al Mamun";
   } else {
     let roleIndex = 0;
     let charIndex = 0;
@@ -43,6 +46,7 @@ if (typedText) {
     let typeSpeed = 80;
 
     const typeAnimation = () => {
+      const roles = ["Abdullah Al Mamun", "Technical Support Engineer", "Web Application Developer"];
       const currentRole = roles[roleIndex];
       if (isDeleting) {
         typedText.textContent = currentRole.substring(0, charIndex - 1);
@@ -203,12 +207,44 @@ document.getElementById("skip-to-content")?.addEventListener("click", (e) => {
   }
 });
 
-// Contact Form
-const contactForm = document.getElementById("contact-form");
-const formMessage = document.getElementById("form-message");
+// ============================================================
+// SCROLL REVEAL ANIMATIONS — Fixed: no more disappearing sections
+// ============================================================
+// All .reveal elements are VISIBLE by default via CSS (opacity: 1, transform: none).
+// GSAP uses fromTo() with clearStart: true so initial state never persists.
+// If GSAP/ScrollTrigger fails, elements remain fully visible.
+// ============================================================
 
-if (contactForm) {
-// Highlights Stats Count-up
+safeAnimations(() => {
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
+  const revealEls = gsap.utils.toArray(".reveal");
+  if (!revealEls.length) return;
+
+  revealEls.forEach((el) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 50, scale: 0.97 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.9,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 88%",
+          once: true,
+        },
+      }
+    );
+  });
+
+  // Refresh ScrollTrigger after fonts/images load so positions are correct
+  window.addEventListener("load", () => ScrollTrigger.refresh());
+  setTimeout(() => ScrollTrigger.refresh(), 500);
+});
+
+// Highlights Stats Count-up with smooth easing
 function initHighlightsStats() {
   const stats = document.querySelectorAll("#highlights-stats .stat-number");
   if (!stats.length) return;
@@ -221,12 +257,14 @@ function initHighlightsStats() {
       if (entry.isIntersecting) {
         const el = entry.target;
         const target = parseInt(el.dataset.target, 10);
-        const duration = Math.min(target * 20, 2000);
+        const duration = Math.min(target * 25, 2200);
         const start = performance.now();
+        function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
         function update(now) {
           const elapsed = now - start;
           const progress = Math.min(elapsed / duration, 1);
-          el.textContent = Math.floor(progress * target);
+          const eased = easeOutCubic(progress);
+          el.textContent = Math.floor(eased * target);
           if (progress < 1) requestAnimationFrame(update);
           else el.textContent = target;
         }
@@ -238,26 +276,35 @@ function initHighlightsStats() {
   stats.forEach((el) => observer.observe(el));
 }
 
-safeAnimations(() => {
-  // Enhanced reveal: scale + fade with stagger
-  gsap.utils.toArray(".reveal").forEach((el) => {
-    gsap.from(el, {
-      opacity: 0,
-      y: 50,
-      scale: 0.95,
-      duration: 1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-        toggleActions: "play reverse play reverse",
-      },
+// Smooth progress bar animation on scroll
+function initProgressBars() {
+  const fills = document.querySelectorAll(".progress-fill");
+  if (!fills.length) return;
+  if (prefersReducedMotion()) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const targetWidth = el.style.width || "0%";
+        el.style.width = "0%";
+        requestAnimationFrame(() => {
+          el.style.width = targetWidth;
+        });
+        observer.unobserve(el);
+      }
     });
-  });
-});
+  }, { threshold: 0.3 });
+  fills.forEach((el) => observer.observe(el));
+}
 
 initHighlightsStats();
+initProgressBars();
 
+// Contact Form
+const contactForm = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
+
+if (contactForm) {
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(contactForm);
