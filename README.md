@@ -16,14 +16,16 @@ A responsive, full-featured portfolio and resume website showcasing web developm
 
 ## Tech Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript, EJS, Tailwind CSS v4, GSAP animations
-- **Backend:** Node.js, Express.js, Nodemailer
+- **Frontend:** HTML5, CSS3, JavaScript, EJS, Tailwind CSS v4, GSAP, WordPress
+- **Backend:** Node.js, Express.js, Nodemailer, JWT, bcrypt
+- **Database:** MySQL, MySQL2
+- **Testing:** Jest, Supertest
 - **PDF Generation:** Puppeteer Core (Chromium-based)
 - **Dev Tools:** Tailwind CSS CLI, Nodemon, npm scripts
 
 ## Notable Projects
 
-- **Emergency Medicine Finder** — Full-stack web app with JWT authentication, role-based dashboards (user/worker/admin), MySQL database, medicine search, and service booking.
+- **Emergency Medicine Finder** — Production-grade healthcare platform with 3 user roles (patient, medicine shop, admin), JWT authentication, 17-table MySQL relational schema, 82+ API routes, Multer file uploads, Nodemailer email verification, and parameterized SQL queries for injection prevention. Features medicine search, request workflows, pharmacy management (suppliers, purchases with batch/expiry tracking, sales with auto profit calculation, expenses, P&L reports), multi-shop stock transfers, daily automated database backups, data export (JSON/CSV), and a comprehensive Jest + Supertest test suite.
 - **House Shifting Service** — Service management application for scheduling and coordinating relocations.
 - **PCIU CG Calculator** — Student CGPA calculator deployed on Vercel.
 - **This Portfolio** — Express/EJS portfolio with responsive design, PDF resume generation, contact form with auto-reply, and professional animations.
@@ -179,6 +181,11 @@ npm run vercel-build  # Builds optimized CSS
 - Enhanced contact form validation and error handling
 - Optimized PDF margins and layout
 - Improved email auto-reply HTML formatting
+- Added "Full-Stack Developer" to typed text roles
+- Expanded skills with express-validator, Multer, node-cron, WordPress, GSAP, Jest, Supertest, Puppeteer
+- Updated Emergency Medicine Finder project description with detailed features
+- Added tech icons for WordPress, Jest, bcrypt, and GSAP in frontend
+- Updated technologies count from 10 to 15
 
 ## License
 

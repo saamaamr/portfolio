@@ -46,7 +46,7 @@ if (typedText) {
     let typeSpeed = 80;
 
     const typeAnimation = () => {
-      const roles = ["Abdullah Al Mamun", "Technical Support Engineer", "Web Application Developer"];
+      const roles = ["Abdullah Al Mamun", "Technical Support Engineer", "Full-Stack Developer", "Web Application Developer"];
       const currentRole = roles[roleIndex];
       if (isDeleting) {
         typedText.textContent = currentRole.substring(0, charIndex - 1);
