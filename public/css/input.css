@@ -589,13 +589,19 @@ section {
 #navbar nav {
   transition: padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #navbar.scrolled nav {
   max-width: fit-content;
-  padding: 0.5rem 1.5rem;
+  padding: 0.35rem 1.25rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background-color: var(--color-glass);
+  border-color: var(--color-accent);
+  backdrop-filter: blur(16px);
 }
 
 .navbar-brand > span:last-child {
