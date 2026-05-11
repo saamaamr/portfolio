@@ -115,14 +115,20 @@ const closeMobile = () => {
   if (!mobileMenu || !mobileBtn) return;
   mobileMenu.classList.remove("open");
   mobileBtn.setAttribute("aria-expanded", "false");
+  mobileMenu.setAttribute("aria-hidden", "true");
   mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+  // Allow body scroll
+  document.body.style.overflow = "";
 };
 
 const openMobile = () => {
   if (!mobileMenu || !mobileBtn) return;
   mobileMenu.classList.add("open");
   mobileBtn.setAttribute("aria-expanded", "true");
+  mobileMenu.setAttribute("aria-hidden", "false");
   mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
+  // Prevent body scroll
+  document.body.style.overflow = "hidden";
   mobileMenu.querySelector("a")?.focus();
 };
 
@@ -142,7 +148,9 @@ if (mobileBtn && mobileMenu) {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMobile();
+    if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+      closeMobile();
+    }
   });
 
   window.addEventListener("resize", () => {
@@ -300,25 +308,107 @@ function initProgressBars() {
 initHighlightsStats();
 initProgressBars();
 
-// Contact Form
+// Contact Form with Client-side Validation
 const contactForm = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
 
+// Validation utilities
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  return emailRegex.test(email);
+};
+
+const validateContactForm = (name, email, message) => {
+  const errors = [];
+
+  if (!name || !name.trim()) {
+    errors.push("Name is required.");
+  } else if (name.length > 100) {
+    errors.push("Name must not exceed 100 characters.");
+  }
+
+  if (!email || !email.trim()) {
+    errors.push("Email is required.");
+  } else if (email.length > 254) {
+    errors.push("Email must not exceed 254 characters.");
+  } else if (!validateEmail(email)) {
+    errors.push("Please enter a valid email address.");
+  }
+
+  if (!message || !message.trim()) {
+    errors.push("Message is required.");
+  } else if (message.length > 5000) {
+    errors.push("Message must not exceed 5000 characters.");
+  } else if (message.trim().length < 20) {
+    errors.push("Message must be at least 20 characters long.");
+  }
+
+  return errors;
+};
+
+const showValidationError = (errors) => {
+  if (formMessage) {
+    formMessage.innerHTML = errors.map(err => `<div class="error-item">• ${err}</div>`).join('');
+    formMessage.style.color = "#f87171";
+    formMessage.setAttribute("role", "alert");
+    formMessage.setAttribute("aria-live", "polite");
+  }
+};
+
+const clearMessage = () => {
+  if (formMessage) {
+    formMessage.textContent = "";
+    formMessage.style.color = "inherit";
+  }
+};
+
 if (contactForm) {
+  // Real-time validation on input
+  const nameInput = contactForm.querySelector('[name="name"]');
+  const emailInput = contactForm.querySelector('[name="email"]');
+  const messageInput = contactForm.querySelector('[name="message"]');
+
+  [nameInput, emailInput, messageInput].forEach(input => {
+    if (input) {
+      input.addEventListener("blur", () => {
+        const name = nameInput?.value || "";
+        const email = emailInput?.value || "";
+        const message = messageInput?.value || "";
+        const errors = validateContactForm(name, email, message);
+        if (errors.length > 0) {
+          input.setAttribute("aria-invalid", "true");
+        } else {
+          input.setAttribute("aria-invalid", "false");
+          clearMessage();
+        }
+      });
+    }
+  });
+
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    clearMessage();
+
     const formData = new FormData(contactForm);
-    const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    // Validate on submit
+    const errors = validateContactForm(name, email, message);
+    if (errors.length > 0) {
+      showValidationError(errors);
+      return;
+    }
+
+    const payload = { name, email, message };
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn?.innerHTML || "";
 
     if (formMessage) {
       formMessage.textContent = "Sending...";
       formMessage.style.color = "#a78bfa";
+      formMessage.setAttribute("aria-live", "polite");
     }
     if (submitBtn) {
       submitBtn.disabled = true;
@@ -336,12 +426,16 @@ if (contactForm) {
       if (formMessage) {
         formMessage.textContent = data.message;
         formMessage.style.color = "#4ade80";
+        formMessage.setAttribute("role", "status");
+        formMessage.setAttribute("aria-live", "polite");
       }
       contactForm.reset();
     } catch (error) {
       if (formMessage) {
         formMessage.textContent = error.message;
         formMessage.style.color = "#f87171";
+        formMessage.setAttribute("role", "alert");
+        formMessage.setAttribute("aria-live", "polite");
       }
     } finally {
       if (submitBtn) {
