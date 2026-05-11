@@ -24,7 +24,22 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Security & Performance Middleware
-app.use(helmet()); // HTTP security headers
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        imgSrc: ["'self'", 'data:', 'https://images.unsplash.com'],
+        scriptSrc: ["'self'", 'https://cdnjs.cloudflare.com', 'https://www.googletagmanager.com'],
+        styleSrc: ["'self'", "'unsafe-inline'", 'https://cdnjs.cloudflare.com', 'https://fonts.googleapis.com'],
+        fontSrc: ["'self'", 'https://cdnjs.cloudflare.com', 'https://fonts.gstatic.com'],
+        connectSrc: ["'self'"],
+        frameSrc: ["'none'"],
+        objectSrc: ["'none'"],
+      },
+    },
+  })
+);
 app.use(compression()); // Gzip compression
 app.use(express.urlencoded({ extended: true, limit: '10kb' })); // Limit payload size
 app.use(express.json({ limit: '10kb' }));
