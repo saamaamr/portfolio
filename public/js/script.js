@@ -159,12 +159,14 @@ if (mobileBtn && mobileMenu) {
 }
 
 // Scroll-driven compact nav
-const SCROLL_THRESHOLD = 80;
-const toggleCompactNav = () => {
-  navbar.classList.toggle("scrolled", window.scrollY > SCROLL_THRESHOLD);
-};
-toggleCompactNav();
-window.addEventListener("scroll", toggleCompactNav, { passive: true });
+if (navbar) {
+  const SCROLL_THRESHOLD = 80;
+  const toggleCompactNav = () => {
+    navbar.classList.toggle("scrolled", window.scrollY > SCROLL_THRESHOLD);
+  };
+  toggleCompactNav();
+  window.addEventListener("scroll", toggleCompactNav, { passive: true });
+}
 
 // Active Nav Link on Scroll
 const navLinks = document.querySelectorAll(".nav-link");
