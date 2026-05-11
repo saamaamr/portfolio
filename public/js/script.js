@@ -307,6 +307,26 @@ function initProgressBars() {
   fills.forEach((el) => observer.observe(el));
 }
 
+// Interest Card Animations
+safeAnimations(() => {
+  const interests = {
+    travelling: { anim: 'interest-travel', duration: '4s' },
+    gardening: { anim: 'interest-grow', duration: '3s' },
+    cycling: { anim: 'interest-cycle', duration: '2.5s' },
+    photography: { anim: 'interest-shutter', duration: '3.5s' },
+  };
+  document.querySelectorAll('.interest-card').forEach((card, i) => {
+    const name = card.dataset.interest;
+    const config = interests[name];
+    if (!config) return;
+    const icon = card.querySelector('.interest-icon');
+    if (!icon) return;
+    icon.style.setProperty('--interest-anim', config.anim);
+    icon.style.setProperty('--interest-duration', config.duration);
+    icon.style.setProperty('--interest-delay', `${i * 0.3}s`);
+  });
+});
+
 initHighlightsStats();
 initProgressBars();
 
