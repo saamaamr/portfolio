@@ -1,0 +1,193 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Abdullah Al Mamun Portfolio API",
+    "description": "API documentation for Abdullah Al Mamun's portfolio website",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Abdullah Al Mamun",
+      "email": "mamun872381cpi@gmail.com",
+      "url": "https://abdullahamun.dev"
+    },
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Development server"
+    },
+    {
+      "url": "https://abdullahamun.dev",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get portfolio homepage",
+        "description": "Returns the main portfolio page",
+        "tags": ["Portfolio"],
+        "responses": {
+          "200": {
+            "description": "Successfully rendered portfolio page",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact": {
+      "post": {
+        "summary": "Submit contact form",
+        "description": "Submit a contact form message with automatic email notifications and auto-reply",
+        "tags": ["Contact"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Sender's name (max 100 characters)",
+                    "example": "John Doe"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Sender's email address (max 254 characters)",
+                    "example": "john@example.com"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "Message content (20-5000 characters)",
+                    "example": "I would like to discuss a potential project opportunity with you."
+                  }
+                },
+                "required": ["name", "email", "message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Contact form submitted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - rate limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Email service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X POST http://localhost:3000/contact \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"message\": \"This is a test message with enough characters\"\n  }'"
+          },
+          {
+            "lang": "javascript",
+            "source": "const response = await fetch('/contact', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({\n    name: 'John Doe',\n    email: 'john@example.com',\n    message: 'This is a test message with enough characters'\n  })\n});\nconst data = await response.json();"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["success"],
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "Thank you! Your message has been received successfully."
+          },
+          "data": {
+            "type": "null"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-01-15T10:30:00.000Z"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["error"],
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "Please fill in all fields before submitting the form."
+          },
+          "data": {
+            "type": "null"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-01-15T10:30:00.000Z"
+          }
+        }
+      }
+    }
+  }
+}

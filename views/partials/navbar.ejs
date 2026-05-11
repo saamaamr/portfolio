@@ -6,34 +6,34 @@
     </a>
 
     <ul class="hidden items-center gap-1 lg:flex" role="list">
-      <li><a href="#home" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="home">Home</a></li>
-      <li><a href="#about" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="about">About</a></li>
-      <li><a href="#education" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="education">Education</a></li>
-      <li><a href="#experience" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="experience">Experience</a></li>
-      <li><a href="#skills" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="skills">Skills</a></li>
-      <li><a href="#projects" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="projects">Projects</a></li>
-      <li><a href="#contact" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="contact">Contact</a></li>
+      <li><a href="#home" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="home" aria-current="page">Home</a></li>
+      <li><a href="#about" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="about">About</a></li>
+      <li><a href="#education" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="education">Education</a></li>
+      <li><a href="#experience" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="experience">Experience</a></li>
+      <li><a href="#skills" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="projects">Projects</a></li>
+      <li><a href="#contact" class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="contact">Contact</a></li>
     </ul>
 
 <div class="flex items-center gap-2">
-  <button id="theme-toggle" class="ml-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-default bg-glass text-sm text-secondary backdrop-blur-sm hover:border-accent hover:text-accent active:scale-90" aria-label="Toggle theme">
+  <button id="theme-toggle" class="ml-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-default bg-glass text-sm text-secondary backdrop-blur-sm hover:border-accent hover:text-accent active:scale-90 transition-all" aria-label="Toggle theme" title="Switch between light and dark mode">
     <i class="fas fa-moon"></i>
   </button>
-  <button id="mobile-menu-btn" class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-default bg-glass text-sm text-secondary backdrop-blur-sm hover:border-accent hover:text-accent active:scale-90 lg:hidden" aria-label="Toggle menu" aria-expanded="false">
+  <button id="mobile-menu-btn" class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-default bg-glass text-sm text-secondary backdrop-blur-sm hover:border-accent hover:text-accent active:scale-90 transition-all lg:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
     <i class="fas fa-bars"></i>
   </button>
 </div>
   </nav>
 
-  <div id="mobile-menu" class="mobile-menu mx-auto mt-2 max-w-6xl rounded-2xl border-default/50 bg-glass backdrop-blur-2xl lg:hidden" role="navigation" aria-label="Mobile navigation">
+  <div id="mobile-menu" class="mobile-menu mx-auto mt-2 max-w-6xl rounded-2xl border-default/50 bg-glass backdrop-blur-2xl lg:hidden" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
     <div class="flex flex-col gap-1 px-4 py-4">
-      <a href="#home" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="home">Home</a>
-      <a href="#about" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="about">About</a>
-      <a href="#education" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="education">Education</a>
-      <a href="#experience" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="experience">Experience</a>
-      <a href="#skills" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="skills">Skills</a>
-      <a href="#projects" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="projects">Projects</a>
-      <a href="#contact" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer" data-section="contact">Contact</a>
+      <a href="#home" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="home">Home</a>
+      <a href="#about" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="about">About</a>
+      <a href="#education" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="education">Education</a>
+      <a href="#experience" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="experience">Experience</a>
+      <a href="#skills" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="skills">Skills</a>
+      <a href="#projects" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="projects">Projects</a>
+      <a href="#contact" class="nav-link rounded-xl px-4 py-3 text-base font-medium text-secondary hover:bg-subtle hover:text-body active:scale-95 cursor-pointer transition-all" data-section="contact">Contact</a>
     </div>
   </div>
 </header>

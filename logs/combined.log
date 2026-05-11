@@ -1,0 +1,45 @@
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 13:47:35"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 13:47:35"}
+{"level":"info","message":{"duration":"32ms","ip":"::1","method":"GET","statusCode":200,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 13:47:36"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 13:47:37"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 13:47:58"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 13:47:58"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 13:47:59"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 13:49:26"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 13:49:26"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 13:49:28"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 13:49:29"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 13:49:29"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 13:49:31"}
+{"level":"info","message":{"duration":"36ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 13:50:28"}
+{"level":"info","message":{"duration":"51ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:10:06"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 14:17:31"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 14:17:31"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 14:17:33"}
+{"level":"info","message":{"duration":"30ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:17:42"}
+{"level":"info","message":{"duration":"11ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:17:45"}
+{"level":"info","message":{"duration":"92ms","ip":"::1","method":"GET","statusCode":200,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:51:48"}
+{"level":"info","message":{"duration":"7ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:52:03"}
+{"level":"info","message":{"duration":"10ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:52:04"}
+{"level":"info","message":{"duration":"7ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:52:09"}
+{"level":"info","message":{"duration":"8ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:52:14"}
+{"level":"info","message":{"duration":"6ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:52:16"}
+{"level":"info","message":{"duration":"11ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:52:29"}
+{"level":"info","message":{"duration":"41ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:59:50"}
+{"level":"info","message":{"duration":"8ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 14:59:52"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 15:03:07"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 15:03:07"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 15:03:09"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 15:03:33"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 15:03:33"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 15:03:35"}
+{"level":"info","message":{"duration":"40ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 15:04:08"}
+{"level":"info","message":{"duration":"35ms","ip":"::1","method":"GET","statusCode":304,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 15:13:03"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 15:15:52"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 15:15:52"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 15:15:54"}
+{"level":"warn","message":"[WARNING] SMTP credentials not configured. Email service will not work.","service":"portfolio","timestamp":"2026-05-11 15:16:08"}
+{"level":"info","message":"Portfolio server running on http://localhost:3000","service":"portfolio","timestamp":"2026-05-11 15:16:08"}
+{"level":"info","message":"SMTP connection successful","service":"portfolio","timestamp":"2026-05-11 15:16:10"}
+{"level":"info","message":{"duration":"29ms","ip":"::1","method":"GET","statusCode":200,"url":"/"},"service":"portfolio","timestamp":"2026-05-11 15:16:39"}
+{"level":"info","message":{"duration":"34ms","ip":"::1","method":"GET","statusCode":404,"url":"/favicon.ico"},"service":"portfolio","timestamp":"2026-05-11 15:16:41"}

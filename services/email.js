@@ -1,12 +1,12 @@
 const nodemailer = require('nodemailer');
-
-const escapeHtml = (str) =>
-  String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const logger = require('../utils/logger');
+const { escapeHtml } = require('../utils/validation');
 
 if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-  console.warn('[WARNING] SMTP credentials not configured. Email service will not work.');
+  logger.warn('[WARNING] SMTP credentials not configured. Email service will not work.');
 }
 
+// Create reusable transporter with connection pooling
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: process.env.SMTP_PORT || 587,
@@ -15,11 +15,47 @@ const transporter = nodemailer.createTransport({
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
+  pool: {
+    maxConnections: 5,
+    maxMessages: 100,
+    rateDelta: 4000,
+    rateLimit: 14,
+  },
 });
 
+// Verify connection on startup
+transporter.verify((err, success) => {
+  if (err) {
+    logger.error('SMTP connection failed:', err);
+  } else {
+    logger.info('SMTP connection successful');
+  }
+});
+
+/**
+ * Send email with retry logic and exponential backoff
+ */
+const sendWithRetry = async (mailOptions, maxRetries = 3, retryCount = 0) => {
+  try {
+    return await transporter.sendMail(mailOptions);
+  } catch (error) {
+    if (retryCount < maxRetries) {
+      const delayMs = 1000 * Math.pow(2, retryCount);
+      logger.warn(`Email send failed, retrying in ${delayMs}ms (attempt ${retryCount + 1}/${maxRetries})`);
+      await new Promise(resolve => setTimeout(resolve, delayMs));
+      return sendWithRetry(mailOptions, maxRetries, retryCount + 1);
+    }
+    throw error;
+  }
+};
+
+/**
+ * Send auto-reply to user
+ */
 const sendAutoReply = async ({ name, email, message }) => {
   const safeName = escapeHtml(name);
   const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+  
   const mailOptions = {
     from: `"Abdullah Al Mamun" <${process.env.SMTP_USER}>`,
     to: email,
@@ -47,35 +83,47 @@ const sendAutoReply = async ({ name, email, message }) => {
     `,
   };
 
-  return transporter.sendMail(mailOptions);
+  return sendWithRetry(mailOptions);
 };
 
+/**
+ * Send contact notification to admin
+ */
 const sendContactEmail = async ({ name, email, message }) => {
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
-  const notification = transporter.sendMail({
-    from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-    to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
-    replyTo: email,
-    subject: `Portfolio Contact: ${safeName}`,
-    html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${safeName}</p>
-      <p><strong>Email:</strong> ${safeEmail}</p>
-      <p><strong>Message:</strong></p>
-      <p>${safeMessage}</p>
-      <hr>
-      <p><em>Sent from your portfolio website</em></p>
-    `,
-  });
+  try {
+    const notificationEmail = {
+      from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
+      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      replyTo: email,
+      subject: `Portfolio Contact: ${safeName}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Message:</strong></p>
+        <p>${safeMessage}</p>
+        <hr>
+        <p><em>Sent from your portfolio website</em></p>
+      `,
+    };
 
-  const autoReply = sendAutoReply({ name, email, message }).catch((err) => {
-    console.error(`[${new Date().toISOString()}] Auto-reply failed:`, err.message);
-  });
+    // Send both notification and auto-reply concurrently
+    await Promise.all([
+      sendWithRetry(notificationEmail),
+      sendAutoReply({ name, email, message }).catch((err) => {
+        logger.warn(`Auto-reply failed: ${err.message}`);
+      }),
+    ]);
 
-  await Promise.all([notification, autoReply]);
+    logger.info(`Contact form submitted by ${email}`);
+  } catch (error) {
+    logger.error(`Email service error: ${error.message}`);
+    throw error;
+  }
 };
 
 module.exports = { sendContactEmail };
