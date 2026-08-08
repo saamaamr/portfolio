@@ -172,11 +172,31 @@
               <p id="form-message" class="form-message" aria-live="polite"></p>
             </form>
           </div>
-          <aside class="profile-strip reveal" aria-label="<%= t('a11y.languagesInterests') %>">
-            <div><span><%= t('contact.availability') %></span><strong><%= t('contact.remote') %></strong></div>
-            <div><span><%= t('contact.locationLabel') %></span><strong><%= t('contact.locationValue') %></strong></div>
-            <div><span><%= t('contact.languages') %></span><strong><%= t('contact.banglaFluent') %></strong><strong><%= t('contact.englishGood') %></strong></div>
-            <div><span><%= t('contact.interests') %></span><strong><%= t('contact.travelling') %></strong><strong><%= t('contact.gardening') %></strong><strong><%= t('contact.cycling') %></strong><strong><%= t('contact.photography') %></strong></div>
+          <aside class="profile-strip reveal" aria-label="<%= t('a11y.profileDetails') %>">
+            <section class="profile-strip-item profile-strip-item--availability" aria-labelledby="profile-availability-heading">
+              <h3 id="profile-availability-heading" class="profile-strip-heading"><%= t('contact.availability') %></h3>
+              <p class="availability-status"><span class="status-dot" aria-hidden="true"></span><span><%= t('contact.remote') %></span></p>
+            </section>
+            <section class="profile-strip-item profile-strip-item--location" aria-labelledby="profile-location-heading">
+              <h3 id="profile-location-heading" class="profile-strip-heading"><%= t('contact.locationLabel') %></h3>
+              <address class="profile-location"><%= t('contact.locationValue') %></address>
+            </section>
+            <section class="profile-strip-item profile-strip-item--languages" aria-labelledby="profile-languages-heading">
+              <h3 id="profile-languages-heading" class="profile-strip-heading"><%= t('contact.languages') %></h3>
+              <dl class="language-list">
+                <div class="language-row"><dt><%= t('contact.bangla') %></dt><dd><span class="language-separator" aria-hidden="true">—</span><span class="language-level"><%= t('contact.fluent') %></span></dd></div>
+                <div class="language-row"><dt><%= t('contact.english') %></dt><dd><span class="language-separator" aria-hidden="true">—</span><span class="language-level"><%= t('contact.good') %></span></dd></div>
+              </dl>
+            </section>
+            <section class="profile-strip-item profile-strip-item--interests" aria-labelledby="profile-interests-heading">
+              <h3 id="profile-interests-heading" class="profile-strip-heading"><%= t('contact.interests') %></h3>
+              <ul class="interest-list">
+                <li><%= t('contact.travelling') %></li>
+                <li><%= t('contact.gardening') %></li>
+                <li><%= t('contact.cycling') %></li>
+                <li><%= t('contact.photography') %></li>
+              </ul>
+            </section>
           </aside>
         </div>
       </section>

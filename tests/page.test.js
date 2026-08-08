@@ -76,6 +76,42 @@ describe('Portfolio document', () => {
     ]);
   });
 
+  it('renders the profile strip as four semantic, scannable groups', () => {
+    const strip = page.querySelector('.profile-strip.reveal');
+    const groups = [...strip.querySelectorAll(':scope > .profile-strip-item')];
+    const languageRows = [...strip.querySelectorAll('.language-row')];
+
+    expect(strip.getAttribute('aria-label')).toBe(
+      'Availability, location, languages, and interests'
+    );
+    expect(groups).toHaveLength(4);
+    expect(groups.map((group) => group.querySelector('h3').textContent.trim())).toEqual([
+      'Availability',
+      'Location',
+      'Languages',
+      'Interests',
+    ]);
+    expect(strip.querySelector('.availability-status').textContent.trim()).toBe(
+      'Open to remote opportunities'
+    );
+    expect(strip.querySelector('.status-dot').getAttribute('aria-hidden')).toBe('true');
+    expect(strip.querySelector('address.profile-location').textContent.trim()).toBe(
+      'Sandwip, Chattogram, Bangladesh'
+    );
+    expect(languageRows.map((row) => row.querySelector('dt').textContent.trim())).toEqual([
+      'Bangla',
+      'English',
+    ]);
+    expect(languageRows.map((row) => row.querySelector('.language-level').textContent.trim())).toEqual([
+      'Fluent',
+      'Good',
+    ]);
+    expect([...strip.querySelectorAll('.interest-list li')].map((item) =>
+      item.textContent.trim()
+    )).toEqual(['Travelling', 'Gardening', 'Cycling', 'Photography']);
+    expect(strip.querySelector('a, button, input')).toBeNull();
+  });
+
   it('renders three ordered primary repositories and one collaborative contribution', () => {
     const cards = [...page.querySelectorAll('[data-evidence-card]')];
     const links = [...page.querySelectorAll('[data-evidence-source]')];

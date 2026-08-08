@@ -11,7 +11,7 @@
     "portfolioSections": "Portfolio sections",
     "professionalProfiles": "Professional profiles",
     "careerHighlights": "Career highlights",
-    "languagesInterests": "Languages and interests",
+    "profileDetails": "Availability, location, languages, and interests",
     "socialLinks": "Social links"
   },
   "language": {
@@ -195,8 +195,10 @@
     "locationLabel": "Location",
     "locationValue": "Sandwip, Chattogram, Bangladesh",
     "languages": "Languages",
-    "banglaFluent": "Bangla — Fluent",
-    "englishGood": "English — Good",
+    "bangla": "Bangla",
+    "fluent": "Fluent",
+    "english": "English",
+    "good": "Good",
     "interests": "Interests",
     "travelling": "Travelling",
     "gardening": "Gardening",
