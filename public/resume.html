@@ -93,13 +93,14 @@
     }
     .compact-card h3 { margin: 0 0 4px; color: #10243f; font-size: 8.8pt; }
     .compact-card p { margin: 0; color: #4c5e73; font-size: 7.8pt; line-height: 1.38; }
-    .experience-section {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      justify-content: space-between;
+    .experience-section { display: block; margin-top: 15px; }
+    .job {
+      margin-top: 15px;
+      border-left: 3px solid #168978;
+      background: #f8fafc;
+      padding: 15px 14px;
+      break-inside: avoid;
     }
-    .job { margin-top: 9px; break-inside: avoid; }
     .job-heading {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -161,6 +162,14 @@
     }
     .detail-block h3 { margin: 0 0 3px; font-size: 8.8pt; }
     .detail-block p { margin: 0; color: #4c5e73; font-size: 8.1pt; }
+    .page-two .content { padding-block: 20px 24px; }
+    .page-two .section { margin-top: 27px; }
+    .page-two .section:first-child { margin-top: 0; }
+    .page-two .compact-card { padding: 12px; }
+    .page-two .work-item { margin-top: 12px; padding-block: 16px; }
+    .page-two .education-item { margin-bottom: 15px; }
+    .page-two .details { gap: 12px; }
+    .page-two .detail-block { padding: 12px; }
     @page { size: A4; margin: 5mm 8mm; }
     @media print {
       body { background: #fff; }
@@ -178,7 +187,6 @@
       .page-header { grid-template-columns: 1fr; padding: 20px; }
       .contact { text-align: left; }
       .content, .page-one .content { display: block; padding: 18px 20px; }
-      .experience-section { display: block; }
       .compact-grid, .two-column { grid-template-columns: 1fr; }
       .work-item { grid-template-columns: 1fr; gap: 4px; }
       .job-heading { grid-template-columns: 1fr; gap: 1px; }
