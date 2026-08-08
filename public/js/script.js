@@ -85,6 +85,11 @@
     });
   };
 
+  const getNavigationSection = (sectionId) => ({
+    capabilities: 'home',
+    education: 'skills',
+  }[sectionId] || sectionId);
+
   const initMobileMenu = ({ button, menu, documentRef, messages = DEFAULT_LOCALE_DATA.menu }) => {
     const setIcon = (open) => {
       const icon = button.querySelector('i');
@@ -220,15 +225,13 @@
     const header = documentRef.getElementById('navbar');
     const links = documentRef.querySelectorAll('.nav-link');
     const sections = documentRef.querySelectorAll('main > section[id]');
-    const sectionMap = {
-      capabilities: 'home',
-      education: 'skills',
-    };
     const update = () => {
       header?.classList.toggle('scrolled', windowRef.scrollY > 24);
       let active = 'home';
       sections.forEach((section) => {
-        if (section.getBoundingClientRect().top <= 160) active = sectionMap[section.id] || section.id;
+        if (section.getBoundingClientRect().top <= 160) {
+          active = getNavigationSection(section.id);
+        }
       });
       setActiveNavigation(links, active);
     };
@@ -409,6 +412,7 @@
     validateContactFields,
     parseLocaleData,
     setActiveNavigation,
+    getNavigationSection,
     initMobileMenu,
     initLanguageMenu,
     initTheme,

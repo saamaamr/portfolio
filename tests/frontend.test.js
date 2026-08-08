@@ -129,6 +129,17 @@ describe('Portfolio browser behavior', () => {
     expect(links[1].getAttribute('aria-current')).toBe('location');
   });
 
+  it('maps supporting sections to the closest navigation item', () => {
+    expect(portfolio.getNavigationSection('home')).toBe('home');
+    expect(portfolio.getNavigationSection('capabilities')).toBe('home');
+    expect(portfolio.getNavigationSection('experience')).toBe('experience');
+    expect(portfolio.getNavigationSection('approach')).toBe('approach');
+    expect(portfolio.getNavigationSection('evidence')).toBe('evidence');
+    expect(portfolio.getNavigationSection('skills')).toBe('skills');
+    expect(portfolio.getNavigationSection('education')).toBe('skills');
+    expect(portfolio.getNavigationSection('contact')).toBe('contact');
+  });
+
   it('returns focus to the trigger when an open mobile menu closes', () => {
     document.body.innerHTML = `
       <button id="trigger" aria-expanded="false"></button>
