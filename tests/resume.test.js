@@ -10,19 +10,34 @@ const resumeSource = fs.readFileSync(
 const resume = new DOMParser().parseFromString(resumeSource, 'text/html');
 
 describe('English resume', () => {
-  it('uses support-only positioning and evidence-backed claims', () => {
+  it('uses universal support positioning and evidence-backed claims', () => {
     const text = resume.body.textContent.replace(/\s+/g, ' ');
+    const profile = resume.querySelector('#profile-title + .summary');
+    const pages = [...resume.querySelectorAll('article.page')];
+    const competencies = [...resume.querySelectorAll('[data-core-competency]')];
 
-    expect(text).toContain('Technical Support Engineer');
-    expect(text).toContain('7+ years in technology');
-    expect(text).not.toMatch(/50\+ workstations/i);
-    expect(text).toContain('Installed and maintained workplace hardware and software.');
-    expect(text).toContain('Open to Technical Support and remote opportunities');
-    expect(text).not.toMatch(/Web Developer|Full[- ]Stack Developer/i);
-    expect(text).not.toMatch(
-      /improved support team response|improved .*%|reduced .*%|24\/7|minimized downtime|optimized outcomes/i
+    expect(pages).toHaveLength(2);
+    expect(pages.map((page) => page.getAttribute('aria-label'))).toEqual([
+      'Resume page 1',
+      'Resume page 2',
+    ]);
+    expect(resume.querySelector('.role').textContent.trim()).toBe(
+      'Technical Support & IT Operations Professional'
     );
-    expect(text).toContain('Developer Evidence');
+    expect(profile).not.toBeNull();
+    expect(profile.textContent.trim()).toBe(
+      'Technical support and IT operations professional with 7+ years of experience across software, travel operations, and financial services. Skilled in end-user support, hardware and software troubleshooting, website maintenance, defect reproduction, documentation, and clear coordination between users, clients, and technical teams.'
+    );
+    expect(competencies).toHaveLength(3);
+    expect(competencies.map((entry) => entry.querySelector('h3').textContent.trim())).toEqual([
+      'End-user support',
+      'Website support',
+      'Communication & quality',
+    ]);
+    expect(text).toContain('Installed and maintained workplace hardware and software.');
+    expect(text).toContain('Open to Technical Support, IT Support, and remote opportunities');
+    expect(text).not.toMatch(/50\+ workstations|24\/7|improved .*%|reduced .*%/i);
+    expect(text).not.toMatch(/Web Developer|Full[- ]Stack Developer/i);
   });
 
   it('keeps recruiter-relevant education and accurate evidence boundaries', () => {
@@ -36,40 +51,40 @@ describe('English resume', () => {
     expect(text).not.toContain('S.S.C.');
     expect(text).not.toContain('Smart Attendance Tracker');
     expect(text).not.toContain('Private case study');
-    expect(text).toContain('production-grade feature scope');
-    expect(text).toContain('not deployment-ready');
-    expect(text).toContain('Collaborative work');
-    expect(text).toContain('Collaborative contribution');
   });
 
-  it('presents the verified developer evidence in the approved order', () => {
-    const entries = [...resume.querySelectorAll('[data-developer-evidence]')];
+  it('presents three curated technical-work examples in the approved order', () => {
+    const text = resume.body.textContent.replace(/\s+/g, ' ');
+    const entries = [...resume.querySelectorAll('[data-selected-work]')];
 
     expect(entries.map((entry) => entry.querySelector('h3').textContent.trim())).toEqual([
       'Noor Notes',
       'Emergency Medicine Finder',
       'House Shifting Services',
-      'PCIU CGPA Calculator',
     ]);
     expect(entries[0].textContent).toContain('Native Linux desktop application');
-    expect(entries[1].textContent).toContain('Full-stack web application');
-    expect(entries[2].textContent).toContain('Collaborative work');
-    expect(entries[3].textContent).toContain('Collaborative contribution');
+    expect(entries[1].textContent).toContain('Full-stack system prototype');
+    expect(entries[1].textContent).not.toMatch(/production-grade|deployment-ready/i);
+    expect(entries[2].textContent).toContain('Collaborative project');
+    expect(entries[2].textContent).toContain('Individual ownership is not claimed');
+    expect(text).toContain('Selected Technical Work');
+    expect(text).not.toContain('Developer Evidence');
+    expect(text).not.toContain('PCIU CGPA Calculator');
   });
 
-  it('keeps contact and public profile links clickable without exposing private source', () => {
+  it('keeps only the approved contact and public-work links clickable', () => {
     const hrefs = [...resume.querySelectorAll('a')].map((link) => link.href);
 
-    expect(hrefs.some((href) => href.startsWith('mailto:'))).toBe(true);
-    expect(hrefs.some((href) => href.startsWith('tel:'))).toBe(true);
-    expect(hrefs.some((href) => href.includes('linkedin.com'))).toBe(true);
-    expect(hrefs.some((href) => href === 'https://github.com/saamaamr')).toBe(true);
-    expect(hrefs.some((href) => href.includes('github.com/saamaamr/noor-notes'))).toBe(true);
-    expect(hrefs.some((href) => href.includes('emergency-medicine-finder'))).toBe(true);
-    expect(hrefs.some((href) => href.includes('house-shifting-services'))).toBe(true);
-    expect(hrefs.some((href) => href.includes('pciu-cgpa-calculator'))).toBe(true);
-    expect(hrefs.some((href) => href.includes('mamunsandwipi.vercel.app'))).toBe(true);
-    expect(hrefs.some((href) => /attendance/i.test(href))).toBe(false);
+    expect(hrefs).toEqual([
+      'mailto:mamun872381cpi@gmail.com',
+      'tel:+8801580831003',
+      'https://www.linkedin.com/in/abdullah-a-699a90117/',
+      'https://github.com/saamaamr',
+      'https://mamunsandwipi.vercel.app/',
+      'https://github.com/saamaamr/noor-notes',
+      'https://github.com/saamaamr/emergency-medicine-finder',
+      'https://github.com/saamaamr/house-shifting-services',
+    ]);
   });
 
   it('avoids semantic elements that Chrome maps to invalid PDF 1.4 structure roles', () => {

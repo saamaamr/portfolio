@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdullah Al Mamun — Technical Support Engineer Resume</title>
+  <title>Abdullah Al Mamun — Technical Support &amp; IT Operations Professional Resume</title>
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
@@ -11,13 +11,15 @@
       background: #e8edf4;
       color: #1c2b3e;
       font-family: Inter, "Segoe UI", Arial, sans-serif;
-      font-size: 10.3pt;
-      line-height: 1.42;
+      font-size: 9.65pt;
+      line-height: 1.36;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
     a { color: inherit; text-decoration: none; }
     .page {
+      display: flex;
+      flex-direction: column;
       width: min(194mm, calc(100% - 24px));
       min-height: 277mm;
       margin: 18px auto;
@@ -32,119 +34,133 @@
       align-items: start;
       background: #081a33;
       color: #fff;
-      padding: 20px 28px 18px;
+      padding: 15px 26px 14px;
     }
     .page-header h1 {
       margin: 0;
-      font-size: 23pt;
-      line-height: 1.05;
-      letter-spacing: -0.5px;
+      font-size: 22pt;
+      line-height: 1.04;
+      letter-spacing: -0.45px;
     }
     .role {
-      margin: 5px 0 2px;
+      margin: 4px 0 2px;
       color: #72ddcd;
-      font-size: 11.5pt;
+      font-size: 10.8pt;
       font-weight: 700;
     }
-    .location { margin: 0; color: #bdcce0; font-size: 9pt; }
+    .location { margin: 0; color: #bdcce0; font-size: 8.7pt; }
     .contact {
       display: grid;
-      gap: 2px;
-      text-align: right;
+      gap: 1px;
       color: #d8e2ee;
-      font-size: 8.6pt;
+      text-align: right;
+      font-size: 8.15pt;
+      font-style: normal;
+      line-height: 1.35;
     }
     .contact a { color: #d8e2ee; }
     .contact a:hover { text-decoration: underline; }
-    .content { padding: 17px 28px 21px; }
-    .section { margin-top: 14px; }
+    .content { padding: 14px 26px 18px; }
+    .page-one .content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    .section { margin-top: 11px; }
     .section:first-child { margin-top: 0; }
     .section-title {
-      margin: 0 0 7px;
+      margin: 0 0 6px;
       border-bottom: 1.5px solid #cbd6e3;
       color: #214fa8;
-      padding-bottom: 4px;
-      font-size: 9.4pt;
+      padding-bottom: 3px;
+      font-size: 8.8pt;
       font-weight: 800;
-      letter-spacing: 0.9px;
+      letter-spacing: 0.75px;
       text-transform: uppercase;
     }
-    .summary {
-      margin: 0;
-      color: #3f5065;
-      font-size: 9.6pt;
+    .summary { margin: 0; color: #3f5065; font-size: 9.2pt; line-height: 1.42; }
+    .compact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
     }
-    .job { margin-top: 11px; break-inside: avoid; }
-    .job:first-of-type { margin-top: 0; }
+    .compact-card {
+      border: 1px solid #d7e0ea;
+      border-radius: 6px;
+      background: #f8fafc;
+      padding: 7px 8px;
+      break-inside: avoid;
+    }
+    .compact-card h3 { margin: 0 0 4px; color: #10243f; font-size: 8.8pt; }
+    .compact-card p { margin: 0; color: #4c5e73; font-size: 7.8pt; line-height: 1.38; }
+    .experience-section {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .job { margin-top: 9px; break-inside: avoid; }
     .job-heading {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: baseline;
     }
-    .job h3, .evidence-item h3, .skill-card h3, .education-item h3 {
+    .job h3, .work-item h3, .education-item h3 {
       margin: 0;
       color: #10243f;
-      font-size: 10.3pt;
+      font-size: 9.8pt;
     }
-    .date { color: #3157c8; font-size: 8.7pt; font-weight: 700; white-space: nowrap; }
-    .company { margin: 1px 0 4px; color: #627188; font-size: 8.8pt; }
+    .date { color: #3157c8; font-size: 8.25pt; font-weight: 700; white-space: nowrap; }
+    .company { margin: 1px 0 3px; color: #627188; font-size: 8.45pt; }
     ul { margin: 0; padding-left: 17px; }
-    li { margin: 2px 0; color: #405168; font-size: 9.1pt; }
+    li { margin: 1.5px 0; color: #405168; font-size: 8.65pt; line-height: 1.35; }
     .continuation {
       border-bottom: 1px solid #d5dee9;
       background: #f4f7fb;
       color: #3157c8;
-      padding: 9px 28px;
-      font-size: 8.5pt;
+      padding: 8px 26px;
+      font-size: 8.2pt;
       font-weight: 750;
       letter-spacing: 0.7px;
       text-transform: uppercase;
     }
-    .skills-grid {
+    .work-item {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-    }
-    .skill-card {
-      border: 1px solid #d7e0ea;
-      border-radius: 7px;
-      background: #f8fafc;
-      padding: 9px;
-    }
-    .skill-card h3 { margin-bottom: 5px; font-size: 9.3pt; }
-    .skill-card p { margin: 0; color: #4c5e73; font-size: 8.3pt; }
-    .evidence-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: 145px 1fr;
       gap: 12px;
-      margin-top: 8px;
+      margin-top: 7px;
       border-bottom: 1px solid #e0e6ee;
-      padding-bottom: 8px;
+      padding-bottom: 7px;
       break-inside: avoid;
     }
-    .evidence-item:last-child { border-bottom: 0; padding-bottom: 0; }
-    .evidence-label { margin: 2px 0 0; color: #168978; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; }
-    .evidence-item p { margin: 0; color: #43556b; font-size: 8.5pt; }
-    .evidence-item a { color: #3157c8; font-weight: 700; }
-    .private { color: #6b5bd2; }
+    .work-item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .work-label {
+      margin: 2px 0 0;
+      color: #168978;
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .work-item > p { margin: 0; color: #43556b; font-size: 8.2pt; line-height: 1.38; }
+    .work-item a { color: #3157c8; font-weight: 700; }
     .two-column {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 20px;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 18px;
       align-items: start;
     }
-    .education-item { margin-bottom: 8px; break-inside: avoid; }
-    .education-item p { margin: 1px 0 0; color: #607089; font-size: 8.5pt; }
-    .education-grade { color: #3f5065; font-size: 8.4pt; font-weight: 700; }
-    .details { display: grid; gap: 9px; }
+    .education-item { margin-bottom: 7px; break-inside: avoid; }
+    .education-item p, .education-grade { margin: 1px 0 0; color: #607089; font-size: 8.15pt; }
+    .education-grade { color: #3f5065; font-weight: 700; }
+    .details { display: grid; gap: 8px; }
     .detail-block {
       border-left: 3px solid #168978;
       background: #f4f8f7;
-      padding: 8px 10px;
+      padding: 7px 9px;
     }
-    .detail-block h3 { margin: 0 0 3px; font-size: 9.2pt; }
-    .detail-block p { margin: 0; color: #4c5e73; font-size: 8.4pt; }
+    .detail-block h3 { margin: 0 0 3px; font-size: 8.8pt; }
+    .detail-block p { margin: 0; color: #4c5e73; font-size: 8.1pt; }
     @page { size: A4; margin: 5mm 8mm; }
     @media print {
       body { background: #fff; }
@@ -158,22 +174,23 @@
       .page:last-child { break-after: auto; }
     }
     @media (max-width: 680px) {
-      .page { width: 100%; margin: 0; min-height: 0; }
+      .page { display: block; width: 100%; min-height: 0; margin: 0; }
       .page-header { grid-template-columns: 1fr; padding: 20px; }
       .contact { text-align: left; }
-      .content { padding: 18px 20px; }
-      .skills-grid, .two-column { grid-template-columns: 1fr; }
-      .evidence-item { grid-template-columns: 1fr; gap: 4px; }
+      .content, .page-one .content { display: block; padding: 18px 20px; }
+      .experience-section { display: block; }
+      .compact-grid, .two-column { grid-template-columns: 1fr; }
+      .work-item { grid-template-columns: 1fr; gap: 4px; }
       .job-heading { grid-template-columns: 1fr; gap: 1px; }
     }
   </style>
 </head>
 <body>
-  <article class="page" aria-label="Resume page 1">
+  <article class="page page-one" aria-label="Resume page 1">
     <header class="page-header">
       <div>
         <h1>Abdullah Al Mamun</h1>
-        <p class="role">Technical Support Engineer</p>
+        <p class="role">Technical Support &amp; IT Operations Professional</p>
         <p class="location">Sandwip, Chattogram, Bangladesh</p>
       </div>
       <address class="contact">
@@ -186,116 +203,83 @@
     </header>
 
     <div class="content">
-      <section class="section" aria-labelledby="summary-title">
-        <h2 class="section-title" id="summary-title">Professional Summary</h2>
-        <p class="summary">Technical Support Engineer with 7+ years in technology across software, travel operations, and financial services. Experienced in diagnosing hardware, software, website, access, and workflow issues; reproducing and documenting defects; maintaining WordPress and HTML/CSS websites; and coordinating clear resolutions between users, clients, and technical teams. Created practical troubleshooting documentation. Open to Technical Support and remote opportunities.</p>
+      <section class="section" aria-labelledby="profile-title">
+        <h2 class="section-title" id="profile-title">Professional Profile</h2>
+        <p class="summary">Technical support and IT operations professional with 7+ years of experience across software, travel operations, and financial services. Skilled in end-user support, hardware and software troubleshooting, website maintenance, defect reproduction, documentation, and clear coordination between users, clients, and technical teams.</p>
       </section>
 
-      <section class="section" aria-labelledby="experience-title">
-        <h2 class="section-title" id="experience-title">Work Experience</h2>
+      <section class="section" aria-labelledby="competencies-title">
+        <h2 class="section-title" id="competencies-title">Core Competencies</h2>
+        <div class="compact-grid">
+          <article class="compact-card" data-core-competency><h3>End-user support</h3><p>Technical support · PC troubleshooting · Hardware · Software · Basic networking · File and data operations</p></article>
+          <article class="compact-card" data-core-competency><h3>Website support</h3><p>WordPress · HTML/CSS · Browser diagnostics · Bug reproduction and reporting</p></article>
+          <article class="compact-card" data-core-competency><h3>Communication &amp; quality</h3><p>Troubleshooting documentation · Client communication · Developer coordination · Accessibility awareness</p></article>
+        </div>
+      </section>
 
+      <section class="section experience-section" aria-labelledby="experience-title">
+        <h2 class="section-title" id="experience-title">Professional Experience</h2>
         <article class="job">
           <div class="job-heading"><h3>Technical Support Engineer</h3><span class="date">May 2025 — Present</span></div>
           <p class="company">Bit Apps</p>
           <ul>
-            <li>Maintain client websites using HTML, CSS, and WordPress.</li>
-            <li>Reproduce, document, and report software defects for development review.</li>
+            <li>Maintain and troubleshoot client websites using WordPress, HTML, and CSS.</li>
+            <li>Reproduce and document reported software issues for development review.</li>
             <li>Create troubleshooting guides and reusable support notes.</li>
             <li>Coordinate technical communication between clients and internal teams.</li>
           </ul>
         </article>
-
         <article class="job">
           <div class="job-heading"><h3>Senior Executive</h3><span class="date">January 2020 — April 2025</span></div>
           <p class="company">Kurnia Holiday Travels</p>
           <ul>
-            <li>Managed IT infrastructure, hardware installation, and software maintenance across departments.</li>
+            <li>Supported day-to-day IT infrastructure, hardware installation, and software maintenance across departments.</li>
             <li>Analyzed operational data for promotion and budget decisions.</li>
             <li>Coordinated workplace technology needs across departments.</li>
           </ul>
         </article>
-
         <article class="job">
           <div class="job-heading"><h3>Junior IT Officer</h3><span class="date">January 2019 — December 2019</span></div>
           <p class="company">Century Securities Limited</p>
           <ul>
             <li>Provided technical support and data management in a time-sensitive stock-exchange environment.</li>
             <li>Installed and maintained workplace hardware and software.</li>
-            <li>Performed routine checks and responded to reported workstation issues.</li>
+            <li>Performed routine system checks and responded to reported workstation issues.</li>
           </ul>
         </article>
       </section>
     </div>
   </article>
 
-  <article class="page" aria-label="Resume page 2">
-    <div class="continuation">Abdullah Al Mamun · Technical Support Engineer</div>
+  <article class="page page-two" aria-label="Resume page 2">
+    <div class="continuation">Abdullah Al Mamun · Technical Support &amp; IT Operations Professional</div>
     <div class="content">
-      <section class="section" aria-labelledby="skills-title">
-        <h2 class="section-title" id="skills-title">Technical Support Skills</h2>
-        <div class="skills-grid">
-          <article class="skill-card">
-            <h3>Support &amp; operations</h3>
-            <p>Technical support · PC troubleshooting · Hardware · Software · Networking · File management · Data operations</p>
-          </article>
-          <article class="skill-card">
-            <h3>Website &amp; product support</h3>
-            <p>WordPress · HTML/CSS · Browser diagnostics · Bug reproduction · REST API awareness · SQL awareness</p>
-          </article>
-          <article class="skill-card">
-            <h3>Quality &amp; communication</h3>
-            <p>Documentation · GitHub · Postman · Jest · Accessibility · Client communication · Developer coordination</p>
-          </article>
+      <section class="section" aria-labelledby="toolkit-title">
+        <h2 class="section-title" id="toolkit-title">Technical Toolkit</h2>
+        <div class="compact-grid toolkit-grid">
+          <article class="compact-card"><h3>Support &amp; operations</h3><p>Hardware · Software · Basic networking · File management · Data operations</p></article>
+          <article class="compact-card"><h3>Web &amp; diagnostics</h3><p>WordPress · HTML/CSS · Browser diagnostics · REST API awareness · SQL awareness</p></article>
+          <article class="compact-card"><h3>Workflow &amp; quality</h3><p>GitHub · Postman · Jest · Documentation · Accessibility awareness</p></article>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="evidence-title">
-        <h2 class="section-title" id="evidence-title">Developer Evidence</h2>
-        <article class="evidence-item" data-developer-evidence>
-          <div><h3>Noor Notes</h3><p class="evidence-label">Native Linux desktop application</p></div>
-          <p>Rust, GTK4, and libadwaita notes application with library and editor views, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, and automated verification. <a href="https://github.com/saamaamr/noor-notes">Public repository</a></p>
-        </article>
-        <article class="evidence-item" data-developer-evidence>
-          <div><h3>Emergency Medicine Finder</h3><p class="evidence-label">Full-stack web application</p></div>
-          <p>Node.js, Express, EJS, and MySQL system with a production-grade feature scope across user, shopkeeper, and admin roles, inventory, requests, sales, expenses, exports, backups, validation, and tests. It is not deployment-ready while documented security and validation remediation remains. <a href="https://github.com/saamaamr/emergency-medicine-finder">Public repository</a></p>
-        </article>
-        <article class="evidence-item" data-developer-evidence>
-          <div><h3>House Shifting Services</h3><p class="evidence-label">Collaborative work</p></div>
-          <p>Collaborative Node.js, Express, EJS, and MySQL service-booking system with user, worker, and admin flows. Individual contribution boundaries are not claimed. <a href="https://github.com/saamaamr/house-shifting-services">Public repository</a></p>
-        </article>
-        <article class="evidence-item" data-developer-evidence>
-          <div><h3>PCIU CGPA Calculator</h3><p class="evidence-label">Collaborative contribution</p></div>
-          <p>Presented as collaborative work, with no claim that it was built independently and no specific individual contribution claimed. <a href="https://github.com/saamaamr/pciu-cgpa-calculator">Public repository</a></p>
-        </article>
+      <section class="section" aria-labelledby="work-title">
+        <h2 class="section-title" id="work-title">Selected Technical Work</h2>
+        <article class="work-item" data-selected-work><div><h3>Noor Notes</h3><p class="work-label">Native Linux desktop application</p></div><p>Rust, GTK4, and libadwaita notes application with library and editor views, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, and automated verification. <a href="https://github.com/saamaamr/noor-notes">Public repository</a></p></article>
+        <article class="work-item" data-selected-work><div><h3>Emergency Medicine Finder</h3><p class="work-label">Full-stack system prototype</p></div><p>Node.js, Express, EJS, and MySQL prototype covering user, shopkeeper, and admin roles, inventory, requests, sales, expenses, exports, backups, validation, and tests. <a href="https://github.com/saamaamr/emergency-medicine-finder">Public repository</a></p></article>
+        <article class="work-item" data-selected-work><div><h3>House Shifting Services</h3><p class="work-label">Collaborative project</p></div><p>Collaborative Node.js, Express, EJS, and MySQL service-booking project with user, worker, and admin workflows. Individual ownership is not claimed. <a href="https://github.com/saamaamr/house-shifting-services">Public repository</a></p></article>
       </section>
 
       <div class="two-column section">
         <section aria-labelledby="education-title">
           <h2 class="section-title" id="education-title">Education &amp; Certification</h2>
-          <article class="education-item">
-            <h3>B.Sc. in Computer Science Engineering</h3>
-            <p>Port City International University, Chattogram · 2023</p>
-            <p class="education-grade">GPA 3.76 / 4.00</p>
-          </article>
-          <article class="education-item">
-            <h3>Diploma in Engineering, Computer Technology</h3>
-            <p>Chittagong Polytechnic Institute, Chattogram · 2018</p>
-          </article>
-          <article class="education-item">
-            <h3>IT Support Technician, Levels 1 &amp; 2</h3>
-            <p>Bangladesh-Korea Technical Training Centre, Chattogram · 2017</p>
-          </article>
+          <article class="education-item"><h3>B.Sc. in Computer Science Engineering</h3><p>Port City International University, Chattogram · 2023</p><p class="education-grade">GPA 3.76 / 4.00</p></article>
+          <article class="education-item"><h3>Diploma in Engineering, Computer Technology</h3><p>Chittagong Polytechnic Institute, Chattogram · 2018</p></article>
+          <article class="education-item"><h3>IT Support Technician, Levels 1 &amp; 2</h3><p>Bangladesh-Korea Technical Training Centre, Chattogram · 2017</p></article>
         </section>
-
         <div class="details" role="group" aria-label="Additional details">
-          <section class="detail-block">
-            <h3>Languages</h3>
-            <p>Bangla — Fluent<br>English — Good</p>
-          </section>
-          <section class="detail-block">
-            <h3>Availability</h3>
-            <p>Open to Technical Support and remote opportunities</p>
-          </section>
+          <section class="detail-block"><h3>Languages</h3><p>Bangla — Fluent<br>English — Good</p></section>
+          <section class="detail-block"><h3>Availability</h3><p>Open to Technical Support, IT Support, and remote opportunities</p></section>
         </div>
       </div>
     </div>
