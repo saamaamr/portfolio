@@ -1,6 +1,6 @@
 # Abdullah Al Mamun — Technical Support Engineer Portfolio
 
-A professional portfolio focused on Abdullah Al Mamun's Technical Support Engineer experience: user support, website support, IT operations, issue investigation, documentation, and evidence from systems he has worked on. It combines recruiter-focused content with accessible interactions, six server-rendered languages, secure contact handling, and responsive presentation.
+A professional portfolio focused on Abdullah Al Mamun's Technical Support Engineer experience: user support, website support, IT operations, issue investigation, documentation, and evidence from systems he has worked on. It combines recruiter-focused content with accessible interactions, six server-rendered portfolio languages, secure contact handling, and responsive presentation.
 
 ## Live Portfolio
 
@@ -24,6 +24,8 @@ Visit [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app).
 
 American English is the default. Language selection uses stable URL routes, so every translation can be linked, indexed, and shared directly.
 
+These six options describe the languages available on the portfolio; they are not a claim of personal fluency. The English profile lists personal language ability separately as Bangla — Fluent and English — Good.
+
 | Language | Route | Locale | Direction | Status |
 | --- | --- | --- | --- | --- |
 | American English | [`/`](https://mamunsandwipi.vercel.app/) | `en-US` | LTR | Default |
@@ -32,6 +34,14 @@ American English is the default. Language selection uses stable URL routes, so e
 | Arabic | [`/ar`](https://mamunsandwipi.vercel.app/ar) | `ar` | RTL | Translated |
 | Spanish | [`/es`](https://mamunsandwipi.vercel.app/es) | `es` | LTR | Translated |
 | French | [`/fr`](https://mamunsandwipi.vercel.app/fr) | `fr` | LTR | Translated |
+
+## Evidence and Attribution
+
+- Noor Notes and Emergency Medicine Finder link to public source repositories.
+- Smart Attendance Tracker is presented only as a redacted private case study, with no repository URL, credentials, employer identity, or personal attendance data.
+- Emergency Medicine Finder describes its feature scope while keeping documented deployment-readiness limitations visible.
+- House Shifting Services is identified as collaborative work and is not presented as an independently built project.
+- The portfolio does not use unverified percentages, performance outcomes, or unsupported availability claims.
 
 ## Technology
 
