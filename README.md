@@ -1,6 +1,6 @@
 # Abdullah Al Mamun — Technical Support Engineer Portfolio
 
-A production-ready portfolio presenting technical support, website maintenance, IT operations, troubleshooting, and full-stack development experience. It combines recruiter-focused content with accessible interactions, six server-rendered languages, secure contact handling, and responsive presentation.
+A professional portfolio focused on Abdullah Al Mamun's Technical Support Engineer experience: user support, website support, IT operations, issue investigation, documentation, and evidence from systems he has worked on. It combines recruiter-focused content with accessible interactions, six server-rendered languages, secure contact handling, and responsive presentation.
 
 ## Live Portfolio
 
@@ -8,7 +8,8 @@ Visit [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app).
 
 ## Highlights
 
-- Resume-first introduction with capabilities, professional experience, selected projects, skills, education, and contact sections
+- Support-first Summary, Capabilities, Experience, Approach, Evidence, Skills, Education, and Contact sections
+- Evidence policy with two public repositories, one redacted private case study, visible remediation limits, and clear collaborative attribution
 - Server-rendered American English, Bangla, Hindi, Arabic, Spanish, and French content
 - Accessible language selector with localized navigation, forms, validation, metadata, and error pages
 - Right-to-left layout support for Arabic and responsive layouts for desktop, tablet, and mobile
@@ -17,7 +18,7 @@ Visit [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app).
 - Contact API with client/server validation, rate limiting, payload limits, SMTP retry handling, and safe error responses
 - Nonce-based Content Security Policy, security headers, structured data, canonical links, hreflang alternates, sitemap, and robots file
 - Lightweight canvas ambience, reveal effects, counters, and localized typewriter content
-- Browser-ready HTML Resume with PDF generation support
+- Browser-ready English Resume with tagged two-page A4 PDF generation support
 
 ## Languages
 
@@ -39,7 +40,7 @@ American English is the default. Language selection uses stable URL routes, so e
 - Tailwind CSS v4 with custom responsive and RTL styles
 - Vanilla JavaScript for theme, navigation, validation, animation, and language-menu behavior
 - Nodemailer for SMTP delivery with retry handling
-- Helmet, compression, rate limiting, validation, and structured logging for production hardening
+- Helmet, compression, rate limiting, validation, and structured logging for application security controls
 - Jest, Supertest, jsdom, jest-axe, and Puppeteer Core for automated and browser verification
 - Vercel serverless deployment
 
@@ -115,6 +116,7 @@ views/                     EJS pages and reusable partials
 public/css/input.css      Source styles, responsive rules, and RTL overrides
 public/css/output.css     Generated minified production stylesheet
 public/js/                Theme, menus, forms, animation, and canvas behavior
+public/assets/evidence/   Reviewed screenshot and disclosure-safe evidence diagrams
 public/resume.html        Printable Resume source
 public/sitemap.xml        Search-engine routes for every supported language
 scripts/generate-pdf.js   Resume PDF generation
@@ -141,11 +143,10 @@ Validation limits are 100 characters for `name`, 254 characters for `email`, and
 
 The current implementation has been verified with:
 
-- 61 automated tests across 8 suites
-- 12 browser combinations covering all 6 locales at desktop and mobile widths
+- 78 automated tests across 9 suites
+- Browser checks covering English desktop/mobile, Bangla mobile, Arabic desktop/mobile RTL, and French tablet layouts
 - Accessibility coverage through jest-axe, semantic document tests, and keyboard interaction tests
 - A successful minified production CSS build
-- Zero vulnerabilities in the latest full npm dependency audit
 - Canonical, hreflang, sitemap, RTL, responsive-overflow, localized-validation, and Content Security Policy checks
 
 ## Deployment
