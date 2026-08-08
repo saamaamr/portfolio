@@ -100,6 +100,27 @@ describe('Portfolio document', () => {
     expect(rows.every((row) => row.querySelector('dd').textContent.trim().length > 0)).toBe(true);
   });
 
+  it('publishes the Instagram profile consistently across social surfaces', () => {
+    const instagramUrl = 'https://www.instagram.com/m_a_a_mamun';
+    const heroLink = page.querySelector(`.hero-socials a[href="${instagramUrl}"]`);
+    const footerLink = page.querySelector(`.footer-links a[href="${instagramUrl}"]`);
+    const contactLink = page.querySelector(`.contact-panel a[href="${instagramUrl}"]`);
+    const profileData = JSON.parse(
+      page.querySelector('script[type="application/ld+json"]').textContent
+    );
+
+    [heroLink, footerLink, contactLink].forEach((link) => {
+      expect(link).not.toBeNull();
+      expect(link.getAttribute('target')).toBe('_blank');
+      expect(link.getAttribute('rel')).toBe('noopener noreferrer');
+    });
+    expect(heroLink.textContent.trim()).toBe('Instagram');
+    expect(footerLink.getAttribute('aria-label')).toBe('Instagram');
+    expect(contactLink.textContent).toContain('Instagram');
+    expect(contactLink.textContent).toContain('@m_a_a_mamun');
+    expect(profileData.sameAs).toContain(instagramUrl);
+  });
+
   it('uses the approved support-first information architecture', () => {
     const sectionIds = [...page.querySelectorAll('main > section[id]')].map(
       (section) => section.id
