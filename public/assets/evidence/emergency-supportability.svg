@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title description">
+  <title id="title">Emergency Medicine Finder supportability review</title>
+  <desc id="description">A review board showing documented workflows, validation and tests, backup and export, and open remediation priorities.</desc>
+  <rect width="900" height="560" rx="32" fill="#f4f0e8"/>
+  <rect x="36" y="36" width="828" height="488" rx="24" fill="#fff" stroke="#d5dce6" stroke-width="3"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="90" fill="#0c2141" font-size="28" font-weight="800">Supportability review</text>
+    <text x="72" y="122" fill="#607089" font-size="17">Feature scope and documented limitations</text>
+    <g transform="translate(72 158)">
+      <rect width="350" height="112" rx="18" fill="#e8f3ff"/>
+      <circle cx="42" cy="42" r="18" fill="#3157c8"/>
+      <path d="m33 42 7 7 13-16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="76" y="40" fill="#102441" font-size="19" font-weight="750">Roles &amp; workflows</text>
+      <text x="76" y="68" fill="#52637a" font-size="15">Operational paths documented</text>
+    </g>
+    <g transform="translate(478 158)">
+      <rect width="350" height="112" rx="18" fill="#eaf8f4"/>
+      <circle cx="42" cy="42" r="18" fill="#168978"/>
+      <path d="m33 42 7 7 13-16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="76" y="40" fill="#102441" font-size="19" font-weight="750">Validation &amp; tests</text>
+      <text x="76" y="68" fill="#52637a" font-size="15">Automated checks present</text>
+    </g>
+    <g transform="translate(72 294)">
+      <rect width="350" height="112" rx="18" fill="#eef0ff"/>
+      <circle cx="42" cy="42" r="18" fill="#6b5bd2"/>
+      <path d="M32 33h20v18H32zM38 33v7h8v-7" fill="none" stroke="#fff" stroke-width="3"/>
+      <text x="76" y="40" fill="#102441" font-size="19" font-weight="750">Backup &amp; export</text>
+      <text x="76" y="68" fill="#52637a" font-size="15">Recovery paths reviewed</text>
+    </g>
+    <g transform="translate(478 294)">
+      <rect width="350" height="182" rx="18" fill="#fff2ea" stroke="#eead80" stroke-width="2"/>
+      <circle cx="42" cy="42" r="18" fill="#c35c24"/>
+      <path d="M42 31v15m0 8v1" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <text x="76" y="40" fill="#102441" font-size="19" font-weight="750">Remediation priorities</text>
+      <text x="30" y="83" fill="#74411f" font-size="15">CSRF · rate limits · security headers</text>
+      <text x="30" y="112" fill="#74411f" font-size="15">cookies · validation · uploads</text>
+      <rect x="30" y="135" width="132" height="28" rx="14" fill="#c35c24"/>
+      <text x="96" y="154" fill="#fff" font-size="13" font-weight="750" text-anchor="middle">OPEN WORK</text>
+    </g>
+    <text x="72" y="478" fill="#607089" font-size="15">Not presented as deployment-ready</text>
+  </g>
+</svg>

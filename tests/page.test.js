@@ -86,6 +86,25 @@ describe('Portfolio document', () => {
     );
   });
 
+  it('uses local, truthful visuals for every evidence card', () => {
+    const images = [...page.querySelectorAll('[data-evidence-card] img')];
+    const expectedSources = [
+      '/assets/evidence/noor-notes-library.png',
+      '/assets/evidence/attendance-sync.svg',
+      '/assets/evidence/emergency-supportability.svg',
+    ];
+
+    expect(images.map((image) => image.getAttribute('src'))).toEqual(expectedSources);
+    images.forEach((image) => {
+      expect(image.getAttribute('alt').trim()).not.toBe('');
+      expect(image.getAttribute('loading')).toBe('lazy');
+    });
+    expectedSources.forEach((source) => {
+      expect(fs.existsSync(path.join(__dirname, '..', 'public', source))).toBe(true);
+    });
+    expect(page.documentElement.innerHTML).not.toContain('images.unsplash.com');
+  });
+
   it('does not inflate positioning, ownership, outcomes, or readiness', () => {
     const text = page.body.textContent.replace(/\s+/g, ' ');
 
@@ -240,5 +259,10 @@ describe('Portfolio document', () => {
     expect(css).toContain('.brand-logo-dark');
     expect(css).toContain('.dark .brand-logo-light');
     expect(css).toContain('.brand-name');
+    expect(css).toContain('.hero-proof-grid');
+    expect(css).toContain('.approach-grid');
+    expect(css).toContain('.evidence-grid');
+    expect(css).toContain('.evidence-limitations');
+    expect(css).toContain('.timeline-content');
   });
 });
