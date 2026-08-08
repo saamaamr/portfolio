@@ -22,6 +22,8 @@ The repository-history card is a keyboard-accessible external link to the GitHub
 
 The card keeps the existing reveal behavior. It is not a numeric counter, so `Since 2022` is rendered as static text rather than using the counter JavaScript.
 
+The primary hero CTA changes from `View support experience` to `View experience` in all six locales. Its destination remains `#experience`, and its existing button styling and icon remain unchanged.
+
 ## Claim removal
 
 Remove `50+ workstations` and equivalent localized claims from:
