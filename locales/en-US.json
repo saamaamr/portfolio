@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "title": "Abdullah Al Mamun | Technical Support Engineer",
+    "description": "Abdullah Al Mamun is a Technical Support Engineer experienced in website maintenance, IT operations, troubleshooting, and full-stack web development.",
+    "socialDescription": "Technical support, website maintenance, systems operations, and practical web development.",
+    "structuredDescription": "Technical Support Engineer focused on reliable support, website operations, and practical web systems."
+  },
+  "a11y": {
+    "skip": "Skip to main content",
+    "mainNavigation": "Main navigation",
+    "portfolioSections": "Portfolio sections",
+    "professionalProfiles": "Professional profiles",
+    "careerHighlights": "Career highlights",
+    "languagesInterests": "Languages and interests",
+    "socialLinks": "Social links"
+  },
+  "language": {
+    "open": "Choose language",
+    "close": "Close language menu"
+  },
+  "nav": {
+    "homeLabel": "Abdullah Al Mamun, home",
+    "summary": "Summary",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "resume": "Résumé",
+    "downloadResume": "Download résumé",
+    "themeTitle": "Change color theme",
+    "mobileNavigation": "Mobile navigation"
+  },
+  "hero": {
+    "status": "Open to discussions",
+    "eyebrow": "Technical support · Web operations · Development",
+    "title": "Technical Support Engineer",
+    "intro": "I keep people, websites, and systems moving—combining practical IT support with hands-on web development and clear technical communication.",
+    "alsoExperienced": "Also experienced in",
+    "typewriterSummary": "website maintenance, full-stack development, and technical documentation.",
+    "downloadResume": "Download résumé",
+    "startConversation": "Start a conversation",
+    "email": "Email",
+    "portraitAlt": "Abdullah Al Mamun",
+    "basedIn": "Based in",
+    "location": "Chattogram, Bangladesh",
+    "currentRole": "Current role",
+    "focus": "Focus",
+    "focusValue": "Reliable support & web systems"
+  },
+  "capabilities": {
+    "eyebrow": "How I contribute",
+    "title": "Support that connects people and technology",
+    "intro": "I bring a calm, practical approach to troubleshooting, documentation, website maintenance, and cross-team communication.",
+    "supportTitle": "User & technical support",
+    "supportBody": "Diagnose hardware, software, access, and workflow problems while keeping users informed.",
+    "troubleshootingTitle": "Troubleshooting",
+    "troubleshootingBody": "Reproduce issues, isolate root causes, document findings, and coordinate fixes with development teams.",
+    "websiteTitle": "Website operations",
+    "websiteBody": "Maintain and improve HTML, CSS, and WordPress websites with attention to usability and reliability.",
+    "systemsTitle": "Systems & development",
+    "systemsBody": "Build practical Node.js, Express, and MySQL solutions informed by real operational needs."
+  },
+  "metrics": {
+    "years": "Years in tech",
+    "workstations": "Workstations supported",
+    "projects": "Projects built",
+    "industries": "Industries served"
+  },
+  "experience": {
+    "eyebrow": "Professional journey",
+    "title": "Experience built around reliability",
+    "bitAppsRole": "Technical Support Engineer",
+    "bitAppsSummary": "Maintain and enhance client websites while translating user-reported problems into clear, actionable information for development teams.",
+    "bitAppsBullet1": "Maintain HTML, CSS, and WordPress websites.",
+    "bitAppsBullet2": "Reproduce, document, and report software defects.",
+    "bitAppsBullet3": "Create troubleshooting guides that improve support workflows.",
+    "bitAppsBullet4": "Coordinate technical communication between clients and internal teams.",
+    "technicalSupport": "Technical Support",
+    "documentation": "Documentation",
+    "bugReporting": "Bug Reporting",
+    "seniorRole": "Senior Executive",
+    "seniorSummary": "Combined operational leadership with day-to-day responsibility for dependable workplace technology.",
+    "seniorBullet1": "Managed IT infrastructure, hardware, and software maintenance.",
+    "seniorBullet2": "Analyzed operational data for promotion and budget decisions.",
+    "seniorBullet3": "Supported continuous system availability across departments.",
+    "itOperations": "IT Operations",
+    "dataAnalysis": "Data Analysis",
+    "coordination": "Coordination",
+    "juniorRole": "Junior IT Officer",
+    "juniorSummary": "Delivered responsive technical support in a time-sensitive stock-exchange environment.",
+    "juniorBullet1": "Installed and maintained hardware and software for 50+ workstations.",
+    "juniorBullet2": "Supported data management and daily trading operations.",
+    "juniorBullet3": "Minimized downtime through proactive checks and rapid troubleshooting.",
+    "desktopSupport": "Desktop Support",
+    "hardware": "Hardware",
+    "dataManagement": "Data Management"
+  },
+  "projects": {
+    "eyebrow": "Technical evidence",
+    "title": "3 selected projects",
+    "intro": "Hands-on applications that demonstrate database design, authentication, workflow thinking, testing, and deployment.",
+    "healthcare": "Healthcare",
+    "fullStack": "Full-stack",
+    "medicineAlt": "Medicine packaging representing the Emergency Medicine Finder project",
+    "medicineBody": "A production-grade platform with three user roles, a 17-table MySQL schema, 82+ API routes, secure uploads, email verification, stock transfers, reporting, backups, and data export.",
+    "relocation": "Relocation",
+    "houseAlt": "Team collaboration representing the House Shifting Service project",
+    "houseBody": "A relocation workflow system for customers, workers, and administrators with role-specific dashboards, JWT authentication, request assignment, and status tracking.",
+    "education": "Education",
+    "webApp": "Web app",
+    "calculatorAlt": "Mathematical notes representing the PCIU CGPA Calculator project",
+    "calculatorBody": "A student-focused calculator that retrieves results by ID and computes CGPA from live academic data using a Node.js and Express service.",
+    "viewSource": "View source code"
+  },
+  "skills": {
+    "eyebrow": "Working toolkit",
+    "title": "Skills organized around the job",
+    "intro": "A combined view of support capabilities, web operations, development foundations, and delivery tools.",
+    "supportTitle": "Support & operations",
+    "technicalSupport": "Technical Support",
+    "troubleshooting": "PC Troubleshooting",
+    "hardware": "Hardware",
+    "software": "Software",
+    "networking": "Networking",
+    "fileManagement": "File Management",
+    "bugReporting": "Bug Reporting",
+    "websiteTitle": "Website maintenance",
+    "accessibility": "Accessibility",
+    "developmentTitle": "Development",
+    "toolsTitle": "Tools & quality",
+    "documentation": "Documentation"
+  },
+  "education": {
+    "eyebrow": "Education & certification",
+    "title": "A practical technical foundation",
+    "bachelor": "B.Sc. in Computer Science Engineering",
+    "diploma": "Diploma in Engineering, Computer Technology",
+    "supportCertificate": "IT Support Technician, Levels 1 & 2",
+    "professionalCertification": "Professional certification",
+    "ssc": "S.S.C., Business Studies"
+  },
+  "contact": {
+    "eyebrow": "Let’s connect",
+    "title": "Start a practical conversation",
+    "intro": "If you are hiring for technical support, IT operations, or web support, I would be glad to discuss how I can contribute.",
+    "direct": "Direct contact",
+    "email": "Email",
+    "phone": "Phone",
+    "nameLabel": "Your name",
+    "emailLabel": "Your email",
+    "messageLabel": "Message",
+    "messageHint": "Please include at least 20 characters.",
+    "send": "Send message",
+    "languages": "Languages",
+    "banglaFluent": "Bangla — Fluent",
+    "englishGood": "English — Good",
+    "interests": "Interests",
+    "travelling": "Travelling",
+    "gardening": "Gardening",
+    "cycling": "Cycling",
+    "photography": "Photography"
+  },
+  "footer": {
+    "tagline": "Technical support, reliable systems, and thoughtful web solutions.",
+    "copyright": "All rights reserved."
+  },
+  "notFound": {
+    "error": "Error 404",
+    "title": "Page Not Found",
+    "body": "The page you requested does not exist or may have moved.",
+    "home": "Return home"
+  },
+  "client": {
+    "theme": {
+      "light": "Switch to light mode",
+      "dark": "Switch to dark mode"
+    },
+    "menu": {
+      "open": "Open navigation menu",
+      "close": "Close navigation menu"
+    },
+    "languageMenu": {
+      "open": "Choose language",
+      "close": "Close language menu"
+    },
+    "typewriterPhrases": [
+      "website maintenance",
+      "technical documentation",
+      "full-stack development"
+    ],
+    "form": {
+      "nameRequired": "Name is required.",
+      "nameTooLong": "Name must not exceed 100 characters.",
+      "emailRequired": "Email is required.",
+      "emailTooLong": "Email must not exceed 254 characters.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Message is required.",
+      "messageTooLong": "Message must not exceed 5000 characters.",
+      "messageTooShort": "Message must be at least 20 characters long.",
+      "correctFields": "Please correct the highlighted fields.",
+      "sending": "Sending your message…",
+      "success": "Thank you! Your message has been received successfully.",
+      "unexpectedResponse": "The server returned an unexpected response.",
+      "serviceError": "Unable to send your message. Please try again."
+    }
+  }
+}
