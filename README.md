@@ -1,6 +1,6 @@
 # Abdullah Al Mamun — Technical Support Engineer Portfolio
 
-A professional portfolio focused on Abdullah Al Mamun's Technical Support Engineer experience: user support, website support, IT operations, issue investigation, documentation, and evidence from systems he has worked on. It combines recruiter-focused content with accessible interactions, six server-rendered portfolio languages, secure contact handling, and responsive presentation.
+A recruiter-focused portfolio for Abdullah Al Mamun, presenting Technical Support Engineer experience across user support, website support, IT operations, issue investigation, documentation, and technical project work. The application combines server-rendered localization, accessible interactions, secure contact handling, a downloadable two-page resume, and responsive light and dark themes.
 
 ## Live Portfolio
 
@@ -8,6 +8,7 @@ Visit [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app).
 
 ## Highlights
 
+- Refined recruiter-focused hero with balanced portrait metadata, concise career evidence, and direct experience and contact actions
 - Support-first Summary, Capabilities, Experience, Approach, Evidence, Skills, Education, and Contact sections
 - Developer Evidence with three primary public repositories, a separate collaborative contribution, visible remediation limits, and clear attribution
 - Server-rendered American English, Bangla, Hindi, Arabic, Spanish, and French content
@@ -17,8 +18,9 @@ Visit [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app).
 - Light and dark themes with saved preferences and system-theme fallback
 - Contact API with client/server validation, rate limiting, payload limits, SMTP retry handling, and safe error responses
 - Nonce-based Content Security Policy, security headers, structured data, canonical links, hreflang alternates, sitemap, and robots file
-- Lightweight canvas ambience, reveal effects, counters, and localized typewriter content
-- Browser-ready English Resume with tagged two-page A4 PDF generation support
+- Lightweight canvas ambience, reveal effects, counters, and reduced-motion-aware localized rotating text
+- GitHub, LinkedIn, Facebook, Instagram, email, phone, WhatsApp, and Messenger contact paths with accessible labels
+- Browser-ready English resume with a tagged two-page A4 PDF: Technical Toolkit stays on page one and Selected Technical Work opens page two
 
 ## Languages
 
@@ -154,7 +156,7 @@ Validation limits are 100 characters for `name`, 254 characters for `email`, and
 
 The current implementation has been verified with:
 
-- 78 automated tests across 9 suites
+- 84 automated tests across 9 suites
 - Browser checks covering English desktop/mobile, Bangla mobile, Arabic desktop/mobile RTL, and French tablet layouts
 - Accessibility coverage through jest-axe, semantic document tests, and keyboard interaction tests
 - A successful minified production CSS build
