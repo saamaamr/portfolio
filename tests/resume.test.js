@@ -21,7 +21,7 @@ describe('English resume', () => {
     expect(text).not.toMatch(
       /improved support team response|improved .*%|reduced .*%|24\/7|minimized downtime|optimized outcomes/i
     );
-    expect(text).not.toContain('PCIU CGPA Calculator');
+    expect(text).toContain('Developer Evidence');
   });
 
   it('keeps recruiter-relevant education and accurate evidence boundaries', () => {
@@ -33,9 +33,27 @@ describe('English resume', () => {
     expect(text).toContain('IT Support Technician, Levels 1 & 2');
     expect(text).not.toContain('GPA 2.62');
     expect(text).not.toContain('S.S.C.');
-    expect(text).toContain('Private case study');
+    expect(text).not.toContain('Smart Attendance Tracker');
+    expect(text).not.toContain('Private case study');
     expect(text).toContain('production-grade feature scope');
     expect(text).toContain('not deployment-ready');
+    expect(text).toContain('Collaborative work');
+    expect(text).toContain('Collaborative contribution');
+  });
+
+  it('presents the verified developer evidence in the approved order', () => {
+    const entries = [...resume.querySelectorAll('[data-developer-evidence]')];
+
+    expect(entries.map((entry) => entry.querySelector('h3').textContent.trim())).toEqual([
+      'Noor Notes',
+      'Emergency Medicine Finder',
+      'House Shifting Services',
+      'PCIU CGPA Calculator',
+    ]);
+    expect(entries[0].textContent).toContain('Native Linux desktop application');
+    expect(entries[1].textContent).toContain('Full-stack web application');
+    expect(entries[2].textContent).toContain('Collaborative work');
+    expect(entries[3].textContent).toContain('Collaborative contribution');
   });
 
   it('keeps contact and public profile links clickable without exposing private source', () => {
@@ -47,6 +65,8 @@ describe('English resume', () => {
     expect(hrefs.some((href) => href === 'https://github.com/saamaamr')).toBe(true);
     expect(hrefs.some((href) => href.includes('github.com/saamaamr/noor-notes'))).toBe(true);
     expect(hrefs.some((href) => href.includes('emergency-medicine-finder'))).toBe(true);
+    expect(hrefs.some((href) => href.includes('house-shifting-services'))).toBe(true);
+    expect(hrefs.some((href) => href.includes('pciu-cgpa-calculator'))).toBe(true);
     expect(hrefs.some((href) => href.includes('mamunsandwipi.vercel.app'))).toBe(true);
     expect(hrefs.some((href) => /attendance/i.test(href))).toBe(false);
   });
