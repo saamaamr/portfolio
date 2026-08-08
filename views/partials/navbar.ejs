@@ -1,35 +1,50 @@
 <header id="navbar" class="site-header">
-  <nav class="nav-shell" aria-label="Main navigation">
-    <a href="#home" class="brand" aria-label="Abdullah Al Mamun, home">
+  <nav class="nav-shell" aria-label="<%= t('a11y.mainNavigation') %>">
+    <a href="#home" class="brand" aria-label="<%= t('nav.homeLabel') %>">
       <img src="/favicon.svg" alt="" width="36" height="36" />
       <span>Abdullah Al Mamun</span>
     </a>
 
-    <div class="desktop-nav" aria-label="Portfolio sections">
-      <a href="#home" class="nav-link active-nav" data-section="home" aria-current="location">Summary</a>
-      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-      <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-      <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+    <div class="desktop-nav" aria-label="<%= t('a11y.portfolioSections') %>">
+      <a href="#home" class="nav-link active-nav" data-section="home" aria-current="location"><%= t('nav.summary') %></a>
+      <a href="#experience" class="nav-link" data-section="experience"><%= t('nav.experience') %></a>
+      <a href="#projects" class="nav-link" data-section="projects"><%= t('nav.projects') %></a>
+      <a href="#skills" class="nav-link" data-section="skills"><%= t('nav.skills') %></a>
+      <a href="#contact" class="nav-link" data-section="contact"><%= t('nav.contact') %></a>
     </div>
 
     <div class="nav-actions">
-      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode" title="Change color theme">
+      <div class="language-switcher">
+        <button id="language-toggle" class="language-button" type="button" aria-expanded="false" aria-controls="language-menu" aria-label="<%= t('language.open') %>">
+          <i class="fas fa-language" aria-hidden="true"></i>
+          <span><%= languages.find((item) => item.code === locale).nativeName %></span>
+          <i class="fas fa-chevron-down language-chevron" aria-hidden="true"></i>
+        </button>
+        <div id="language-menu" class="language-menu" hidden>
+          <% languages.forEach((language) => { %>
+            <a href="<%= language.path %>" lang="<%= language.lang %>" dir="<%= language.dir %>" data-language-option <%- language.code === locale ? 'aria-current="page"' : '' %>>
+              <span><%= language.nativeName %></span>
+              <% if (language.code === locale) { %><i class="fas fa-check" aria-hidden="true"></i><% } %>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="<%= t('client.theme.dark') %>" title="<%= t('nav.themeTitle') %>">
         <i class="fas fa-moon" aria-hidden="true"></i>
       </button>
-      <a href="/Abdullah Al Mamun Resume.pdf" class="nav-resume">Résumé</a>
-      <button id="mobile-menu-btn" class="icon-button mobile-trigger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <a href="/Abdullah Al Mamun Resume.pdf" class="nav-resume"><%= t('nav.resume') %></a>
+      <button id="mobile-menu-btn" class="icon-button mobile-trigger" type="button" aria-label="<%= t('client.menu.open') %>" aria-expanded="false" aria-controls="mobile-menu">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </nav>
 
-  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="#home" class="nav-link active-nav" data-section="home" aria-current="location">Summary</a>
-    <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-    <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-    <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-    <a href="/Abdullah Al Mamun Resume.pdf" class="mobile-resume">Download résumé</a>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="<%= t('nav.mobileNavigation') %>" aria-hidden="true">
+    <a href="#home" class="nav-link active-nav" data-section="home" aria-current="location"><%= t('nav.summary') %></a>
+    <a href="#experience" class="nav-link" data-section="experience"><%= t('nav.experience') %></a>
+    <a href="#projects" class="nav-link" data-section="projects"><%= t('nav.projects') %></a>
+    <a href="#skills" class="nav-link" data-section="skills"><%= t('nav.skills') %></a>
+    <a href="#contact" class="nav-link" data-section="contact"><%= t('nav.contact') %></a>
+    <a href="/Abdullah Al Mamun Resume.pdf" class="mobile-resume"><%= t('nav.downloadResume') %></a>
   </nav>
 </header>

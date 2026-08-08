@@ -3,13 +3,14 @@
 const path = require('path');
 const ejs = require('ejs');
 const { axe, toHaveNoViolations } = require('jest-axe');
+const { buildPageContext } = require('../utils/i18n');
 
 expect.extend(toHaveNoViolations);
 
-const renderPortfolio = async () => {
+const renderPortfolio = async (locale = 'en-US') => {
   const html = await ejs.renderFile(
     path.join(__dirname, '..', 'views', 'index.ejs'),
-    { cspNonce: 'test-nonce' }
+    buildPageContext(locale, { cspNonce: 'test-nonce' })
   );
   return new DOMParser().parseFromString(html, 'text/html');
 };
@@ -90,8 +91,30 @@ describe('Portfolio document', () => {
     );
     expect(page.querySelector('meta[property="og:image"]')).not.toBeNull();
     expect(page.querySelector('script[src="/js/theme-init.js"]')).not.toBeNull();
+    expect(page.querySelector('script#locale-data[type="application/json"]')).not.toBeNull();
     expect(page.querySelector('script[src*="gsap"]')).toBeNull();
-    expect(page.querySelector('script:not([src]):not([type="application/ld+json"])')).toBeNull();
+    expect(
+      page.querySelector('script:not([src]):not([type="application/ld+json"]):not([type="application/json"])')
+    ).toBeNull();
+  });
+
+  it('renders six language routes and marks American English as selected', () => {
+    const links = page.querySelectorAll('[data-language-option]');
+
+    expect(links).toHaveLength(6);
+    expect(page.querySelector('[data-language-option][aria-current="page"]').getAttribute('href')).toBe('/');
+  });
+
+  it('renders locale canonical and complete hreflang alternates', async () => {
+    const banglaPage = await renderPortfolio('bn');
+
+    expect(banglaPage.querySelector('link[rel="canonical"]').getAttribute('href')).toBe(
+      'https://mamunsandwipi.vercel.app/bn'
+    );
+    expect(banglaPage.querySelectorAll('link[rel="alternate"][hreflang]')).toHaveLength(7);
+    expect(banglaPage.querySelector('link[hreflang="x-default"]').getAttribute('href')).toBe(
+      'https://mamunsandwipi.vercel.app/'
+    );
   });
 
   it('uses a real canvas for the ambient background', () => {
@@ -100,5 +123,14 @@ describe('Portfolio document', () => {
 
   it('has no detectable automated accessibility violations', async () => {
     expect(await axe(page.body)).toHaveNoViolations();
+  });
+
+  it('renders an accessible Arabic document in RTL', async () => {
+    const arabicPage = await renderPortfolio('ar');
+
+    expect(arabicPage.documentElement.getAttribute('lang')).toBe('ar');
+    expect(arabicPage.documentElement.getAttribute('dir')).toBe('rtl');
+    expect(arabicPage.body.textContent).toContain('دعم يصل بين الناس والتقنية');
+    expect(await axe(arabicPage.body)).toHaveNoViolations();
   });
 });

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="<%= typeof lang !== 'undefined' ? lang : 'en-US' %>" dir="<%= typeof dir !== 'undefined' ? dir : 'ltr' %>">
+<html lang="<%= lang %>" dir="<%= dir %>">
   <%- include('partials/head') %>
   <body>
-    <a href="#main-content" id="skip-to-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" id="skip-to-content" class="skip-link"><%= t('a11y.skip') %></a>
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <%- include('partials/navbar') %>
@@ -10,35 +10,35 @@
     <main id="main-content" tabindex="-1">
       <section id="home" class="hero section-shell" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
-          <div class="status-pill"><span aria-hidden="true"></span> Open to discussions</div>
-          <p class="eyebrow">Technical support · Web operations · Development</p>
-          <h1 id="hero-title"><%= typeof t !== 'undefined' ? t('hero.title') : 'Technical Support Engineer' %></h1>
-          <p class="hero-intro">I keep people, websites, and systems moving—combining practical IT support with hands-on web development and clear technical communication.</p>
+          <div class="status-pill"><span aria-hidden="true"></span> <%= t('hero.status') %></div>
+          <p class="eyebrow"><%= t('hero.eyebrow') %></p>
+          <h1 id="hero-title"><%= t('hero.title') %></h1>
+          <p class="hero-intro"><%= t('hero.intro') %></p>
           <p class="role-rotator">
-            <span>Also experienced in</span>
-            <span id="typed-text" aria-hidden="true">website maintenance</span><span class="typed-cursor" aria-hidden="true">|</span>
-            <span class="sr-only">website maintenance, full-stack development, and technical documentation.</span>
+            <span><%= t('hero.alsoExperienced') %></span>
+            <span id="typed-text" aria-hidden="true"><%= clientMessages.typewriterPhrases[0] %></span><span class="typed-cursor" aria-hidden="true">|</span>
+            <span class="sr-only"><%= t('hero.typewriterSummary') %></span>
           </p>
           <div class="hero-actions">
-            <a href="/Abdullah Al Mamun Resume.pdf" class="button button-primary" data-primary-cta><i class="fas fa-download" aria-hidden="true"></i> Download résumé</a>
-            <a href="#contact" class="button button-secondary"><i class="fas fa-message" aria-hidden="true"></i> Start a conversation</a>
+            <a href="/Abdullah Al Mamun Resume.pdf" class="button button-primary" data-primary-cta><i class="fas fa-download" aria-hidden="true"></i> <%= t('hero.downloadResume') %></a>
+            <a href="#contact" class="button button-secondary"><i class="fas fa-message" aria-hidden="true"></i> <%= t('hero.startConversation') %></a>
           </div>
-          <div class="hero-socials" aria-label="Professional profiles">
+          <div class="hero-socials" aria-label="<%= t('a11y.professionalProfiles') %>">
             <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
             <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a>
-            <a href="mailto:mamun872381cpi@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
+            <a href="mailto:mamun872381cpi@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> <%= t('hero.email') %></a>
           </div>
         </div>
 
         <div class="hero-visual reveal">
           <div class="portrait-frame">
             <div class="portrait-accent" aria-hidden="true"></div>
-            <img src="/assets/mamun image 1.jpeg" alt="Abdullah Al Mamun" width="640" height="640" />
+            <img src="/assets/mamun image 1.jpeg" alt="<%= t('hero.portraitAlt') %>" width="640" height="640" />
           </div>
           <div class="profile-summary">
-            <div><span>Based in</span><strong>Chattogram, Bangladesh</strong></div>
-            <div><span>Current role</span><strong>Technical Support Engineer</strong></div>
-            <div><span>Focus</span><strong>Reliable support &amp; web systems</strong></div>
+            <div><span><%= t('hero.basedIn') %></span><strong><%= t('hero.location') %></strong></div>
+            <div><span><%= t('hero.currentRole') %></span><strong><%= t('hero.title') %></strong></div>
+            <div><span><%= t('hero.focus') %></span><strong><%= t('hero.focusValue') %></strong></div>
           </div>
         </div>
       </section>
@@ -46,48 +46,43 @@
       <section id="capabilities" class="content-section" aria-labelledby="capabilities-title">
         <div class="section-shell">
           <div class="section-heading reveal">
-            <p class="eyebrow">How I contribute</p>
-            <h2 id="capabilities-title">Support that connects people and technology</h2>
-            <p>I bring a calm, practical approach to troubleshooting, documentation, website maintenance, and cross-team communication.</p>
+            <p class="eyebrow"><%= t('capabilities.eyebrow') %></p>
+            <h2 id="capabilities-title"><%= t('capabilities.title') %></h2>
+            <p><%= t('capabilities.intro') %></p>
           </div>
-
           <div class="capability-grid">
-            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-headset" aria-hidden="true"></i></div><h3>User &amp; technical support</h3><p>Diagnose hardware, software, access, and workflow problems while keeping users informed.</p></article>
-            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div><h3>Troubleshooting</h3><p>Reproduce issues, isolate root causes, document findings, and coordinate fixes with development teams.</p></article>
-            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-window-maximize" aria-hidden="true"></i></div><h3>Website operations</h3><p>Maintain and improve HTML, CSS, and WordPress websites with attention to usability and reliability.</p></article>
-            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-diagram-project" aria-hidden="true"></i></div><h3>Systems &amp; development</h3><p>Build practical Node.js, Express, and MySQL solutions informed by real operational needs.</p></article>
+            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-headset" aria-hidden="true"></i></div><h3><%= t('capabilities.supportTitle') %></h3><p><%= t('capabilities.supportBody') %></p></article>
+            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div><h3><%= t('capabilities.troubleshootingTitle') %></h3><p><%= t('capabilities.troubleshootingBody') %></p></article>
+            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-window-maximize" aria-hidden="true"></i></div><h3><%= t('capabilities.websiteTitle') %></h3><p><%= t('capabilities.websiteBody') %></p></article>
+            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-diagram-project" aria-hidden="true"></i></div><h3><%= t('capabilities.systemsTitle') %></h3><p><%= t('capabilities.systemsBody') %></p></article>
           </div>
-
-          <div class="metric-grid" aria-label="Career highlights">
-            <div class="metric reveal"><strong class="stat-number" data-target="5" data-suffix="+">5+</strong><span>Years in tech</span></div>
-            <div class="metric reveal"><strong class="stat-number" data-target="50" data-suffix="+">50+</strong><span>Workstations supported</span></div>
-            <div class="metric reveal"><strong class="stat-number" data-target="4" data-suffix="+">4+</strong><span>Projects built</span></div>
-            <div class="metric reveal"><strong class="stat-number" data-target="3" data-suffix="">3</strong><span>Industries served</span></div>
+          <div class="metric-grid" aria-label="<%= t('a11y.careerHighlights') %>">
+            <div class="metric reveal"><strong class="stat-number" data-target="5" data-suffix="+">5+</strong><span><%= t('metrics.years') %></span></div>
+            <div class="metric reveal"><strong class="stat-number" data-target="50" data-suffix="+">50+</strong><span><%= t('metrics.workstations') %></span></div>
+            <div class="metric reveal"><strong class="stat-number" data-target="4" data-suffix="+">4+</strong><span><%= t('metrics.projects') %></span></div>
+            <div class="metric reveal"><strong class="stat-number" data-target="3" data-suffix="">3</strong><span><%= t('metrics.industries') %></span></div>
           </div>
         </div>
       </section>
 
       <section id="experience" class="content-section section-tint" aria-labelledby="experience-title">
         <div class="section-shell narrow-shell">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Professional journey</p>
-            <h2 id="experience-title">Experience built around reliability</h2>
-          </div>
+          <div class="section-heading reveal"><p class="eyebrow"><%= t('experience.eyebrow') %></p><h2 id="experience-title"><%= t('experience.title') %></h2></div>
           <div class="timeline">
             <article class="timeline-item reveal">
               <div class="timeline-marker" aria-hidden="true"></div>
               <div class="timeline-meta"><span>May 2025 — Present</span><span>Bit Apps</span></div>
-              <div class="timeline-content"><h3>Technical Support Engineer</h3><p>Maintain and enhance client websites while translating user-reported problems into clear, actionable information for development teams.</p><ul><li>Maintain HTML, CSS, and WordPress websites.</li><li>Reproduce, document, and report software defects.</li><li>Create troubleshooting guides that improve support workflows.</li><li>Coordinate technical communication between clients and internal teams.</li></ul><div class="tag-list"><span>Technical Support</span><span>WordPress</span><span>Documentation</span><span>Bug Reporting</span></div></div>
+              <div class="timeline-content"><h3><%= t('experience.bitAppsRole') %></h3><p><%= t('experience.bitAppsSummary') %></p><ul><li><%= t('experience.bitAppsBullet1') %></li><li><%= t('experience.bitAppsBullet2') %></li><li><%= t('experience.bitAppsBullet3') %></li><li><%= t('experience.bitAppsBullet4') %></li></ul><div class="tag-list"><span><%= t('experience.technicalSupport') %></span><span>WordPress</span><span><%= t('experience.documentation') %></span><span><%= t('experience.bugReporting') %></span></div></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-marker" aria-hidden="true"></div>
               <div class="timeline-meta"><span>Jan 2020 — Apr 2025</span><span>Kurnia Holiday Travels</span></div>
-              <div class="timeline-content"><h3>Senior Executive</h3><p>Combined operational leadership with day-to-day responsibility for dependable workplace technology.</p><ul><li>Managed IT infrastructure, hardware, and software maintenance.</li><li>Analyzed operational data for promotion and budget decisions.</li><li>Supported continuous system availability across departments.</li></ul><div class="tag-list"><span>IT Operations</span><span>Data Analysis</span><span>Coordination</span></div></div>
+              <div class="timeline-content"><h3><%= t('experience.seniorRole') %></h3><p><%= t('experience.seniorSummary') %></p><ul><li><%= t('experience.seniorBullet1') %></li><li><%= t('experience.seniorBullet2') %></li><li><%= t('experience.seniorBullet3') %></li></ul><div class="tag-list"><span><%= t('experience.itOperations') %></span><span><%= t('experience.dataAnalysis') %></span><span><%= t('experience.coordination') %></span></div></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-marker" aria-hidden="true"></div>
               <div class="timeline-meta"><span>Jan 2019 — Dec 2019</span><span>Century Securities Limited</span></div>
-              <div class="timeline-content"><h3>Junior IT Officer</h3><p>Delivered responsive technical support in a time-sensitive stock-exchange environment.</p><ul><li>Installed and maintained hardware and software for 50+ workstations.</li><li>Supported data management and daily trading operations.</li><li>Minimized downtime through proactive checks and rapid troubleshooting.</li></ul><div class="tag-list"><span>Desktop Support</span><span>Hardware</span><span>Data Management</span></div></div>
+              <div class="timeline-content"><h3><%= t('experience.juniorRole') %></h3><p><%= t('experience.juniorSummary') %></p><ul><li><%= t('experience.juniorBullet1') %></li><li><%= t('experience.juniorBullet2') %></li><li><%= t('experience.juniorBullet3') %></li></ul><div class="tag-list"><span><%= t('experience.desktopSupport') %></span><span><%= t('experience.hardware') %></span><span><%= t('experience.dataManagement') %></span></div></div>
             </article>
           </div>
         </div>
@@ -95,23 +90,19 @@
 
       <section id="projects" class="content-section" aria-labelledby="projects-title">
         <div class="section-shell">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Technical evidence</p>
-            <h2 id="projects-title">3 selected projects</h2>
-            <p>Hands-on applications that demonstrate database design, authentication, workflow thinking, testing, and deployment.</p>
-          </div>
+          <div class="section-heading reveal"><p class="eyebrow"><%= t('projects.eyebrow') %></p><h2 id="projects-title"><%= t('projects.title') %></h2><p><%= t('projects.intro') %></p></div>
           <div class="project-grid">
             <article class="project-card reveal" data-project-card>
-              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&amp;h=560&amp;fit=crop" alt="Medicine packaging representing the Emergency Medicine Finder project" loading="lazy" width="900" height="560" />
-              <div class="project-body"><div class="project-label"><span>Healthcare</span><span>Full-stack</span></div><h3>Emergency Medicine Finder</h3><p>A production-grade platform with three user roles, a 17-table MySQL schema, 82+ API routes, secure uploads, email verification, stock transfers, reporting, backups, and data export.</p><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL2</span><span>JWT</span><span>Jest</span></div><a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> View source code <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&amp;h=560&amp;fit=crop" alt="<%= t('projects.medicineAlt') %>" loading="lazy" width="900" height="560" />
+              <div class="project-body"><div class="project-label"><span><%= t('projects.healthcare') %></span><span><%= t('projects.fullStack') %></span></div><h3>Emergency Medicine Finder</h3><p><%= t('projects.medicineBody') %></p><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL2</span><span>JWT</span><span>Jest</span></div><a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('projects.viewSource') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
             </article>
             <article class="project-card reveal" data-project-card>
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&amp;h=560&amp;fit=crop" alt="Team collaboration representing the House Shifting Service project" loading="lazy" width="900" height="560" />
-              <div class="project-body"><div class="project-label"><span>Relocation</span><span>Full-stack</span></div><h3>House Shifting Service</h3><p>A relocation workflow system for customers, workers, and administrators with role-specific dashboards, JWT authentication, request assignment, and status tracking.</p><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL</span><span>JWT</span><span>Multer</span></div><a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> View source code <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&amp;h=560&amp;fit=crop" alt="<%= t('projects.houseAlt') %>" loading="lazy" width="900" height="560" />
+              <div class="project-body"><div class="project-label"><span><%= t('projects.relocation') %></span><span><%= t('projects.fullStack') %></span></div><h3>House Shifting Service</h3><p><%= t('projects.houseBody') %></p><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL</span><span>JWT</span><span>Multer</span></div><a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('projects.viewSource') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
             </article>
             <article class="project-card reveal" data-project-card>
-              <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&amp;h=560&amp;fit=crop" alt="Mathematical notes representing the PCIU CGPA Calculator project" loading="lazy" width="900" height="560" />
-              <div class="project-body"><div class="project-label"><span>Education</span><span>Web app</span></div><h3>PCIU CGPA Calculator</h3><p>A student-focused calculator that retrieves results by ID and computes CGPA from live academic data using a Node.js and Express service.</p><div class="tag-list"><span>Node.js</span><span>Express</span><span>Parcel</span><span>Axios</span><span>Vercel</span></div><a href="https://github.com/saamaamr/pciu-cgpa-calculator" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> View source code <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+              <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&amp;h=560&amp;fit=crop" alt="<%= t('projects.calculatorAlt') %>" loading="lazy" width="900" height="560" />
+              <div class="project-body"><div class="project-label"><span><%= t('projects.education') %></span><span><%= t('projects.webApp') %></span></div><h3>PCIU CGPA Calculator</h3><p><%= t('projects.calculatorBody') %></p><div class="tag-list"><span>Node.js</span><span>Express</span><span>Parcel</span><span>Axios</span><span>Vercel</span></div><a href="https://github.com/saamaamr/pciu-cgpa-calculator" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('projects.viewSource') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
             </article>
           </div>
         </div>
@@ -119,52 +110,50 @@
 
       <section id="skills" class="content-section section-tint" aria-labelledby="skills-title">
         <div class="section-shell">
-          <div class="section-heading reveal"><p class="eyebrow">Working toolkit</p><h2 id="skills-title">Skills organized around the job</h2><p>A combined view of support capabilities, web operations, development foundations, and delivery tools.</p></div>
+          <div class="section-heading reveal"><p class="eyebrow"><%= t('skills.eyebrow') %></p><h2 id="skills-title"><%= t('skills.title') %></h2><p><%= t('skills.intro') %></p></div>
           <div class="skills-grid">
-            <article class="skill-group reveal"><i class="fas fa-life-ring" aria-hidden="true"></i><h3>Support &amp; operations</h3><div class="tag-list"><span>Technical Support</span><span>PC Troubleshooting</span><span>Hardware</span><span>Software</span><span>Networking</span><span>File Management</span><span>Bug Reporting</span></div></article>
-            <article class="skill-group reveal"><i class="fas fa-window-restore" aria-hidden="true"></i><h3>Website maintenance</h3><div class="tag-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>WordPress</span><span>Tailwind CSS</span><span>SCSS</span><span>Accessibility</span></div></article>
-            <article class="skill-group reveal"><i class="fas fa-code" aria-hidden="true"></i><h3>Development</h3><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL</span><span>REST APIs</span><span>JWT</span><span>bcrypt</span><span>EJS</span><span>Multer</span></div></article>
-            <article class="skill-group reveal"><i class="fas fa-toolbox" aria-hidden="true"></i><h3>Tools &amp; quality</h3><div class="tag-list"><span>Git &amp; GitHub</span><span>Postman</span><span>Jest</span><span>Supertest</span><span>Vercel</span><span>Nodemailer</span><span>Documentation</span></div></article>
+            <article class="skill-group reveal"><i class="fas fa-life-ring" aria-hidden="true"></i><h3><%= t('skills.supportTitle') %></h3><div class="tag-list"><span><%= t('skills.technicalSupport') %></span><span><%= t('skills.troubleshooting') %></span><span><%= t('skills.hardware') %></span><span><%= t('skills.software') %></span><span><%= t('skills.networking') %></span><span><%= t('skills.fileManagement') %></span><span><%= t('skills.bugReporting') %></span></div></article>
+            <article class="skill-group reveal"><i class="fas fa-window-restore" aria-hidden="true"></i><h3><%= t('skills.websiteTitle') %></h3><div class="tag-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>WordPress</span><span>Tailwind CSS</span><span>SCSS</span><span><%= t('skills.accessibility') %></span></div></article>
+            <article class="skill-group reveal"><i class="fas fa-code" aria-hidden="true"></i><h3><%= t('skills.developmentTitle') %></h3><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL</span><span>REST APIs</span><span>JWT</span><span>bcrypt</span><span>EJS</span><span>Multer</span></div></article>
+            <article class="skill-group reveal"><i class="fas fa-toolbox" aria-hidden="true"></i><h3><%= t('skills.toolsTitle') %></h3><div class="tag-list"><span>Git &amp; GitHub</span><span>Postman</span><span>Jest</span><span>Supertest</span><span>Vercel</span><span>Nodemailer</span><span><%= t('skills.documentation') %></span></div></article>
           </div>
         </div>
       </section>
 
       <section id="education" class="content-section" aria-labelledby="education-title">
         <div class="section-shell narrow-shell">
-          <div class="section-heading reveal"><p class="eyebrow">Education &amp; certification</p><h2 id="education-title">A practical technical foundation</h2></div>
+          <div class="section-heading reveal"><p class="eyebrow"><%= t('education.eyebrow') %></p><h2 id="education-title"><%= t('education.title') %></h2></div>
           <div class="education-list">
-            <article class="education-item reveal"><span>2023</span><div><h3>B.Sc. in Computer Science Engineering</h3><p>Port City International University, Chattogram</p><strong>GPA 3.76 / 4.00</strong></div></article>
-            <article class="education-item reveal"><span>2018</span><div><h3>Diploma in Engineering, Computer Technology</h3><p>Chittagong Polytechnic Institute, Chattogram</p><strong>GPA 2.62 / 4.00</strong></div></article>
-            <article class="education-item reveal"><span>2017</span><div><h3>IT Support Technician, Levels 1 &amp; 2</h3><p>Bangladesh-Korea Technical Training Centre, Chattogram</p><strong>Professional certification</strong></div></article>
-            <article class="education-item reveal"><span>2014</span><div><h3>S.S.C., Business Studies</h3><p>South-East Sandwip High School, Sandwip</p><strong>GPA 4.31 / 5.00</strong></div></article>
+            <article class="education-item reveal"><span>2023</span><div><h3><%= t('education.bachelor') %></h3><p>Port City International University, Chattogram</p><strong>GPA 3.76 / 4.00</strong></div></article>
+            <article class="education-item reveal"><span>2018</span><div><h3><%= t('education.diploma') %></h3><p>Chittagong Polytechnic Institute, Chattogram</p><strong>GPA 2.62 / 4.00</strong></div></article>
+            <article class="education-item reveal"><span>2017</span><div><h3><%= t('education.supportCertificate') %></h3><p>Bangladesh-Korea Technical Training Centre, Chattogram</p><strong><%= t('education.professionalCertification') %></strong></div></article>
+            <article class="education-item reveal"><span>2014</span><div><h3><%= t('education.ssc') %></h3><p>South-East Sandwip High School, Sandwip</p><strong>GPA 4.31 / 5.00</strong></div></article>
           </div>
         </div>
       </section>
 
       <section id="contact" class="content-section contact-section" aria-labelledby="contact-title">
         <div class="section-shell">
-          <div class="section-heading reveal"><p class="eyebrow">Let’s connect</p><h2 id="contact-title">Start a practical conversation</h2><p>If you are hiring for technical support, IT operations, or web support, I would be glad to discuss how I can contribute.</p></div>
+          <div class="section-heading reveal"><p class="eyebrow"><%= t('contact.eyebrow') %></p><h2 id="contact-title"><%= t('contact.title') %></h2><p><%= t('contact.intro') %></p></div>
           <div class="contact-grid">
             <div class="contact-panel reveal">
-              <h3>Direct contact</h3>
-              <a href="mailto:mamun872381cpi@gmail.com"><span class="icon-tile"><i class="fas fa-envelope" aria-hidden="true"></i></span><span><small>Email</small><strong>mamun872381cpi@gmail.com</strong></span></a>
-              <a href="tel:+8801580831003"><span class="icon-tile"><i class="fas fa-phone" aria-hidden="true"></i></span><span><small>Phone</small><strong>+880 1580-831003</strong></span></a>
+              <h3><%= t('contact.direct') %></h3>
+              <a href="mailto:mamun872381cpi@gmail.com"><span class="icon-tile"><i class="fas fa-envelope" aria-hidden="true"></i></span><span><small><%= t('contact.email') %></small><strong>mamun872381cpi@gmail.com</strong></span></a>
+              <a href="tel:+8801580831003"><span class="icon-tile"><i class="fas fa-phone" aria-hidden="true"></i></span><span><small><%= t('contact.phone') %></small><strong>+880 1580-831003</strong></span></a>
               <a href="https://wa.me/8801827918142" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-whatsapp" aria-hidden="true"></i></span><span><small>WhatsApp</small><strong>+880 1827-918142</strong></span></a>
               <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span><span><small>LinkedIn</small><strong>Abdullah Al Mamun</strong></span></a>
             </div>
-
             <form id="contact-form" class="contact-form reveal" novalidate>
-              <div class="field-group"><label for="name">Your name</label><input type="text" id="name" name="name" maxlength="100" autocomplete="name" required aria-describedby="name-error" /><p id="name-error" class="field-error" aria-live="polite"></p></div>
-              <div class="field-group"><label for="email">Your email</label><input type="email" id="email" name="email" maxlength="254" autocomplete="email" required aria-describedby="email-error" /><p id="email-error" class="field-error" aria-live="polite"></p></div>
-              <div class="field-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" minlength="20" maxlength="5000" required aria-describedby="message-hint message-error"></textarea><p id="message-hint" class="field-hint">Please include at least 20 characters.</p><p id="message-error" class="field-error" aria-live="polite"></p></div>
-              <button type="submit" class="button button-primary submit-button"><span>Send message</span><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+              <div class="field-group"><label for="name"><%= t('contact.nameLabel') %></label><input type="text" id="name" name="name" maxlength="100" autocomplete="name" required aria-describedby="name-error" /><p id="name-error" class="field-error" aria-live="polite"></p></div>
+              <div class="field-group"><label for="email"><%= t('contact.emailLabel') %></label><input type="email" id="email" name="email" maxlength="254" autocomplete="email" required aria-describedby="email-error" /><p id="email-error" class="field-error" aria-live="polite"></p></div>
+              <div class="field-group"><label for="message"><%= t('contact.messageLabel') %></label><textarea id="message" name="message" rows="5" minlength="20" maxlength="5000" required aria-describedby="message-hint message-error"></textarea><p id="message-hint" class="field-hint"><%= t('contact.messageHint') %></p><p id="message-error" class="field-error" aria-live="polite"></p></div>
+              <button type="submit" class="button button-primary submit-button"><span><%= t('contact.send') %></span><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
               <p id="form-message" class="form-message" aria-live="polite"></p>
             </form>
           </div>
-
-          <aside class="profile-strip reveal" aria-label="Languages and interests">
-            <div><span>Languages</span><strong>Bangla — Fluent</strong><strong>English — Good</strong></div>
-            <div><span>Interests</span><strong>Travelling</strong><strong>Gardening</strong><strong>Cycling</strong><strong>Photography</strong></div>
+          <aside class="profile-strip reveal" aria-label="<%= t('a11y.languagesInterests') %>">
+            <div><span><%= t('contact.languages') %></span><strong><%= t('contact.banglaFluent') %></strong><strong><%= t('contact.englishGood') %></strong></div>
+            <div><span><%= t('contact.interests') %></span><strong><%= t('contact.travelling') %></strong><strong><%= t('contact.gardening') %></strong><strong><%= t('contact.cycling') %></strong><strong><%= t('contact.photography') %></strong></div>
           </aside>
         </div>
       </section>
