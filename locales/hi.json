@@ -64,10 +64,10 @@
   },
   "metrics": {
     "years": "तकनीक में वर्षों का अनुभव",
-    "repositorySince": "2022 से",
-    "repositoryHistory": "सार्वजनिक रिपॉज़िटरी इतिहास",
-    "githubProfile": "GitHub प्रोफ़ाइल देखें",
-    "githubProfileLabel": "2022 से सार्वजनिक रिपॉज़िटरी इतिहास — GitHub प्रोफ़ाइल देखें",
+    "githubTitle": "GitHub",
+    "githubDescription": "प्रोजेक्ट और योगदान",
+    "githubAction": "मेरा काम देखें",
+    "githubWorkLabel": "GitHub पर Abdullah Al Mamun के प्रोजेक्ट और योगदान देखें",
     "industries": "समर्थित उद्योग"
   },
   "experience": {
@@ -185,6 +185,7 @@
     "direct": "सीधा संपर्क",
     "email": "ईमेल",
     "phone": "फ़ोन",
+    "facebookMessage": "संदेश भेजें",
     "nameLabel": "आपका नाम",
     "emailLabel": "आपका ईमेल",
     "messageLabel": "संदेश",

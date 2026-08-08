@@ -64,10 +64,10 @@
   },
   "metrics": {
     "years": "Años en tecnología",
-    "repositorySince": "Desde 2022",
-    "repositoryHistory": "Historial de repositorios públicos",
-    "githubProfile": "Ver perfil de GitHub",
-    "githubProfileLabel": "Historial de repositorios públicos desde 2022 — ver perfil de GitHub",
+    "githubTitle": "GitHub",
+    "githubDescription": "Proyectos y contribuciones",
+    "githubAction": "Explora mi trabajo",
+    "githubWorkLabel": "Explora los proyectos y contribuciones de Abdullah Al Mamun en GitHub",
     "industries": "Sectores con soporte"
   },
   "experience": {
@@ -185,6 +185,7 @@
     "direct": "Contacto directo",
     "email": "Correo",
     "phone": "Teléfono",
+    "facebookMessage": "Enviar un mensaje",
     "nameLabel": "Su nombre",
     "emailLabel": "Su correo",
     "messageLabel": "Mensaje",

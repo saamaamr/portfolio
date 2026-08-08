@@ -87,12 +87,17 @@ describe('portfolio locale dictionaries', () => {
     });
     expect(english.metrics).toMatchObject({
       years: 'Years in technology',
-      repositorySince: 'Since 2022',
-      repositoryHistory: 'Public repository history',
-      githubProfile: 'View GitHub profile',
-      githubProfileLabel: 'Public repository history since 2022 — view GitHub profile',
+      githubTitle: 'GitHub',
+      githubDescription: 'Projects and contributions',
+      githubAction: 'Explore my work',
+      githubWorkLabel: "Explore Abdullah Al Mamun's projects and contributions on GitHub",
       industries: 'Industries supported',
     });
+    expect(english).not.toHaveProperty('metrics.repositorySince');
+    expect(english).not.toHaveProperty('metrics.repositoryHistory');
+    expect(english).not.toHaveProperty('metrics.githubProfile');
+    expect(english).not.toHaveProperty('metrics.githubProfileLabel');
+    expect(english).toHaveProperty('contact.facebookMessage', 'Send a message');
     expect(english).not.toHaveProperty('metrics.workstations');
     expect(english).toHaveProperty(
       'experience.juniorBullet1',

@@ -56,13 +56,25 @@ describe('Portfolio document', () => {
     ]);
     expect([...page.querySelectorAll('[data-metric] strong')].map((node) =>
       node.textContent.trim()
-    )).toEqual(['7+', 'Since 2022', '3']);
-    const githubHistory = page.querySelector('[data-github-history]');
-    expect(githubHistory.getAttribute('href')).toBe('https://github.com/saamaamr');
-    expect(githubHistory.getAttribute('target')).toBe('_blank');
-    expect(githubHistory.getAttribute('rel')).toBe('noopener noreferrer');
-    expect(githubHistory.textContent).toContain('Public repository history');
-    expect(githubHistory.textContent).toContain('View GitHub profile');
+    )).toEqual(['7+', 'GitHub', '3']);
+    const githubWork = page.querySelector('[data-github-history]');
+    expect(githubWork.getAttribute('href')).toBe('https://github.com/saamaamr');
+    expect(githubWork.getAttribute('target')).toBe('_blank');
+    expect(githubWork.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(githubWork.getAttribute('aria-label')).toBe(
+      "Explore Abdullah Al Mamun's projects and contributions on GitHub"
+    );
+    expect(githubWork.textContent).toContain('Projects and contributions');
+    expect(githubWork.textContent).toContain('Explore my work');
+    expect(githubWork.textContent).not.toContain('Since 2022');
+    expect(githubWork.textContent).not.toContain('Public repository history');
+    const facebookProfile = page.querySelector(
+      '.hero-socials a[href="https://www.facebook.com/saamaamr1"]'
+    );
+    expect(facebookProfile).not.toBeNull();
+    expect(facebookProfile.getAttribute('target')).toBe('_blank');
+    expect(facebookProfile.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(facebookProfile.textContent.trim()).toBe('Facebook');
     expect(page.querySelector('[data-metric="workstations"]')).toBeNull();
     expect(page.querySelector('[data-metric="portfolio-languages"]')).toBeNull();
     expect(page.body.textContent).not.toMatch(/50\+ workstations/i);
@@ -213,6 +225,14 @@ describe('Portfolio document', () => {
     expect(page.querySelector('a[href="tel:+8801580831003"]')).not.toBeNull();
     expect(page.querySelector('a[href="https://wa.me/8801827918142"]')).not.toBeNull();
     expect(page.querySelector('a[href*="linkedin.com/in/abdullah"]')).not.toBeNull();
+    const facebookMessage = page.querySelector(
+      '.contact-panel a[href="https://m.me/saamaamr1"]'
+    );
+    expect(facebookMessage).not.toBeNull();
+    expect(facebookMessage.getAttribute('target')).toBe('_blank');
+    expect(facebookMessage.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(facebookMessage.textContent).toContain('Facebook Messenger');
+    expect(facebookMessage.textContent).toContain('Send a message');
   });
 
   it('provides native constraints and field-specific error destinations', () => {

@@ -64,10 +64,10 @@
   },
   "metrics": {
     "years": "سنوات من الخبرة التقنية",
-    "repositorySince": "منذ 2022",
-    "repositoryHistory": "سجل المستودعات العامة",
-    "githubProfile": "عرض ملف GitHub",
-    "githubProfileLabel": "سجل المستودعات العامة منذ 2022 — عرض ملف GitHub",
+    "githubTitle": "GitHub",
+    "githubDescription": "المشاريع والمساهمات",
+    "githubAction": "استكشف أعمالي",
+    "githubWorkLabel": "استكشف مشاريع ومساهمات Abdullah Al Mamun على GitHub",
     "industries": "قطاعات مدعومة"
   },
   "experience": {
@@ -185,6 +185,7 @@
     "direct": "تواصل مباشر",
     "email": "البريد الإلكتروني",
     "phone": "الهاتف",
+    "facebookMessage": "إرسال رسالة",
     "nameLabel": "اسمك",
     "emailLabel": "بريدك الإلكتروني",
     "messageLabel": "الرسالة",
