@@ -5,9 +5,15 @@ const { contactLimiter } = require('../middleware/rateLimit');
 const { asyncHandler } = require('../utils/errorHandler');
 const { validateContactForm } = require('../utils/validation');
 const { sendSuccess, sendValidationError, sendServerError } = require('../utils/response');
+const { buildPageContext } = require('../utils/i18n');
 
-router.get('/', (req, res) => {
-  res.render('index');
+const renderPortfolio = (locale) => (req, res) => {
+  res.render('index', buildPageContext(locale));
+};
+
+router.get('/', renderPortfolio('en-US'));
+['bn', 'hi', 'ar', 'es', 'fr'].forEach((locale) => {
+  router.get(`/${locale}`, renderPortfolio(locale));
 });
 
 router.post(

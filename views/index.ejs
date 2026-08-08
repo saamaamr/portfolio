@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= typeof lang !== 'undefined' ? lang : 'en-US' %>" dir="<%= typeof dir !== 'undefined' ? dir : 'ltr' %>">
   <%- include('partials/head') %>
   <body>
     <a href="#main-content" id="skip-to-content" class="skip-link">Skip to main content</a>
@@ -12,7 +12,7 @@
         <div class="hero-copy reveal">
           <div class="status-pill"><span aria-hidden="true"></span> Open to discussions</div>
           <p class="eyebrow">Technical support · Web operations · Development</p>
-          <h1 id="hero-title">Technical Support Engineer</h1>
+          <h1 id="hero-title"><%= typeof t !== 'undefined' ? t('hero.title') : 'Technical Support Engineer' %></h1>
           <p class="hero-intro">I keep people, websites, and systems moving—combining practical IT support with hands-on web development and clear technical communication.</p>
           <p class="role-rotator">
             <span>Also experienced in</span>

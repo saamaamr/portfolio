@@ -27,6 +27,21 @@ describe('API Routes', () => {
       expect(nonceMatch).not.toBeNull();
       expect(res.text).toContain(`type="application/ld+json" nonce="${nonceMatch[1]}"`);
     });
+
+    it.each([
+      ['/', 'en-US', 'Technical Support Engineer'],
+      ['/bn', 'bn', 'টেকনিক্যাল সাপোর্ট ইঞ্জিনিয়ার'],
+      ['/hi', 'hi', 'तकनीकी सहायता अभियंता'],
+      ['/ar', 'ar', 'مهندس دعم فني'],
+      ['/es', 'es', 'Ingeniero de soporte técnico'],
+      ['/fr', 'fr', 'Ingénieur support technique'],
+    ])('renders %s as %s', async (route, lang, title) => {
+      const res = await request(app).get(route);
+
+      expect(res.status).toBe(200);
+      expect(res.text).toContain(`lang="${lang}"`);
+      expect(res.text).toContain(title);
+    });
   });
 
   describe('POST /contact - Validation', () => {
@@ -159,6 +174,15 @@ describe('API Routes', () => {
       expect(res.text).toContain('Page Not Found');
       expect(res.text).toContain('name="robots" content="noindex, nofollow"');
       expect(res.text).not.toContain('rel="canonical"');
+    });
+
+    it('renders known-prefix Arabic 404 content in RTL', async () => {
+      const res = await request(app).get('/ar/missing');
+
+      expect(res.status).toBe(404);
+      expect(res.text).toContain('lang="ar"');
+      expect(res.text).toContain('dir="rtl"');
+      expect(res.text).toContain('الصفحة غير موجودة');
     });
   });
 });

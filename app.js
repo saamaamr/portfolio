@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const logger = require('./utils/logger');
 const indexRouter = require('./routes/index');
 const { errorHandler } = require('./utils/errorHandler');
+const { buildPageContext, SUPPORTED_LOCALES } = require('./utils/i18n');
 
 // Validate required environment variables
 const requiredEnvs = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS'];
@@ -78,12 +79,17 @@ app.use('/', indexRouter);
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).render('404', {
-    pageTitle: 'Page Not Found | Abdullah Al Mamun',
+  const pathLocale = req.path.split('/').filter(Boolean)[0];
+  const locale = SUPPORTED_LOCALES.some(({ code }) => code === pathLocale)
+    ? pathLocale
+    : 'en-US';
+  const context = buildPageContext(locale, {
     metaRobots: 'noindex, nofollow',
     canonicalUrl: null,
     includeStructuredData: false,
   });
+  context.pageTitle = `${context.t('notFound.title')} | Abdullah Al Mamun`;
+  res.status(404).render('404', context);
 });
 
 // Global error handler (must be last)

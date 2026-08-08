@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>" dir="<%= dir %>">
   <%- include('partials/head') %>
   <body>
-    <a href="#main-content" id="skip-to-content" class="skip-link">Skip to content</a>
+    <a href="#main-content" id="skip-to-content" class="skip-link"><%= t('a11y.skip') %></a>
     <main id="main-content" class="min-h-screen flex items-center justify-center px-4">
       <section class="card max-w-xl p-8 text-center" aria-labelledby="not-found-title">
-        <p class="gradient-text font-semibold mb-3">Error 404</p>
-        <h1 id="not-found-title" class="text-4xl font-bold mb-4">Page Not Found</h1>
-        <p class="text-secondary mb-8">The page you requested does not exist or may have moved.</p>
-        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-medium">
-          <i class="fas fa-arrow-left" aria-hidden="true"></i> Return home
+        <p class="gradient-text font-semibold mb-3"><%= t('notFound.error') %></p>
+        <h1 id="not-found-title" class="text-4xl font-bold mb-4"><%= t('notFound.title') %></h1>
+        <p class="text-secondary mb-8"><%= t('notFound.body') %></p>
+        <a href="<%= languages.find((item) => item.code === locale).path %>" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg text-white font-medium">
+          <i class="fas fa-arrow-left" aria-hidden="true"></i> <%= t('notFound.home') %>
         </a>
       </section>
     </main>
