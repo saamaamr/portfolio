@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Abdullah Al Mamun | Ingénieur support technique",
-    "description": "Abdullah Al Mamun est ingénieur support technique, expérimenté en maintenance de sites, opérations informatiques, dépannage et développement web full-stack.",
-    "socialDescription": "Support technique, maintenance web, opérations système et développement web pratique.",
+    "description": "Abdullah Al Mamun est ingénieur support technique, expérimenté en assistance utilisateur, maintenance web, opérations informatiques, dépannage et documentation technique.",
+    "socialDescription": "Support technique, maintenance web, opérations système et documentation technique claire.",
     "structuredDescription": "Ingénieur support technique axé sur un support fiable, les opérations web et les systèmes web pratiques."
   },
   "a11y": {
@@ -19,21 +19,27 @@
     "homeLabel": "Abdullah Al Mamun, accueil",
     "summary": "Résumé",
     "experience": "Expérience",
+    "approach": "Approche",
+    "evidence": "Preuves",
     "projects": "Projets",
     "skills": "Compétences",
     "contact": "Contact",
     "resume": "CV",
     "downloadResume": "Télécharger le CV",
+    "englishResume": "CV en anglais",
     "themeTitle": "Changer le thème de couleur",
     "mobileNavigation": "Navigation mobile"
   },
   "hero": {
-    "status": "Disponible pour échanger",
-    "eyebrow": "Support technique · Opérations web · Développement",
-    "title": "Ingénieur support technique",
-    "intro": "Je maintiens les personnes, les sites et les systèmes opérationnels en combinant support informatique pratique, développement web et communication technique claire.",
+    "status": "Disponible pour des opportunités en support technique",
+    "role": "Ingénieur support technique",
+    "eyebrow": "Assistance utilisateur · Support web · Opérations informatiques",
+    "title": "Un support clair pour les personnes, les logiciels et les systèmes.",
+    "intro": "Je diagnostique les problèmes de matériel, de logiciel, de site web, d’accès et de flux de travail, reproduis et documente les défauts, puis coordonne des résolutions claires entre utilisateurs, clients et équipes techniques.",
+    "primaryAction": "Voir l’expérience en support",
+    "secondaryAction": "Me contacter",
     "alsoExperienced": "Également expérimenté en",
-    "typewriterSummary": "maintenance web, développement full-stack et documentation technique.",
+    "typewriterSummary": "analyse des incidents utilisateur, support web et documentation technique.",
     "downloadResume": "Télécharger le CV",
     "startConversation": "Démarrer une conversation",
     "email": "E-mail",
@@ -42,7 +48,7 @@
     "location": "Chattogram, Bangladesh",
     "currentRole": "Poste actuel",
     "focus": "Priorité",
-    "focusValue": "Support fiable et systèmes web"
+    "focusValue": "Assistance utilisateur et opérations fiables"
   },
   "capabilities": {
     "eyebrow": "Ma contribution",
@@ -58,14 +64,16 @@
     "systemsBody": "Créer des solutions pratiques Node.js, Express et MySQL fondées sur de véritables besoins opérationnels."
   },
   "metrics": {
-    "years": "Années dans la tech",
+    "years": "Années dans la technologie",
     "workstations": "Postes pris en charge",
     "projects": "Projets réalisés",
-    "industries": "Secteurs servis"
+    "industries": "Secteurs pris en charge",
+    "portfolioLanguages": "Langues du portfolio"
   },
   "experience": {
     "eyebrow": "Parcours professionnel",
     "title": "Une expérience fondée sur la fiabilité",
+    "bitAppsDate": "Mai 2025 — Aujourd’hui",
     "bitAppsRole": "Ingénieur support technique",
     "bitAppsSummary": "Maintenir et améliorer les sites clients tout en transformant les problèmes signalés en informations claires et exploitables pour les équipes de développement.",
     "bitAppsBullet1": "Maintenance de sites HTML, CSS et WordPress.",
@@ -76,6 +84,7 @@
     "documentation": "Documentation",
     "bugReporting": "Signalement de bugs",
     "seniorRole": "Cadre supérieur",
+    "seniorDate": "Janvier 2020 — Avril 2025",
     "seniorSummary": "Association du pilotage opérationnel et de la responsabilité quotidienne d’une technologie de travail fiable.",
     "seniorBullet1": "Gestion de l’infrastructure informatique et maintenance du matériel et des logiciels.",
     "seniorBullet2": "Analyse des données opérationnelles pour les décisions de promotion et de budget.",
@@ -84,6 +93,7 @@
     "dataAnalysis": "Analyse de données",
     "coordination": "Coordination",
     "juniorRole": "Agent informatique junior",
+    "juniorDate": "Janvier 2019 — Décembre 2019",
     "juniorSummary": "Fourniture d’un support technique réactif dans un environnement boursier sensible au temps.",
     "juniorBullet1": "Installation et maintenance du matériel et des logiciels pour plus de 50 postes.",
     "juniorBullet2": "Support à la gestion des données et aux opérations de négociation quotidiennes.",
@@ -91,6 +101,45 @@
     "desktopSupport": "Support poste de travail",
     "hardware": "Matériel",
     "dataManagement": "Gestion des données"
+  },
+  "approach": {
+    "eyebrow": "Approche du support",
+    "title": "Un chemin clair du problème à la résolution",
+    "intro": "Un processus pratique pour comprendre l’impact, trouver la cause, confirmer la correction et laisser une documentation utile.",
+    "listenTitle": "Écouter",
+    "listenBody": "Comprendre l’utilisateur, le comportement attendu, l’environnement et l’impact.",
+    "triageTitle": "Qualifier",
+    "triageBody": "Évaluer l’urgence, la portée, les utilisateurs concernés et l’impact métier.",
+    "reproduceTitle": "Reproduire",
+    "reproduceBody": "Consigner des étapes fiables, les symptômes, les versions et les preuves.",
+    "diagnoseTitle": "Diagnostiquer",
+    "diagnoseBody": "Isoler la cause probable dans le logiciel, le matériel, les données ou le flux de travail.",
+    "resolveTitle": "Résoudre",
+    "resolveBody": "Appliquer une correction sûre, vérifier le résultat ou escalader avec des preuves claires.",
+    "documentTitle": "Documenter",
+    "documentBody": "Consigner la résolution et la transformer en connaissance réutilisable."
+  },
+  "evidence": {
+    "eyebrow": "Preuves de support technique",
+    "title": "Des preuves issues des systèmes sur lesquels j’ai travaillé",
+    "intro": "Une sélection de travaux vue sous l’angle du dépannage, de la fiabilité opérationnelle, de la documentation, des tests et des limites responsables.",
+    "noorCategory": "Préparation aux versions et au dépannage",
+    "noorTitle": "Noor Notes",
+    "noorBody": "Une application originale de notes Linux avec diagnostic d’installation, conseils de compatibilité, documentation de récupération et de sauvegarde, états d’échec sûrs, stockage local chiffré, vérifications de paquetage, consignes de signalement et validation automatisée.",
+    "noorAlt": "Écran de bibliothèque Noor Notes montrant l’interface utilisée pour la documentation de support et de version",
+    "noorLink": "Voir le dépôt public",
+    "attendanceCategory": "Synchronisation et fiabilité opérationnelle",
+    "attendanceTitle": "Smart Attendance Tracker",
+    "attendanceBody": "Une étude de cas privée expurgée couvrant la synchronisation Google Sheets et locale, les nouvelles tentatives après limitation, les journaux de conflits et de corrections, le suivi d’état, les sauvegardes, les exports, le cache et le fonctionnement PWA hors ligne.",
+    "attendanceAlt": "Flux de synchronisation expurgé montrant données locales, nouvelles tentatives, journal de conflits, sauvegarde et export",
+    "attendancePrivate": "Étude de cas privée",
+    "medicineCategory": "Supportabilité et prise en compte des corrections",
+    "medicineTitle": "Emergency Medicine Finder",
+    "medicineBody": "Un système au périmètre fonctionnel de niveau production couvrant plusieurs rôles, flux opérationnels, sauvegardes, exports, validations et tests. La documentation du dépôt identifie aussi des travaux restants sur CSRF, les limites de débit, les en-têtes de sécurité, les cookies, la validation et le durcissement des téléversements ; il n’est donc pas présenté comme prêt au déploiement.",
+    "medicineAlt": "Revue de supportabilité présentant les flux testés, les sauvegardes, le diagnostic et les priorités de correction documentées",
+    "medicineLink": "Voir le dépôt public",
+    "collaborativeTitle": "Contribution collaborative",
+    "collaborativeBody": "House Shifting Services est un travail collaboratif et n’est pas présenté comme un projet réalisé indépendamment. Il reste hors des preuves principales, car les limites de la contribution individuelle ne sont pas suffisamment documentées."
   },
   "projects": {
     "eyebrow": "Preuves techniques",
@@ -148,6 +197,10 @@
     "messageLabel": "Message",
     "messageHint": "Saisissez au moins 20 caractères.",
     "send": "Envoyer le message",
+    "availability": "Disponibilité",
+    "remote": "Disponible pour des opportunités à distance",
+    "locationLabel": "Localisation",
+    "locationValue": "Sandwip, Chattogram, Bangladesh",
     "languages": "Langues",
     "banglaFluent": "Bangla — Courant",
     "englishGood": "Anglais — Bon niveau",
@@ -171,7 +224,7 @@
     "theme": { "light": "Passer au mode clair", "dark": "Passer au mode sombre" },
     "menu": { "open": "Ouvrir le menu de navigation", "close": "Fermer le menu de navigation" },
     "languageMenu": { "open": "Choisir la langue", "close": "Fermer le menu des langues" },
-    "typewriterPhrases": ["maintenance web", "documentation technique", "développement full-stack"],
+    "typewriterPhrases": ["analyse des incidents utilisateur", "support web", "documentation technique"],
     "form": {
       "nameRequired": "Le nom est obligatoire.",
       "nameTooLong": "Le nom ne doit pas dépasser 100 caractères.",

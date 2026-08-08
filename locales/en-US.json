@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Abdullah Al Mamun | Technical Support Engineer",
-    "description": "Abdullah Al Mamun is a Technical Support Engineer experienced in website maintenance, IT operations, troubleshooting, and full-stack web development.",
-    "socialDescription": "Technical support, website maintenance, systems operations, and practical web development.",
+    "description": "Abdullah Al Mamun is a Technical Support Engineer experienced in user support, website maintenance, IT operations, troubleshooting, and technical documentation.",
+    "socialDescription": "Technical support, website maintenance, systems operations, and clear technical documentation.",
     "structuredDescription": "Technical Support Engineer focused on reliable support, website operations, and practical web systems."
   },
   "a11y": {
@@ -22,21 +22,27 @@
     "homeLabel": "Abdullah Al Mamun, home",
     "summary": "Summary",
     "experience": "Experience",
+    "approach": "Approach",
+    "evidence": "Evidence",
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact",
     "resume": "Resume",
     "downloadResume": "Download Resume",
+    "englishResume": "English resume",
     "themeTitle": "Change color theme",
     "mobileNavigation": "Mobile navigation"
   },
   "hero": {
-    "status": "Open to discussions",
-    "eyebrow": "Technical support · Web operations · Development",
-    "title": "Technical Support Engineer",
-    "intro": "I keep people, websites, and systems moving—combining practical IT support with hands-on web development and clear technical communication.",
+    "status": "Open to Technical Support opportunities",
+    "role": "Technical Support Engineer",
+    "eyebrow": "User support · Website support · IT operations",
+    "title": "Clear support for people, software, and systems.",
+    "intro": "I diagnose hardware, software, website, access, and workflow issues; reproduce and document defects; and coordinate clear resolutions between users, clients, and technical teams.",
+    "primaryAction": "View support experience",
+    "secondaryAction": "Contact me",
     "alsoExperienced": "Also experienced in",
-    "typewriterSummary": "website maintenance, full-stack development, and technical documentation.",
+    "typewriterSummary": "user issue investigation, website support, and technical documentation.",
     "downloadResume": "Download Resume",
     "startConversation": "Start a conversation",
     "email": "Email",
@@ -45,7 +51,7 @@
     "location": "Chattogram, Bangladesh",
     "currentRole": "Current role",
     "focus": "Focus",
-    "focusValue": "Reliable support & web systems"
+    "focusValue": "User support and reliable operations"
   },
   "capabilities": {
     "eyebrow": "How I contribute",
@@ -61,14 +67,16 @@
     "systemsBody": "Build practical Node.js, Express, and MySQL solutions informed by real operational needs."
   },
   "metrics": {
-    "years": "Years in tech",
+    "years": "Years in technology",
     "workstations": "Workstations supported",
     "projects": "Projects built",
-    "industries": "Industries served"
+    "industries": "Industries supported",
+    "portfolioLanguages": "Portfolio languages"
   },
   "experience": {
     "eyebrow": "Professional journey",
     "title": "Experience built around reliability",
+    "bitAppsDate": "May 2025 — Present",
     "bitAppsRole": "Technical Support Engineer",
     "bitAppsSummary": "Maintain and enhance client websites while translating user-reported problems into clear, actionable information for development teams.",
     "bitAppsBullet1": "Maintain HTML, CSS, and WordPress websites.",
@@ -79,6 +87,7 @@
     "documentation": "Documentation",
     "bugReporting": "Bug Reporting",
     "seniorRole": "Senior Executive",
+    "seniorDate": "January 2020 — April 2025",
     "seniorSummary": "Combined operational leadership with day-to-day responsibility for dependable workplace technology.",
     "seniorBullet1": "Managed IT infrastructure, hardware, and software maintenance.",
     "seniorBullet2": "Analyzed operational data for promotion and budget decisions.",
@@ -87,6 +96,7 @@
     "dataAnalysis": "Data Analysis",
     "coordination": "Coordination",
     "juniorRole": "Junior IT Officer",
+    "juniorDate": "January 2019 — December 2019",
     "juniorSummary": "Delivered responsive technical support in a time-sensitive stock-exchange environment.",
     "juniorBullet1": "Installed and maintained hardware and software for 50+ workstations.",
     "juniorBullet2": "Supported data management and daily trading operations.",
@@ -94,6 +104,45 @@
     "desktopSupport": "Desktop Support",
     "hardware": "Hardware",
     "dataManagement": "Data Management"
+  },
+  "approach": {
+    "eyebrow": "Support approach",
+    "title": "A clear path from issue to resolution",
+    "intro": "A practical workflow for understanding impact, finding the cause, confirming the fix, and leaving useful documentation behind.",
+    "listenTitle": "Listen",
+    "listenBody": "Understand the user, expected behavior, environment, and impact.",
+    "triageTitle": "Triage",
+    "triageBody": "Assess urgency, scope, affected users, and business impact.",
+    "reproduceTitle": "Reproduce",
+    "reproduceBody": "Capture dependable steps, symptoms, versions, and evidence.",
+    "diagnoseTitle": "Diagnose",
+    "diagnoseBody": "Isolate the likely cause across software, hardware, data, or workflow.",
+    "resolveTitle": "Resolve",
+    "resolveBody": "Apply a safe fix, verify the result, or escalate with clear evidence.",
+    "documentTitle": "Document",
+    "documentBody": "Record the resolution and turn it into reusable knowledge."
+  },
+  "evidence": {
+    "eyebrow": "Technical support evidence",
+    "title": "Evidence from systems I have worked on",
+    "intro": "Selected work viewed through troubleshooting, operational reliability, documentation, testing, and responsible limitations.",
+    "noorCategory": "Release and troubleshooting readiness",
+    "noorTitle": "Noor Notes",
+    "noorBody": "An original Linux notes application with installation diagnostics, compatibility guidance, recovery and backup documentation, safe failure states, encrypted local storage, packaging checks, issue-report instructions, and automated verification.",
+    "noorAlt": "Noor Notes library screen showing the application interface used for support and release documentation",
+    "noorLink": "View public repository",
+    "attendanceCategory": "Synchronization and operational reliability",
+    "attendanceTitle": "Smart Attendance Tracker",
+    "attendanceBody": "A redacted private case study covering Google Sheets and local synchronization, rate-limit retries, conflict and correction logs, status monitoring, backups, exports, caching, and offline PWA behavior.",
+    "attendanceAlt": "Redacted synchronization workflow with local data, retry handling, conflict logs, backup, and export states",
+    "attendancePrivate": "Private case study",
+    "medicineCategory": "Supportability and remediation awareness",
+    "medicineTitle": "Emergency Medicine Finder",
+    "medicineBody": "A system with a production-grade feature scope across multiple roles, operational workflows, backups, exports, validation, and tests. Repository documentation also identifies remaining CSRF, rate-limit, security-header, cookie, validation, and upload-hardening work, so this is not presented as deployment-ready.",
+    "medicineAlt": "Supportability review showing tested workflows, backups, diagnostics, and documented remediation priorities",
+    "medicineLink": "View public repository",
+    "collaborativeTitle": "Collaborative contribution",
+    "collaborativeBody": "House Shifting Services is collaborative work and is not presented as a project built independently. It remains outside the primary evidence cards because individual contribution boundaries are not sufficiently documented."
   },
   "projects": {
     "eyebrow": "Technical evidence",
@@ -151,6 +200,10 @@
     "messageLabel": "Message",
     "messageHint": "Please include at least 20 characters.",
     "send": "Send message",
+    "availability": "Availability",
+    "remote": "Open to remote opportunities",
+    "locationLabel": "Location",
+    "locationValue": "Sandwip, Chattogram, Bangladesh",
     "languages": "Languages",
     "banglaFluent": "Bangla — Fluent",
     "englishGood": "English — Good",
@@ -184,9 +237,9 @@
       "close": "Close language menu"
     },
     "typewriterPhrases": [
-      "website maintenance",
-      "technical documentation",
-      "full-stack development"
+      "user issue investigation",
+      "website support",
+      "technical documentation"
     ],
     "form": {
       "nameRequired": "Name is required.",

@@ -13,6 +13,10 @@ const getLeafValues = (value) => Object.values(value).flatMap((entry) =>
     : [entry]
 );
 
+const readKey = (source, key) => key
+  .split('.')
+  .reduce((value, part) => value?.[part], source);
+
 describe('portfolio locale dictionaries', () => {
   it('defines the approved locale order and routes', () => {
     expect(DEFAULT_LOCALE).toBe('en-US');
@@ -45,8 +49,8 @@ describe('portfolio locale dictionaries', () => {
   );
 
   it('falls back to American English for unsupported locales and missing keys', () => {
-    expect(getTranslator('bn')('hero.title')).toBe('টেকনিক্যাল সাপোর্ট ইঞ্জিনিয়ার');
-    expect(getTranslator('unsupported')('hero.title')).toBe('Technical Support Engineer');
+    expect(getTranslator('bn')('hero.role')).toBe('টেকনিক্যাল সাপোর্ট ইঞ্জিনিয়ার');
+    expect(getTranslator('unsupported')('hero.role')).toBe('Technical Support Engineer');
     expect(getTranslator('bn')('missing.key')).toBe('missing.key');
   });
 
@@ -69,4 +73,46 @@ describe('portfolio locale dictionaries', () => {
     expect(context.serializedClientMessages).not.toContain('</script>');
     expect(context.serializedClientMessages).toContain('\\u003c/script>');
   });
+
+  it('defines the approved support-first English content contract', () => {
+    const english = require('../locales/en-US.json');
+
+    expect(english.hero).toMatchObject({
+      status: 'Open to Technical Support opportunities',
+      role: 'Technical Support Engineer',
+      eyebrow: 'User support · Website support · IT operations',
+      title: 'Clear support for people, software, and systems.',
+      primaryAction: 'View support experience',
+      secondaryAction: 'Contact me',
+    });
+    expect(english.metrics).toMatchObject({
+      years: 'Years in technology',
+      workstations: 'Workstations supported',
+      industries: 'Industries supported',
+      portfolioLanguages: 'Portfolio languages',
+    });
+    expect(english).toHaveProperty('approach.documentTitle', 'Document');
+    expect(english).toHaveProperty('evidence.attendancePrivate', 'Private case study');
+    expect(english).toHaveProperty('contact.remote', 'Open to remote opportunities');
+  });
+
+  it.each(['bn', 'hi', 'ar', 'es', 'fr'])(
+    '%s localizes dates, support copy, and the English resume label',
+    (code) => {
+      const english = require('../locales/en-US.json');
+      const translated = require(`../locales/${code}.json`);
+
+      [
+        'hero.title',
+        'experience.bitAppsDate',
+        'experience.seniorDate',
+        'experience.juniorDate',
+        'approach.title',
+        'evidence.title',
+        'nav.englishResume',
+      ].forEach((key) => {
+        expect(readKey(translated, key)).not.toBe(readKey(english, key));
+      });
+    }
+  );
 });
