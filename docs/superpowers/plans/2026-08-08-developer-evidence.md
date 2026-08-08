@@ -12,7 +12,8 @@
 
 - Keep **Technical Support Engineer** as the primary portfolio and résumé role.
 - Use the English eyebrow **Developer Evidence** and heading **Evidence from systems I have worked on**.
-- Render exactly three public repositories in this order: Emergency Medicine Finder, Noor Notes, House Shifting Services.
+- Render exactly three primary public repositories in this order: Noor Notes, Emergency Medicine Finder, House Shifting Services.
+- Add PCIU CGPA Calculator below the cards as a compact **Collaborative contribution** with a public link and no specific individual-contribution claim.
 - House Shifting Services must be visibly labeled **Collaborative work** and must never imply sole authorship or an undocumented individual contribution.
 - Emergency Medicine Finder must retain visible CSRF, rate-limit, security-header, cookie, validation, and upload-hardening limitations and must not be described as deployment-ready.
 - Do not add metrics, performance improvements, adoption claims, deployment claims, or contribution boundaries absent from the repositories or direct user confirmation.
@@ -59,7 +60,7 @@
 
 **Interfaces:**
 - Consumes: `t(key)` from `utils/i18n.js`; existing `[data-evidence-card]` and `[data-evidence-source]` test hooks.
-- Produces: three ordered cards with `data-evidence="emergency-medicine-finder|noor-notes|house-shifting-services"`; three public anchors; `.collaborative-badge`; locale keys listed below.
+- Produces: three ordered cards with `data-evidence="noor-notes|emergency-medicine-finder|house-shifting-services"`; three primary public anchors; one PCIU collaborative-contribution anchor; `.collaborative-badge`; `.contribution-note`; locale keys listed below.
 
 - [ ] **Step 1: Add the hero-metric removal to the page and locale tests**
 
@@ -90,20 +91,26 @@ Keep the existing locale-route and locale-parity tests unchanged so removing the
 Replace the existing private-case-study test in `tests/page.test.js` with:
 
 ```js
-it('renders three ordered public developer-evidence repositories', () => {
+it('renders three ordered primary repositories and one collaborative contribution', () => {
   const cards = [...page.querySelectorAll('[data-evidence-card]')];
   const links = [...page.querySelectorAll('[data-evidence-source]')];
+  const contribution = page.querySelector('[data-collaborative-contribution]');
 
   expect(cards.map((card) => card.dataset.evidence)).toEqual([
-    'emergency-medicine-finder',
     'noor-notes',
+    'emergency-medicine-finder',
     'house-shifting-services',
   ]);
   expect(links.map((link) => link.getAttribute('href'))).toEqual([
-    'https://github.com/saamaamr/emergency-medicine-finder',
     'https://github.com/saamaamr/noor-notes',
+    'https://github.com/saamaamr/emergency-medicine-finder',
     'https://github.com/saamaamr/house-shifting-services',
   ]);
+  expect(contribution.textContent).toContain('PCIU CGPA Calculator');
+  expect(contribution.textContent).toContain('Collaborative contribution');
+  expect(contribution.querySelector('[data-contribution-source]').getAttribute('href')).toBe(
+    'https://github.com/saamaamr/pciu-cgpa-calculator'
+  );
   expect(page.querySelector('[data-private-evidence]')).toBeNull();
   expect(page.querySelector('[data-collaborative-evidence]').textContent).toContain(
     'Collaborative work'
@@ -117,8 +124,8 @@ Update the visual expectation to:
 
 ```js
 const expectedSources = [
-  '/assets/evidence/emergency-supportability.svg',
   '/assets/evidence/noor-notes-library.png',
+  '/assets/evidence/emergency-supportability.svg',
   '/assets/evidence/house-shifting-collaboration.svg',
 ];
 ```
@@ -129,8 +136,10 @@ Add these checks to the existing claim-boundary test:
 expect(text).toContain('production-grade feature scope');
 expect(text).toContain('not presented as deployment-ready');
 expect(text).toContain('collaborative work');
+expect(text).toContain('PCIU CGPA Calculator');
 expect(text).not.toContain('Smart Attendance Tracker');
 expect(page.querySelector('.collaborative-note')).toBeNull();
+expect(page.querySelector('.contribution-note')).not.toBeNull();
 ```
 
 - [ ] **Step 3: Rewrite the locale evidence contract test**
@@ -141,11 +150,12 @@ In `tests/i18n.test.js`, replace the `evidence.attendancePrivate` expectation wi
 expect(english).toHaveProperty('evidence.eyebrow', 'Developer Evidence');
 expect(english).toHaveProperty('evidence.title', 'Evidence from systems I have worked on');
 expect(english).toHaveProperty('evidence.houseBadge', 'Collaborative work');
+expect(english).toHaveProperty('evidence.pciuBadge', 'Collaborative contribution');
 expect(english).not.toHaveProperty('evidence.attendanceTitle');
 expect(english).not.toHaveProperty('evidence.collaborativeBody');
 ```
 
-Extend the translated-value list with `evidence.eyebrow`, `evidence.intro`, `evidence.noorBody`, `evidence.medicineBody`, and `evidence.houseBody` so each differs from English.
+Extend the translated-value list with `evidence.eyebrow`, `evidence.intro`, `evidence.noorBody`, `evidence.medicineBody`, `evidence.houseBody`, and `evidence.pciuBody` so each differs from English.
 
 - [ ] **Step 4: Run the focused tests and confirm the red state**
 
@@ -180,6 +190,7 @@ eyebrow, title, intro,
 medicineCategory, medicineTitle, medicineBody, medicineAlt, medicineLink,
 noorCategory, noorTitle, noorBody, noorAlt, noorLink,
 houseCategory, houseBadge, houseTitle, houseBody, houseAlt, houseLink
+pciuBadge, pciuTitle, pciuBody, pciuLink
 ```
 
 Use this exact English content in `locales/en-US.json`:
@@ -204,7 +215,11 @@ Use this exact English content in `locales/en-US.json`:
   "houseTitle": "House Shifting Services",
   "houseBody": "A collaborative Node.js, Express, EJS, and MySQL service-booking system with user, worker, and admin flows, registration and authentication, service listings, bookings, verification and hold actions, and file uploads. It is presented as collaborative work; individual contribution boundaries are not claimed.",
   "houseAlt": "House Shifting Services workflow diagram connecting users, service bookings, workers, and administration",
-  "houseLink": "View public repository"
+  "houseLink": "View public repository",
+  "pciuBadge": "Collaborative contribution",
+  "pciuTitle": "PCIU CGPA Calculator",
+  "pciuBody": "PCIU CGPA Calculator is collaborative work and is not presented as independently built. No specific individual contribution is claimed.",
+  "pciuLink": "View public repository"
 }
 ```
 
@@ -219,6 +234,8 @@ noorCategory=নেটিভ Linux ডেস্কটপ অ্যাপ্ল�
 houseCategory=সহযোগিতামূলক ফুল-স্ট্যাক ওয়েব অ্যাপ্লিকেশন
 houseBadge=সহযোগিতামূলক কাজ
 houseBody=ব্যবহারকারী, কর্মী ও অ্যাডমিন প্রবাহ, নিবন্ধন ও প্রমাণীকরণ, সেবা তালিকা, বুকিং, যাচাই ও স্থগিতকরণ এবং ফাইল আপলোডসহ একটি সহযোগিতামূলক Node.js, Express, EJS ও MySQL সেবা-বুকিং সিস্টেম। এটি সহযোগিতামূলক কাজ হিসেবে উপস্থাপিত; ব্যক্তিগত অবদানের অনথিভুক্ত সীমা দাবি করা হয়নি।
+pciuBadge=সহযোগিতামূলক অবদান
+pciuBody=PCIU CGPA Calculator একটি সহযোগিতামূলক কাজ এবং স্বাধীনভাবে নির্মিত হিসেবে উপস্থাপিত নয়। কোনো নির্দিষ্ট ব্যক্তিগত অবদানের দাবি করা হয়নি।
 
 hi:
 eyebrow=डेवलपर प्रमाण
@@ -228,6 +245,8 @@ noorCategory=नेटिव Linux डेस्कटॉप एप्लिक�
 houseCategory=सहयोगी फुल-स्टैक वेब एप्लिकेशन
 houseBadge=सहयोगी कार्य
 houseBody=उपयोगकर्ता, कर्मचारी और एडमिन प्रवाह, पंजीकरण और प्रमाणीकरण, सेवा सूचियाँ, बुकिंग, सत्यापन और होल्ड कार्रवाई तथा फ़ाइल अपलोड वाला सहयोगी Node.js, Express, EJS और MySQL सेवा-बुकिंग सिस्टम। इसे सहयोगी कार्य के रूप में प्रस्तुत किया गया है; व्यक्तिगत योगदान की अप्रमाणित सीमाओं का दावा नहीं किया गया है।
+pciuBadge=सहयोगी योगदान
+pciuBody=PCIU CGPA Calculator सहयोगी कार्य है और इसे स्वतंत्र रूप से बनाया गया प्रोजेक्ट नहीं बताया गया है। किसी विशिष्ट व्यक्तिगत योगदान का दावा नहीं किया गया है।
 
 ar:
 eyebrow=أدلة المطور
@@ -237,6 +256,8 @@ noorCategory=تطبيق سطح مكتب أصلي لنظام Linux
 houseCategory=تطبيق ويب متكامل تعاوني
 houseBadge=عمل تعاوني
 houseBody=نظام تعاوني لحجز الخدمات مبني باستخدام Node.js وExpress وEJS وMySQL، ويشمل مسارات المستخدم والعامل والمسؤول والتسجيل والمصادقة وقوائم الخدمات والحجوزات وإجراءات التحقق والتعليق ورفع الملفات. يُعرض كعمل تعاوني ولا تُنسب حدود مساهمة فردية غير موثقة.
+pciuBadge=مساهمة تعاونية
+pciuBody=PCIU CGPA Calculator عمل تعاوني ولا يُعرض كمشروع بُني بصورة مستقلة. لا تُنسب مساهمة فردية محددة.
 
 es:
 eyebrow=Evidencia de desarrollo
@@ -246,6 +267,8 @@ noorCategory=Aplicación de escritorio nativa para Linux
 houseCategory=Aplicación web full-stack colaborativa
 houseBadge=Trabajo colaborativo
 houseBody=Un sistema colaborativo de reserva de servicios con Node.js, Express, EJS y MySQL, con flujos para usuarios, trabajadores y administración, registro y autenticación, catálogo de servicios, reservas, acciones de verificación y espera, y carga de archivos. Se presenta como trabajo colaborativo; no se atribuyen límites de contribución individual no documentados.
+pciuBadge=Contribución colaborativa
+pciuBody=PCIU CGPA Calculator es un trabajo colaborativo y no se presenta como un proyecto creado de forma independiente. No se atribuye una contribución individual específica.
 
 fr:
 eyebrow=Preuves de développement
@@ -255,6 +278,8 @@ noorCategory=Application de bureau Linux native
 houseCategory=Application web full-stack collaborative
 houseBadge=Travail collaboratif
 houseBody=Un système collaboratif de réservation de services avec Node.js, Express, EJS et MySQL, comprenant des parcours utilisateur, intervenant et administrateur, l’inscription et l’authentification, les listes de services, les réservations, les actions de validation et de mise en attente, ainsi que le téléversement de fichiers. Il est présenté comme un travail collaboratif sans attribuer de limites de contribution individuelle non documentées.
+pciuBadge=Contribution collaborative
+pciuBody=PCIU CGPA Calculator est un travail collaboratif et n’est pas présenté comme un projet réalisé indépendamment. Aucune contribution individuelle précise n’est revendiquée.
 ```
 
 Use these exact remaining localized values:
@@ -298,7 +323,9 @@ houseAlt=Schéma du flux House Shifting Services reliant utilisateurs, réservat
 
 - [ ] **Step 7: Render the three ordered public cards**
 
-In `views/index.ejs`, render Emergency Medicine Finder first, Noor Notes second, and House Shifting Services third. Give every anchor `data-evidence-source`. Give the House article `data-collaborative-evidence`, render `<span class="collaborative-badge">` using `evidence.houseBadge`, and remove the separate `.collaborative-note` aside.
+In `views/index.ejs`, render Noor Notes first, Emergency Medicine Finder second, and House Shifting Services third. Give every primary card anchor `data-evidence-source`. Give the House article `data-collaborative-evidence`, render `<span class="collaborative-badge">` using `evidence.houseBadge`, and remove the old `.collaborative-note` aside.
+
+After the grid, render a compact `<aside class="contribution-note" data-collaborative-contribution>` for PCIU CGPA Calculator. Use `evidence.pciuBadge`, `evidence.pciuTitle`, `evidence.pciuBody`, and a public anchor with `data-contribution-source` pointing to `https://github.com/saamaamr/pciu-cgpa-calculator`. Do not give this aside `data-evidence-card`.
 
 The House link must be:
 
@@ -334,7 +361,7 @@ Keep `Remediation priorities`, `OPEN WORK`, and `Not presented as deployment-rea
 
 - [ ] **Step 9: Replace obsolete private/aside CSS with a collaborative badge**
 
-Remove `.private-badge` and the `.collaborative-note` rule group from `public/css/input.css`. Add:
+Remove `.private-badge` and the old `.collaborative-note` rule group from `public/css/input.css`. Add:
 
 ```css
 .collaborative-badge {
@@ -351,9 +378,31 @@ Remove `.private-badge` and the `.collaborative-note` rule group from `public/cs
   font-size: 0.7rem;
   font-weight: 800;
 }
+
+.contribution-note {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: 1rem 1.2rem;
+}
+
+.contribution-note h3,
+.contribution-note p {
+  margin: 0;
+}
+
+.contribution-note p {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
 ```
 
-Update the CSS assertion in `tests/page.test.js` to require `.collaborative-badge` and reject `.private-badge` and `.collaborative-note`.
+At `max-width: 45rem`, set `.contribution-note { grid-template-columns: 1fr; }`. Update the CSS assertion in `tests/page.test.js` to require `.collaborative-badge` and `.contribution-note` and reject `.private-badge` and `.collaborative-note`.
 
 - [ ] **Step 10: Run focused tests and build the production stylesheet**
 
@@ -385,7 +434,7 @@ git commit -m "feat: present focused developer evidence"
 
 **Interfaces:**
 - Consumes: the exact English evidence content and repository order defined in Task 1.
-- Produces: a tagged two-page A4 PDF with three public evidence links and explicit collaborative/deployment limitation text.
+- Produces: a tagged two-page A4 PDF with three primary evidence links, one PCIU collaborative-contribution link, and explicit collaborative/deployment limitation text.
 
 - [ ] **Step 1: Rewrite résumé evidence expectations**
 
@@ -396,13 +445,15 @@ expect(text).toContain('Developer Evidence');
 expect(text).toContain('Emergency Medicine Finder');
 expect(text).toContain('Noor Notes');
 expect(text).toContain('House Shifting Services');
+expect(text).toContain('PCIU CGPA Calculator');
 expect(text).toContain('Collaborative work');
+expect(text).toContain('Collaborative contribution');
 expect(text).toContain('production-grade feature scope');
 expect(text).toContain('not presented as deployment-ready');
 expect(text).not.toContain('Smart Attendance Tracker');
 ```
 
-Update the link test to require all three exact GitHub repository URLs and require no attendance URL.
+Update the link test to require all four exact GitHub repository URLs and require no attendance URL.
 
 - [ ] **Step 2: Run the résumé test and confirm the red state**
 
@@ -412,21 +463,24 @@ Run:
 npm test -- --runInBand tests/resume.test.js
 ```
 
-Expected: FAIL because the résumé still contains Technical Support Evidence and Smart Attendance Tracker and lacks the House repository link.
+Expected: FAIL because the résumé still contains Technical Support Evidence and Smart Attendance Tracker and lacks the House and PCIU repository links.
 
 - [ ] **Step 3: Replace the résumé evidence section**
 
 Use heading `Developer Evidence` and this order/content:
 
 ```text
-Emergency Medicine Finder — Full-stack web application
-A Node.js, Express, EJS, and MySQL application with a production-grade feature scope across user, shopkeeper, and admin roles, including medicine search, inventory, requests, sales, expenses, exports, backups, validation, and tests. Documented remediation remains, so it is not presented as deployment-ready.
-
 Noor Notes — Native Linux desktop application
 A Rust, GTK4, and libadwaita notes application with a responsive library and editor, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, and automated verification.
 
+Emergency Medicine Finder — Full-stack web application
+A Node.js, Express, EJS, and MySQL application with a production-grade feature scope across user, shopkeeper, and admin roles, including medicine search, inventory, requests, sales, expenses, exports, backups, validation, and tests. Documented remediation remains, so it is not presented as deployment-ready.
+
 House Shifting Services — Collaborative work
 A collaborative Node.js, Express, EJS, and MySQL service-booking system with user, worker, and admin flows, authentication, service listings, bookings, verification actions, and file uploads. Individual contribution boundaries are not claimed.
+
+PCIU CGPA Calculator — Collaborative contribution
+Collaborative work linked as a public repository; it is not presented as independently built, and no specific individual contribution is claimed.
 ```
 
 Link each project title or its final `Public repository` phrase to its exact GitHub URL. Do not introduce `<strong>` or `<aside>` elements because Chrome maps them to invalid PDF 1.4 structure roles in this document.
@@ -452,7 +506,7 @@ pdfinfo -struct "public/Abdullah Al Mamun Resume.pdf"
 pdftotext "public/Abdullah Al Mamun Resume.pdf" -
 ```
 
-Expected: A4, two pages, tagged PDF, no structure-role warnings, all three project names, `Collaborative work`, and `not presented as deployment-ready`. Confirm annotations include the three repository URLs.
+Expected: A4, two pages, tagged PDF, no structure-role warnings, all four project names, `Collaborative work`, `Collaborative contribution`, and `not presented as deployment-ready`. Confirm annotations include all four repository URLs.
 
 - [ ] **Step 6: Commit the résumé update**
 
@@ -479,9 +533,10 @@ Stage only `tests/resume.test.js`, `public/resume.html`, and the generated PDF.
 Replace the current `Evidence and Attribution` bullets with:
 
 ```markdown
-- Emergency Medicine Finder, Noor Notes, and House Shifting Services link to public source repositories as developer evidence.
+- Noor Notes, Emergency Medicine Finder, and House Shifting Services are the three primary developer-evidence cards and link to public source repositories.
 - Emergency Medicine Finder describes its feature scope while keeping documented deployment-readiness limitations visible.
 - House Shifting Services is labeled collaborative work and is not presented as an independently built project.
+- PCIU CGPA Calculator appears separately as a collaborative contribution with no specific individual-contribution claim.
 - Smart Attendance Tracker is not included in the public developer-evidence set; no private repository, credentials, employer identity, or personal attendance data is published.
 - The portfolio does not use unverified percentages, performance outcomes, or unsupported availability claims.
 ```
@@ -506,7 +561,7 @@ Run:
 
 ```bash
 rg -n -i "technical support evidence|Smart Attendance Tracker|data-private-evidence|private-badge|collaborative-note|Web Developer|Full[- ]Stack Developer|improved [0-9]+%|reduced [0-9]+%|24/7" views locales public/resume.html README.md tests
-rg -n "Developer Evidence|Evidence from systems I have worked on|production-grade feature scope|not presented as deployment-ready|Collaborative work|house-shifting-services" views locales public/resume.html README.md tests
+rg -n "Developer Evidence|Evidence from systems I have worked on|production-grade feature scope|not presented as deployment-ready|Collaborative work|Collaborative contribution|house-shifting-services|pciu-cgpa-calculator" views locales public/resume.html README.md tests
 ```
 
 Expected: the first command returns no removed evidence labels, private-card markup, developer-first job positioning, or invented outcome claims. The second confirms the required English boundaries. Manually distinguish the allowed project category `Full-stack web application` from the prohibited professional title `Full-Stack Developer`.
@@ -520,11 +575,13 @@ document.documentElement.scrollWidth === document.documentElement.clientWidth
 document.querySelectorAll('[data-evidence-card]').length === 3
 document.querySelectorAll('[data-evidence-source]').length === 3
 document.querySelector('[data-collaborative-evidence]') !== null
+document.querySelectorAll('[data-collaborative-contribution]').length === 1
+document.querySelector('[data-contribution-source]').href === 'https://github.com/saamaamr/pciu-cgpa-calculator'
 document.querySelectorAll('[data-metric]').length === 3
 document.querySelector('[data-metric="portfolio-languages"]') === null
 ```
 
-Scroll the evidence section into view and confirm all three images report `complete === true` and `naturalWidth > 0`. Confirm the Arabic page remains RTL and the collaborative badge is readable.
+Scroll the evidence section into view and confirm all three images report `complete === true` and `naturalWidth > 0`. Confirm the Arabic page remains RTL and both the House badge and PCIU contribution note are readable.
 
 - [ ] **Step 5: Commit README and any verification-only corrections**
 
