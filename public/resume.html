@@ -162,14 +162,14 @@
     }
     .detail-block h3 { margin: 0 0 3px; font-size: 8.8pt; }
     .detail-block p { margin: 0; color: #4c5e73; font-size: 8.1pt; }
-    .page-two .content { padding-block: 20px 24px; }
-    .page-two .section { margin-top: 27px; }
+    .page-two .content { padding-block: 24px 28px; }
+    .page-two .section { margin-top: 44px; }
     .page-two .section:first-child { margin-top: 0; }
     .page-two .compact-card { padding: 12px; }
-    .page-two .work-item { margin-top: 12px; padding-block: 16px; }
-    .page-two .education-item { margin-bottom: 15px; }
-    .page-two .details { gap: 12px; }
-    .page-two .detail-block { padding: 12px; }
+    .page-two .work-item { margin-top: 16px; padding-block: 28px; }
+    .page-two .education-item { margin-bottom: 21px; }
+    .page-two .details { gap: 18px; }
+    .page-two .detail-block { padding: 18px; }
     @page { size: A4; margin: 5mm 8mm; }
     @media print {
       body { background: #fff; }
@@ -225,6 +225,15 @@
         </div>
       </section>
 
+      <section class="section" aria-labelledby="toolkit-title">
+        <h2 class="section-title" id="toolkit-title">Technical Toolkit</h2>
+        <div class="compact-grid toolkit-grid">
+          <article class="compact-card"><h3>Support &amp; operations</h3><p>Hardware · Software · Basic networking · File management · Data operations</p></article>
+          <article class="compact-card"><h3>Web &amp; diagnostics</h3><p>WordPress · HTML/CSS · Browser diagnostics · REST API awareness · SQL awareness</p></article>
+          <article class="compact-card"><h3>Workflow &amp; quality</h3><p>GitHub · Postman · Jest · Documentation · Accessibility awareness</p></article>
+        </div>
+      </section>
+
       <section class="section experience-section" aria-labelledby="experience-title">
         <h2 class="section-title" id="experience-title">Professional Experience</h2>
         <article class="job">
@@ -262,15 +271,6 @@
   <article class="page page-two" aria-label="Resume page 2">
     <div class="continuation">Abdullah Al Mamun · Technical Support &amp; IT Operations Professional</div>
     <div class="content">
-      <section class="section" aria-labelledby="toolkit-title">
-        <h2 class="section-title" id="toolkit-title">Technical Toolkit</h2>
-        <div class="compact-grid toolkit-grid">
-          <article class="compact-card"><h3>Support &amp; operations</h3><p>Hardware · Software · Basic networking · File management · Data operations</p></article>
-          <article class="compact-card"><h3>Web &amp; diagnostics</h3><p>WordPress · HTML/CSS · Browser diagnostics · REST API awareness · SQL awareness</p></article>
-          <article class="compact-card"><h3>Workflow &amp; quality</h3><p>GitHub · Postman · Jest · Documentation · Accessibility awareness</p></article>
-        </div>
-      </section>
-
       <section class="section" aria-labelledby="work-title">
         <h2 class="section-title" id="work-title">Selected Technical Work</h2>
         <article class="work-item" data-selected-work><div><h3>Noor Notes</h3><p class="work-label">Native Linux desktop application</p></div><p>Rust, GTK4, and libadwaita notes application with library and editor views, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, and automated verification. <a href="https://github.com/saamaamr/noor-notes">Public repository</a></p></article>

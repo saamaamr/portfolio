@@ -72,6 +72,24 @@ describe('English resume', () => {
     expect(text).not.toContain('PCIU CGPA Calculator');
   });
 
+  it('places the technical toolkit on page one and opens page two with selected work', () => {
+    const pageOne = resume.querySelector('.page-one');
+    const pageTwo = resume.querySelector('.page-two');
+    const pageOneTitles = [...pageOne.querySelectorAll('.section-title')].map((title) =>
+      title.textContent.trim()
+    );
+    const firstPageTwoTitle = pageTwo.querySelector('.content > .section:first-child > .section-title');
+
+    expect(pageOneTitles).toEqual([
+      'Professional Profile',
+      'Core Competencies',
+      'Technical Toolkit',
+      'Professional Experience',
+    ]);
+    expect(pageTwo.querySelector('#toolkit-title')).toBeNull();
+    expect(firstPageTwoTitle.textContent.trim()).toBe('Selected Technical Work');
+  });
+
   it('keeps only the approved contact and public-work links clickable', () => {
     const hrefs = [...resume.querySelectorAll('a')].map((link) => link.href);
 
