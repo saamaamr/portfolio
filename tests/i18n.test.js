@@ -94,6 +94,10 @@ describe('portfolio locale dictionaries', () => {
     expect(english).toHaveProperty('approach.documentTitle', 'Document');
     expect(english).toHaveProperty('evidence.attendancePrivate', 'Private case study');
     expect(english).toHaveProperty('contact.remote', 'Open to remote opportunities');
+    expect(english).not.toHaveProperty('projects');
+    expect(english).not.toHaveProperty('nav.projects');
+    expect(english).not.toHaveProperty('metrics.projects');
+    expect(english).not.toHaveProperty('skills.developmentTitle');
   });
 
   it.each(['bn', 'hi', 'ar', 'es', 'fr'])(

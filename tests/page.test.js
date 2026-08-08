@@ -31,25 +31,29 @@ describe('Portfolio document', () => {
     expect(interactive[0].id).toBe('skip-to-content');
   });
 
-  it('presents a stable support-focused hero and primary resume action', () => {
+  it('presents a Technical Support Engineer identity and verified metrics', () => {
     const resumeLinks = [
       ...page.querySelectorAll('a[href="/Abdullah Al Mamun Resume.pdf"]'),
     ];
 
-    expect(page.querySelector('h1').textContent).toContain('Technical Support Engineer');
-    expect(page.querySelector('[data-primary-cta]').getAttribute('href')).toBe(
-      '/Abdullah Al Mamun Resume.pdf'
+    expect(page.querySelector('[data-professional-role]').textContent.trim()).toBe(
+      'Technical Support Engineer'
     );
-    expect(resumeLinks.map((link) => link.textContent.trim())).toEqual([
-      'Resume',
-      'Download Resume',
-      'Download Resume',
-    ]);
+    expect(page.querySelector('h1').textContent.trim()).toBe(
+      'Clear support for people, software, and systems.'
+    );
+    expect(page.querySelector('[data-primary-cta]').getAttribute('href')).toBe(
+      '#experience'
+    );
+    expect(resumeLinks).toHaveLength(2);
+    expect([...page.querySelectorAll('[data-metric] strong')].map((node) =>
+      node.textContent.trim()
+    )).toEqual(['7+', '50+', '3', '6']);
     expect(page.body.textContent).not.toMatch(/Résumé|résumé/);
-    expect(page.body.textContent).toContain('Open to discussions');
+    expect(page.body.textContent).toContain('Open to Technical Support opportunities');
   });
 
-  it('uses the approved streamlined information architecture', () => {
+  it('uses the approved support-first information architecture', () => {
     const sectionIds = [...page.querySelectorAll('main > section[id]')].map(
       (section) => section.id
     );
@@ -58,23 +62,68 @@ describe('Portfolio document', () => {
       'home',
       'capabilities',
       'experience',
-      'projects',
+      'approach',
+      'evidence',
       'skills',
       'education',
       'contact',
     ]);
   });
 
-  it('shows three permanently available source-code actions', () => {
-    const projectCards = page.querySelectorAll('[data-project-card]');
-    const sourceLinks = page.querySelectorAll('[data-project-source]');
+  it('renders two public evidence links and one private redacted case study', () => {
+    const evidenceCards = page.querySelectorAll('[data-evidence-card]');
+    const sourceLinks = page.querySelectorAll('[data-evidence-source]');
+    const privateCard = page.querySelector('[data-private-evidence]');
 
-    expect(projectCards).toHaveLength(3);
-    expect(sourceLinks).toHaveLength(3);
-    sourceLinks.forEach((link) => {
-      expect(link.closest('[data-project-card]')).not.toBeNull();
-      expect(link.closest('[aria-hidden="true"]')).toBeNull();
-    });
+    expect(evidenceCards).toHaveLength(3);
+    expect(sourceLinks).toHaveLength(2);
+    expect(privateCard).not.toBeNull();
+    expect(privateCard.querySelector('a')).toBeNull();
+    expect(privateCard.textContent).toContain('Private case study');
+    expect(sourceLinks[0].getAttribute('href')).toBe('https://github.com/saamaamr/noor-notes');
+    expect(sourceLinks[1].getAttribute('href')).toBe(
+      'https://github.com/saamaamr/emergency-medicine-finder'
+    );
+  });
+
+  it('does not inflate positioning, ownership, outcomes, or readiness', () => {
+    const text = page.body.textContent.replace(/\s+/g, ' ');
+
+    expect(text).not.toMatch(/Web Developer|Full[- ]Stack Developer/i);
+    expect(text).not.toMatch(
+      /improved support team response|24\/7|minimized downtime|optimized outcomes/i
+    );
+    expect(text).not.toMatch(/\bis deployment[- ]ready\b|\bproduction[- ]ready system\b/i);
+    expect(text).not.toContain('PCIU CGPA Calculator');
+    expect(text).toContain('production-grade feature scope');
+    expect(text).toContain('not presented as deployment-ready');
+    expect(text).toContain('collaborative work');
+  });
+
+  it('keeps localized dates, recruiter-focused education, and current contact methods', async () => {
+    const banglaPage = await renderPortfolio('bn');
+    const navTargets = [...page.querySelectorAll('.desktop-nav [data-section]')].map(
+      (link) => link.dataset.section
+    );
+
+    expect(navTargets).toEqual([
+      'home',
+      'experience',
+      'approach',
+      'evidence',
+      'skills',
+      'contact',
+    ]);
+    expect(page.body.textContent).toContain('May 2025 — Present');
+    expect(banglaPage.body.textContent).not.toContain('May 2025 — Present');
+    expect(page.querySelector('[data-education="bachelor"] strong').textContent.trim()).toBe(
+      'GPA 3.76 / 4.00'
+    );
+    expect(page.querySelector('[data-education="diploma"] strong')).toBeNull();
+    expect(page.querySelector('a[href="mailto:mamun872381cpi@gmail.com"]')).not.toBeNull();
+    expect(page.querySelector('a[href="tel:+8801580831003"]')).not.toBeNull();
+    expect(page.querySelector('a[href="https://wa.me/8801827918142"]')).not.toBeNull();
+    expect(page.querySelector('a[href*="linkedin.com/in/abdullah"]')).not.toBeNull();
   });
 
   it('provides native constraints and field-specific error destinations', () => {

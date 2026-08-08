@@ -8,37 +8,47 @@
     <%- include('partials/navbar') %>
 
     <main id="main-content" tabindex="-1">
-      <section id="home" class="hero section-shell" aria-labelledby="hero-title">
-        <div class="hero-copy reveal">
-          <div class="status-pill"><span aria-hidden="true"></span> <%= t('hero.status') %></div>
-          <p class="eyebrow"><%= t('hero.eyebrow') %></p>
-          <h1 id="hero-title"><%= t('hero.title') %></h1>
-          <p class="hero-intro"><%= t('hero.intro') %></p>
-          <p class="role-rotator">
-            <span><%= t('hero.alsoExperienced') %></span>
-            <span id="typed-text" aria-hidden="true"><%= clientMessages.typewriterPhrases[0] %></span><span class="typed-cursor" aria-hidden="true">|</span>
-            <span class="sr-only"><%= t('hero.typewriterSummary') %></span>
-          </p>
-          <div class="hero-actions">
-            <a href="/Abdullah Al Mamun Resume.pdf" class="button button-primary" data-primary-cta><i class="fas fa-download" aria-hidden="true"></i> <%= t('hero.downloadResume') %></a>
-            <a href="#contact" class="button button-secondary"><i class="fas fa-message" aria-hidden="true"></i> <%= t('hero.startConversation') %></a>
+      <section id="home" class="hero content-section" aria-labelledby="hero-title">
+        <div class="section-shell hero-shell">
+          <div class="hero-copy reveal">
+            <div class="status-pill"><span aria-hidden="true"></span> <%= t('hero.status') %></div>
+            <p class="eyebrow"><%= t('hero.eyebrow') %></p>
+            <p class="professional-role" data-professional-role><%= t('hero.role') %></p>
+            <h1 id="hero-title"><%= t('hero.title') %></h1>
+            <p class="hero-intro"><%= t('hero.intro') %></p>
+            <p class="role-rotator">
+              <span><%= t('hero.alsoExperienced') %></span>
+              <span id="typed-text" aria-hidden="true"><%= clientMessages.typewriterPhrases[0] %></span><span class="typed-cursor" aria-hidden="true">|</span>
+              <span class="sr-only"><%= t('hero.typewriterSummary') %></span>
+            </p>
+            <div class="hero-actions">
+              <a href="#experience" class="button button-primary" data-primary-cta><i class="fas fa-arrow-down" aria-hidden="true"></i> <%= t('hero.primaryAction') %></a>
+              <a href="#contact" class="button button-secondary"><i class="fas fa-message" aria-hidden="true"></i> <%= t('hero.secondaryAction') %></a>
+            </div>
+            <div class="hero-socials" aria-label="<%= t('a11y.professionalProfiles') %>">
+              <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a>
+              <a href="mailto:mamun872381cpi@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> <%= t('hero.email') %></a>
+            </div>
           </div>
-          <div class="hero-socials" aria-label="<%= t('a11y.professionalProfiles') %>">
-            <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a>
-            <a href="mailto:mamun872381cpi@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> <%= t('hero.email') %></a>
-          </div>
-        </div>
 
-        <div class="hero-visual reveal">
-          <div class="portrait-frame">
-            <div class="portrait-accent" aria-hidden="true"></div>
-            <img src="/assets/mamun image 1.jpeg" alt="<%= t('hero.portraitAlt') %>" width="640" height="640" />
+          <div class="hero-visual reveal">
+            <div class="portrait-frame">
+              <div class="portrait-accent" aria-hidden="true"></div>
+              <img src="/assets/mamun image 1.jpeg" alt="<%= t('hero.portraitAlt') %>" width="640" height="640" />
+            </div>
+            <div class="profile-summary">
+              <div><span><%= t('hero.basedIn') %></span><strong><%= t('contact.locationValue') %></strong></div>
+              <div><span><%= t('hero.currentRole') %></span><strong><%= t('hero.role') %></strong></div>
+              <div><span><%= t('hero.focus') %></span><strong><%= t('hero.focusValue') %></strong></div>
+            </div>
           </div>
-          <div class="profile-summary">
-            <div><span><%= t('hero.basedIn') %></span><strong><%= t('hero.location') %></strong></div>
-            <div><span><%= t('hero.currentRole') %></span><strong><%= t('hero.title') %></strong></div>
-            <div><span><%= t('hero.focus') %></span><strong><%= t('hero.focusValue') %></strong></div>
+
+          <div class="hero-proof-grid" aria-label="<%= t('a11y.careerHighlights') %>">
+            <div class="metric reveal" data-metric="years"><strong class="stat-number" data-target="7" data-suffix="+">7+</strong><span><%= t('metrics.years') %></span></div>
+            <div class="metric reveal" data-metric="workstations"><strong class="stat-number" data-target="50" data-suffix="+">50+</strong><span><%= t('metrics.workstations') %></span></div>
+            <div class="metric reveal" data-metric="industries"><strong class="stat-number" data-target="3" data-suffix="">3</strong><span><%= t('metrics.industries') %></span></div>
+            <div class="metric reveal" data-metric="portfolio-languages"><strong class="stat-number" data-target="6" data-suffix="">6</strong><span><%= t('metrics.portfolioLanguages') %></span></div>
           </div>
         </div>
       </section>
@@ -52,82 +62,90 @@
           </div>
           <div class="capability-grid">
             <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-headset" aria-hidden="true"></i></div><h3><%= t('capabilities.supportTitle') %></h3><p><%= t('capabilities.supportBody') %></p></article>
-            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div><h3><%= t('capabilities.troubleshootingTitle') %></h3><p><%= t('capabilities.troubleshootingBody') %></p></article>
             <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-window-maximize" aria-hidden="true"></i></div><h3><%= t('capabilities.websiteTitle') %></h3><p><%= t('capabilities.websiteBody') %></p></article>
-            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-diagram-project" aria-hidden="true"></i></div><h3><%= t('capabilities.systemsTitle') %></h3><p><%= t('capabilities.systemsBody') %></p></article>
-          </div>
-          <div class="metric-grid" aria-label="<%= t('a11y.careerHighlights') %>">
-            <div class="metric reveal"><strong class="stat-number" data-target="5" data-suffix="+">5+</strong><span><%= t('metrics.years') %></span></div>
-            <div class="metric reveal"><strong class="stat-number" data-target="50" data-suffix="+">50+</strong><span><%= t('metrics.workstations') %></span></div>
-            <div class="metric reveal"><strong class="stat-number" data-target="4" data-suffix="+">4+</strong><span><%= t('metrics.projects') %></span></div>
-            <div class="metric reveal"><strong class="stat-number" data-target="3" data-suffix="">3</strong><span><%= t('metrics.industries') %></span></div>
+            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-magnifying-glass" aria-hidden="true"></i></div><h3><%= t('capabilities.troubleshootingTitle') %></h3><p><%= t('capabilities.troubleshootingBody') %></p></article>
+            <article class="capability-card reveal"><div class="icon-tile"><i class="fas fa-book-open" aria-hidden="true"></i></div><h3><%= t('capabilities.systemsTitle') %></h3><p><%= t('capabilities.systemsBody') %></p></article>
           </div>
         </div>
       </section>
 
-      <section id="experience" class="content-section section-tint" aria-labelledby="experience-title">
+      <section id="experience" class="content-section experience-section" aria-labelledby="experience-title">
         <div class="section-shell narrow-shell">
           <div class="section-heading reveal"><p class="eyebrow"><%= t('experience.eyebrow') %></p><h2 id="experience-title"><%= t('experience.title') %></h2></div>
           <div class="timeline">
             <article class="timeline-item reveal">
               <div class="timeline-marker" aria-hidden="true"></div>
-              <div class="timeline-meta"><span>May 2025 — Present</span><span>Bit Apps</span></div>
+              <div class="timeline-meta"><span><%= t('experience.bitAppsDate') %></span><span>Bit Apps</span></div>
               <div class="timeline-content"><h3><%= t('experience.bitAppsRole') %></h3><p><%= t('experience.bitAppsSummary') %></p><ul><li><%= t('experience.bitAppsBullet1') %></li><li><%= t('experience.bitAppsBullet2') %></li><li><%= t('experience.bitAppsBullet3') %></li><li><%= t('experience.bitAppsBullet4') %></li></ul><div class="tag-list"><span><%= t('experience.technicalSupport') %></span><span>WordPress</span><span><%= t('experience.documentation') %></span><span><%= t('experience.bugReporting') %></span></div></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-marker" aria-hidden="true"></div>
-              <div class="timeline-meta"><span>Jan 2020 — Apr 2025</span><span>Kurnia Holiday Travels</span></div>
+              <div class="timeline-meta"><span><%= t('experience.seniorDate') %></span><span>Kurnia Holiday Travels</span></div>
               <div class="timeline-content"><h3><%= t('experience.seniorRole') %></h3><p><%= t('experience.seniorSummary') %></p><ul><li><%= t('experience.seniorBullet1') %></li><li><%= t('experience.seniorBullet2') %></li><li><%= t('experience.seniorBullet3') %></li></ul><div class="tag-list"><span><%= t('experience.itOperations') %></span><span><%= t('experience.dataAnalysis') %></span><span><%= t('experience.coordination') %></span></div></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-marker" aria-hidden="true"></div>
-              <div class="timeline-meta"><span>Jan 2019 — Dec 2019</span><span>Century Securities Limited</span></div>
+              <div class="timeline-meta"><span><%= t('experience.juniorDate') %></span><span>Century Securities Limited</span></div>
               <div class="timeline-content"><h3><%= t('experience.juniorRole') %></h3><p><%= t('experience.juniorSummary') %></p><ul><li><%= t('experience.juniorBullet1') %></li><li><%= t('experience.juniorBullet2') %></li><li><%= t('experience.juniorBullet3') %></li></ul><div class="tag-list"><span><%= t('experience.desktopSupport') %></span><span><%= t('experience.hardware') %></span><span><%= t('experience.dataManagement') %></span></div></div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="projects" class="content-section" aria-labelledby="projects-title">
+      <section id="approach" class="content-section" aria-labelledby="approach-title">
         <div class="section-shell">
-          <div class="section-heading reveal"><p class="eyebrow"><%= t('projects.eyebrow') %></p><h2 id="projects-title"><%= t('projects.title') %></h2><p><%= t('projects.intro') %></p></div>
-          <div class="project-grid">
-            <article class="project-card reveal" data-project-card>
-              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&amp;h=560&amp;fit=crop" alt="<%= t('projects.medicineAlt') %>" loading="lazy" width="900" height="560" />
-              <div class="project-body"><div class="project-label"><span><%= t('projects.healthcare') %></span><span><%= t('projects.fullStack') %></span></div><h3>Emergency Medicine Finder</h3><p><%= t('projects.medicineBody') %></p><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL2</span><span>JWT</span><span>Jest</span></div><a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('projects.viewSource') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
-            </article>
-            <article class="project-card reveal" data-project-card>
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&amp;h=560&amp;fit=crop" alt="<%= t('projects.houseAlt') %>" loading="lazy" width="900" height="560" />
-              <div class="project-body"><div class="project-label"><span><%= t('projects.relocation') %></span><span><%= t('projects.fullStack') %></span></div><h3>House Shifting Service</h3><p><%= t('projects.houseBody') %></p><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL</span><span>JWT</span><span>Multer</span></div><a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('projects.viewSource') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
-            </article>
-            <article class="project-card reveal" data-project-card>
-              <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&amp;h=560&amp;fit=crop" alt="<%= t('projects.calculatorAlt') %>" loading="lazy" width="900" height="560" />
-              <div class="project-body"><div class="project-label"><span><%= t('projects.education') %></span><span><%= t('projects.webApp') %></span></div><h3>PCIU CGPA Calculator</h3><p><%= t('projects.calculatorBody') %></p><div class="tag-list"><span>Node.js</span><span>Express</span><span>Parcel</span><span>Axios</span><span>Vercel</span></div><a href="https://github.com/saamaamr/pciu-cgpa-calculator" target="_blank" rel="noopener noreferrer" class="project-link" data-project-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('projects.viewSource') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
-            </article>
-          </div>
+          <div class="section-heading reveal"><p class="eyebrow"><%= t('approach.eyebrow') %></p><h2 id="approach-title"><%= t('approach.title') %></h2><p><%= t('approach.intro') %></p></div>
+          <ol class="approach-grid">
+            <li class="approach-step reveal"><span aria-hidden="true">01</span><h3><%= t('approach.listenTitle') %></h3><p><%= t('approach.listenBody') %></p></li>
+            <li class="approach-step reveal"><span aria-hidden="true">02</span><h3><%= t('approach.triageTitle') %></h3><p><%= t('approach.triageBody') %></p></li>
+            <li class="approach-step reveal"><span aria-hidden="true">03</span><h3><%= t('approach.reproduceTitle') %></h3><p><%= t('approach.reproduceBody') %></p></li>
+            <li class="approach-step reveal"><span aria-hidden="true">04</span><h3><%= t('approach.diagnoseTitle') %></h3><p><%= t('approach.diagnoseBody') %></p></li>
+            <li class="approach-step reveal"><span aria-hidden="true">05</span><h3><%= t('approach.resolveTitle') %></h3><p><%= t('approach.resolveBody') %></p></li>
+            <li class="approach-step reveal"><span aria-hidden="true">06</span><h3><%= t('approach.documentTitle') %></h3><p><%= t('approach.documentBody') %></p></li>
+          </ol>
         </div>
       </section>
 
-      <section id="skills" class="content-section section-tint" aria-labelledby="skills-title">
+      <section id="evidence" class="content-section section-tint" aria-labelledby="evidence-title">
+        <div class="section-shell">
+          <div class="section-heading reveal"><p class="eyebrow"><%= t('evidence.eyebrow') %></p><h2 id="evidence-title"><%= t('evidence.title') %></h2><p><%= t('evidence.intro') %></p></div>
+          <div class="evidence-grid">
+            <article class="evidence-card reveal" data-evidence-card data-evidence="noor-notes">
+              <div class="evidence-visual" aria-hidden="true"><i class="fas fa-note-sticky"></i></div>
+              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.noorCategory') %></p><h3><%= t('evidence.noorTitle') %></h3><p><%= t('evidence.noorBody') %></p><a href="https://github.com/saamaamr/noor-notes" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.noorLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+            </article>
+            <article class="evidence-card reveal" data-evidence-card data-private-evidence>
+              <div class="evidence-visual" aria-hidden="true"><i class="fas fa-arrows-rotate"></i></div>
+              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.attendanceCategory') %></p><span class="private-badge"><i class="fas fa-lock" aria-hidden="true"></i> <%= t('evidence.attendancePrivate') %></span><h3><%= t('evidence.attendanceTitle') %></h3><p><%= t('evidence.attendanceBody') %></p></div>
+            </article>
+            <article class="evidence-card reveal" data-evidence-card data-evidence="emergency-medicine-finder">
+              <div class="evidence-visual" aria-hidden="true"><i class="fas fa-clipboard-check"></i></div>
+              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.medicineCategory') %></p><h3><%= t('evidence.medicineTitle') %></h3><p class="evidence-limitations"><%= t('evidence.medicineBody') %></p><a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.medicineLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+            </article>
+          </div>
+          <aside class="collaborative-note reveal"><i class="fas fa-people-group" aria-hidden="true"></i><div><h3><%= t('evidence.collaborativeTitle') %></h3><p><%= t('evidence.collaborativeBody') %></p></div></aside>
+        </div>
+      </section>
+
+      <section id="skills" class="content-section" aria-labelledby="skills-title">
         <div class="section-shell">
           <div class="section-heading reveal"><p class="eyebrow"><%= t('skills.eyebrow') %></p><h2 id="skills-title"><%= t('skills.title') %></h2><p><%= t('skills.intro') %></p></div>
-          <div class="skills-grid">
-            <article class="skill-group reveal"><i class="fas fa-life-ring" aria-hidden="true"></i><h3><%= t('skills.supportTitle') %></h3><div class="tag-list"><span><%= t('skills.technicalSupport') %></span><span><%= t('skills.troubleshooting') %></span><span><%= t('skills.hardware') %></span><span><%= t('skills.software') %></span><span><%= t('skills.networking') %></span><span><%= t('skills.fileManagement') %></span><span><%= t('skills.bugReporting') %></span></div></article>
-            <article class="skill-group reveal"><i class="fas fa-window-restore" aria-hidden="true"></i><h3><%= t('skills.websiteTitle') %></h3><div class="tag-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>WordPress</span><span>Tailwind CSS</span><span>SCSS</span><span><%= t('skills.accessibility') %></span></div></article>
-            <article class="skill-group reveal"><i class="fas fa-code" aria-hidden="true"></i><h3><%= t('skills.developmentTitle') %></h3><div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL</span><span>REST APIs</span><span>JWT</span><span>bcrypt</span><span>EJS</span><span>Multer</span></div></article>
-            <article class="skill-group reveal"><i class="fas fa-toolbox" aria-hidden="true"></i><h3><%= t('skills.toolsTitle') %></h3><div class="tag-list"><span>Git &amp; GitHub</span><span>Postman</span><span>Jest</span><span>Supertest</span><span>Vercel</span><span>Nodemailer</span><span><%= t('skills.documentation') %></span></div></article>
+          <div class="skills-grid support-skills-grid">
+            <article class="skill-group reveal"><i class="fas fa-life-ring" aria-hidden="true"></i><h3><%= t('skills.supportTitle') %></h3><div class="tag-list"><span><%= t('skills.technicalSupport') %></span><span><%= t('skills.troubleshooting') %></span><span><%= t('skills.hardware') %></span><span><%= t('skills.software') %></span><span><%= t('skills.networking') %></span><span><%= t('skills.fileManagement') %></span><span><%= t('skills.dataOperations') %></span></div></article>
+            <article class="skill-group reveal"><i class="fas fa-window-restore" aria-hidden="true"></i><h3><%= t('skills.websiteTitle') %></h3><div class="tag-list"><span>WordPress</span><span>HTML/CSS</span><span><%= t('skills.browserDiagnostics') %></span><span><%= t('skills.bugReproduction') %></span><span><%= t('skills.apiAwareness') %></span><span><%= t('skills.sqlAwareness') %></span></div></article>
+            <article class="skill-group reveal"><i class="fas fa-comments" aria-hidden="true"></i><h3><%= t('skills.qualityTitle') %></h3><div class="tag-list"><span><%= t('skills.documentation') %></span><span>GitHub</span><span>Postman</span><span>Jest</span><span><%= t('skills.accessibility') %></span><span><%= t('skills.clientCommunication') %></span><span><%= t('skills.developerCoordination') %></span></div></article>
           </div>
         </div>
       </section>
 
-      <section id="education" class="content-section" aria-labelledby="education-title">
+      <section id="education" class="content-section section-tint" aria-labelledby="education-title">
         <div class="section-shell narrow-shell">
           <div class="section-heading reveal"><p class="eyebrow"><%= t('education.eyebrow') %></p><h2 id="education-title"><%= t('education.title') %></h2></div>
           <div class="education-list">
-            <article class="education-item reveal"><span>2023</span><div><h3><%= t('education.bachelor') %></h3><p>Port City International University, Chattogram</p><strong>GPA 3.76 / 4.00</strong></div></article>
-            <article class="education-item reveal"><span>2018</span><div><h3><%= t('education.diploma') %></h3><p>Chittagong Polytechnic Institute, Chattogram</p><strong>GPA 2.62 / 4.00</strong></div></article>
-            <article class="education-item reveal"><span>2017</span><div><h3><%= t('education.supportCertificate') %></h3><p>Bangladesh-Korea Technical Training Centre, Chattogram</p><strong><%= t('education.professionalCertification') %></strong></div></article>
-            <article class="education-item reveal"><span>2014</span><div><h3><%= t('education.ssc') %></h3><p>South-East Sandwip High School, Sandwip</p><strong>GPA 4.31 / 5.00</strong></div></article>
+            <article class="education-item reveal" data-education="bachelor"><span>2023</span><div><h3><%= t('education.bachelor') %></h3><p>Port City International University, Chattogram</p><strong>GPA 3.76 / 4.00</strong></div></article>
+            <article class="education-item reveal" data-education="diploma"><span>2018</span><div><h3><%= t('education.diploma') %></h3><p>Chittagong Polytechnic Institute, Chattogram</p></div></article>
+            <article class="education-item reveal" data-education="certification"><span>2017</span><div><h3><%= t('education.supportCertificate') %></h3><p>Bangladesh-Korea Technical Training Centre, Chattogram</p><strong><%= t('education.professionalCertification') %></strong></div></article>
+            <article class="education-item reveal" data-education="ssc"><span>2014</span><div><h3><%= t('education.ssc') %></h3><p>South-East Sandwip High School, Sandwip</p><strong>GPA 4.31 / 5.00</strong></div></article>
           </div>
         </div>
       </section>
@@ -152,6 +170,8 @@
             </form>
           </div>
           <aside class="profile-strip reveal" aria-label="<%= t('a11y.languagesInterests') %>">
+            <div><span><%= t('contact.availability') %></span><strong><%= t('contact.remote') %></strong></div>
+            <div><span><%= t('contact.locationLabel') %></span><strong><%= t('contact.locationValue') %></strong></div>
             <div><span><%= t('contact.languages') %></span><strong><%= t('contact.banglaFluent') %></strong><strong><%= t('contact.englishGood') %></strong></div>
             <div><span><%= t('contact.interests') %></span><strong><%= t('contact.travelling') %></strong><strong><%= t('contact.gardening') %></strong><strong><%= t('contact.cycling') %></strong><strong><%= t('contact.photography') %></strong></div>
           </aside>

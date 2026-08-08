@@ -11,7 +11,8 @@
     <div class="desktop-nav" aria-label="<%= t('a11y.portfolioSections') %>">
       <a href="#home" class="nav-link active-nav" data-section="home" aria-current="location"><%= t('nav.summary') %></a>
       <a href="#experience" class="nav-link" data-section="experience"><%= t('nav.experience') %></a>
-      <a href="#projects" class="nav-link" data-section="projects"><%= t('nav.projects') %></a>
+      <a href="#approach" class="nav-link" data-section="approach"><%= t('nav.approach') %></a>
+      <a href="#evidence" class="nav-link" data-section="evidence"><%= t('nav.evidence') %></a>
       <a href="#skills" class="nav-link" data-section="skills"><%= t('nav.skills') %></a>
       <a href="#contact" class="nav-link" data-section="contact"><%= t('nav.contact') %></a>
     </div>
@@ -35,7 +36,7 @@
       <button id="theme-toggle" class="icon-button" type="button" aria-label="<%= t('client.theme.dark') %>" title="<%= t('nav.themeTitle') %>">
         <i class="fas fa-moon" aria-hidden="true"></i>
       </button>
-      <a href="/Abdullah Al Mamun Resume.pdf" class="nav-resume"><%= t('nav.resume') %></a>
+      <a href="/Abdullah Al Mamun Resume.pdf" class="nav-resume"><%= locale === 'en-US' ? t('nav.resume') : t('nav.englishResume') %></a>
       <button id="mobile-menu-btn" class="icon-button mobile-trigger" type="button" aria-label="<%= t('client.menu.open') %>" aria-expanded="false" aria-controls="mobile-menu">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
@@ -45,9 +46,10 @@
   <nav id="mobile-menu" class="mobile-menu" aria-label="<%= t('nav.mobileNavigation') %>" aria-hidden="true">
     <a href="#home" class="nav-link active-nav" data-section="home" aria-current="location"><%= t('nav.summary') %></a>
     <a href="#experience" class="nav-link" data-section="experience"><%= t('nav.experience') %></a>
-    <a href="#projects" class="nav-link" data-section="projects"><%= t('nav.projects') %></a>
+    <a href="#approach" class="nav-link" data-section="approach"><%= t('nav.approach') %></a>
+    <a href="#evidence" class="nav-link" data-section="evidence"><%= t('nav.evidence') %></a>
     <a href="#skills" class="nav-link" data-section="skills"><%= t('nav.skills') %></a>
     <a href="#contact" class="nav-link" data-section="contact"><%= t('nav.contact') %></a>
-    <a href="/Abdullah Al Mamun Resume.pdf" class="mobile-resume"><%= t('nav.downloadResume') %></a>
+    <a href="/Abdullah Al Mamun Resume.pdf" class="mobile-resume"><%= locale === 'en-US' ? t('nav.downloadResume') : t('nav.englishResume') %></a>
   </nav>
 </header>
