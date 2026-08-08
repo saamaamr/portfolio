@@ -163,6 +163,15 @@
     return { open, close };
   };
 
+  const syncThemeFavicon = (documentRef, theme) => {
+    const favicon = documentRef.getElementById('site-favicon');
+    if (!favicon) return;
+    favicon.setAttribute(
+      'href',
+      theme === 'dark' ? '/assets/logo-dark.svg' : '/assets/logo-light.svg'
+    );
+  };
+
   const initTheme = (documentRef, messages = DEFAULT_LOCALE_DATA.theme) => {
     const root = documentRef.documentElement;
     const toggle = documentRef.getElementById('theme-toggle');
@@ -173,6 +182,7 @@
       root.classList.toggle('dark', isDark);
       root.dataset.theme = theme;
       root.style.colorScheme = theme;
+      syncThemeFavicon(documentRef, theme);
       if (persist) windowRef.localStorage.setItem('theme', theme);
       if (toggle) {
         toggle.innerHTML = `<i class="fas fa-${isDark ? 'sun' : 'moon'}" aria-hidden="true"></i>`;
@@ -401,5 +411,7 @@
     setActiveNavigation,
     initMobileMenu,
     initLanguageMenu,
+    initTheme,
+    syncThemeFavicon,
   };
 });

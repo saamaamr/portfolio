@@ -5,6 +5,9 @@ describe('Portfolio browser behavior', () => {
 
   beforeEach(() => {
     jest.resetModules();
+    document.head.innerHTML = '';
+    document.body.innerHTML = '';
+    window.localStorage.clear();
     portfolio = require('../public/js/script');
   });
 
@@ -12,6 +15,61 @@ describe('Portfolio browser behavior', () => {
     expect(portfolio.resolveTheme(null, true)).toBe('dark');
     expect(portfolio.resolveTheme(null, false)).toBe('light');
     expect(portfolio.resolveTheme('light', true)).toBe('light');
+  });
+
+  it('selects the favicon that matches the active theme', () => {
+    document.head.innerHTML = '<link id="site-favicon" href="/assets/logo-light.svg">';
+
+    portfolio.syncThemeFavicon(document, 'dark');
+    expect(document.getElementById('site-favicon').getAttribute('href')).toBe(
+      '/assets/logo-dark.svg'
+    );
+    portfolio.syncThemeFavicon(document, 'light');
+    expect(document.getElementById('site-favicon').getAttribute('href')).toBe(
+      '/assets/logo-light.svg'
+    );
+  });
+
+  it('keeps the favicon synced through system and saved theme changes', () => {
+    const mediaListeners = {};
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      value: jest.fn(() => ({
+        matches: true,
+        addEventListener: (type, listener) => {
+          mediaListeners[type] = listener;
+        },
+      })),
+    });
+    document.head.innerHTML = '<link id="site-favicon" href="/assets/logo-light.svg">';
+    document.body.innerHTML = '<button id="theme-toggle" type="button"></button>';
+
+    portfolio.initTheme(document, {
+      light: 'Switch to light mode',
+      dark: 'Switch to dark mode',
+    });
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+    expect(document.getElementById('site-favicon').getAttribute('href')).toBe(
+      '/assets/logo-dark.svg'
+    );
+
+    mediaListeners.change({ matches: false });
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
+    expect(document.getElementById('site-favicon').getAttribute('href')).toBe(
+      '/assets/logo-light.svg'
+    );
+
+    document.getElementById('theme-toggle').click();
+    expect(window.localStorage.getItem('theme')).toBe('dark');
+    expect(document.getElementById('site-favicon').getAttribute('href')).toBe(
+      '/assets/logo-dark.svg'
+    );
+
+    mediaListeners.change({ matches: false });
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+    expect(document.getElementById('site-favicon').getAttribute('href')).toBe(
+      '/assets/logo-dark.svg'
+    );
   });
 
   it('returns field-specific contact validation errors', () => {
