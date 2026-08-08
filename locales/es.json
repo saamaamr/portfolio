@@ -65,8 +65,7 @@
   "metrics": {
     "years": "Años en tecnología",
     "workstations": "Equipos asistidos",
-    "industries": "Sectores con soporte",
-    "portfolioLanguages": "Idiomas del portafolio"
+    "industries": "Sectores con soporte"
   },
   "experience": {
     "eyebrow": "Trayectoria profesional",
@@ -118,26 +117,29 @@
     "documentBody": "Registrar la solución y convertirla en conocimiento reutilizable."
   },
   "evidence": {
-    "eyebrow": "Evidencia de soporte técnico",
+    "eyebrow": "Evidencia de desarrollo",
     "title": "Evidencia de sistemas en los que he trabajado",
-    "intro": "Trabajo seleccionado desde la resolución de problemas, la fiabilidad operativa, la documentación, las pruebas y las limitaciones responsables.",
-    "noorCategory": "Preparación para lanzamientos y resolución de problemas",
+    "intro": "Trabajo de desarrollo seleccionado que muestra arquitectura de aplicaciones, flujos de usuario, gestión de datos, pruebas, documentación y limitaciones responsables.",
+    "noorCategory": "Aplicación de escritorio nativa para Linux",
     "noorTitle": "Noor Notes",
-    "noorBody": "Una aplicación original de notas para Linux con diagnóstico de instalación, guía de compatibilidad, documentación de recuperación y copias de seguridad, estados de fallo seguros, almacenamiento local cifrado, comprobaciones de empaquetado, instrucciones para informar incidencias y verificación automatizada.",
-    "noorAlt": "Pantalla de biblioteca de Noor Notes con la interfaz utilizada en la documentación de soporte y lanzamientos",
+    "noorBody": "Una aplicación de notas con Rust, GTK4 y libadwaita que incluye biblioteca y editor adaptables, modos enriquecido y de código fuente, almacenamiento local cifrado, autoguardado y recuperación, empaquetado para Linux, controles atentos a la accesibilidad y verificación automatizada.",
+    "noorAlt": "Pantalla de biblioteca de Noor Notes con la interfaz nativa de notas para Linux",
     "noorLink": "Ver repositorio público",
-    "attendanceCategory": "Sincronización y fiabilidad operativa",
-    "attendanceTitle": "Smart Attendance Tracker",
-    "attendanceBody": "Un caso privado redactado sobre sincronización entre Google Sheets y datos locales, reintentos por límites de tasa, registros de conflictos y correcciones, monitorización de estado, copias de seguridad, exportaciones, caché y funcionamiento PWA sin conexión.",
-    "attendanceAlt": "Flujo de sincronización redactado con datos locales, reintentos, registro de conflictos, copias y exportaciones",
-    "attendancePrivate": "Caso privado",
-    "medicineCategory": "Capacidad de soporte y conciencia de remediación",
+    "medicineCategory": "Aplicación web full-stack",
     "medicineTitle": "Emergency Medicine Finder",
-    "medicineBody": "Un sistema con alcance de funciones de nivel productivo en múltiples roles, flujos operativos, copias de seguridad, exportaciones, validación y pruebas. La documentación del repositorio también identifica trabajo pendiente en CSRF, límites de tasa, cabeceras de seguridad, cookies, validación y endurecimiento de cargas, por lo que no se presenta como listo para desplegar.",
-    "medicineAlt": "Revisión de soporte con flujos probados, copias de seguridad, diagnóstico y prioridades de remediación documentadas",
+    "medicineBody": "Una aplicación con Node.js, Express, EJS y MySQL con un alcance de funciones de nivel productivo para usuarios, propietarios de farmacia y administración, que incluye búsqueda de medicamentos, inventario, solicitudes, ventas, gastos, exportaciones, copias de seguridad, validación y pruebas. Queda trabajo documentado sobre CSRF, límites de tasa, cabeceras de seguridad, cookies, validación y endurecimiento de cargas, por lo que no se presenta como lista para desplegar.",
+    "medicineAlt": "Revisión de funciones y remediación de Emergency Medicine Finder con roles, flujos, pruebas, copias de seguridad, exportaciones y trabajo de seguridad pendiente",
     "medicineLink": "Ver repositorio público",
-    "collaborativeTitle": "Contribución colaborativa",
-    "collaborativeBody": "House Shifting Services es trabajo colaborativo y no se presenta como un proyecto creado de forma independiente. Queda fuera de las evidencias principales porque los límites de la contribución individual no están suficientemente documentados."
+    "houseCategory": "Aplicación web full-stack colaborativa",
+    "houseBadge": "Trabajo colaborativo",
+    "houseTitle": "House Shifting Services",
+    "houseBody": "Un sistema colaborativo de reserva de servicios con Node.js, Express, EJS y MySQL, con flujos para usuarios, trabajadores y administración, registro y autenticación, catálogo de servicios, reservas, acciones de verificación y espera, y carga de archivos. Se presenta como trabajo colaborativo; no se atribuyen límites de contribución individual no documentados.",
+    "houseAlt": "Diagrama de flujo de House Shifting Services que conecta usuarios, reservas de servicios, trabajadores y administración",
+    "houseLink": "Ver repositorio público",
+    "pciuBadge": "Contribución colaborativa",
+    "pciuTitle": "PCIU CGPA Calculator",
+    "pciuBody": "PCIU CGPA Calculator es un trabajo colaborativo y no se presenta como un proyecto creado de forma independiente. No se atribuye una contribución individual específica.",
+    "pciuLink": "Ver repositorio público"
   },
   "skills": {
     "eyebrow": "Herramientas de trabajo",

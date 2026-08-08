@@ -46,9 +46,15 @@ describe('Portfolio document', () => {
       '#experience'
     );
     expect(resumeLinks).toHaveLength(2);
+    expect([...page.querySelectorAll('[data-metric]')].map((node) => node.dataset.metric)).toEqual([
+      'years',
+      'workstations',
+      'industries',
+    ]);
     expect([...page.querySelectorAll('[data-metric] strong')].map((node) =>
       node.textContent.trim()
-    )).toEqual(['7+', '50+', '3', '6']);
+    )).toEqual(['7+', '50+', '3']);
+    expect(page.querySelector('[data-metric="portfolio-languages"]')).toBeNull();
     expect(page.body.textContent).not.toMatch(/Résumé|résumé/);
     expect(page.body.textContent).toContain('Open to Technical Support opportunities');
   });
@@ -70,19 +76,33 @@ describe('Portfolio document', () => {
     ]);
   });
 
-  it('renders two public evidence links and one private redacted case study', () => {
-    const evidenceCards = page.querySelectorAll('[data-evidence-card]');
-    const sourceLinks = page.querySelectorAll('[data-evidence-source]');
-    const privateCard = page.querySelector('[data-private-evidence]');
+  it('renders three ordered primary repositories and one collaborative contribution', () => {
+    const cards = [...page.querySelectorAll('[data-evidence-card]')];
+    const links = [...page.querySelectorAll('[data-evidence-source]')];
+    const contribution = page.querySelector('[data-collaborative-contribution]');
 
-    expect(evidenceCards).toHaveLength(3);
-    expect(sourceLinks).toHaveLength(2);
-    expect(privateCard).not.toBeNull();
-    expect(privateCard.querySelector('a')).toBeNull();
-    expect(privateCard.textContent).toContain('Private case study');
-    expect(sourceLinks[0].getAttribute('href')).toBe('https://github.com/saamaamr/noor-notes');
-    expect(sourceLinks[1].getAttribute('href')).toBe(
-      'https://github.com/saamaamr/emergency-medicine-finder'
+    expect(cards.map((card) => card.dataset.evidence)).toEqual([
+      'noor-notes',
+      'emergency-medicine-finder',
+      'house-shifting-services',
+    ]);
+    expect(links.map((link) => link.getAttribute('href'))).toEqual([
+      'https://github.com/saamaamr/noor-notes',
+      'https://github.com/saamaamr/emergency-medicine-finder',
+      'https://github.com/saamaamr/house-shifting-services',
+    ]);
+    expect(contribution.textContent).toContain('PCIU CGPA Calculator');
+    expect(contribution.textContent).toContain('Collaborative contribution');
+    expect(contribution.querySelector('[data-contribution-source]').getAttribute('href')).toBe(
+      'https://github.com/saamaamr/pciu-cgpa-calculator'
+    );
+    expect(page.querySelector('[data-private-evidence]')).toBeNull();
+    expect(page.querySelector('[data-collaborative-evidence]').textContent).toContain(
+      'Collaborative work'
+    );
+    expect(page.getElementById('evidence').textContent).toContain('Developer Evidence');
+    expect(page.getElementById('evidence').textContent).not.toContain(
+      'Smart Attendance Tracker'
     );
   });
 
@@ -90,8 +110,8 @@ describe('Portfolio document', () => {
     const images = [...page.querySelectorAll('[data-evidence-card] img')];
     const expectedSources = [
       '/assets/evidence/noor-notes-library.png',
-      '/assets/evidence/attendance-sync.svg',
       '/assets/evidence/emergency-supportability.svg',
+      '/assets/evidence/house-shifting-collaboration.svg',
     ];
 
     expect(images.map((image) => image.getAttribute('src'))).toEqual(expectedSources);
@@ -113,10 +133,13 @@ describe('Portfolio document', () => {
       /improved support team response|24\/7|minimized downtime|optimized outcomes/i
     );
     expect(text).not.toMatch(/\bis deployment[- ]ready\b|\bproduction[- ]ready system\b/i);
-    expect(text).not.toContain('PCIU CGPA Calculator');
     expect(text).toContain('production-grade feature scope');
     expect(text).toContain('not presented as deployment-ready');
     expect(text).toContain('collaborative work');
+    expect(text).toContain('PCIU CGPA Calculator');
+    expect(text).not.toContain('Smart Attendance Tracker');
+    expect(page.querySelector('.collaborative-note')).toBeNull();
+    expect(page.querySelector('.contribution-note')).not.toBeNull();
   });
 
   it('keeps localized dates, recruiter-focused education, and current contact methods', async () => {
@@ -263,6 +286,10 @@ describe('Portfolio document', () => {
     expect(css).toContain('.approach-grid');
     expect(css).toContain('.evidence-grid');
     expect(css).toContain('.evidence-limitations');
+    expect(css).toContain('.collaborative-badge');
+    expect(css).toContain('.contribution-note');
+    expect(css).not.toContain('.private-badge');
+    expect(css).not.toContain('.collaborative-note');
     expect(css).toContain('.timeline-content');
   });
 });

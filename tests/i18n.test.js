@@ -89,10 +89,15 @@ describe('portfolio locale dictionaries', () => {
       years: 'Years in technology',
       workstations: 'Workstations supported',
       industries: 'Industries supported',
-      portfolioLanguages: 'Portfolio languages',
     });
+    expect(english).not.toHaveProperty('metrics.portfolioLanguages');
     expect(english).toHaveProperty('approach.documentTitle', 'Document');
-    expect(english).toHaveProperty('evidence.attendancePrivate', 'Private case study');
+    expect(english).toHaveProperty('evidence.eyebrow', 'Developer Evidence');
+    expect(english).toHaveProperty('evidence.title', 'Evidence from systems I have worked on');
+    expect(english).toHaveProperty('evidence.houseBadge', 'Collaborative work');
+    expect(english).toHaveProperty('evidence.pciuBadge', 'Collaborative contribution');
+    expect(english).not.toHaveProperty('evidence.attendanceTitle');
+    expect(english).not.toHaveProperty('evidence.collaborativeBody');
     expect(english).toHaveProperty('contact.remote', 'Open to remote opportunities');
     expect(english).not.toHaveProperty('projects');
     expect(english).not.toHaveProperty('nav.projects');
@@ -112,7 +117,13 @@ describe('portfolio locale dictionaries', () => {
         'experience.seniorDate',
         'experience.juniorDate',
         'approach.title',
+        'evidence.eyebrow',
         'evidence.title',
+        'evidence.intro',
+        'evidence.noorBody',
+        'evidence.medicineBody',
+        'evidence.houseBody',
+        'evidence.pciuBody',
         'nav.englishResume',
       ].forEach((key) => {
         expect(readKey(translated, key)).not.toBe(readKey(english, key));

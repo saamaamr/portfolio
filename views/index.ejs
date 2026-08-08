@@ -48,7 +48,6 @@
             <div class="metric reveal" data-metric="years"><strong class="stat-number" data-target="7" data-suffix="+">7+</strong><span><%= t('metrics.years') %></span></div>
             <div class="metric reveal" data-metric="workstations"><strong class="stat-number" data-target="50" data-suffix="+">50+</strong><span><%= t('metrics.workstations') %></span></div>
             <div class="metric reveal" data-metric="industries"><strong class="stat-number" data-target="3" data-suffix="">3</strong><span><%= t('metrics.industries') %></span></div>
-            <div class="metric reveal" data-metric="portfolio-languages"><strong class="stat-number" data-target="6" data-suffix="">6</strong><span><%= t('metrics.portfolioLanguages') %></span></div>
           </div>
         </div>
       </section>
@@ -114,16 +113,20 @@
               <div class="evidence-visual"><img src="/assets/evidence/noor-notes-library.png" alt="<%= t('evidence.noorAlt') %>" loading="lazy" width="900" height="560" /></div>
               <div class="evidence-body"><p class="evidence-category"><%= t('evidence.noorCategory') %></p><h3><%= t('evidence.noorTitle') %></h3><p><%= t('evidence.noorBody') %></p><a href="https://github.com/saamaamr/noor-notes" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.noorLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
             </article>
-            <article class="evidence-card reveal" data-evidence-card data-private-evidence>
-              <div class="evidence-visual"><img src="/assets/evidence/attendance-sync.svg" alt="<%= t('evidence.attendanceAlt') %>" loading="lazy" width="900" height="560" /></div>
-              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.attendanceCategory') %></p><span class="private-badge"><i class="fas fa-lock" aria-hidden="true"></i> <%= t('evidence.attendancePrivate') %></span><h3><%= t('evidence.attendanceTitle') %></h3><p><%= t('evidence.attendanceBody') %></p></div>
-            </article>
             <article class="evidence-card reveal" data-evidence-card data-evidence="emergency-medicine-finder">
               <div class="evidence-visual"><img src="/assets/evidence/emergency-supportability.svg" alt="<%= t('evidence.medicineAlt') %>" loading="lazy" width="900" height="560" /></div>
               <div class="evidence-body"><p class="evidence-category"><%= t('evidence.medicineCategory') %></p><h3><%= t('evidence.medicineTitle') %></h3><p class="evidence-limitations"><%= t('evidence.medicineBody') %></p><a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.medicineLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
             </article>
+            <article class="evidence-card reveal" data-evidence-card data-evidence="house-shifting-services" data-collaborative-evidence>
+              <div class="evidence-visual"><img src="/assets/evidence/house-shifting-collaboration.svg" alt="<%= t('evidence.houseAlt') %>" loading="lazy" width="900" height="560" /></div>
+              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.houseCategory') %></p><span class="collaborative-badge"><i class="fas fa-people-group" aria-hidden="true"></i> <%= t('evidence.houseBadge') %></span><h3><%= t('evidence.houseTitle') %></h3><p><%= t('evidence.houseBody') %></p><a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.houseLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+            </article>
           </div>
-          <aside class="collaborative-note reveal"><i class="fas fa-people-group" aria-hidden="true"></i><div><h3><%= t('evidence.collaborativeTitle') %></h3><p><%= t('evidence.collaborativeBody') %></p></div></aside>
+          <aside class="contribution-note reveal" data-collaborative-contribution>
+            <span class="collaborative-badge"><i class="fas fa-code-branch" aria-hidden="true"></i> <%= t('evidence.pciuBadge') %></span>
+            <div><h3><%= t('evidence.pciuTitle') %></h3><p><%= t('evidence.pciuBody') %></p></div>
+            <a href="https://github.com/saamaamr/pciu-cgpa-calculator" target="_blank" rel="noopener noreferrer" class="project-link" data-contribution-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.pciuLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </aside>
         </div>
       </section>
 

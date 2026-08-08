@@ -1448,7 +1448,7 @@ main > section {
 .hero-proof-grid {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.8rem;
   margin-top: 0.5rem;
 }
@@ -1635,14 +1635,16 @@ main > section {
   font-size: 0.86rem;
 }
 
-.private-badge {
+.collaborative-badge {
   width: fit-content;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  margin-top: 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--teal) 40%, var(--border));
   border-radius: 999px;
-  background: var(--primary-soft);
-  color: var(--primary);
+  background: color-mix(in srgb, var(--teal) 12%, var(--surface));
+  color: var(--teal);
   padding: 0.32rem 0.65rem;
   font-size: 0.7rem;
   font-weight: 800;
@@ -1658,29 +1660,24 @@ main > section {
   background: rgba(195, 92, 36, 0.12);
 }
 
-.collaborative-note {
-  display: flex;
-  align-items: flex-start;
+.contribution-note {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
   gap: 1rem;
   margin-top: 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--surface);
-  padding: 1.2rem;
+  padding: 1rem 1.2rem;
 }
 
-.collaborative-note > i {
-  color: var(--teal);
-  font-size: 1.3rem;
-}
-
-.collaborative-note h3,
-.collaborative-note p {
+.contribution-note h3,
+.contribution-note p {
   margin: 0;
 }
 
-.collaborative-note p {
-  margin-top: 0.3rem;
+.contribution-note p {
   color: var(--text-muted);
   font-size: 0.84rem;
 }
@@ -1710,7 +1707,6 @@ main > section {
     max-width: 50rem;
   }
 
-  .hero-proof-grid,
   .approach-grid,
   .evidence-grid,
   .support-skills-grid,
@@ -1739,7 +1735,7 @@ main > section {
   }
 
   .hero-proof-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .hero-proof-grid .metric {
@@ -1751,6 +1747,10 @@ main > section {
   .evidence-grid,
   .support-skills-grid,
   .profile-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .contribution-note {
     grid-template-columns: 1fr;
   }
 

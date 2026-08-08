@@ -68,8 +68,7 @@
   "metrics": {
     "years": "Years in technology",
     "workstations": "Workstations supported",
-    "industries": "Industries supported",
-    "portfolioLanguages": "Portfolio languages"
+    "industries": "Industries supported"
   },
   "experience": {
     "eyebrow": "Professional journey",
@@ -121,26 +120,29 @@
     "documentBody": "Record the resolution and turn it into reusable knowledge."
   },
   "evidence": {
-    "eyebrow": "Technical support evidence",
+    "eyebrow": "Developer Evidence",
     "title": "Evidence from systems I have worked on",
-    "intro": "Selected work viewed through troubleshooting, operational reliability, documentation, testing, and responsible limitations.",
-    "noorCategory": "Release and troubleshooting readiness",
+    "intro": "Selected development work showing application architecture, user workflows, data handling, testing, documentation, and responsible limitations.",
+    "noorCategory": "Native Linux desktop application",
     "noorTitle": "Noor Notes",
-    "noorBody": "An original Linux notes application with installation diagnostics, compatibility guidance, recovery and backup documentation, safe failure states, encrypted local storage, packaging checks, issue-report instructions, and automated verification.",
-    "noorAlt": "Noor Notes library screen showing the application interface used for support and release documentation",
+    "noorBody": "A Rust, GTK4, and libadwaita notes application with a responsive library and editor, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, accessibility-aware controls, and automated verification.",
+    "noorAlt": "Noor Notes library screen showing the native Linux notes interface",
     "noorLink": "View public repository",
-    "attendanceCategory": "Synchronization and operational reliability",
-    "attendanceTitle": "Smart Attendance Tracker",
-    "attendanceBody": "A redacted private case study covering Google Sheets and local synchronization, rate-limit retries, conflict and correction logs, status monitoring, backups, exports, caching, and offline PWA behavior.",
-    "attendanceAlt": "Redacted synchronization workflow with local data, retry handling, conflict logs, backup, and export states",
-    "attendancePrivate": "Private case study",
-    "medicineCategory": "Supportability and remediation awareness",
+    "medicineCategory": "Full-stack web application",
     "medicineTitle": "Emergency Medicine Finder",
-    "medicineBody": "A system with a production-grade feature scope across multiple roles, operational workflows, backups, exports, validation, and tests. Repository documentation also identifies remaining CSRF, rate-limit, security-header, cookie, validation, and upload-hardening work, so this is not presented as deployment-ready.",
-    "medicineAlt": "Supportability review showing tested workflows, backups, diagnostics, and documented remediation priorities",
+    "medicineBody": "A Node.js, Express, EJS, and MySQL application with a production-grade feature scope across user, shopkeeper, and admin roles, including medicine search, inventory, requests, sales, expenses, exports, backups, validation, and tests. Documented CSRF, rate-limit, security-header, cookie, validation, and upload-hardening work remains, so it is not presented as deployment-ready.",
+    "medicineAlt": "Emergency Medicine Finder feature and remediation review showing roles, workflows, tests, backups, exports, and open security work",
     "medicineLink": "View public repository",
-    "collaborativeTitle": "Collaborative contribution",
-    "collaborativeBody": "House Shifting Services is collaborative work and is not presented as a project built independently. It remains outside the primary evidence cards because individual contribution boundaries are not sufficiently documented."
+    "houseCategory": "Collaborative full-stack web application",
+    "houseBadge": "Collaborative work",
+    "houseTitle": "House Shifting Services",
+    "houseBody": "A collaborative Node.js, Express, EJS, and MySQL service-booking system with user, worker, and admin flows, registration and authentication, service listings, bookings, verification and hold actions, and file uploads. It is presented as collaborative work; individual contribution boundaries are not claimed.",
+    "houseAlt": "House Shifting Services workflow diagram connecting users, service bookings, workers, and administration",
+    "houseLink": "View public repository",
+    "pciuBadge": "Collaborative contribution",
+    "pciuTitle": "PCIU CGPA Calculator",
+    "pciuBody": "PCIU CGPA Calculator is collaborative work and is not presented as independently built. No specific individual contribution is claimed.",
+    "pciuLink": "View public repository"
   },
   "skills": {
     "eyebrow": "Working toolkit",
