@@ -32,10 +32,20 @@ describe('Portfolio document', () => {
   });
 
   it('presents a stable support-focused hero and primary resume action', () => {
+    const resumeLinks = [
+      ...page.querySelectorAll('a[href="/Abdullah Al Mamun Resume.pdf"]'),
+    ];
+
     expect(page.querySelector('h1').textContent).toContain('Technical Support Engineer');
     expect(page.querySelector('[data-primary-cta]').getAttribute('href')).toBe(
       '/Abdullah Al Mamun Resume.pdf'
     );
+    expect(resumeLinks.map((link) => link.textContent.trim())).toEqual([
+      'Resume',
+      'Download Resume',
+      'Download Resume',
+    ]);
+    expect(page.body.textContent).not.toMatch(/Résumé|résumé/);
     expect(page.body.textContent).toContain('Open to discussions');
   });
 
