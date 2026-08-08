@@ -16,6 +16,8 @@ Reframe the portfolio's evidence section as developer evidence while preserving 
 - Keep the section heading exactly **Evidence from systems I have worked on** in English and translate it faithfully in the other five portfolio languages.
 - Replace Smart Attendance Tracker with House Shifting Services in the three-card evidence grid.
 - Remove the separate House Shifting Services attribution note after it becomes a primary card.
+- Remove the **6 Portfolio languages** metric card from the hero. Keep the three verified hero metrics: 7+ years in technology, 50+ workstations supported, and three industries supported.
+- Keep all six translated portfolio routes and the language selector; only the hero metric card and its unused locale key are removed.
 - Keep the main portfolio narrative and hero focused on Technical Support Engineer work. Developer evidence is supporting experience, not a replacement professional identity.
 
 ## Evidence Boundaries
@@ -51,6 +53,8 @@ Smart Attendance Tracker will no longer appear in the portfolio's primary develo
 - Confirm House Shifting Services is labeled collaborative everywhere it appears.
 - Confirm Emergency Medicine Finder limitations remain visible.
 - Confirm Smart Attendance Tracker is absent from the evidence cards and résumé evidence section.
+- Confirm the hero renders exactly three metrics and contains no Portfolio languages metric.
+- Confirm all six locale routes and the language selector still work.
 - Confirm locale dictionaries retain exact key parity and localized routes render successfully.
 - Regenerate and validate the résumé PDF.
 - Run the complete automated test suite, production CSS build, claim audit, link audit, and responsive browser checks before committing the implementation.
@@ -58,6 +62,7 @@ Smart Attendance Tracker will no longer appear in the portfolio's primary develo
 ## Out of Scope
 
 - Changing the primary Technical Support Engineer positioning.
+- Removing or reducing the six translated portfolio routes.
 - Adding unverified project outcomes or personal contribution claims.
 - Exposing private repository material.
 - SMTP deployment configuration, which is handled as a separate operational task and never committed with credentials.
