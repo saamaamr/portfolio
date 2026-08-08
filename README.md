@@ -41,7 +41,7 @@ These six options describe the languages available on the portfolio; they are no
 - PCIU CGPA Calculator is listed separately as a collaborative contribution.
 - House Shifting Services and PCIU CGPA Calculator are not presented as independently built work.
 - Emergency Medicine Finder keeps its documented deployment-readiness limitations visible.
-- Public repository history is presented as beginning in 2022 and links to [the GitHub profile](https://github.com/saamaamr); it does not claim continuous activity or sole authorship.
+- The hero links recruiters to [GitHub projects and contributions](https://github.com/saamaamr) without implying continuous activity, commit totals, or sole authorship.
 - The portfolio does not use unverified workstation counts, percentages, performance outcomes, or unsupported availability claims.
 
 ## Technology

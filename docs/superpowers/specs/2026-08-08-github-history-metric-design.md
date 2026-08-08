@@ -1,5 +1,7 @@
 # GitHub History Metric Design
 
+> **Superseded:** The hero-card wording and locale interface in this document were replaced by `2026-08-08-professional-github-card-design.md`. The historical GitHub audit remains decision context only.
+
 ## Objective
 
 Replace the unverified `50+ workstations supported` claim with a repository-history fact that recruiters can verify directly.

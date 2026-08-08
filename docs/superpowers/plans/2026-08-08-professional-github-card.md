@@ -224,6 +224,7 @@ Before committing, confirm `logs/combined.log` is not staged.
 - Modify: `README.md`
 - Modify: `docs/superpowers/specs/2026-08-08-github-history-metric-design.md`
 - Modify: `docs/superpowers/plans/2026-08-08-github-history-metric.md`
+- Modify: `docs/superpowers/plans/2026-08-08-professional-github-card.md`
 
 **Interfaces:**
 - Consumes: the approved design at `docs/superpowers/specs/2026-08-08-professional-github-card-design.md` and the implemented locale contract from Task 1.
@@ -250,7 +251,7 @@ Immediately below the title in both `docs/superpowers/specs/2026-08-08-github-hi
 Run:
 
 ```bash
-rg -n "repositorySince|repositoryHistory|githubProfileLabel|Since 2022|Public repository history" views locales tests README.md --glob '!*.pdf'
+rg -n "repositorySince|repositoryHistory|githubProfileLabel|Since 2022|Public repository history" views locales README.md --glob '!*.pdf'
 ```
 
 Expected: no matches.
@@ -279,7 +280,7 @@ Expected: all Jest suites PASS, CSS builds successfully, `git diff --check` emit
 - [ ] **Step 5: Commit documentation alignment**
 
 ```bash
-git add README.md docs/superpowers/specs/2026-08-08-github-history-metric-design.md docs/superpowers/plans/2026-08-08-github-history-metric.md
+git add README.md docs/superpowers/specs/2026-08-08-github-history-metric-design.md docs/superpowers/plans/2026-08-08-github-history-metric.md docs/superpowers/plans/2026-08-08-professional-github-card.md
 git commit -m "docs: align GitHub card wording"
 ```
 
