@@ -1578,6 +1578,33 @@ main > section {
   color: #c1cede;
 }
 
+.hero-proof-grid .metric-link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition), transform var(--transition);
+}
+
+.hero-proof-grid .metric-link small {
+  grid-column: 1 / -1;
+  color: #6ee7d4;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+}
+
+.hero-proof-grid .metric-link small span {
+  color: inherit;
+  font-size: inherit;
+}
+
+.hero-proof-grid .metric-link:hover {
+  border-color: rgba(110, 231, 212, 0.55);
+  background: rgba(255, 255, 255, 0.11);
+  transform: translateY(-2px);
+}
+
 #capabilities,
 #approach,
 #skills,

@@ -35,7 +35,7 @@
     "eyebrow": "Assistance utilisateur · Support web · Opérations informatiques",
     "title": "Un support clair pour les personnes, les logiciels et les systèmes.",
     "intro": "Je diagnostique les problèmes de matériel, de logiciel, de site web, d’accès et de flux de travail, reproduis et documente les défauts, puis coordonne des résolutions claires entre utilisateurs, clients et équipes techniques.",
-    "primaryAction": "Voir l’expérience en support",
+    "primaryAction": "Voir l’expérience",
     "secondaryAction": "Me contacter",
     "alsoExperienced": "Également expérimenté en",
     "typewriterSummary": "analyse des incidents utilisateur, support web et documentation technique.",
@@ -64,7 +64,10 @@
   },
   "metrics": {
     "years": "Années dans la technologie",
-    "workstations": "Postes pris en charge",
+    "repositorySince": "Depuis 2022",
+    "repositoryHistory": "Historique des dépôts publics",
+    "githubProfile": "Voir le profil GitHub",
+    "githubProfileLabel": "Historique des dépôts publics depuis 2022 — voir le profil GitHub",
     "industries": "Secteurs pris en charge"
   },
   "experience": {
@@ -92,7 +95,7 @@
     "juniorRole": "Agent informatique junior",
     "juniorDate": "Janvier 2019 — Décembre 2019",
     "juniorSummary": "Fourniture d’un support technique réactif dans un environnement boursier sensible au temps.",
-    "juniorBullet1": "Installation et maintenance du matériel et des logiciels pour plus de 50 postes.",
+    "juniorBullet1": "Installation et maintenance du matériel et des logiciels de l’environnement de travail.",
     "juniorBullet2": "Support à la gestion des données et aux opérations de négociation quotidiennes.",
     "juniorBullet3": "Réalisation de contrôles réguliers et réponse aux problèmes de postes signalés.",
     "desktopSupport": "Support poste de travail",

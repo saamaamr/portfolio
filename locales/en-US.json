@@ -38,7 +38,7 @@
     "eyebrow": "User support · Website support · IT operations",
     "title": "Clear support for people, software, and systems.",
     "intro": "I diagnose hardware, software, website, access, and workflow issues; reproduce and document defects; and coordinate clear resolutions between users, clients, and technical teams.",
-    "primaryAction": "View support experience",
+    "primaryAction": "View experience",
     "secondaryAction": "Contact me",
     "alsoExperienced": "Also experienced in",
     "typewriterSummary": "user issue investigation, website support, and technical documentation.",
@@ -67,7 +67,10 @@
   },
   "metrics": {
     "years": "Years in technology",
-    "workstations": "Workstations supported",
+    "repositorySince": "Since 2022",
+    "repositoryHistory": "Public repository history",
+    "githubProfile": "View GitHub profile",
+    "githubProfileLabel": "Public repository history since 2022 — view GitHub profile",
     "industries": "Industries supported"
   },
   "experience": {
@@ -95,7 +98,7 @@
     "juniorRole": "Junior IT Officer",
     "juniorDate": "January 2019 — December 2019",
     "juniorSummary": "Delivered responsive technical support in a time-sensitive stock-exchange environment.",
-    "juniorBullet1": "Installed and maintained hardware and software for 50+ workstations.",
+    "juniorBullet1": "Installed and maintained workplace hardware and software.",
     "juniorBullet2": "Supported data management and daily trading operations.",
     "juniorBullet3": "Performed routine checks and responded to reported workstation issues.",
     "desktopSupport": "Desktop Support",

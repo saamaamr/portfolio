@@ -35,7 +35,7 @@
     "eyebrow": "Soporte a usuarios · Soporte web · Operaciones de TI",
     "title": "Soporte claro para personas, software y sistemas.",
     "intro": "Diagnostico problemas de hardware, software, sitios web, acceso y flujos de trabajo; reproduzco y documento defectos; y coordino soluciones claras entre usuarios, clientes y equipos técnicos.",
-    "primaryAction": "Ver experiencia de soporte",
+    "primaryAction": "Ver experiencia",
     "secondaryAction": "Contactarme",
     "alsoExperienced": "También tengo experiencia en",
     "typewriterSummary": "investigación de incidencias, soporte web y documentación técnica.",
@@ -64,7 +64,10 @@
   },
   "metrics": {
     "years": "Años en tecnología",
-    "workstations": "Equipos asistidos",
+    "repositorySince": "Desde 2022",
+    "repositoryHistory": "Historial de repositorios públicos",
+    "githubProfile": "Ver perfil de GitHub",
+    "githubProfileLabel": "Historial de repositorios públicos desde 2022 — ver perfil de GitHub",
     "industries": "Sectores con soporte"
   },
   "experience": {
@@ -92,7 +95,7 @@
     "juniorRole": "Oficial de TI júnior",
     "juniorDate": "Enero de 2019 — Diciembre de 2019",
     "juniorSummary": "Presté soporte técnico ágil en un entorno bursátil sensible al tiempo.",
-    "juniorBullet1": "Instalación y mantenimiento de hardware y software para más de 50 equipos.",
+    "juniorBullet1": "Instalación y mantenimiento de hardware y software del lugar de trabajo.",
     "juniorBullet2": "Soporte a la gestión de datos y las operaciones bursátiles diarias.",
     "juniorBullet3": "Realicé comprobaciones rutinarias y atendí incidencias de equipos reportadas.",
     "desktopSupport": "Soporte de escritorio",

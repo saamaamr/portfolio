@@ -45,16 +45,27 @@ describe('Portfolio document', () => {
     expect(page.querySelector('[data-primary-cta]').getAttribute('href')).toBe(
       '#experience'
     );
+    expect(page.querySelector('[data-primary-cta]').textContent.trim()).toContain(
+      'View experience'
+    );
     expect(resumeLinks).toHaveLength(2);
     expect([...page.querySelectorAll('[data-metric]')].map((node) => node.dataset.metric)).toEqual([
       'years',
-      'workstations',
+      'github-history',
       'industries',
     ]);
     expect([...page.querySelectorAll('[data-metric] strong')].map((node) =>
       node.textContent.trim()
-    )).toEqual(['7+', '50+', '3']);
+    )).toEqual(['7+', 'Since 2022', '3']);
+    const githubHistory = page.querySelector('[data-github-history]');
+    expect(githubHistory.getAttribute('href')).toBe('https://github.com/saamaamr');
+    expect(githubHistory.getAttribute('target')).toBe('_blank');
+    expect(githubHistory.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(githubHistory.textContent).toContain('Public repository history');
+    expect(githubHistory.textContent).toContain('View GitHub profile');
+    expect(page.querySelector('[data-metric="workstations"]')).toBeNull();
     expect(page.querySelector('[data-metric="portfolio-languages"]')).toBeNull();
+    expect(page.body.textContent).not.toMatch(/50\+ workstations/i);
     expect(page.body.textContent).not.toMatch(/Résumé|résumé/);
     expect(page.body.textContent).toContain('Open to Technical Support opportunities');
   });

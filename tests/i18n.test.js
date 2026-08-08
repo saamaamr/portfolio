@@ -82,14 +82,22 @@ describe('portfolio locale dictionaries', () => {
       role: 'Technical Support Engineer',
       eyebrow: 'User support · Website support · IT operations',
       title: 'Clear support for people, software, and systems.',
-      primaryAction: 'View support experience',
+      primaryAction: 'View experience',
       secondaryAction: 'Contact me',
     });
     expect(english.metrics).toMatchObject({
       years: 'Years in technology',
-      workstations: 'Workstations supported',
+      repositorySince: 'Since 2022',
+      repositoryHistory: 'Public repository history',
+      githubProfile: 'View GitHub profile',
+      githubProfileLabel: 'Public repository history since 2022 — view GitHub profile',
       industries: 'Industries supported',
     });
+    expect(english).not.toHaveProperty('metrics.workstations');
+    expect(english).toHaveProperty(
+      'experience.juniorBullet1',
+      'Installed and maintained workplace hardware and software.'
+    );
     expect(english).not.toHaveProperty('metrics.portfolioLanguages');
     expect(english).toHaveProperty('approach.documentTitle', 'Document');
     expect(english).toHaveProperty('evidence.eyebrow', 'Developer Evidence');
