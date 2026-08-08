@@ -15,7 +15,8 @@ describe('English resume', () => {
 
     expect(text).toContain('Technical Support Engineer');
     expect(text).toContain('7+ years in technology');
-    expect(text).toContain('50+ workstations');
+    expect(text).not.toMatch(/50\+ workstations/i);
+    expect(text).toContain('Installed and maintained workplace hardware and software.');
     expect(text).toContain('Open to Technical Support and remote opportunities');
     expect(text).not.toMatch(/Web Developer|Full[- ]Stack Developer/i);
     expect(text).not.toMatch(
