@@ -16,6 +16,8 @@ Production: [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app)
 - Helmet security headers with a nonce-based Content Security Policy
 - Branded 404 page, social card, structured data, sitemap, and robots file
 - HTML résumé with generated PDF output
+- Server-rendered American English, Bangla, Hindi, Arabic, Spanish, and French pages
+- Accessible language selector, locale-specific SEO metadata, and Arabic RTL layout
 
 ## Stack
 
@@ -87,6 +89,7 @@ routes/index.js        Portfolio and contact routes
 services/email.js      SMTP transport, retry, and email templates
 utils/                 Validation, responses, logging, and errors
 views/                  EJS page templates and partials
+locales/                Complete locale dictionaries with a shared key contract
 public/css/input.css   Source styles
 public/css/output.css  Generated production styles
 public/js/             Theme, interaction, and canvas scripts
@@ -94,6 +97,12 @@ public/resume.html     Printable résumé source
 tests/                  API, service, frontend, page, and a11y tests
 swagger.json           OpenAPI contact endpoint specification
 ```
+
+## Languages
+
+American English is the default at `/`. The translated routes are `/bn` (Bangla), `/hi` (Hindi), `/ar` (Arabic), `/es` (Spanish), and `/fr` (French). Arabic renders right-to-left; the other languages render left-to-right.
+
+Every dictionary in `locales/` must keep the same keys as `locales/en-US.json`. Missing translated keys fall back to American English. The page language is URL-based, so there is no automatic browser-language redirect or external translation service.
 
 ## Contact API
 
@@ -108,6 +117,8 @@ swagger.json           OpenAPI contact endpoint specification
 ```
 
 Limits are 100 characters for the name, 254 for the email, and 20–5000 for the message. The full schema and response formats are documented in `swagger.json`.
+
+The browser sends the current locale through the optional `Accept-Language` header while keeping displayed validation and service messages localized on the client.
 
 ## Deployment
 

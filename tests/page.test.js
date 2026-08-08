@@ -1,6 +1,7 @@
 /** @jest-environment jsdom */
 
 const path = require('path');
+const fs = require('fs');
 const ejs = require('ejs');
 const { axe, toHaveNoViolations } = require('jest-axe');
 const { buildPageContext } = require('../utils/i18n');
@@ -132,5 +133,29 @@ describe('Portfolio document', () => {
     expect(arabicPage.documentElement.getAttribute('dir')).toBe('rtl');
     expect(arabicPage.body.textContent).toContain('دعم يصل بين الناس والتقنية');
     expect(await axe(arabicPage.body)).toHaveNoViolations();
+  });
+
+  it('publishes all locale routes in the sitemap', () => {
+    const sitemap = fs.readFileSync(
+      path.join(__dirname, '..', 'public', 'sitemap.xml'),
+      'utf8'
+    );
+
+    ['/', '/bn', '/hi', '/ar', '/es', '/fr'].forEach((route) => {
+      const url = route === '/'
+        ? 'https://mamunsandwipi.vercel.app/'
+        : `https://mamunsandwipi.vercel.app${route}`;
+      expect(sitemap).toContain(`<loc>${url}</loc>`);
+    });
+  });
+
+  it('includes responsive language-menu and RTL layout rules', () => {
+    const css = fs.readFileSync(
+      path.join(__dirname, '..', 'public', 'css', 'input.css'),
+      'utf8'
+    );
+
+    expect(css).toContain('.language-menu');
+    expect(css).toContain('[dir="rtl"]');
   });
 });

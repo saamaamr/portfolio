@@ -48,6 +48,19 @@
         "summary": "Submit contact form",
         "description": "Submit a contact form message with automatic email notifications and auto-reply",
         "tags": ["Contact"],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Accept-Language",
+            "required": false,
+            "description": "Current portfolio locale sent by the browser (en-US, bn, hi, ar, es, or fr)",
+            "schema": {
+              "type": "string",
+              "enum": ["en-US", "bn", "hi", "ar", "es", "fr"],
+              "default": "en-US"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
