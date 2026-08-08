@@ -6,30 +6,74 @@
     api.init();
   }
 })(typeof window !== 'undefined' ? window : globalThis, function (windowRef) {
+  const DEFAULT_FORM_MESSAGES = {
+    nameRequired: 'Name is required.',
+    nameTooLong: 'Name must not exceed 100 characters.',
+    emailRequired: 'Email is required.',
+    emailTooLong: 'Email must not exceed 254 characters.',
+    emailInvalid: 'Please enter a valid email address.',
+    messageRequired: 'Message is required.',
+    messageTooLong: 'Message must not exceed 5000 characters.',
+    messageTooShort: 'Message must be at least 20 characters long.',
+    correctFields: 'Please correct the highlighted fields.',
+    sending: 'Sending your message…',
+    success: 'Thank you! Your message has been received successfully.',
+    unexpectedResponse: 'The server returned an unexpected response.',
+    serviceError: 'Unable to send your message. Please try again.',
+  };
+
+  const DEFAULT_LOCALE_DATA = {
+    locale: 'en-US',
+    theme: { light: 'Switch to light mode', dark: 'Switch to dark mode' },
+    menu: { open: 'Open navigation menu', close: 'Close navigation menu' },
+    languageMenu: { open: 'Choose language', close: 'Close language menu' },
+    typewriterPhrases: ['website maintenance', 'technical documentation', 'full-stack development'],
+    form: DEFAULT_FORM_MESSAGES,
+  };
+
   const resolveTheme = (storedTheme, prefersDark) => {
     if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme;
     return prefersDark ? 'dark' : 'light';
   };
 
-  const validateContactFields = ({ name = '', email = '', message = '' }) => {
+  const validateContactFields = ({ name = '', email = '', message = '' }, messages = {}) => {
+    const copy = { ...DEFAULT_FORM_MESSAGES, ...messages };
     const errors = {};
     const cleanName = String(name).trim();
     const cleanEmail = String(email).trim();
     const cleanMessage = String(message).trim();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-    if (!cleanName) errors.name = 'Name is required.';
-    else if (String(name).length > 100) errors.name = 'Name must not exceed 100 characters.';
+    if (!cleanName) errors.name = copy.nameRequired;
+    else if (String(name).length > 100) errors.name = copy.nameTooLong;
 
-    if (!cleanEmail) errors.email = 'Email is required.';
-    else if (String(email).length > 254) errors.email = 'Email must not exceed 254 characters.';
-    else if (!emailPattern.test(cleanEmail)) errors.email = 'Please enter a valid email address.';
+    if (!cleanEmail) errors.email = copy.emailRequired;
+    else if (String(email).length > 254) errors.email = copy.emailTooLong;
+    else if (!emailPattern.test(cleanEmail)) errors.email = copy.emailInvalid;
 
-    if (!cleanMessage) errors.message = 'Message is required.';
-    else if (String(message).length > 5000) errors.message = 'Message must not exceed 5000 characters.';
-    else if (cleanMessage.length < 20) errors.message = 'Message must be at least 20 characters long.';
+    if (!cleanMessage) errors.message = copy.messageRequired;
+    else if (String(message).length > 5000) errors.message = copy.messageTooLong;
+    else if (cleanMessage.length < 20) errors.message = copy.messageTooShort;
 
     return errors;
+  };
+
+  const parseLocaleData = (documentRef) => {
+    const source = documentRef.getElementById('locale-data');
+    if (!source) return DEFAULT_LOCALE_DATA;
+    try {
+      const parsed = JSON.parse(source.textContent);
+      return {
+        ...DEFAULT_LOCALE_DATA,
+        ...parsed,
+        theme: { ...DEFAULT_LOCALE_DATA.theme, ...parsed.theme },
+        menu: { ...DEFAULT_LOCALE_DATA.menu, ...parsed.menu },
+        languageMenu: { ...DEFAULT_LOCALE_DATA.languageMenu, ...parsed.languageMenu },
+        form: { ...DEFAULT_FORM_MESSAGES, ...parsed.form },
+      };
+    } catch {
+      return DEFAULT_LOCALE_DATA;
+    }
   };
 
   const setActiveNavigation = (links, activeId) => {
@@ -41,11 +85,11 @@
     });
   };
 
-  const initMobileMenu = ({ button, menu, documentRef }) => {
+  const initMobileMenu = ({ button, menu, documentRef, messages = DEFAULT_LOCALE_DATA.menu }) => {
     const setIcon = (open) => {
       const icon = button.querySelector('i');
       if (icon) icon.className = open ? 'fas fa-xmark' : 'fas fa-bars';
-      button.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      button.setAttribute('aria-label', open ? messages.close : messages.open);
     };
 
     const open = () => {
@@ -85,7 +129,41 @@
     return { open, close, toggle };
   };
 
-  const initTheme = (documentRef) => {
+  const initLanguageMenu = ({
+    button,
+    menu,
+    documentRef,
+    messages = DEFAULT_LOCALE_DATA.languageMenu,
+  }) => {
+    const open = () => {
+      menu.hidden = false;
+      button.setAttribute('aria-expanded', 'true');
+      button.setAttribute('aria-label', messages.close);
+      (menu.querySelector('[aria-current="page"]') || menu.querySelector('a'))?.focus();
+    };
+
+    const close = ({ restoreFocus = false } = {}) => {
+      menu.hidden = true;
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', messages.open);
+      if (restoreFocus) button.focus();
+    };
+
+    button.addEventListener('click', () => {
+      if (menu.hidden) open();
+      else close({ restoreFocus: true });
+    });
+    documentRef.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !menu.hidden) close({ restoreFocus: true });
+    });
+    documentRef.addEventListener('click', (event) => {
+      if (!menu.hidden && !menu.contains(event.target) && !button.contains(event.target)) close();
+    });
+
+    return { open, close };
+  };
+
+  const initTheme = (documentRef, messages = DEFAULT_LOCALE_DATA.theme) => {
     const root = documentRef.documentElement;
     const toggle = documentRef.getElementById('theme-toggle');
     const media = windowRef.matchMedia('(prefers-color-scheme: dark)');
@@ -98,7 +176,7 @@
       if (persist) windowRef.localStorage.setItem('theme', theme);
       if (toggle) {
         toggle.innerHTML = `<i class="fas fa-${isDark ? 'sun' : 'moon'}" aria-hidden="true"></i>`;
-        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.setAttribute('aria-label', isDark ? messages.light : messages.dark);
       }
     };
 
@@ -195,10 +273,10 @@
     counters.forEach((counter) => observer.observe(counter));
   };
 
-  const initTypewriter = (documentRef) => {
+  const initTypewriter = (documentRef, localizedPhrases = DEFAULT_LOCALE_DATA.typewriterPhrases) => {
     const target = documentRef.getElementById('typed-text');
     if (!target) return;
-    const phrases = ['website maintenance', 'technical documentation', 'full-stack development'];
+    const phrases = localizedPhrases.length ? localizedPhrases : DEFAULT_LOCALE_DATA.typewriterPhrases;
     if (prefersReducedMotion()) {
       target.textContent = phrases[0];
       return;
@@ -224,7 +302,7 @@
     windowRef.setTimeout(type, 900);
   };
 
-  const initContactForm = (documentRef) => {
+  const initContactForm = (documentRef, localeData = DEFAULT_LOCALE_DATA) => {
     const form = documentRef.getElementById('contact-form');
     if (!form) return;
     const fields = ['name', 'email', 'message'];
@@ -240,17 +318,17 @@
     };
     fields.forEach((name) => {
       form.elements[name].addEventListener('blur', () => {
-        showFieldError(name, validateContactFields(values())[name]);
+        showFieldError(name, validateContactFields(values(), localeData.form)[name]);
       });
     });
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const payload = values();
-      const errors = validateContactFields(payload);
+      const errors = validateContactFields(payload, localeData.form);
       fields.forEach((name) => showFieldError(name, errors[name]));
       if (Object.keys(errors).length) {
-        status.textContent = 'Please correct the highlighted fields.';
+        status.textContent = localeData.form.correctFields;
         status.dataset.state = 'error';
         form.querySelector('[aria-invalid="true"]')?.focus();
         return;
@@ -258,25 +336,30 @@
 
       submit.disabled = true;
       submit.classList.add('is-loading');
-      status.textContent = 'Sending your message…';
+      status.textContent = localeData.form.sending;
       status.dataset.state = 'pending';
       try {
         const response = await windowRef.fetch('/contact', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept-Language': localeData.locale,
+          },
           body: JSON.stringify(payload),
         });
-        const data = await response.json().catch(() => ({ message: 'The server returned an unexpected response.' }));
+        const data = await response.json().catch(() => null);
         if (!response.ok) {
-          Object.entries(data.data?.errors || {}).forEach(([name, message]) => showFieldError(name, message));
-          throw new Error(data.message || 'Unable to send your message.');
+          const responseErrors = validateContactFields(payload, localeData.form);
+          Object.entries(responseErrors).forEach(([name, message]) => showFieldError(name, message));
+          throw new Error(localeData.form.serviceError);
         }
+        if (!data) throw new Error(localeData.form.unexpectedResponse);
         form.reset();
         fields.forEach((name) => showFieldError(name));
-        status.textContent = data.message;
+        status.textContent = localeData.form.success;
         status.dataset.state = 'success';
       } catch (error) {
-        status.textContent = error.message || 'Unable to send your message. Please try again.';
+        status.textContent = error.message || localeData.form.serviceError;
         status.dataset.state = 'error';
       } finally {
         submit.disabled = false;
@@ -287,23 +370,36 @@
 
   const init = () => {
     const documentRef = windowRef.document;
-    initTheme(documentRef);
+    const localeData = parseLocaleData(documentRef);
+    initTheme(documentRef, localeData.theme);
     const button = documentRef.getElementById('mobile-menu-btn');
     const menu = documentRef.getElementById('mobile-menu');
-    if (button && menu) initMobileMenu({ button, menu, documentRef });
+    if (button && menu) initMobileMenu({ button, menu, documentRef, messages: localeData.menu });
+    const languageButton = documentRef.getElementById('language-toggle');
+    const languageMenu = documentRef.getElementById('language-menu');
+    if (languageButton && languageMenu) {
+      initLanguageMenu({
+        button: languageButton,
+        menu: languageMenu,
+        documentRef,
+        messages: localeData.languageMenu,
+      });
+    }
     initSmoothScroll(documentRef);
     initScrollNavigation(documentRef);
     initReveals(documentRef);
     initCounters(documentRef);
-    initTypewriter(documentRef);
-    initContactForm(documentRef);
+    initTypewriter(documentRef, localeData.typewriterPhrases);
+    initContactForm(documentRef, localeData);
   };
 
   return {
     init,
     resolveTheme,
     validateContactFields,
+    parseLocaleData,
     setActiveNavigation,
     initMobileMenu,
+    initLanguageMenu,
   };
 });

@@ -28,6 +28,34 @@ describe('Portfolio browser behavior', () => {
     });
   });
 
+  it('uses localized contact validation messages', () => {
+    const messages = {
+      nameRequired: 'আপনার নাম লিখুন।',
+      emailRequired: 'আপনার ইমেইল লিখুন।',
+      messageRequired: 'আপনার বার্তা লিখুন।',
+    };
+
+    expect(
+      portfolio.validateContactFields({ name: '', email: '', message: '' }, messages)
+    ).toEqual({
+      name: messages.nameRequired,
+      email: messages.emailRequired,
+      message: messages.messageRequired,
+    });
+  });
+
+  it('parses nonce-authorized locale data and safely handles malformed JSON', () => {
+    document.head.innerHTML = `
+      <script id="locale-data" type="application/json">
+        {"locale":"fr","typewriterPhrases":["maintenance web"],"form":{}}
+      </script>
+    `;
+
+    expect(portfolio.parseLocaleData(document).locale).toBe('fr');
+    document.getElementById('locale-data').textContent = '{broken';
+    expect(portfolio.parseLocaleData(document)).toMatchObject({ locale: 'en-US', form: {} });
+  });
+
   it('synchronizes visual and accessible active navigation state', () => {
     document.body.innerHTML = `
       <a class="nav-link active-nav" data-section="home" aria-current="location"></a>
@@ -59,6 +87,25 @@ describe('Portfolio browser behavior', () => {
     navigation.close({ restoreFocus: true });
     expect(button.getAttribute('aria-expanded')).toBe('false');
     expect(menu.getAttribute('aria-hidden')).toBe('true');
+    expect(document.activeElement).toBe(button);
+  });
+
+  it('closes the language menu with Escape and returns focus', () => {
+    document.body.innerHTML = `
+      <button id="language-toggle" aria-expanded="false"></button>
+      <div id="language-menu" hidden><a href="/bn">বাংলা</a></div>
+    `;
+    const button = document.getElementById('language-toggle');
+    const menu = document.getElementById('language-menu');
+    const languageMenu = portfolio.initLanguageMenu({ button, menu, documentRef: document });
+
+    languageMenu.open();
+    expect(menu.hidden).toBe(false);
+    expect(button.getAttribute('aria-expanded')).toBe('true');
+
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(menu.hidden).toBe(true);
+    expect(button.getAttribute('aria-expanded')).toBe('false');
     expect(document.activeElement).toBe(button);
   });
 });
