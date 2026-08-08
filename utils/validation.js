@@ -9,49 +9,60 @@ const validateContactForm = (name, email, message) => {
   const MAX_NAME = 100;
   const MAX_EMAIL = 254;
   const MAX_MESSAGE = 5000;
+  const errors = {};
 
-  // Check required fields
-  if (!name || !email || !message) {
-    return {
-      status: 'error',
-      message: 'Please fill in all fields before submitting the form.',
-      data: null,
-    };
+  if (name === undefined || name === null || name === '') {
+    errors.name = 'Name is required.';
+  }
+  if (email === undefined || email === null || email === '') {
+    errors.email = 'Email is required.';
+  }
+  if (message === undefined || message === null || message === '') {
+    errors.message = 'Message is required.';
   }
 
-  // Type validation
-  if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
+  const hasInvalidType = [name, email, message].some(
+    (value) => value !== undefined && value !== null && typeof value !== 'string'
+  );
+  if (hasInvalidType) {
     return {
       status: 'error',
       message: 'Invalid input format.',
       data: null,
+      errors: { form: 'Invalid input format.' },
     };
   }
 
-  // Length validation
-  if (name.length > MAX_NAME || email.length > MAX_EMAIL || message.length > MAX_MESSAGE) {
-    return {
-      status: 'error',
-      message: 'Input exceeds maximum allowed length.',
-      data: null,
-    };
+  if (typeof name === 'string' && !errors.name) {
+    if (!name.trim()) errors.name = 'Name is required.';
+    else if (name.length > MAX_NAME) errors.name = 'Name must not exceed 100 characters.';
   }
 
-  // Email validation using email-validator
-  if (!validator.validate(email)) {
-    return {
-      status: 'error',
-      message: 'Please provide a valid email address.',
-      data: null,
-    };
+  if (typeof email === 'string' && !errors.email) {
+    if (!email.trim()) errors.email = 'Email is required.';
+    else if (email.length > MAX_EMAIL) errors.email = 'Email must not exceed 254 characters.';
+    else if (!validator.validate(email)) errors.email = 'Please provide a valid email address.';
   }
 
-  // Message length validation
-  if (message.trim().length < 20) {
+  if (typeof message === 'string' && !errors.message) {
+    if (!message.trim()) errors.message = 'Message is required.';
+    else if (message.length > MAX_MESSAGE) errors.message = 'Message must not exceed 5000 characters.';
+    else if (message.trim().length < 20) errors.message = 'Message must be at least 20 characters long.';
+  }
+
+  if (Object.keys(errors).length > 0) {
+    const firstError = Object.values(errors)[0];
+    const hasRequiredError = Object.values(errors).some((error) => error.includes('is required'));
+    const exceedsMaximum = Object.values(errors).some((error) => error.includes('must not exceed'));
     return {
       status: 'error',
-      message: 'Message must be at least 20 characters long.',
+      message: hasRequiredError
+        ? 'Please fill in all fields before submitting the form.'
+        : exceedsMaximum
+          ? 'Input exceeds maximum allowed length.'
+          : firstError,
       data: null,
+      errors,
     };
   }
 
@@ -59,6 +70,7 @@ const validateContactForm = (name, email, message) => {
     status: 'success',
     message: 'Validation passed.',
     data: { name, email, message },
+    errors: {},
   };
 };
 

@@ -1,13 +1,13 @@
+require('dotenv').config({ quiet: true });
+
 const express = require('express');
 const path = require('path');
-const dotenv = require('dotenv');
+const crypto = require('crypto');
 const compression = require('compression');
 const helmet = require('helmet');
 const logger = require('./utils/logger');
 const indexRouter = require('./routes/index');
 const { errorHandler } = require('./utils/errorHandler');
-
-dotenv.config();
 
 // Validate required environment variables
 const requiredEnvs = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS'];
@@ -17,11 +17,16 @@ if (missingEnvs.length > 0) {
 }
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.set('trust proxy', 1);
 
 // View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use((req, res, next) => {
+  res.locals.cspNonce = crypto.randomBytes(16).toString('base64');
+  next();
+});
 
 // Security & Performance Middleware
 app.use(
@@ -30,7 +35,8 @@ app.use(
       directives: {
         defaultSrc: ["'self'"],
         imgSrc: ["'self'", 'data:', 'https://images.unsplash.com'],
-        scriptSrc: ["'self'", 'https://cdnjs.cloudflare.com', 'https://www.googletagmanager.com'],
+        scriptSrc: ["'self'", (req, res) => `'nonce-${res.locals.cspNonce}'`],
+        scriptSrcAttr: ["'none'"],
         styleSrc: ["'self'", "'unsafe-inline'", 'https://cdnjs.cloudflare.com', 'https://fonts.googleapis.com'],
         fontSrc: ["'self'", 'https://cdnjs.cloudflare.com', 'https://fonts.gstatic.com'],
         connectSrc: ["'self'"],
@@ -62,7 +68,6 @@ app.use((req, res, next) => {
       url: req.originalUrl,
       statusCode: res.statusCode,
       duration: `${duration}ms`,
-      ip: req.ip,
     });
   });
   next();
@@ -73,33 +78,15 @@ app.use('/', indexRouter);
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).render('index');
+  res.status(404).render('404', {
+    pageTitle: 'Page Not Found | Abdullah Al Mamun',
+    metaRobots: 'noindex, nofollow',
+    canonicalUrl: null,
+    includeStructuredData: false,
+  });
 });
 
 // Global error handler (must be last)
 app.use(errorHandler);
-
-const server = app.listen(PORT, () => {
-  logger.info(`Portfolio server running on http://localhost:${PORT}`);
-});
-
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    logger.error(`Port ${PORT} is already in use`);
-    process.exit(1);
-  } else {
-    logger.error(`Server error: ${err.message}`);
-    process.exit(1);
-  }
-});
-
-// Graceful shutdown
-process.on('SIGTERM', () => {
-  logger.info('SIGTERM received, shutting down gracefully');
-  server.close(() => {
-    logger.info('Server closed');
-    process.exit(0);
-  });
-});
 
 module.exports = app;

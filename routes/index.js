@@ -3,7 +3,7 @@ const router = express.Router();
 const { sendContactEmail } = require('../services/email');
 const { contactLimiter } = require('../middleware/rateLimit');
 const { asyncHandler } = require('../utils/errorHandler');
-const { validateContactForm, escapeHtml } = require('../utils/validation');
+const { validateContactForm } = require('../utils/validation');
 const { sendSuccess, sendValidationError, sendServerError } = require('../utils/response');
 
 router.get('/', (req, res) => {
@@ -19,7 +19,7 @@ router.post(
     // Validate input
     const validation = validateContactForm(name, email, message);
     if (validation.status === 'error') {
-      return sendValidationError(res, validation.message);
+      return sendValidationError(res, validation.message, { errors: validation.errors });
     }
 
     try {

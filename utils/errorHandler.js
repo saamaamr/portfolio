@@ -25,6 +25,8 @@ const errorHandler = (err, req, res, next) => {
     message = 'Email service is temporarily unavailable. Please try again later.';
   } else if (err.code === 'VALIDATION_ERROR') {
     statusCode = 400;
+  } else if (statusCode === 413) {
+    message = 'Request payload is too large.';
   } else if (statusCode === 500) {
     // Don't expose internal error details in production
     message = process.env.NODE_ENV === 'production' ? 'Something went wrong. Please try again later.' : message;

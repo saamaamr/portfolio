@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-08-08
+
+### Added
+- Support-engineering focused portfolio presentation with clear résumé-first calls to action
+- Responsive capability, experience, project, skills, education, and contact sections
+- Accessible mobile navigation, skip navigation, focus handling, and reduced-motion behavior
+- Field-specific contact-form errors and client/server validation parity
+- Branded 404 page, social sharing card, robots file, sitemap, and structured metadata
+- Browser-level accessibility and frontend interaction test coverage
+
+### Changed
+- Separated the Express application from the process startup entry point
+- Rebuilt the visual system around a professional royal-blue and violet palette
+- Replaced external animation code with lightweight local reveal, counter, typewriter, and canvas effects
+- Hardened Content Security Policy with per-request script nonces
+- Corrected SMTP pooling and retry behavior and removed personal data from email logs
+- Updated the public URL to `https://mamunsandwipi.vercel.app`
+
+### Removed
+- Unauthenticated process-control endpoint and related UI
+- GSAP runtime dependency
+
 ## [1.1.0] - 2024-01-15
 
 ### Added

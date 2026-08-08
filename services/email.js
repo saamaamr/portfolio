@@ -2,128 +2,124 @@ const nodemailer = require('nodemailer');
 const logger = require('../utils/logger');
 const { escapeHtml } = require('../utils/validation');
 
-if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-  logger.warn('[WARNING] SMTP credentials not configured. Email service will not work.');
-}
+let cachedTransporter;
 
-// Create reusable transporter with connection pooling
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: process.env.SMTP_PORT || 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  pool: {
+const getTransportOptions = (env = process.env) => {
+  const port = Number(env.SMTP_PORT || 587);
+  return {
+    host: env.SMTP_HOST || 'smtp.gmail.com',
+    port,
+    secure: port === 465,
+    pool: true,
     maxConnections: 5,
     maxMessages: 100,
     rateDelta: 4000,
     rateLimit: 14,
-  },
-});
-
-// Verify connection on startup
-transporter.verify((err, success) => {
-  if (err) {
-    logger.error('SMTP connection failed:', err);
-  } else {
-    logger.info('SMTP connection successful');
-  }
-});
-
-/**
- * Send email with retry logic and exponential backoff
- */
-const sendWithRetry = async (mailOptions, maxRetries = 3, retryCount = 0) => {
-  try {
-    return await transporter.sendMail(mailOptions);
-  } catch (error) {
-    if (retryCount < maxRetries) {
-      const delayMs = 1000 * Math.pow(2, retryCount);
-      logger.warn(`Email send failed, retrying in ${delayMs}ms (attempt ${retryCount + 1}/${maxRetries})`);
-      await new Promise(resolve => setTimeout(resolve, delayMs));
-      return sendWithRetry(mailOptions, maxRetries, retryCount + 1);
-    }
-    throw error;
-  }
+    auth: {
+      user: env.SMTP_USER,
+      pass: env.SMTP_PASS,
+    },
+  };
 };
 
-/**
- * Send auto-reply to user
- */
-const sendAutoReply = async ({ name, email, message }) => {
+const getTransporter = (env = process.env) => {
+  if (!env.SMTP_USER || !env.SMTP_PASS) {
+    const error = new Error('SMTP credentials are not configured.');
+    error.code = 'SMTP_ERROR';
+    throw error;
+  }
+
+  if (!cachedTransporter) {
+    cachedTransporter = nodemailer.createTransport(getTransportOptions(env));
+  }
+  return cachedTransporter;
+};
+
+const defaultSleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
+const sendWithRetry = async (
+  transporter,
+  mailOptions,
+  { maxAttempts = 3, baseDelayMs = 1000, sleep = defaultSleep } = {}
+) => {
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      return await transporter.sendMail(mailOptions);
+    } catch (error) {
+      if (attempt === maxAttempts) throw error;
+      const delay = baseDelayMs * 2 ** (attempt - 1);
+      logger.warn(`Email send failed; retrying in ${delay}ms (attempt ${attempt + 1}/${maxAttempts})`);
+      await sleep(delay);
+    }
+  }
+  throw new Error('Email delivery failed.');
+};
+
+const createAutoReply = ({ name, email, message }, env) => {
   const safeName = escapeHtml(name);
   const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
-  
-  const mailOptions = {
-    from: `"Abdullah Al Mamun" <${process.env.SMTP_USER}>`,
+  return {
+    from: `"Abdullah Al Mamun" <${env.SMTP_USER}>`,
     to: email,
     subject: `Thank You for Reaching Out, ${safeName}`,
     html: `
-      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="text-align: center; padding: 30px 0;">
-          <h1 style="color: #8B5CF6; margin: 0; font-size: 24px;">Thank You!</h1>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #172033;">
+        <h1 style="color: #3157c8; font-size: 24px;">Thank you for reaching out</h1>
+        <p>Dear ${safeName},</p>
+        <p>I have received your message and will respond within 24–48 hours.</p>
+        <div style="background: #f4f6fa; border-left: 4px solid #3157c8; padding: 16px; margin: 24px 0;">
+          <strong>Your message</strong><br>${safeMessage}
         </div>
-        <p style="color: #333; font-size: 16px; line-height: 1.6;">Dear ${safeName},</p>
-        <p style="color: #333; font-size: 16px; line-height: 1.6;">
-          Thank you for reaching out to me. I have received your message and appreciate your interest.
-        </p>
-        <p style="color: #333; font-size: 16px; line-height: 1.6;">
-          I will review your inquiry and get back to you within <strong>24-48 hours</strong>. Please feel free to reply directly to this email if you have any additional information to share.
-        </p>
-        <div style="background: #F8FAFC; border-left: 4px solid #8B5CF6; padding: 15px; margin: 25px 0; border-radius: 4px;">
-          <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748B; font-weight: 600;">Your message:</p>
-          <p style="margin: 0; font-size: 14px; color: #333; line-height: 1.5;">${safeMessage}</p>
-        </div>
-        <p style="color: #333; font-size: 16px; line-height: 1.6;">Best regards,<br><strong style="color: #8B5CF6;">Abdullah Al Mamun</strong></p>
-        <hr style="border: none; border-top: 1px solid #E2E8F0; margin: 30px 0;">
-        <p style="font-size: 12px; color: #94A3B8; text-align: center;">This email was sent automatically. Please do not reply to this address.</p>
+        <p>Best regards,<br><strong>Abdullah Al Mamun</strong></p>
       </div>
     `,
   };
-
-  return sendWithRetry(mailOptions);
 };
 
-/**
- * Send contact notification to admin
- */
-const sendContactEmail = async ({ name, email, message }) => {
+const createNotification = ({ name, email, message }, env) => {
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+  return {
+    from: `"Portfolio Contact" <${env.SMTP_USER}>`,
+    to: env.CONTACT_EMAIL || env.SMTP_USER,
+    replyTo: email,
+    subject: `Portfolio Contact: ${safeName}`,
+    html: `
+      <h2>New portfolio contact</h2>
+      <p><strong>Name:</strong> ${safeName}</p>
+      <p><strong>Email:</strong> ${safeEmail}</p>
+      <p><strong>Message:</strong></p>
+      <p>${safeMessage}</p>
+    `,
+  };
+};
+
+const sendContactEmail = async (
+  payload,
+  { transporter, sleep = defaultSleep, env = process.env } = {}
+) => {
+  const mailer = transporter || getTransporter(env);
+  const retryOptions = { sleep };
+  const notification = createNotification(payload, env);
+  const autoReply = createAutoReply(payload, env);
 
   try {
-    const notificationEmail = {
-      from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
-      replyTo: email,
-      subject: `Portfolio Contact: ${safeName}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${safeName}</p>
-        <p><strong>Email:</strong> ${safeEmail}</p>
-        <p><strong>Message:</strong></p>
-        <p>${safeMessage}</p>
-        <hr>
-        <p><em>Sent from your portfolio website</em></p>
-      `,
-    };
-
-    // Send both notification and auto-reply concurrently
     await Promise.all([
-      sendWithRetry(notificationEmail),
-      sendAutoReply({ name, email, message }).catch((err) => {
-        logger.warn(`Auto-reply failed: ${err.message}`);
+      sendWithRetry(mailer, notification, retryOptions),
+      sendWithRetry(mailer, autoReply, retryOptions).catch((error) => {
+        logger.warn(`Auto-reply failed: ${error.message}`);
       }),
     ]);
-
-    logger.info(`Contact form submitted by ${email}`);
+    logger.info('Contact form notification delivered');
   } catch (error) {
     logger.error(`Email service error: ${error.message}`);
     throw error;
   }
 };
 
-module.exports = { sendContactEmail };
+module.exports = {
+  getTransportOptions,
+  sendWithRetry,
+  sendContactEmail,
+};

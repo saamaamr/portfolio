@@ -34,8 +34,8 @@ const sendValidationError = (res, message, data = null) => {
 /**
  * Send server error response
  */
-const sendServerError = (res, message = 'Internal server error.', data = null) => {
-  return sendError(res, message, data, 500);
+const sendServerError = (res, message = 'Internal server error.', data = null, statusCode = 500) => {
+  return sendError(res, message, data, statusCode);
 };
 
 /**

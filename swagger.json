@@ -3,11 +3,11 @@
   "info": {
     "title": "Abdullah Al Mamun Portfolio API",
     "description": "API documentation for Abdullah Al Mamun's portfolio website",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "contact": {
       "name": "Abdullah Al Mamun",
       "email": "mamun872381cpi@gmail.com",
-      "url": "https://abdullahamun.dev"
+      "url": "https://mamunsandwipi.vercel.app"
     },
     "license": {
       "name": "MIT"
@@ -19,7 +19,7 @@
       "description": "Development server"
     },
     {
-      "url": "https://abdullahamun.dev",
+      "url": "https://mamunsandwipi.vercel.app",
       "description": "Production server"
     }
   ],
@@ -108,6 +108,16 @@
               }
             }
           },
+          "413": {
+            "description": "Request payload exceeds the 10 KB limit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
           "503": {
             "description": "Email service unavailable",
             "content": {
@@ -157,7 +167,8 @@
             "example": "Thank you! Your message has been received successfully."
           },
           "data": {
-            "type": "null"
+            "type": "object",
+            "nullable": true
           },
           "timestamp": {
             "type": "string",
@@ -179,12 +190,29 @@
             "example": "Please fill in all fields before submitting the form."
           },
           "data": {
-            "type": "null"
+            "allOf": [
+              { "$ref": "#/components/schemas/ValidationErrors" }
+            ],
+            "nullable": true
           },
           "timestamp": {
             "type": "string",
             "format": "date-time",
             "example": "2024-01-15T10:30:00.000Z"
+          }
+        }
+      },
+      "ValidationErrors": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "example": {
+              "email": "Please enter a valid email address."
+            }
           }
         }
       }
