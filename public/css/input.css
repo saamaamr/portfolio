@@ -1895,6 +1895,14 @@ main > section {
     gap: 0.35rem;
   }
 
+  .hero-proof-grid .metric-link {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-proof-grid .metric-link small {
+    grid-column: auto;
+  }
+
   .approach-grid,
   .evidence-grid,
   .support-skills-grid,
