@@ -18,7 +18,7 @@ Below the primary cards, include PCIU CGPA Calculator as a compact collaborative
 - Keep the section heading exactly **Evidence from systems I have worked on** in English and translate it faithfully in the other five portfolio languages.
 - Replace Smart Attendance Tracker with House Shifting Services in the three-card evidence grid.
 - Replace the separate House Shifting Services attribution note with a compact PCIU CGPA Calculator collaborative-contribution entry.
-- Remove the **6 Portfolio languages** metric card from the hero. Keep the three verified hero metrics: 7+ years in technology, 50+ workstations supported, and three industries supported.
+- Remove the **6 Portfolio languages** metric card from the hero. Keep three verified hero metrics: 7+ years in technology, public repository history since 2022 with a GitHub profile link, and three industries supported.
 - Keep all six translated portfolio routes and the language selector; only the hero metric card and its unused locale key are removed.
 - Keep the main portfolio narrative and hero focused on Technical Support Engineer work. Developer evidence is supporting experience, not a replacement professional identity.
 

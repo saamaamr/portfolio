@@ -9,7 +9,7 @@ Visit [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app).
 ## Highlights
 
 - Support-first Summary, Capabilities, Experience, Approach, Evidence, Skills, Education, and Contact sections
-- Evidence policy with two public repositories, one redacted private case study, visible remediation limits, and clear collaborative attribution
+- Developer Evidence with three primary public repositories, a separate collaborative contribution, visible remediation limits, and clear attribution
 - Server-rendered American English, Bangla, Hindi, Arabic, Spanish, and French content
 - Accessible language selector with localized navigation, forms, validation, metadata, and error pages
 - Right-to-left layout support for Arabic and responsive layouts for desktop, tablet, and mobile
@@ -37,11 +37,12 @@ These six options describe the languages available on the portfolio; they are no
 
 ## Evidence and Attribution
 
-- Noor Notes and Emergency Medicine Finder link to public source repositories.
-- Smart Attendance Tracker is presented only as a redacted private case study, with no repository URL, credentials, employer identity, or personal attendance data.
-- Emergency Medicine Finder describes its feature scope while keeping documented deployment-readiness limitations visible.
-- House Shifting Services is identified as collaborative work and is not presented as an independently built project.
-- The portfolio does not use unverified percentages, performance outcomes, or unsupported availability claims.
+- Noor Notes, Emergency Medicine Finder, and House Shifting Services are the three primary public evidence repositories.
+- PCIU CGPA Calculator is listed separately as a collaborative contribution.
+- House Shifting Services and PCIU CGPA Calculator are not presented as independently built work.
+- Emergency Medicine Finder keeps its documented deployment-readiness limitations visible.
+- Public repository history is presented as beginning in 2022 and links to [the GitHub profile](https://github.com/saamaamr); it does not claim continuous activity or sole authorship.
+- The portfolio does not use unverified workstation counts, percentages, performance outcomes, or unsupported availability claims.
 
 ## Technology
 

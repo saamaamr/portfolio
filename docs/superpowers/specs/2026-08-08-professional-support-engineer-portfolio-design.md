@@ -16,7 +16,7 @@ Every factual claim must be traceable to the existing resume, employment history
 - Present House Shifting Services as collaborative work and describe only the user's contribution.
 - Exclude PCIU CGPA Calculator because the reviewed fork does not contain authored work on its current branch.
 - Present the private attendance application only as a redacted case study. Do not link the private repository, expose credentials, show private data, or identify an employer unless separately approved.
-- Use only verified metrics: 7+ years in technology, 50+ supported workstations, and experience across three industries.
+- Use only verified metrics: 7+ years in technology, public repository history since 2022, and experience across three industries.
 - Keep personal language claims at “Bangla — Fluent” and “English — Good.”
 
 ## Page Experience
@@ -35,7 +35,7 @@ The hero uses:
 - Secondary action: “Contact me”
 - Existing portrait, professional links, location, current role, and support focus
 
-Immediately after the hero, show four proof cards: 7+ years in technology, 50+ workstations supported, three industries supported, and portfolio available in six languages.
+The later developer-evidence and GitHub-history designs supersede the original four-card proposal. The final hero shows three proof cards: 7+ years in technology, public repository history since 2022 with a GitHub profile link, and three industries supported.
 
 ### Support capabilities and experience
 
@@ -52,7 +52,7 @@ Experience remains the primary proof and appears before repository work:
 - Kurnia Holiday Travels — Senior Executive with IT operations responsibilities, January 2020–April 2025
 - Century Securities Limited — Junior IT Officer, January–December 2019
 
-Use present tense for the current role and past tense for previous roles. Preserve the confirmed 50+ workstation figure. Do not add quantitative outcomes until evidence is supplied.
+Use present tense for the current role and past tense for previous roles. Describe workplace hardware and software maintenance without an unverified device count. Do not add quantitative outcomes until evidence is supplied.
 
 ### Support approach
 

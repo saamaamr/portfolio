@@ -69,12 +69,12 @@ In the existing verified-metrics test in `tests/page.test.js`, replace the four-
 ```js
 expect([...page.querySelectorAll('[data-metric]')].map((node) => node.dataset.metric)).toEqual([
   'years',
-  'workstations',
+  'github-history',
   'industries',
 ]);
 expect([...page.querySelectorAll('[data-metric] strong')].map((node) =>
   node.textContent.trim()
-)).toEqual(['7+', '50+', '3']);
+)).toEqual(['7+', 'Since 2022', '3']);
 expect(page.querySelector('[data-metric="portfolio-languages"]')).toBeNull();
 ```
 
@@ -169,7 +169,7 @@ Expected: FAIL because the hero still renders four metrics, the page still rende
 
 - [ ] **Step 5: Remove the Portfolio languages metric from the page and locales**
 
-Delete the `data-metric="portfolio-languages"` card from `views/index.ejs`. Remove `metrics.portfolioLanguages` from all six locale dictionaries while preserving the other three metric keys and all language-route content.
+Delete the `data-metric="portfolio-languages"` card from `views/index.ejs`. Remove `metrics.portfolioLanguages` from all six locale dictionaries while preserving the three hero cards and all language-route content.
 
 Change the desktop `.hero-proof-grid` rule in `public/css/input.css` to:
 

@@ -14,7 +14,7 @@
 - Do not add facts, tools, ticket volumes, percentages, SLAs, satisfaction scores, performance claims, or outcomes that are absent from the CV, Git history, repository documentation, or direct user confirmation.
 - Keep "Open to remote opportunities."
 - State that the portfolio is available in six languages; never imply that Abdullah speaks six languages.
-- Use only these career metrics: `7+` years in technology, `50+` supported workstations, `3` industries, and `6` portfolio languages.
+- The later GitHub-history design supersedes the original metric set. Use `7+` years in technology, public repository history `Since 2022`, and `3` industries.
 - Keep personal language claims exactly at `Bangla — Fluent` and `English — Good` in English content, with faithful translations elsewhere.
 - Use "production-grade feature scope" only for Emergency Medicine Finder, followed by visible limitations. Never describe it positively as production-ready, deployment-ready, secure, or hardened.
 - Never imply that collaborative work was completed alone. House Shifting Services may only appear as an attribution note explaining that it is collaborative and not primary evidence.
@@ -56,9 +56,10 @@ it('defines the approved support-first English content contract', () => {
   });
   expect(english.metrics).toMatchObject({
     years: 'Years in technology',
-    workstations: 'Workstations supported',
+    repositorySince: 'Since 2022',
+    repositoryHistory: 'Public repository history',
+    githubProfile: 'View GitHub profile',
     industries: 'Industries supported',
-    portfolioLanguages: 'Portfolio languages',
   });
   expect(english).toHaveProperty('approach.documentTitle', 'Document');
   expect(english).toHaveProperty('evidence.attendancePrivate', 'Private case study');
@@ -125,9 +126,10 @@ Retain the existing error, menu, theme, metadata, not-found, and accessibility t
   },
   "metrics": {
     "years": "Years in technology",
-    "workstations": "Workstations supported",
-    "industries": "Industries supported",
-    "portfolioLanguages": "Portfolio languages"
+    "repositorySince": "Since 2022",
+    "repositoryHistory": "Public repository history",
+    "githubProfile": "View GitHub profile",
+    "industries": "Industries supported"
   },
   "experience": {
     "bitAppsDate": "May 2025 — Present",
@@ -249,7 +251,7 @@ it('presents a Technical Support Engineer identity and verified metrics', () => 
   expect(page.querySelector('[data-primary-cta]').getAttribute('href'))
     .toBe('#experience');
   expect([...page.querySelectorAll('[data-metric] strong')].map((node) => node.textContent.trim()))
-    .toEqual(['7+', '50+', '3', '6']);
+    .toEqual(['7+', 'Since 2022', '3']);
 });
 
 it('renders two public evidence links and one private redacted case study', () => {
@@ -278,7 +280,7 @@ Also assert:
 
 - Navbar section targets are `home`, `experience`, `approach`, `evidence`, `skills`, `contact`.
 - The desktop and mobile resume links still point to `/Abdullah Al Mamun Resume.pdf`.
-- The 50+ metric appears only as workstation support.
+- The repository-history metric links directly to the GitHub profile and does not claim continuous activity.
 - The portfolio-language metric is labelled as a site capability.
 - English experience dates come from locale content.
 - The Bangla page does not contain the English date strings.
@@ -311,7 +313,7 @@ In `views/index.ejs`:
 - Change the primary CTA to `#experience` and secondary CTA to `#contact`.
 - Keep GitHub, LinkedIn, and email hero links.
 - Move the metric grid into the hero region directly after the main two-column content so it is visible earlier.
-- Render metrics exactly as `7+`, `50+`, `3`, and `6`; the last label must be `metrics.portfolioLanguages`.
+- Render metrics exactly as `7+`, `Since 2022`, and `3`; the middle card links to the GitHub profile.
 
 - [ ] **Step 4: Rebuild capabilities, experience, and approach**
 
@@ -322,7 +324,7 @@ Use four capability cards:
 3. Issue investigation: reproduction steps, evidence collection, root-cause isolation, escalation, and verification.
 4. Knowledge sharing: troubleshooting guides, user instructions, bug reports, and handover notes.
 
-Keep all three jobs and company names. Replace hard-coded date text with `t('experience.bitAppsDate')`, `t('experience.seniorDate')`, and `t('experience.juniorDate')`. Use present tense only for Bit Apps and past tense for Kurnia Holiday Travels and Century Securities Limited. Keep the 50+ workstation bullet; remove or soften unsupported claims such as improved response times, 24/7 availability, minimized downtime, or optimized outcomes.
+Keep all three jobs and company names. Replace hard-coded date text with `t('experience.bitAppsDate')`, `t('experience.seniorDate')`, and `t('experience.juniorDate')`. Use present tense only for Bit Apps and past tense for Kurnia Holiday Travels and Century Securities Limited. Describe workplace hardware and software maintenance without a device count; remove or soften unsupported claims such as improved response times, 24/7 availability, minimized downtime, or optimized outcomes.
 
 Add `section#approach` after Experience. Render the six localized steps in an ordered list so the workflow remains meaningful without CSS:
 
@@ -564,7 +566,8 @@ describe('English resume', () => {
   it('uses support-only positioning and evidence-backed claims', () => {
     const text = resume.body.textContent.replace(/\s+/g, ' ');
     expect(text).toContain('Technical Support Engineer');
-    expect(text).toContain('50+ workstations');
+    expect(text).not.toMatch(/50\+ workstations/i);
+    expect(text).toContain('Installed and maintained workplace hardware and software.');
     expect(text).toContain('Open to remote opportunities');
     expect(text).not.toMatch(/Web Developer|Full[- ]Stack Developer/i);
     expect(text).not.toMatch(/improved support team response|improved .*%|reduced .*%|24\/7|minimized downtime|optimized outcomes/i);
@@ -607,7 +610,7 @@ Expected: FAIL because the current summary says Web Developer/full-stack, contai
 
 Keep the name, Technical Support Engineer title, location, email, phone, GitHub, LinkedIn, and portfolio links. Use this summary:
 
-> Technical Support Engineer with 7+ years in technology across software, travel operations, and financial services. Experienced in diagnosing hardware, software, website, access, and workflow issues; reproducing and documenting defects; maintaining WordPress and HTML/CSS websites; and coordinating clear resolutions between users, clients, and technical teams. Supported hardware and software across 50+ workstations and created practical troubleshooting documentation. Open to Technical Support and remote opportunities.
+> Technical Support Engineer with 7+ years in technology across software, travel operations, and financial services. Experienced in diagnosing hardware, software, website, access, and workflow issues; reproducing and documenting defects; maintaining WordPress and HTML/CSS websites; and coordinating clear resolutions between users, clients, and technical teams. Created practical troubleshooting documentation. Open to Technical Support and remote opportunities.
 
 Use present tense for Bit Apps and past tense for the other two roles. Remove unsupported outcome statements including improved response times, optimized results, guaranteed availability, or minimized downtime.
 
