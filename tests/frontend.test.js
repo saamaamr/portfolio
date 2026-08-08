@@ -11,6 +11,10 @@ describe('Portfolio browser behavior', () => {
     portfolio = require('../public/js/script');
   });
 
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('uses system preference until a visitor saves an explicit theme', () => {
     expect(portfolio.resolveTheme(null, true)).toBe('dark');
     expect(portfolio.resolveTheme(null, false)).toBe('light');
@@ -138,6 +142,22 @@ describe('Portfolio browser behavior', () => {
     expect(portfolio.getNavigationSection('skills')).toBe('skills');
     expect(portfolio.getNavigationSection('education')).toBe('skills');
     expect(portfolio.getNavigationSection('contact')).toBe('contact');
+  });
+
+  it('never clears the rotating experience text while changing phrases', () => {
+    jest.useFakeTimers();
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      value: jest.fn(() => ({ matches: false })),
+    });
+    document.body.innerHTML = '<span id="typed-text">website support</span>';
+
+    portfolio.initTypewriter(document, ['website support', 'technical documentation']);
+
+    for (let frame = 0; frame < 40; frame += 1) {
+      jest.runOnlyPendingTimers();
+      expect(document.getElementById('typed-text').textContent.trim()).not.toBe('');
+    }
   });
 
   it('returns focus to the trigger when an open mobile menu closes', () => {

@@ -289,30 +289,29 @@
   const initTypewriter = (documentRef, localizedPhrases = DEFAULT_LOCALE_DATA.typewriterPhrases) => {
     const target = documentRef.getElementById('typed-text');
     if (!target) return;
-    const phrases = localizedPhrases.length ? localizedPhrases : DEFAULT_LOCALE_DATA.typewriterPhrases;
+    const phrases = localizedPhrases
+      .map((phrase) => String(phrase).trim())
+      .filter(Boolean);
+    if (!phrases.length) phrases.push(...DEFAULT_LOCALE_DATA.typewriterPhrases);
+    target.textContent = phrases[0];
+    target.style.setProperty(
+      '--typed-characters',
+      String(Math.max(...phrases.map((phrase) => [...phrase].length)))
+    );
     if (prefersReducedMotion()) {
-      target.textContent = phrases[0];
       return;
     }
     let phraseIndex = 0;
-    let characterIndex = phrases[0].length;
-    let deleting = true;
-    const type = () => {
-      const phrase = phrases[phraseIndex];
-      characterIndex += deleting ? -1 : 1;
-      target.textContent = phrase.slice(0, characterIndex);
-      let delay = deleting ? 45 : 75;
-      if (!deleting && characterIndex === phrase.length) {
-        deleting = true;
-        delay = 1500;
-      } else if (deleting && characterIndex === 0) {
-        deleting = false;
+    const rotate = () => {
+      target.classList.add('is-changing');
+      windowRef.setTimeout(() => {
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        delay = 320;
-      }
-      windowRef.setTimeout(type, delay);
+        target.textContent = phrases[phraseIndex];
+        target.classList.remove('is-changing');
+        windowRef.setTimeout(rotate, 2400);
+      }, 120);
     };
-    windowRef.setTimeout(type, 900);
+    windowRef.setTimeout(rotate, 2400);
   };
 
   const initContactForm = (documentRef, localeData = DEFAULT_LOCALE_DATA) => {
@@ -415,6 +414,7 @@
     getNavigationSection,
     initMobileMenu,
     initLanguageMenu,
+    initTypewriter,
     initTheme,
     syncThemeFavicon,
   };

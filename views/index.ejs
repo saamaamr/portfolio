@@ -17,8 +17,8 @@
             <h1 id="hero-title"><%= t('hero.title') %></h1>
             <p class="hero-intro"><%= t('hero.intro') %></p>
             <p class="role-rotator">
-              <span><%= t('hero.alsoExperienced') %></span>
-              <span id="typed-text" aria-hidden="true"><%= clientMessages.typewriterPhrases[0] %></span><span class="typed-cursor" aria-hidden="true">|</span>
+              <span class="role-rotator-label"><%= t('hero.alsoExperienced') %></span>
+              <span id="typed-text" aria-hidden="true"><%= clientMessages.typewriterPhrases[0] %></span>
               <span class="sr-only"><%= t('hero.typewriterSummary') %></span>
             </p>
             <div class="hero-actions">
@@ -36,13 +36,13 @@
           <div class="hero-visual reveal">
             <div class="portrait-frame">
               <div class="portrait-accent" aria-hidden="true"></div>
-              <img src="/assets/mamun image 1.jpeg" alt="<%= t('hero.portraitAlt') %>" width="640" height="640" />
+              <img src="/assets/mamun image 1.jpeg" alt="<%= t('hero.portraitAlt') %>" width="640" height="640" fetchpriority="high" decoding="async" />
             </div>
-            <div class="profile-summary">
-              <div><span><%= t('hero.basedIn') %></span><strong><%= t('contact.locationValue') %></strong></div>
-              <div><span><%= t('hero.currentRole') %></span><strong><%= t('hero.role') %></strong></div>
-              <div><span><%= t('hero.focus') %></span><strong><%= t('hero.focusValue') %></strong></div>
-            </div>
+            <dl class="profile-summary">
+              <div><dt><%= t('hero.basedIn') %></dt><dd><%= t('contact.locationValue') %></dd></div>
+              <div><dt><%= t('hero.currentRole') %></dt><dd><%= t('hero.role') %></dd></div>
+              <div><dt><%= t('hero.focus') %></dt><dd><%= t('hero.focusValue') %></dd></div>
+            </dl>
           </div>
 
           <div class="hero-proof-grid" aria-label="<%= t('a11y.careerHighlights') %>">

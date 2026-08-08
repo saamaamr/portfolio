@@ -82,6 +82,24 @@ describe('Portfolio document', () => {
     expect(page.body.textContent).toContain('Open to Technical Support opportunities');
   });
 
+  it('presents portrait metadata as an accessible hero summary', () => {
+    const hero = page.getElementById('home');
+    const portrait = hero.querySelector('.portrait-frame img');
+    const summary = hero.querySelector('.profile-summary');
+    const rows = [...summary.querySelectorAll(':scope > div')];
+
+    expect(page.querySelectorAll('h1')).toHaveLength(1);
+    expect(portrait.getAttribute('alt')).toBeTruthy();
+    expect(summary.tagName).toBe('DL');
+    expect(rows).toHaveLength(3);
+    expect(rows.map((row) => row.querySelector('dt').textContent.trim())).toEqual([
+      'Based in',
+      'Current role',
+      'Focus',
+    ]);
+    expect(rows.every((row) => row.querySelector('dd').textContent.trim().length > 0)).toBe(true);
+  });
+
   it('uses the approved support-first information architecture', () => {
     const sectionIds = [...page.querySelectorAll('main > section[id]')].map(
       (section) => section.id
