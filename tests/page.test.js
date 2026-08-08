@@ -109,6 +109,26 @@ describe('Portfolio document', () => {
     ).toBeNull();
   });
 
+  it('renders theme-aware brand and favicon assets', () => {
+    const logos = [...page.querySelectorAll('.brand-mark img')];
+
+    expect(logos.map((logo) => logo.getAttribute('src'))).toEqual([
+      '/assets/logo-light.svg',
+      '/assets/logo-dark.svg',
+    ]);
+    logos.forEach((logo) => {
+      expect(logo.getAttribute('alt')).toBe('');
+      expect(logo.getAttribute('width')).toBe('36');
+      expect(logo.getAttribute('height')).toBe('36');
+    });
+    expect(page.getElementById('site-favicon').getAttribute('href')).toBe(
+      '/assets/logo-light.svg'
+    );
+    expect(page.querySelector('link[rel="apple-touch-icon"]').getAttribute('href')).toBe(
+      '/assets/logo-light.svg'
+    );
+  });
+
   it('renders six language routes and marks American English as selected', () => {
     const links = page.querySelectorAll('[data-language-option]');
 
@@ -167,5 +187,7 @@ describe('Portfolio document', () => {
 
     expect(css).toContain('.language-menu');
     expect(css).toContain('[dir="rtl"]');
+    expect(css).toContain('.brand-logo-dark');
+    expect(css).toContain('.dark .brand-logo-light');
   });
 });

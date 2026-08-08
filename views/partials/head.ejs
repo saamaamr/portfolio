@@ -19,8 +19,8 @@
   <meta name="twitter:description" content="<%= t('meta.socialDescription') %>" />
   <meta name="twitter:image" content="https://mamunsandwipi.vercel.app/assets/social-card.png" />
   <title><%= typeof pageTitle !== 'undefined' ? pageTitle : t('meta.title') %></title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link id="site-favicon" rel="icon" type="image/svg+xml" href="/assets/logo-light.svg" />
+  <link rel="apple-touch-icon" href="/assets/logo-light.svg" />
   <% if (canonicalUrl) { %><link rel="canonical" href="<%= canonicalUrl %>" /><% } %>
   <% alternateLinks.forEach((link) => { %><link rel="alternate" hreflang="<%= link.hreflang %>" href="<%= link.href %>" /><% }) %>
   <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -201,9 +201,27 @@ img {
   letter-spacing: -0.025em;
 }
 
-.brand img {
+.brand-mark {
+  position: relative;
   width: 2.25rem;
   height: 2.25rem;
+  flex: none;
+}
+
+.brand-mark img {
+  position: absolute;
+  inset: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.brand-logo-dark,
+.dark .brand-logo-light {
+  display: none;
+}
+
+.dark .brand-logo-dark {
+  display: block;
 }
 
 .desktop-nav,
