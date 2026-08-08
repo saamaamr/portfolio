@@ -284,7 +284,7 @@ Run:
 ```bash
 npm run build:css
 npm test -- --runInBand
-node -e "const fs=require('fs'); for(const file of ['public/assets/logo-light.svg','public/assets/logo-dark.svg']) { const svg=fs.readFileSync(file,'utf8'); if(!svg.includes('viewBox=\"0 0 64 64\"') || /<script|https?:\/\//i.test(svg)) process.exit(1); } console.log('SVG assets valid')"
+node -e "const fs=require('fs'); for(const file of ['public/assets/logo-light.svg','public/assets/logo-dark.svg']) { const svg=fs.readFileSync(file,'utf8'); if(!svg.includes('viewBox=\"0 0 64 64\"') || /<script|(?:xlink:)?href\\s*=\\s*['\"]https?:/i.test(svg)) process.exit(1); } console.log('SVG assets valid')"
 rg -n '/favicon.svg' views && exit 1 || true
 git diff --check
 git status --short

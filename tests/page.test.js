@@ -112,6 +112,7 @@ describe('Portfolio document', () => {
   it('renders theme-aware brand and favicon assets', () => {
     const logos = [...page.querySelectorAll('.brand-mark img')];
 
+    expect(page.querySelector('.brand-name').textContent).toBe('Abdullah Al Mamun');
     expect(logos.map((logo) => logo.getAttribute('src'))).toEqual([
       '/assets/logo-light.svg',
       '/assets/logo-dark.svg',
@@ -189,5 +190,6 @@ describe('Portfolio document', () => {
     expect(css).toContain('[dir="rtl"]');
     expect(css).toContain('.brand-logo-dark');
     expect(css).toContain('.dark .brand-logo-light');
+    expect(css).toContain('.brand-name');
   });
 });
