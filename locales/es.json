@@ -154,7 +154,9 @@
     "medicineSummary": "Búsqueda de medicamentos, inventario y operaciones en una aplicación para usuarios, comerciantes y administradores.",
     "medicineWarning": "Prototipo. Las mejoras de seguridad documentadas deben completarse antes del despliegue.",
     "houseSummary": "Una aplicación colaborativa de reserva de servicios que conecta clientes, trabajadores y administradores.",
-    "previewCaption": "Vista de la aplicación con datos de ejemplo"
+    "previewCaption": "Vista de la aplicación con datos de ejemplo",
+    "previewOpen": "Ver a tamaño completo",
+    "previewOpenLabel": "Ver a tamaño completo (se abre en una pestaña nueva)"
   },
   "skills": {
     "eyebrow": "Competencias y herramientas",

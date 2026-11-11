@@ -154,7 +154,9 @@
     "medicineSummary": "Recherche de médicaments, stocks et opérations dans une application pour utilisateurs, commerçants et administrateurs.",
     "medicineWarning": "Prototype. Les améliorations de sécurité documentées restent à réaliser avant le déploiement.",
     "houseSummary": "Une application de réservation de services développée en équipe, reliant clients, intervenants et administrateurs.",
-    "previewCaption": "Aperçu de l’application avec des données de démonstration"
+    "previewCaption": "Aperçu de l’application avec des données de démonstration",
+    "previewOpen": "Voir en grand",
+    "previewOpenLabel": "Voir en grand (s’ouvre dans un nouvel onglet)"
   },
   "skills": {
     "eyebrow": "Compétences et outils",

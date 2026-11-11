@@ -125,6 +125,9 @@ main > section { scroll-margin-top: var(--header-height); }
 .window-dots { display: flex; gap: .3rem; }
 .window-dots i { display: block; width: 6px; height: 6px; border-radius: 50%; background: #b4bfcc; }
 .evidence-visual img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; border: 1px solid #cbd5df; border-top: 0; border-radius: 0 0 10px 10px; background: #fff; box-shadow: 0 10px 24px #1b2d4810; }
+.project-preview-link { position: relative; display: block; border-radius: 0 0 10px 10px; cursor: zoom-in; }
+.project-preview-action { position: absolute; inset-inline-end: .65rem; inset-block-end: .65rem; display: inline-flex; align-items: center; gap: .4rem; max-width: calc(100% - 1.3rem); border: 1px solid #cbd5df; border-radius: 6px; padding: .4rem .6rem; background: #f8fafc; color: #233552; font-size: .65rem; font-weight: 650; line-height: 1.4; box-shadow: 0 2px 8px #1b2d481a; pointer-events: none; }
+.project-preview-link:hover .project-preview-action,.project-preview-link:focus-visible .project-preview-action { border-color: #3156cc; background: #3156cc; color: #fff; }
 .project-preview-caption { margin: .75rem 0 0; color: #566274; font-size: .65rem; line-height: 1.5; }
 .dark .evidence-visual { background: #1b2b41; }
 .dark .project-preview-caption { color: #b5c3d6; }

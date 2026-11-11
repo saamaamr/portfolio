@@ -154,7 +154,9 @@
     "medicineSummary": "Medicine search, inventory, and operations in one application for users, shopkeepers, and administrators.",
     "medicineWarning": "Prototype. Documented security improvements are required before deployment.",
     "houseSummary": "A collaborative service-booking application connecting customers, workers, and administrators.",
-    "previewCaption": "Application preview with sample data"
+    "previewCaption": "Application preview with sample data",
+    "previewOpen": "View full size",
+    "previewOpenLabel": "View full size (opens in a new tab)"
   },
   "skills": {
     "eyebrow": "Working toolkit",
