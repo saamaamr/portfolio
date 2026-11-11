@@ -81,8 +81,9 @@ describe('portfolio locale dictionaries', () => {
       status: 'Open to Technical Support opportunities',
       role: 'Technical Support Engineer',
       eyebrow: 'User support · Website support · IT operations',
-      title: 'Clear support for people, software, and systems.',
-      primaryAction: 'View experience',
+      title: 'Technical problems.',
+      titleAccent: 'Human solutions.',
+      primaryAction: 'Explore my work',
       secondaryAction: 'Contact me',
     });
     expect(english.metrics).toMatchObject({
@@ -105,8 +106,8 @@ describe('portfolio locale dictionaries', () => {
     );
     expect(english).not.toHaveProperty('metrics.portfolioLanguages');
     expect(english).toHaveProperty('approach.documentTitle', 'Document');
-    expect(english).toHaveProperty('evidence.eyebrow', 'Developer Evidence');
-    expect(english).toHaveProperty('evidence.title', 'Evidence from systems I have worked on');
+    expect(english).toHaveProperty('evidence.eyebrow', 'Selected technical work');
+    expect(english).toHaveProperty('evidence.title', 'A closer look at the work.');
     expect(english).toHaveProperty('evidence.houseBadge', 'Collaborative work');
     expect(english).toHaveProperty('evidence.pciuBadge', 'Collaborative contribution');
     expect(english).not.toHaveProperty('evidence.attendanceTitle');
@@ -138,6 +139,7 @@ describe('portfolio locale dictionaries', () => {
         'evidence.houseBody',
         'evidence.pciuBody',
         'nav.englishResume',
+        'nav.downloadEnglishResume',
       ].forEach((key) => {
         expect(readKey(translated, key)).not.toBe(readKey(english, key));
       });

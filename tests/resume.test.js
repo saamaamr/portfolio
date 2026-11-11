@@ -22,11 +22,11 @@ describe('English resume', () => {
       'Resume page 2',
     ]);
     expect(resume.querySelector('.role').textContent.trim()).toBe(
-      'Technical Support & IT Operations Professional'
+      'Technical Support Engineer | IT Operations'
     );
     expect(profile).not.toBeNull();
     expect(profile.textContent.trim()).toBe(
-      'Technical support and IT operations professional with 7+ years of experience across software, travel operations, and financial services. Skilled in end-user support, hardware and software troubleshooting, website maintenance, defect reproduction, documentation, and clear coordination between users, clients, and technical teams.'
+      'Technical Support Engineer with 7+ years of experience across software support, travel operations, and financial services. Experienced in website troubleshooting, defect reproduction, documentation, and workplace IT support. Translate user-reported problems into clear next steps for clients and development teams.'
     );
     expect(competencies).toHaveLength(3);
     expect(competencies.map((entry) => entry.querySelector('h3').textContent.trim())).toEqual([

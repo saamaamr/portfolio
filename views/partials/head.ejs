@@ -4,8 +4,8 @@
   <meta name="description" content="<%= t('meta.description') %>" />
   <meta name="author" content="Abdullah Al Mamun" />
   <meta name="robots" content="<%= typeof metaRobots !== 'undefined' ? metaRobots : 'index, follow' %>" />
-  <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f8f7f4" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101722" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<%= canonicalUrl || 'https://mamunsandwipi.vercel.app/' %>" />
   <meta property="og:title" content="<%= t('meta.title') %>" />
@@ -26,15 +26,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <% const scriptFont = { bn: 'Noto+Sans+Bengali', hi: 'Noto+Sans+Devanagari', ar: 'Noto+Sans+Arabic' }[locale]; %>
+  <% if (scriptFont) { %><link href="https://fonts.googleapis.com/css2?family=<%= scriptFont %>:wght@400;500;600;700&amp;display=swap" rel="stylesheet" /><% } %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script src="/js/theme-init.js"></script>
-  <link rel="stylesheet" href="/css/output.css" />
+  <link rel="stylesheet" href="/css/output.css?v=c6cc378b8755" />
   <% if (typeof includeStructuredData === 'undefined' || includeStructuredData) { %>
     <script type="application/ld+json" nonce="<%= cspNonce %>"><%- JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Abdullah Al Mamun',
-      jobTitle: t('hero.title'),
+      jobTitle: t('hero.role'),
       description: t('meta.structuredDescription'),
       url: canonicalUrl,
       email: 'mailto:mamun872381cpi@gmail.com',
@@ -44,5 +46,4 @@
   <% } %>
   <script id="locale-data" type="application/json" nonce="<%= cspNonce %>"><%- serializedClientMessages %></script>
   <script defer src="/js/script.js"></script>
-  <script defer src="/js/gradient-mesh.js"></script>
 </head>

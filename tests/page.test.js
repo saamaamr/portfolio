@@ -33,22 +33,25 @@ describe('Portfolio document', () => {
 
   it('presents a Technical Support Engineer identity and verified metrics', () => {
     const resumeLinks = [
-      ...page.querySelectorAll('a[href="/Abdullah Al Mamun Resume.pdf"]'),
+      ...page.querySelectorAll('a[href^="/Abdullah Al Mamun Resume.pdf"]'),
     ];
 
     expect(page.querySelector('[data-professional-role]').textContent.trim()).toBe(
       'Technical Support Engineer'
     );
-    expect(page.querySelector('h1').textContent.trim()).toBe(
-      'Clear support for people, software, and systems.'
+    expect(page.querySelector('h1').textContent.replace(/\s+/g, ' ').trim()).toBe(
+      'Technical problems. Human solutions.'
     );
     expect(page.querySelector('[data-primary-cta]').getAttribute('href')).toBe(
-      '#experience'
+      '#evidence'
     );
     expect(page.querySelector('[data-primary-cta]').textContent.trim()).toContain(
-      'View experience'
+      'Explore my work'
     );
-    expect(resumeLinks).toHaveLength(2);
+    expect(resumeLinks).toHaveLength(3);
+    resumeLinks.forEach((link) => {
+      expect(link.getAttribute('download')).toBe('Abdullah-Al-Mamun-Resume.pdf');
+    });
     expect([...page.querySelectorAll('[data-metric]')].map((node) => node.dataset.metric)).toEqual([
       'years',
       'github-history',
@@ -128,10 +131,10 @@ describe('Portfolio document', () => {
 
     expect(sectionIds).toEqual([
       'home',
+      'evidence',
       'capabilities',
       'experience',
       'approach',
-      'evidence',
       'skills',
       'education',
       'contact',
@@ -198,7 +201,7 @@ describe('Portfolio document', () => {
     expect(page.querySelector('[data-collaborative-evidence]').textContent).toContain(
       'Collaborative work'
     );
-    expect(page.getElementById('evidence').textContent).toContain('Developer Evidence');
+    expect(page.getElementById('evidence').textContent).toContain('Selected technical work');
     expect(page.getElementById('evidence').textContent).not.toContain(
       'Smart Attendance Tracker'
     );
@@ -231,8 +234,8 @@ describe('Portfolio document', () => {
       /improved support team response|24\/7|minimized downtime|optimized outcomes/i
     );
     expect(text).not.toMatch(/\bis deployment[- ]ready\b|\bproduction[- ]ready system\b/i);
-    expect(text).toContain('production-grade feature scope');
-    expect(text).toContain('not presented as deployment-ready');
+    expect(text).not.toContain('production-grade');
+    expect(text).toContain('Documented security improvements are required before deployment.');
     expect(text).toContain('collaborative work');
     expect(text).toContain('PCIU CGPA Calculator');
     expect(text).not.toContain('Smart Attendance Tracker');
@@ -248,14 +251,14 @@ describe('Portfolio document', () => {
 
     expect(navTargets).toEqual([
       'home',
+      'evidence',
       'experience',
       'approach',
-      'evidence',
       'skills',
       'contact',
     ]);
-    expect(page.body.textContent).toContain('May 2025 — Present');
-    expect(banglaPage.body.textContent).not.toContain('May 2025 — Present');
+    expect(page.body.textContent).toContain('May 2025 - Present');
+    expect(banglaPage.body.textContent).not.toContain('May 2025 - Present');
     expect(page.querySelector('[data-education="bachelor"] strong').textContent.trim()).toBe(
       'GPA 3.76 / 4.00'
     );
@@ -346,8 +349,32 @@ describe('Portfolio document', () => {
     );
   });
 
-  it('uses a real canvas for the ambient background', () => {
-    expect(page.getElementById('bg-canvas').tagName).toBe('CANVAS');
+  it.each(['en-US', 'bn', 'hi', 'ar', 'es', 'fr'])(
+    'offers readable project details and preserves disclosures in %s',
+    async (locale) => {
+      const localized = await renderPortfolio(locale);
+      const cards = [...localized.querySelectorAll('[data-evidence-card]')];
+      cards.forEach((card) => {
+        const details = card.querySelector('details');
+        expect(details).not.toBeNull();
+        expect(details.querySelector('summary').textContent.trim()).not.toBe('');
+        expect(details.querySelector('p').textContent.trim()).not.toBe('');
+        expect(card.querySelector('[data-evidence-source]')).not.toBeNull();
+      });
+      expect(localized.querySelector('.evidence-limitations').closest('details')).toBeNull();
+      expect(localized.querySelector('[data-collaborative-evidence] .collaborative-badge').closest('details')).toBeNull();
+      expect(localized.body.textContent).not.toContain(String.fromCodePoint(0x2014));
+      const download = localized.querySelector('.hero-actions a[download]');
+      const dictionary = require(`../locales/${locale}.json`);
+      expect(download.textContent.trim()).toBe(locale === 'en-US'
+        ? dictionary.nav.downloadResume
+        : dictionary.nav.downloadEnglishResume);
+    }
+  );
+
+  it('keeps the professional role in structured data', () => {
+    const profileData = JSON.parse(page.querySelector('script[type="application/ld+json"]').textContent);
+    expect(profileData.jobTitle).toBe('Technical Support Engineer');
   });
 
   it('has no detectable automated accessibility violations', async () => {
@@ -359,7 +386,7 @@ describe('Portfolio document', () => {
 
     expect(arabicPage.documentElement.getAttribute('lang')).toBe('ar');
     expect(arabicPage.documentElement.getAttribute('dir')).toBe('rtl');
-    expect(arabicPage.body.textContent).toContain('دعم يصل بين الناس والتقنية');
+    expect(arabicPage.body.textContent).toContain('دعم تقني يضع احتياجات المستخدم أولًا');
     expect(await axe(arabicPage.body)).toHaveNoViolations();
   });
 
@@ -379,7 +406,7 @@ describe('Portfolio document', () => {
 
   it('includes responsive language-menu and RTL layout rules', () => {
     const css = fs.readFileSync(
-      path.join(__dirname, '..', 'public', 'css', 'input.css'),
+      path.join(__dirname, '..', 'public', 'css', 'portfolio.css'),
       'utf8'
     );
 

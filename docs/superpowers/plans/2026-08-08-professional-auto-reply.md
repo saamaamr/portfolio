@@ -24,8 +24,8 @@
 
 ## File Structure
 
-- Modify `tests/email.test.js` — specify the professional auto-reply contract through the mocked transporter.
-- Modify `services/email.js` — generate the fixed subject, plain-text fallback, and responsive email-safe HTML.
+- Modify `tests/email.test.js` - specify the professional auto-reply contract through the mocked transporter.
+- Modify `services/email.js` - generate the fixed subject, plain-text fallback, and responsive email-safe HTML.
 
 ---
 

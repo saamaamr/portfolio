@@ -3,8 +3,6 @@
   <%- include('partials/head') %>
   <body>
     <a href="#main-content" id="skip-to-content" class="skip-link"><%= t('a11y.skip') %></a>
-    <canvas id="bg-canvas" aria-hidden="true"></canvas>
-    <div class="ambient-grid" aria-hidden="true"></div>
     <%- include('partials/navbar') %>
 
     <main id="main-content" tabindex="-1">
@@ -12,18 +10,12 @@
         <div class="section-shell hero-shell">
           <div class="hero-copy reveal">
             <div class="status-pill"><span aria-hidden="true"></span> <%= t('hero.status') %></div>
-            <p class="eyebrow"><%= t('hero.eyebrow') %></p>
             <p class="professional-role" data-professional-role><%= t('hero.role') %></p>
-            <h1 id="hero-title"><%= t('hero.title') %></h1>
+            <h1 id="hero-title"><%= t('hero.title') %> <span><%= t('hero.titleAccent') %></span></h1>
             <p class="hero-intro"><%= t('hero.intro') %></p>
-            <p class="role-rotator">
-              <span class="role-rotator-label"><%= t('hero.alsoExperienced') %></span>
-              <span id="typed-text" aria-hidden="true"><%= clientMessages.typewriterPhrases[0] %></span>
-              <span class="sr-only"><%= t('hero.typewriterSummary') %></span>
-            </p>
             <div class="hero-actions">
-              <a href="#experience" class="button button-primary" data-primary-cta><i class="fas fa-arrow-down" aria-hidden="true"></i> <%= t('hero.primaryAction') %></a>
-              <a href="#contact" class="button button-secondary"><i class="fas fa-message" aria-hidden="true"></i> <%= t('hero.secondaryAction') %></a>
+              <a href="#evidence" class="button button-primary" data-primary-cta><i class="fas fa-arrow-down" aria-hidden="true"></i> <%= t('hero.primaryAction') %></a>
+              <a href="/Abdullah Al Mamun Resume.pdf?v=2376eecf8821" download="Abdullah-Al-Mamun-Resume.pdf" class="button button-secondary"><i class="fas fa-download" aria-hidden="true"></i> <%= locale === 'en-US' ? t('nav.downloadResume') : t('nav.downloadEnglishResume') %></a>
             </div>
             <div class="hero-socials" aria-label="<%= t('a11y.professionalProfiles') %>">
               <a href="https://github.com/saamaamr" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
@@ -36,7 +28,7 @@
 
           <div class="hero-visual reveal">
             <div class="portrait-frame">
-              <div class="portrait-accent" aria-hidden="true"></div>
+              <span class="portrait-corner" aria-hidden="true">AM.</span>
               <img src="/assets/mamun image 1.jpeg" alt="<%= t('hero.portraitAlt') %>" width="640" height="640" fetchpriority="high" decoding="async" />
             </div>
             <dl class="profile-summary">
@@ -53,6 +45,8 @@
           </div>
         </div>
       </section>
+
+      <%- include('partials/evidence') %>
 
       <section id="capabilities" class="content-section" aria-labelledby="capabilities-title">
         <div class="section-shell">
@@ -71,7 +65,7 @@
       </section>
 
       <section id="experience" class="content-section experience-section" aria-labelledby="experience-title">
-        <div class="section-shell narrow-shell">
+        <div class="section-shell experience-shell">
           <div class="section-heading reveal"><p class="eyebrow"><%= t('experience.eyebrow') %></p><h2 id="experience-title"><%= t('experience.title') %></h2></div>
           <div class="timeline">
             <article class="timeline-item reveal">
@@ -107,30 +101,6 @@
         </div>
       </section>
 
-      <section id="evidence" class="content-section section-tint" aria-labelledby="evidence-title">
-        <div class="section-shell">
-          <div class="section-heading reveal"><p class="eyebrow"><%= t('evidence.eyebrow') %></p><h2 id="evidence-title"><%= t('evidence.title') %></h2><p><%= t('evidence.intro') %></p></div>
-          <div class="evidence-grid">
-            <article class="evidence-card reveal" data-evidence-card data-evidence="noor-notes">
-              <div class="evidence-visual"><img src="/assets/evidence/noor-notes-library.png" alt="<%= t('evidence.noorAlt') %>" loading="lazy" width="900" height="560" /></div>
-              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.noorCategory') %></p><h3><%= t('evidence.noorTitle') %></h3><p><%= t('evidence.noorBody') %></p><a href="https://github.com/saamaamr/noor-notes" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.noorLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
-            </article>
-            <article class="evidence-card reveal" data-evidence-card data-evidence="emergency-medicine-finder">
-              <div class="evidence-visual"><img src="/assets/evidence/emergency-supportability.svg" alt="<%= t('evidence.medicineAlt') %>" loading="lazy" width="900" height="560" /></div>
-              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.medicineCategory') %></p><h3><%= t('evidence.medicineTitle') %></h3><p class="evidence-limitations"><%= t('evidence.medicineBody') %></p><a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.medicineLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
-            </article>
-            <article class="evidence-card reveal" data-evidence-card data-evidence="house-shifting-services" data-collaborative-evidence>
-              <div class="evidence-visual"><img src="/assets/evidence/house-shifting-collaboration.svg" alt="<%= t('evidence.houseAlt') %>" loading="lazy" width="900" height="560" /></div>
-              <div class="evidence-body"><p class="evidence-category"><%= t('evidence.houseCategory') %></p><span class="collaborative-badge"><i class="fas fa-people-group" aria-hidden="true"></i> <%= t('evidence.houseBadge') %></span><h3><%= t('evidence.houseTitle') %></h3><p><%= t('evidence.houseBody') %></p><a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.houseLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
-            </article>
-          </div>
-          <aside class="contribution-note reveal" data-collaborative-contribution>
-            <span class="collaborative-badge"><i class="fas fa-code-branch" aria-hidden="true"></i> <%= t('evidence.pciuBadge') %></span>
-            <div><h3><%= t('evidence.pciuTitle') %></h3><p><%= t('evidence.pciuBody') %></p></div>
-            <a href="https://github.com/saamaamr/pciu-cgpa-calculator" target="_blank" rel="noopener noreferrer" class="project-link" data-contribution-source><i class="fab fa-github" aria-hidden="true"></i> <%= t('evidence.pciuLink') %> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-          </aside>
-        </div>
-      </section>
 
       <section id="skills" class="content-section" aria-labelledby="skills-title">
         <div class="section-shell">
@@ -161,11 +131,11 @@
           <div class="contact-grid">
             <div class="contact-panel reveal">
               <h3><%= t('contact.direct') %></h3>
-              <a href="mailto:mamun872381cpi@gmail.com"><span class="icon-tile"><i class="fas fa-envelope" aria-hidden="true"></i></span><span><small><%= t('contact.email') %></small><strong>mamun872381cpi@gmail.com</strong></span></a>
-              <a href="tel:+8801580831003"><span class="icon-tile"><i class="fas fa-phone" aria-hidden="true"></i></span><span><small><%= t('contact.phone') %></small><strong>+880 1580-831003</strong></span></a>
-              <a href="https://wa.me/8801827918142" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-whatsapp" aria-hidden="true"></i></span><span><small>WhatsApp</small><strong>+880 1827-918142</strong></span></a>
+              <a href="mailto:mamun872381cpi@gmail.com"><span class="icon-tile"><i class="fas fa-envelope" aria-hidden="true"></i></span><span><small><%= t('contact.email') %></small><strong><bdi dir="ltr">mamun872381cpi@gmail.com</bdi></strong></span></a>
+              <a href="tel:+8801580831003"><span class="icon-tile"><i class="fas fa-phone" aria-hidden="true"></i></span><span><small><%= t('contact.phone') %></small><strong><bdi dir="ltr">+880 1580-831003</bdi></strong></span></a>
+              <a href="https://wa.me/8801827918142" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-whatsapp" aria-hidden="true"></i></span><span><small>WhatsApp</small><strong><bdi dir="ltr">+880 1827-918142</bdi></strong></span></a>
               <a href="https://www.linkedin.com/in/abdullah-a-699a90117/" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span><span><small>LinkedIn</small><strong>Abdullah Al Mamun</strong></span></a>
-              <a href="https://www.instagram.com/m_a_a_mamun" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-instagram" aria-hidden="true"></i></span><span><small>Instagram</small><strong>@m_a_a_mamun</strong></span></a>
+              <a href="https://www.instagram.com/m_a_a_mamun" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-instagram" aria-hidden="true"></i></span><span><small>Instagram</small><strong><bdi dir="ltr">@m_a_a_mamun</bdi></strong></span></a>
               <a href="https://m.me/saamaamr1" target="_blank" rel="noopener noreferrer"><span class="icon-tile"><i class="fab fa-facebook-messenger" aria-hidden="true"></i></span><span><small>Facebook Messenger</small><strong><%= t('contact.facebookMessage') %></strong></span></a>
             </div>
             <form id="contact-form" class="contact-form reveal" novalidate>
@@ -188,8 +158,8 @@
             <section class="profile-strip-item profile-strip-item--languages" aria-labelledby="profile-languages-heading">
               <h3 id="profile-languages-heading" class="profile-strip-heading"><%= t('contact.languages') %></h3>
               <dl class="language-list">
-                <div class="language-row"><dt><%= t('contact.bangla') %></dt><dd><span class="language-separator" aria-hidden="true">—</span><span class="language-level"><%= t('contact.fluent') %></span></dd></div>
-                <div class="language-row"><dt><%= t('contact.english') %></dt><dd><span class="language-separator" aria-hidden="true">—</span><span class="language-level"><%= t('contact.good') %></span></dd></div>
+                <div class="language-row"><dt><%= t('contact.bangla') %></dt><dd><span class="language-separator" aria-hidden="true">:</span><span class="language-level"><%= t('contact.fluent') %></span></dd></div>
+                <div class="language-row"><dt><%= t('contact.english') %></dt><dd><span class="language-separator" aria-hidden="true">:</span><span class="language-level"><%= t('contact.good') %></span></dd></div>
               </dl>
             </section>
             <section class="profile-strip-item profile-strip-item--interests" aria-labelledby="profile-interests-heading">

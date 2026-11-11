@@ -27,17 +27,17 @@
 
 ## File Structure
 
-- Modify `views/index.ejs` — render the ordered three-card developer evidence grid.
-- Modify `views/index.ejs` — remove the Portfolio languages hero metric while keeping the three verified career metrics.
-- Modify `locales/en-US.json`, `locales/bn.json`, `locales/hi.json`, `locales/ar.json`, `locales/es.json`, `locales/fr.json` — replace the support/private evidence dictionary with developer-evidence copy.
-- Modify `public/css/input.css` — replace private/aside-only evidence styles with a collaborative card badge.
-- Modify `public/assets/evidence/emergency-supportability.svg` — change its visible heading from supportability to feature/remediation evidence while preserving the open-work warning.
-- Create `public/assets/evidence/house-shifting-collaboration.svg` — add a neutral repository-derived workflow diagram.
-- Delete `public/assets/evidence/attendance-sync.svg` — remove the now-unused private evidence visual.
-- Modify `tests/page.test.js` and `tests/i18n.test.js` — enforce public links, ordering, attribution, visuals, and locale contract.
-- Modify `public/resume.html` and `tests/resume.test.js` — use the same three developer-evidence items and links.
-- Regenerate `public/Abdullah Al Mamun Resume.pdf` — keep the committed PDF aligned with the HTML source.
-- Modify `README.md` — document the new three-repository evidence policy.
+- Modify `views/index.ejs` - render the ordered three-card developer evidence grid.
+- Modify `views/index.ejs` - remove the Portfolio languages hero metric while keeping the three verified career metrics.
+- Modify `locales/en-US.json`, `locales/bn.json`, `locales/hi.json`, `locales/ar.json`, `locales/es.json`, `locales/fr.json` - replace the support/private evidence dictionary with developer-evidence copy.
+- Modify `public/css/input.css` - replace private/aside-only evidence styles with a collaborative card badge.
+- Modify `public/assets/evidence/emergency-supportability.svg` - change its visible heading from supportability to feature/remediation evidence while preserving the open-work warning.
+- Create `public/assets/evidence/house-shifting-collaboration.svg` - add a neutral repository-derived workflow diagram.
+- Delete `public/assets/evidence/attendance-sync.svg` - remove the now-unused private evidence visual.
+- Modify `tests/page.test.js` and `tests/i18n.test.js` - enforce public links, ordering, attribution, visuals, and locale contract.
+- Modify `public/resume.html` and `tests/resume.test.js` - use the same three developer-evidence items and links.
+- Regenerate `public/Abdullah Al Mamun Resume.pdf` - keep the committed PDF aligned with the HTML source.
+- Modify `README.md` - document the new three-repository evidence policy.
 
 ---
 
@@ -470,16 +470,16 @@ Expected: FAIL because the résumé still contains Technical Support Evidence an
 Use heading `Developer Evidence` and this order/content:
 
 ```text
-Noor Notes — Native Linux desktop application
+Noor Notes - Native Linux desktop application
 A Rust, GTK4, and libadwaita notes application with a responsive library and editor, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, and automated verification.
 
-Emergency Medicine Finder — Full-stack web application
+Emergency Medicine Finder - Full-stack web application
 A Node.js, Express, EJS, and MySQL application with a production-grade feature scope across user, shopkeeper, and admin roles, including medicine search, inventory, requests, sales, expenses, exports, backups, validation, and tests. Documented remediation remains, so it is not presented as deployment-ready.
 
-House Shifting Services — Collaborative work
+House Shifting Services - Collaborative work
 A collaborative Node.js, Express, EJS, and MySQL service-booking system with user, worker, and admin flows, authentication, service listings, bookings, verification actions, and file uploads. Individual contribution boundaries are not claimed.
 
-PCIU CGPA Calculator — Collaborative contribution
+PCIU CGPA Calculator - Collaborative contribution
 Collaborative work linked as a public repository; it is not presented as independently built, and no specific individual contribution is claimed.
 ```
 

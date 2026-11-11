@@ -15,7 +15,7 @@
 - Keep "Open to remote opportunities."
 - State that the portfolio is available in six languages; never imply that Abdullah speaks six languages.
 - The later GitHub-history design supersedes the original metric set. Use `7+` years in technology, public repository history `Since 2022`, and `3` industries.
-- Keep personal language claims exactly at `Bangla — Fluent` and `English — Good` in English content, with faithful translations elsewhere.
+- Keep personal language claims exactly at `Bangla - Fluent` and `English - Good` in English content, with faithful translations elsewhere.
 - Use "production-grade feature scope" only for Emergency Medicine Finder, followed by visible limitations. Never describe it positively as production-ready, deployment-ready, secure, or hardened.
 - Never imply that collaborative work was completed alone. House Shifting Services may only appear as an attribution note explaining that it is collaborative and not primary evidence.
 - Exclude PCIU CGPA Calculator everywhere.
@@ -132,9 +132,9 @@ Retain the existing error, menu, theme, metadata, not-found, and accessibility t
     "industries": "Industries supported"
   },
   "experience": {
-    "bitAppsDate": "May 2025 — Present",
-    "seniorDate": "January 2020 — April 2025",
-    "juniorDate": "January 2019 — December 2019"
+    "bitAppsDate": "May 2025 - Present",
+    "seniorDate": "January 2020 - April 2025",
+    "juniorDate": "January 2019 - December 2019"
   },
   "approach": {
     "eyebrow": "Support approach",
@@ -622,7 +622,7 @@ Organize the resume as two A4 pages in this reading order:
 4. Technical Support Skills using the same three outcome groups as the site.
 5. Technical Support Evidence: concise Noor Notes, redacted Smart Attendance Tracker, and Emergency Medicine Finder entries.
 6. Education and certification: B.Sc. with GPA, Diploma without GPA, and IT Support Technician Levels 1 & 2. Omit SSC.
-7. Languages: Bangla — Fluent; English — Good.
+7. Languages: Bangla - Fluent; English - Good.
 
 For evidence text:
 

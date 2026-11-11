@@ -1,4 +1,4 @@
-# Abdullah Al Mamun — Technical Support Engineer Portfolio
+# Abdullah Al Mamun - Technical Support Engineer Portfolio
 
 A professional portfolio focused on Abdullah Al Mamun's Technical Support Engineer experience: user support, website support, IT operations, issue investigation, documentation, and evidence from systems he has worked on. It combines recruiter-focused content with accessible interactions, six server-rendered portfolio languages, secure contact handling, and responsive presentation.
 
@@ -8,23 +8,23 @@ Visit [mamunsandwipi.vercel.app](https://mamunsandwipi.vercel.app).
 
 ## Highlights
 
-- Support-first Summary, Capabilities, Experience, Approach, Evidence, Skills, Education, and Contact sections
-- Developer Evidence with three primary public repositories, a separate collaborative contribution, visible remediation limits, and clear attribution
-- Server-rendered American English, Bangla, Hindi, Arabic, Spanish, and French content
+- Navy introduction, warm neutral sections, a featured project, and a clear experience timeline
+- Selected technical work with three public repositories, expandable details, a separate collaborative contribution, and visible prototype limitations
+- Edited professional copy in American English, Bangla, Hindi, Arabic, Spanish, and French
 - Accessible language selector with localized navigation, forms, validation, metadata, and error pages
 - Right-to-left layout support for Arabic and responsive layouts for desktop, tablet, and mobile
 - Keyboard navigation, skip link, managed focus, semantic markup, reduced-motion support, and automated accessibility checks
 - Light and dark themes with saved preferences and system-theme fallback
 - Contact API with client/server validation, rate limiting, payload limits, SMTP retry handling, and safe error responses
 - Nonce-based Content Security Policy, security headers, structured data, canonical links, hreflang alternates, sitemap, and robots file
-- Lightweight canvas ambience, reveal effects, counters, and localized typewriter content
-- Browser-ready English Resume with tagged two-page A4 PDF generation support
+- Subtle reveal effects and counters that respect reduced-motion preferences
+- Professional two-page English resume with a tagged A4 PDF and direct downloads from the introduction and navigation
 
 ## Languages
 
 American English is the default. Language selection uses stable URL routes, so every translation can be linked, indexed, and shared directly.
 
-These six options describe the languages available on the portfolio; they are not a claim of personal fluency. The English profile lists personal language ability separately as Bangla — Fluent and English — Good.
+These six options describe the languages available on the portfolio; they are not a claim of personal fluency. The English profile lists personal language ability separately as Bangla - Fluent and English - Good.
 
 | Language | Route | Locale | Direction | Status |
 | --- | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ The contact form validates input in the browser and on the server. Valid submiss
 
 Requirements:
 
-- A current Node.js LTS release
+- Node.js 22.12 or newer on a supported LTS release
 - npm
 - Google Chrome only when regenerating the Resume PDF
 
@@ -74,7 +74,7 @@ Install and start the application:
 ```bash
 git clone https://github.com/saamaamr/portfolio.git
 cd portfolio
-npm install
+npm ci
 cp .env.example .env
 npm run build:css
 npm start
@@ -124,11 +124,12 @@ utils/i18n.js             Locale registry, translation lookup, and page context
 utils/                     Validation, API responses, logging, and error utilities
 locales/                   Complete JSON dictionaries sharing one key contract
 views/                     EJS pages and reusable partials
-public/css/input.css      Source styles, responsive rules, and RTL overrides
+public/css/input.css      Tailwind entry point and stylesheet imports
+public/css/portfolio.css  Design tokens, component styles, responsive rules, and RTL support
 public/css/output.css     Generated minified production stylesheet
-public/js/                Theme, menus, forms, animation, and canvas behavior
+public/js/                Theme, menus, forms, and progressive animation
 public/assets/evidence/   Reviewed screenshot and disclosure-safe evidence diagrams
-public/resume.html        Printable Resume source
+public/resume.html        Printable two-page English resume source
 public/sitemap.xml        Search-engine routes for every supported language
 scripts/generate-pdf.js   Resume PDF generation
 tests/                     Route, service, UI, localization, and accessibility tests
@@ -154,11 +155,13 @@ Validation limits are 100 characters for `name`, 254 characters for `email`, and
 
 The current implementation has been verified with:
 
-- 78 automated tests across 9 suites
-- Browser checks covering English desktop/mobile, Bangla mobile, Arabic desktop/mobile RTL, and French tablet layouts
+- 90 automated tests across 9 suites
+- Browser checks covering all six language routes at mobile, tablet, and desktop widths
 - Accessibility coverage through jest-axe, semantic document tests, and keyboard interaction tests
 - A successful minified production CSS build
 - Canonical, hreflang, sitemap, RTL, responsive-overflow, localized-validation, and Content Security Policy checks
+- Regenerated and visually checked two-page A4 resume with no em dash characters
+- Dependency audit passing the high-severity threshold after package updates; 6 low and 4 moderate findings remain
 
 ## Deployment
 
@@ -169,6 +172,10 @@ After deployment, verify `/`, all five translated routes, `/sitemap.xml`, and on
 ## Translation Maintenance
 
 All files in [`locales/`](locales/) must preserve the exact key structure defined by `locales/en-US.json`. Missing keys fall back to American English, but the automated localization tests require complete, non-empty dictionaries. Add new visible or accessibility text to every dictionary and keep client-only messages under the shared `client` object.
+
+Use sense-for-sense translation: natural professional language, consistent technical terminology, and the same factual claims in every locale. Keep product names and technologies unchanged. Preserve original qualification levels, project attribution, and prototype limitations. The PDF is in English, so translated download buttons identify its language. Bangla, Hindi, and Arabic load a matching Noto Sans font and use script-appropriate heading spacing. Do not introduce em dash characters in copy or documentation.
+
+The CSS and PDF links carry content-version query strings so returning visitors receive the refreshed assets. Update those versions in the shared head, navigation, and introduction templates when replacing the stylesheet or PDF.
 
 When adding another language, update the locale registry, Express route, sitemap, language selector, alternate links, tests, and this README together. Arabic is the only current RTL locale.
 

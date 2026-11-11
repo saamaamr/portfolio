@@ -17,7 +17,7 @@ Every factual claim must be traceable to the existing resume, employment history
 - Exclude PCIU CGPA Calculator because the reviewed fork does not contain authored work on its current branch.
 - Present the private attendance application only as a redacted case study. Do not link the private repository, expose credentials, show private data, or identify an employer unless separately approved.
 - Use only verified metrics: 7+ years in technology, public repository history since 2022, and experience across three industries.
-- Keep personal language claims at “Bangla — Fluent” and “English — Good.”
+- Keep personal language claims at “Bangla - Fluent” and “English - Good.”
 
 ## Page Experience
 
@@ -48,9 +48,9 @@ Capabilities are limited to evidence-backed themes:
 
 Experience remains the primary proof and appears before repository work:
 
-- Bit Apps — Technical Support Engineer, May 2025–Present
-- Kurnia Holiday Travels — Senior Executive with IT operations responsibilities, January 2020–April 2025
-- Century Securities Limited — Junior IT Officer, January–December 2019
+- Bit Apps - Technical Support Engineer, May 2025–Present
+- Kurnia Holiday Travels - Senior Executive with IT operations responsibilities, January 2020–April 2025
+- Century Securities Limited - Junior IT Officer, January–December 2019
 
 Use present tense for the current role and past tense for previous roles. Describe workplace hardware and software maintenance without an unverified device count. Do not add quantitative outcomes until evidence is supplied.
 
@@ -58,12 +58,12 @@ Use present tense for the current role and past tense for previous roles. Descri
 
 Show a six-stage workflow to communicate professional judgment:
 
-1. Listen — user, expected behavior, environment, and impact
-2. Triage — urgency, scope, affected users, and business impact
-3. Reproduce — dependable steps, symptoms, versions, and evidence
-4. Diagnose — likely cause across software, hardware, data, or workflow
-5. Resolve — safe fix, verification, or technical escalation
-6. Document — resolution notes and reusable knowledge
+1. Listen - user, expected behavior, environment, and impact
+2. Triage - urgency, scope, affected users, and business impact
+3. Reproduce - dependable steps, symptoms, versions, and evidence
+4. Diagnose - likely cause across software, hardware, data, or workflow
+5. Resolve - safe fix, verification, or technical escalation
+6. Document - resolution notes and reusable knowledge
 
 This section describes the approach demonstrated by the resume and repositories; it must not imply experience with a specific ticketing or ITSM platform.
 
@@ -71,17 +71,17 @@ This section describes the approach demonstrated by the resume and repositories;
 
 Replace the generic development-project section with support-centered evidence using authentic screenshots, diagrams, or redacted interfaces.
 
-1. **Noor Notes — Release and troubleshooting readiness**
+1. **Noor Notes - Release and troubleshooting readiness**
    - Public repository and original authored work.
    - Focus on Linux installation diagnostics, compatibility guidance, recovery and backup documentation, safe failure states, encrypted local storage, packaging checks, issue-report instructions, and automated verification.
    - Link to the public repository and a concise support case study.
 
-2. **Smart Attendance Tracker — Synchronization and operational reliability**
+2. **Smart Attendance Tracker - Synchronization and operational reliability**
    - Private system shown only through approved redacted visuals.
    - Focus on Google Sheets/local synchronization, rate-limit retries, conflict logs, status monitoring, correction history, backups, exports, caching, and offline PWA behavior.
    - No repository link, credentials, personal attendance data, or confidential identifiers.
 
-3. **Emergency Medicine Finder — Supportability, testing, and remediation awareness**
+3. **Emergency Medicine Finder - Supportability, testing, and remediation awareness**
    - Describe the system as having a production-grade feature scope, including multiple roles, operational workflows, backups, exports, validation, and tests.
    - Explicitly avoid claiming production deployment readiness while documented CSRF, rate-limit, security-header, cookie, validation, and upload-hardening work remains.
    - Focus the case study on troubleshooting documentation, role-permission analysis, backup diagnostics, testing, known limitations, and remediation priorities.
@@ -110,7 +110,7 @@ Keep the current contact system after Skills/Education and before the footer:
 - Existing contact form and localized validation behavior
 - Availability: open to Technical Support and remote opportunities
 - Location: Sandwip, Chattogram, Bangladesh
-- Languages: Bangla — Fluent; English — Good
+- Languages: Bangla - Fluent; English - Good
 - Existing interests: travelling, gardening, cycling, and photography
 - Footer links to GitHub, LinkedIn, email, and Facebook, plus the theme control behavior already provided by the page
 
