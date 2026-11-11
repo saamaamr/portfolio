@@ -18,7 +18,7 @@ Use this professional profile:
 
 Do not put availability language in the profile. Present availability in the page-two details area.
 
-## Page 1 — Recruiter Essentials
+## Page 1 - Recruiter Essentials
 
 ### Header
 
@@ -44,26 +44,26 @@ Place three compact groups immediately after the professional profile:
 
 Keep all three jobs and dates in reverse chronological order.
 
-**Technical Support Engineer — Bit Apps — May 2025 — Present**
+**Technical Support Engineer - Bit Apps - May 2025 - Present**
 
 - Maintain and troubleshoot client websites using WordPress, HTML, and CSS.
 - Reproduce and document reported software issues for development review.
 - Create troubleshooting guides and reusable support notes.
 - Coordinate technical communication between clients and internal teams.
 
-**Senior Executive — Kurnia Holiday Travels — January 2020 — April 2025**
+**Senior Executive - Kurnia Holiday Travels - January 2020 - April 2025**
 
 - Supported day-to-day IT infrastructure, hardware installation, and software maintenance across departments.
 - Analyzed operational data for promotion and budget decisions.
 - Coordinated workplace technology needs across departments.
 
-**Junior IT Officer — Century Securities Limited — January 2019 — December 2019**
+**Junior IT Officer - Century Securities Limited - January 2019 - December 2019**
 
 - Provided technical support and data management in a time-sensitive stock-exchange environment.
 - Installed and maintained workplace hardware and software.
 - Performed routine system checks and responded to reported workstation issues.
 
-## Page 2 — Supporting Qualifications
+## Page 2 - Supporting Qualifications
 
 ### Technical Toolkit
 
@@ -77,14 +77,14 @@ Present these tools and knowledge areas compactly without proficiency ratings:
 
 Replace **Developer Evidence** with **Selected Technical Work** and keep only these three entries in this order:
 
-1. **Noor Notes — Native Linux desktop application**
+1. **Noor Notes - Native Linux desktop application**
    - Describe it as a Rust, GTK4, and libadwaita notes application with library and editor views, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, and automated verification.
    - Link to `https://github.com/saamaamr/noor-notes`.
-2. **Emergency Medicine Finder — Full-stack system prototype**
+2. **Emergency Medicine Finder - Full-stack system prototype**
    - Describe it as a Node.js, Express, EJS, and MySQL prototype covering user, shopkeeper, and admin roles, inventory, requests, sales, expenses, exports, backups, validation, and tests.
    - Do not call it production-grade or deployment-ready.
    - Link to `https://github.com/saamaamr/emergency-medicine-finder`.
-3. **House Shifting Services — Collaborative project**
+3. **House Shifting Services - Collaborative project**
    - Describe it as a collaborative Node.js, Express, EJS, and MySQL service-booking project with user, worker, and admin workflows.
    - State that individual ownership is not claimed.
    - Link to `https://github.com/saamaamr/house-shifting-services`.
@@ -95,13 +95,13 @@ Remove PCIU CGPA Calculator from the résumé only. It remains visible as a coll
 
 Keep these credentials:
 
-- B.Sc. in Computer Science Engineering — Port City International University, Chattogram — 2023 — GPA 3.76 / 4.00
-- Diploma in Engineering, Computer Technology — Chittagong Polytechnic Institute, Chattogram — 2018
-- IT Support Technician, Levels 1 & 2 — Bangladesh-Korea Technical Training Centre, Chattogram — 2017
+- B.Sc. in Computer Science Engineering - Port City International University, Chattogram - 2023 - GPA 3.76 / 4.00
+- Diploma in Engineering, Computer Technology - Chittagong Polytechnic Institute, Chattogram - 2018
+- IT Support Technician, Levels 1 & 2 - Bangladesh-Korea Technical Training Centre, Chattogram - 2017
 
 Keep these details:
 
-- Languages: Bangla — Fluent; English — Good
+- Languages: Bangla - Fluent; English - Good
 - Availability: Open to Technical Support, IT Support, and remote opportunities
 
 Do not restore the Diploma GPA, SSC, private project evidence, or unsupported claims.

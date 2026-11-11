@@ -16,9 +16,9 @@ Evidence source: `https://github.com/saamaamr`
 
 The hero retains three proof cards in this order:
 
-1. `7+` — Years in technology
-2. `Since 2022` — Public repository history
-3. `3` — Industries supported
+1. `7+` - Years in technology
+2. `Since 2022` - Public repository history
+3. `3` - Industries supported
 
 The repository-history card is a keyboard-accessible external link to the GitHub profile. It includes visible `View GitHub profile` text and an external-link indicator. Existing GitHub links elsewhere remain unchanged because the metric link serves as the evidence source for this specific claim.
 

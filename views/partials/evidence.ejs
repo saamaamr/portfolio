@@ -1,0 +1,72 @@
+<section id="evidence" class="content-section evidence-section" aria-labelledby="evidence-title">
+  <div class="section-shell">
+    <div class="section-heading section-heading-split reveal">
+      <div>
+        <p class="eyebrow"><span aria-hidden="true">01 / </span><%= t('evidence.eyebrow') %></p>
+        <h2 id="evidence-title"><%= t('evidence.title') %></h2>
+      </div>
+      <p><%= t('evidence.intro') %></p>
+    </div>
+    <div class="evidence-grid">
+      <article class="evidence-card evidence-card-featured reveal" data-evidence-card data-evidence="noor-notes">
+        <div class="evidence-visual">
+          <div class="project-window-bar" aria-hidden="true"><span class="window-dots"><i></i><i></i><i></i></span><span>Noor Notes</span><span>01</span></div>
+          <img src="/assets/evidence/noor-notes-library.png" alt="<%= t('evidence.noorAlt') %>" loading="lazy" width="900" height="560" />
+        </div>
+        <div class="evidence-body">
+          <span class="featured-label"><span aria-hidden="true">✦</span> <%= t('evidence.featured') %></span>
+          <p class="evidence-category"><%= t('evidence.noorCategory') %></p>
+          <h3><%= t('evidence.noorTitle') %></h3>
+          <p class="project-summary"><%= t('evidence.noorSummary') %></p>
+          <div class="tag-list"><span>Rust</span><span>GTK4</span><span>libadwaita</span></div>
+          <details class="project-details">
+            <summary><%= t('evidence.details') %><i class="fas fa-plus" aria-hidden="true"></i></summary>
+            <p><%= t('evidence.noorBody') %></p>
+          </details>
+          <a href="https://github.com/saamaamr/noor-notes" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><%= t('evidence.noorLink') %><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </div>
+      </article>
+      <article class="evidence-card reveal" data-evidence-card data-evidence="emergency-medicine-finder">
+        <div class="evidence-visual">
+          <div class="project-window-bar" aria-hidden="true"><span class="window-dots"><i></i><i></i><i></i></span><span>Emergency Medicine Finder</span><span>02</span></div>
+          <img src="/assets/evidence/emergency-supportability.svg" alt="<%= t('evidence.medicineAlt') %>" loading="lazy" width="900" height="560" />
+        </div>
+        <div class="evidence-body">
+          <p class="evidence-category"><%= t('evidence.medicineCategory') %></p>
+          <h3><%= t('evidence.medicineTitle') %></h3>
+          <p class="project-summary"><%= t('evidence.medicineSummary') %></p>
+          <div class="tag-list"><span>Node.js</span><span>Express</span><span>MySQL</span></div>
+          <p class="evidence-limitations"><i class="fas fa-circle-info" aria-hidden="true"></i><%= t('evidence.medicineWarning') %></p>
+          <details class="project-details">
+            <summary><%= t('evidence.details') %><i class="fas fa-plus" aria-hidden="true"></i></summary>
+            <p><%= t('evidence.medicineBody') %></p>
+          </details>
+          <a href="https://github.com/saamaamr/emergency-medicine-finder" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><%= t('evidence.medicineLink') %><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </div>
+      </article>
+      <article class="evidence-card reveal" data-evidence-card data-evidence="house-shifting-services" data-collaborative-evidence>
+        <div class="evidence-visual">
+          <div class="project-window-bar" aria-hidden="true"><span class="window-dots"><i></i><i></i><i></i></span><span>House Shifting Services</span><span>03</span></div>
+          <img src="/assets/evidence/house-shifting-collaboration.svg" alt="<%= t('evidence.houseAlt') %>" loading="lazy" width="900" height="560" />
+        </div>
+        <div class="evidence-body">
+          <p class="evidence-category"><%= t('evidence.houseCategory') %></p>
+          <h3><%= t('evidence.houseTitle') %></h3>
+          <p class="project-summary"><%= t('evidence.houseSummary') %></p>
+          <div class="tag-list"><span>Node.js</span><span>EJS</span><span>MySQL</span></div>
+          <span class="collaborative-badge"><i class="fas fa-people-group" aria-hidden="true"></i><%= t('evidence.houseBadge') %></span>
+          <details class="project-details">
+            <summary><%= t('evidence.details') %><i class="fas fa-plus" aria-hidden="true"></i></summary>
+            <p><%= t('evidence.houseBody') %></p>
+          </details>
+          <a href="https://github.com/saamaamr/house-shifting-services" target="_blank" rel="noopener noreferrer" class="project-link" data-evidence-source><%= t('evidence.houseLink') %><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </div>
+      </article>
+    </div>
+    <aside class="contribution-note reveal" data-collaborative-contribution>
+      <div class="contribution-icon" aria-hidden="true"><i class="fas fa-code-branch"></i></div>
+      <div><span class="contribution-label"><%= t('evidence.pciuBadge') %></span><h3><%= t('evidence.pciuTitle') %></h3><p><%= t('evidence.pciuBody') %></p></div>
+      <a href="https://github.com/saamaamr/pciu-cgpa-calculator" target="_blank" rel="noopener noreferrer" class="project-link" data-contribution-source><%= t('evidence.pciuLink') %><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+    </aside>
+  </div>
+</section>

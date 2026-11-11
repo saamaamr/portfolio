@@ -3,193 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdullah Al Mamun — Technical Support &amp; IT Operations Professional Resume</title>
+  <title>Abdullah Al Mamun - Technical Support Engineer | IT Operations Resume</title>
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
-    body {
-      background: #e8edf4;
-      color: #1c2b3e;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      font-size: 9.65pt;
-      line-height: 1.36;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    a { color: inherit; text-decoration: none; }
-    .page {
-      display: flex;
-      flex-direction: column;
-      width: min(194mm, calc(100% - 24px));
-      min-height: 277mm;
-      margin: 18px auto;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 10px 36px rgba(9, 30, 66, 0.12);
-    }
-    .page-header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 18px;
-      align-items: start;
-      background: #081a33;
-      color: #fff;
-      padding: 15px 26px 14px;
-    }
-    .page-header h1 {
-      margin: 0;
-      font-size: 22pt;
-      line-height: 1.04;
-      letter-spacing: -0.45px;
-    }
-    .role {
-      margin: 4px 0 2px;
-      color: #72ddcd;
-      font-size: 10.8pt;
-      font-weight: 700;
-    }
-    .location { margin: 0; color: #bdcce0; font-size: 8.7pt; }
-    .contact {
-      display: grid;
-      gap: 1px;
-      color: #d8e2ee;
-      text-align: right;
-      font-size: 8.15pt;
-      font-style: normal;
-      line-height: 1.35;
-    }
-    .contact a { color: #d8e2ee; }
-    .contact a:hover { text-decoration: underline; }
-    .content { padding: 14px 26px 18px; }
-    .page-one .content {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-    }
-    .section { margin-top: 11px; }
+    body { background: #e9edf2; color: #202c3d; font-family: Arial, "Segoe UI", sans-serif; font-size: 10.2pt; line-height: 1.48; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a { color: #244f9c; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page { display: flex; flex-direction: column; width: min(194mm, calc(100% - 24px)); min-height: 277mm; margin: 24px auto; background: #fff; box-shadow: 0 10px 36px #091e6614; }
+    .page-header { border-top: 5px solid #244f9c; padding: 24px 28px 18px; }
+    .page-header h1 { margin: 0; color: #172a45; font-size: 29pt; line-height: 1.1; letter-spacing: -1px; }
+    .role { margin: 7px 0 5px; color: #244f9c; font-size: 12pt; font-weight: 600; }
+    .location { margin: 0; color: #586578; font-size: 9.5pt; }
+    .contact { display: flex; flex-wrap: wrap; gap: 2px 15px; margin-top: 12px; border-top: 1px solid #d8dfe8; padding-top: 10px; color: #3c4e66; font-size: 9pt; font-style: normal; }
+    .contact a { white-space: nowrap; }
+    .content { flex: 1; padding: 0 28px 18px; }
+    .section { margin-top: 17px; }
     .section:first-child { margin-top: 0; }
-    .section-title {
-      margin: 0 0 6px;
-      border-bottom: 1.5px solid #cbd6e3;
-      color: #214fa8;
-      padding-bottom: 3px;
-      font-size: 8.8pt;
-      font-weight: 800;
-      letter-spacing: 0.75px;
-      text-transform: uppercase;
-    }
-    .summary { margin: 0; color: #3f5065; font-size: 9.2pt; line-height: 1.42; }
-    .compact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 7px;
-    }
-    .compact-card {
-      border: 1px solid #d7e0ea;
-      border-radius: 6px;
-      background: #f8fafc;
-      padding: 7px 8px;
-      break-inside: avoid;
-    }
-    .compact-card h3 { margin: 0 0 4px; color: #10243f; font-size: 8.8pt; }
-    .compact-card p { margin: 0; color: #4c5e73; font-size: 7.8pt; line-height: 1.38; }
-    .experience-section { display: block; margin-top: 15px; }
-    .job {
-      margin-top: 15px;
-      border-left: 3px solid #168978;
-      background: #f8fafc;
-      padding: 15px 14px;
-      break-inside: avoid;
-    }
-    .job-heading {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: baseline;
-    }
-    .job h3, .work-item h3, .education-item h3 {
-      margin: 0;
-      color: #10243f;
-      font-size: 9.8pt;
-    }
-    .date { color: #3157c8; font-size: 8.25pt; font-weight: 700; white-space: nowrap; }
-    .company { margin: 1px 0 3px; color: #627188; font-size: 8.45pt; }
-    ul { margin: 0; padding-left: 17px; }
-    li { margin: 1.5px 0; color: #405168; font-size: 8.65pt; line-height: 1.35; }
-    .continuation {
-      border-bottom: 1px solid #d5dee9;
-      background: #f4f7fb;
-      color: #3157c8;
-      padding: 8px 26px;
-      font-size: 8.2pt;
-      font-weight: 750;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-    }
-    .work-item {
-      display: grid;
-      grid-template-columns: 145px 1fr;
-      gap: 12px;
-      margin-top: 7px;
-      border-bottom: 1px solid #e0e6ee;
-      padding-bottom: 7px;
-      break-inside: avoid;
-    }
+    .section-title { margin: 0 0 8px; border-bottom: 1px solid #ced7e3; color: #244f9c; padding-bottom: 5px; font-size: 9.4pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .summary { margin: 0; color: #3b495d; font-size: 10.2pt; line-height: 1.5; }
+    .compact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .compact-card { break-inside: avoid; }
+    .compact-card h3 { margin: 0 0 4px; color: #202f45; font-size: 9.4pt; }
+    .compact-card p { margin: 0; color: #4d5b6e; font-size: 9pt; line-height: 1.45; }
+    .experience-section { margin-top: 20px; }
+    .job { margin-top: 17px; break-inside: avoid; }
+    .job + .job { padding-top: 12px; border-top: 1px solid #e1e6ed; }
+    .job-heading { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; }
+    .job h3, .work-item h3, .education-item h3 { margin: 0; color: #172a45; font-size: 11pt; }
+    .date { color: #54637a; font-size: 9pt; white-space: nowrap; }
+    .company { margin: 2px 0 6px; color: #244f9c; font-size: 9.5pt; font-weight: 600; }
+    ul { margin: 0; padding-left: 16px; }
+    li { margin: 3px 0; color: #3b495d; font-size: 9.7pt; line-height: 1.4; }
+    .continuation { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; border-top: 5px solid #244f9c; padding: 22px 28px 20px; color: #172a45; font-size: 12pt; font-weight: 700; }
+    .continuation span { color: #617085; font-size: 9pt; font-weight: 400; }
+    .work-item { margin-top: 17px; border-bottom: 1px solid #e1e6ed; padding-bottom: 17px; break-inside: avoid; }
     .work-item:last-child { border-bottom: 0; padding-bottom: 0; }
-    .work-label {
-      margin: 2px 0 0;
-      color: #168978;
-      font-size: 7.5pt;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .work-item > p { margin: 0; color: #43556b; font-size: 8.2pt; line-height: 1.38; }
-    .work-item a { color: #3157c8; font-weight: 700; }
-    .two-column {
-      display: grid;
-      grid-template-columns: 1.18fr 0.82fr;
-      gap: 18px;
-      align-items: start;
-    }
-    .education-item { margin-bottom: 7px; break-inside: avoid; }
-    .education-item p, .education-grade { margin: 1px 0 0; color: #607089; font-size: 8.15pt; }
-    .education-grade { color: #3f5065; font-weight: 700; }
-    .details { display: grid; gap: 8px; }
-    .detail-block {
-      border-left: 3px solid #168978;
-      background: #f4f8f7;
-      padding: 7px 9px;
-    }
-    .detail-block h3 { margin: 0 0 3px; font-size: 8.8pt; }
-    .detail-block p { margin: 0; color: #4c5e73; font-size: 8.1pt; }
-    .page-two .content { padding-block: 24px 28px; }
-    .page-two .section { margin-top: 44px; }
+    .work-label { margin: 3px 0 8px; color: #244f9c; font-size: 8.5pt; font-weight: 600; }
+    .work-item > p { margin: 0; color: #3b495d; font-size: 10pt; line-height: 1.5; }
+    .work-item a { font-size: 9pt; }
+    .two-column { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: start; }
+    .education-item { margin-bottom: 18px; break-inside: avoid; }
+    .education-item h3 { font-size: 10pt; }
+    .education-item p, .education-grade { margin: 3px 0 0; color: #54637a; font-size: 9pt; }
+    .education-grade { color: #3b495d; }
+    .details { display: grid; gap: 20px; }
+    .detail-block h3 { margin: 0 0 7px; color: #244f9c; font-size: 9.4pt; letter-spacing: .5px; text-transform: uppercase; }
+    .detail-block p { margin: 0; color: #3b495d; font-size: 9.5pt; }
+    .page-two .section { margin-top: 30px; }
     .page-two .section:first-child { margin-top: 0; }
-    .page-two .compact-card { padding: 12px; }
-    .page-two .work-item { margin-top: 16px; padding-block: 28px; }
-    .page-two .education-item { margin-bottom: 21px; }
-    .page-two .details { gap: 18px; }
-    .page-two .detail-block { padding: 18px; }
+    .page-footer { display: flex; justify-content: space-between; margin: auto 28px 0; border-top: 1px solid #d8dfe8; padding: 10px 0 12px; color: #6a7789; font-size: 8pt; }
     @page { size: A4; margin: 5mm 8mm; }
     @media print {
       body { background: #fff; }
-      .page {
-        width: 100%;
-        min-height: 277mm;
-        margin: 0;
-        box-shadow: none;
-        break-after: page;
-      }
+      .page { width: 100%; min-height: 277mm; margin: 0; box-shadow: none; break-after: page; }
       .page:last-child { break-after: auto; }
     }
-    @media (max-width: 680px) {
-      .page { display: block; width: 100%; min-height: 0; margin: 0; }
-      .page-header { grid-template-columns: 1fr; padding: 20px; }
-      .contact { text-align: left; }
-      .content, .page-one .content { display: block; padding: 18px 20px; }
+    @media screen and (max-width: 680px) {
+      .page { width: 100%; min-height: 0; margin: 0; }
+      .page-header { padding: 24px 20px 18px; }
+      .page-header h1 { font-size: 26pt; }
+      .contact { display: grid; gap: 6px; }
+      .contact a { white-space: normal; overflow-wrap: anywhere; }
+      .content { padding: 0 20px 24px; }
       .compact-grid, .two-column { grid-template-columns: 1fr; }
-      .work-item { grid-template-columns: 1fr; gap: 4px; }
-      .job-heading { grid-template-columns: 1fr; gap: 1px; }
+      .job-heading { grid-template-columns: 1fr; gap: 3px; }
+      .continuation { flex-direction: column; padding: 24px 20px; }
+      .page-footer { margin-inline: 20px; }
     }
   </style>
 </head>
@@ -198,7 +78,7 @@
     <header class="page-header">
       <div>
         <h1>Abdullah Al Mamun</h1>
-        <p class="role">Technical Support &amp; IT Operations Professional</p>
+        <p class="role">Technical Support Engineer | IT Operations</p>
         <p class="location">Sandwip, Chattogram, Bangladesh</p>
       </div>
       <address class="contact">
@@ -213,7 +93,7 @@
     <div class="content">
       <section class="section" aria-labelledby="profile-title">
         <h2 class="section-title" id="profile-title">Professional Profile</h2>
-        <p class="summary">Technical support and IT operations professional with 7+ years of experience across software, travel operations, and financial services. Skilled in end-user support, hardware and software troubleshooting, website maintenance, defect reproduction, documentation, and clear coordination between users, clients, and technical teams.</p>
+        <p class="summary">Technical Support Engineer with 7+ years of experience across software support, travel operations, and financial services. Experienced in website troubleshooting, defect reproduction, documentation, and workplace IT support. Translate user-reported problems into clear next steps for clients and development teams.</p>
       </section>
 
       <section class="section" aria-labelledby="competencies-title">
@@ -237,17 +117,17 @@
       <section class="section experience-section" aria-labelledby="experience-title">
         <h2 class="section-title" id="experience-title">Professional Experience</h2>
         <article class="job">
-          <div class="job-heading"><h3>Technical Support Engineer</h3><span class="date">May 2025 — Present</span></div>
+          <div class="job-heading"><h3>Technical Support Engineer</h3><span class="date">May 2025 - Present</span></div>
           <p class="company">Bit Apps</p>
           <ul>
             <li>Maintain and troubleshoot client websites using WordPress, HTML, and CSS.</li>
-            <li>Reproduce and document reported software issues for development review.</li>
-            <li>Create troubleshooting guides and reusable support notes.</li>
+            <li>Investigate reported software issues and document reproducible steps for development review.</li>
+            <li>Write troubleshooting guides and reusable support notes with clear resolution steps.</li>
             <li>Coordinate technical communication between clients and internal teams.</li>
           </ul>
         </article>
         <article class="job">
-          <div class="job-heading"><h3>Senior Executive</h3><span class="date">January 2020 — April 2025</span></div>
+          <div class="job-heading"><h3>Senior Executive</h3><span class="date">January 2020 - April 2025</span></div>
           <p class="company">Kurnia Holiday Travels</p>
           <ul>
             <li>Supported day-to-day IT infrastructure, hardware installation, and software maintenance across departments.</li>
@@ -256,7 +136,7 @@
           </ul>
         </article>
         <article class="job">
-          <div class="job-heading"><h3>Junior IT Officer</h3><span class="date">January 2019 — December 2019</span></div>
+          <div class="job-heading"><h3>Junior IT Officer</h3><span class="date">January 2019 - December 2019</span></div>
           <p class="company">Century Securities Limited</p>
           <ul>
             <li>Provided technical support and data management in a time-sensitive stock-exchange environment.</li>
@@ -266,15 +146,16 @@
         </article>
       </section>
     </div>
+    <footer class="page-footer"><span>Abdullah Al Mamun · Resume</span><span>01 / 02</span></footer>
   </article>
 
   <article class="page page-two" aria-label="Resume page 2">
-    <div class="continuation">Abdullah Al Mamun · Technical Support &amp; IT Operations Professional</div>
+    <div class="continuation">Abdullah Al Mamun <span>Technical Support Engineer | IT Operations</span></div>
     <div class="content">
       <section class="section" aria-labelledby="work-title">
         <h2 class="section-title" id="work-title">Selected Technical Work</h2>
         <article class="work-item" data-selected-work><div><h3>Noor Notes</h3><p class="work-label">Native Linux desktop application</p></div><p>Rust, GTK4, and libadwaita notes application with library and editor views, rich and source modes, encrypted local storage, autosave and recovery behavior, Linux packaging, and automated verification. <a href="https://github.com/saamaamr/noor-notes">Public repository</a></p></article>
-        <article class="work-item" data-selected-work><div><h3>Emergency Medicine Finder</h3><p class="work-label">Full-stack system prototype</p></div><p>Node.js, Express, EJS, and MySQL prototype covering user, shopkeeper, and admin roles, inventory, requests, sales, expenses, exports, backups, validation, and tests. <a href="https://github.com/saamaamr/emergency-medicine-finder">Public repository</a></p></article>
+        <article class="work-item" data-selected-work><div><h3>Emergency Medicine Finder</h3><p class="work-label">Full-stack system prototype</p></div><p>Node.js, Express, EJS, and MySQL prototype covering user, shopkeeper, and admin roles, inventory, requests, sales, expenses, exports, backups, validation, and tests. Documented security hardening remains. <a href="https://github.com/saamaamr/emergency-medicine-finder">Public repository</a></p></article>
         <article class="work-item" data-selected-work><div><h3>House Shifting Services</h3><p class="work-label">Collaborative project</p></div><p>Collaborative Node.js, Express, EJS, and MySQL service-booking project with user, worker, and admin workflows. Individual ownership is not claimed. <a href="https://github.com/saamaamr/house-shifting-services">Public repository</a></p></article>
       </section>
 
@@ -286,11 +167,12 @@
           <article class="education-item"><h3>IT Support Technician, Levels 1 &amp; 2</h3><p>Bangladesh-Korea Technical Training Centre, Chattogram · 2017</p></article>
         </section>
         <div class="details" role="group" aria-label="Additional details">
-          <section class="detail-block"><h3>Languages</h3><p>Bangla — Fluent<br>English — Good</p></section>
+          <section class="detail-block"><h3>Languages</h3><p>Bangla - Fluent<br>English - Good</p></section>
           <section class="detail-block"><h3>Availability</h3><p>Open to Technical Support, IT Support, and remote opportunities</p></section>
         </div>
       </div>
     </div>
+    <footer class="page-footer"><span>Abdullah Al Mamun · Resume</span><span>02 / 02</span></footer>
   </article>
 </body>
 </html>

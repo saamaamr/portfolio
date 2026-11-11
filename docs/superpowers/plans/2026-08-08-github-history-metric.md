@@ -108,7 +108,7 @@ For English, use:
   "repositorySince": "Since 2022",
   "repositoryHistory": "Public repository history",
   "githubProfile": "View GitHub profile",
-  "githubProfileLabel": "Public repository history since 2022 — view GitHub profile",
+  "githubProfileLabel": "Public repository history since 2022 - view GitHub profile",
   "industries": "Industries supported"
 },
 "juniorBullet1": "Installed and maintained workplace hardware and software."

@@ -138,7 +138,7 @@ Expected: FAIL because the current headline is `Technical Support Engineer`, the
 Change the document title to:
 
 ```html
-<title>Abdullah Al Mamun — Technical Support &amp; IT Operations Professional Resume</title>
+<title>Abdullah Al Mamun - Technical Support &amp; IT Operations Professional Resume</title>
 ```
 
 Keep the five existing contact anchors and replace the first page body with this structure and exact copy:
@@ -185,7 +185,7 @@ Inside the page-one experience section, use:
 
 ```html
 <article class="job">
-  <div class="job-heading"><h3>Technical Support Engineer</h3><span class="date">May 2025 — Present</span></div>
+  <div class="job-heading"><h3>Technical Support Engineer</h3><span class="date">May 2025 - Present</span></div>
   <p class="company">Bit Apps</p>
   <ul>
     <li>Maintain and troubleshoot client websites using WordPress, HTML, and CSS.</li>
@@ -195,7 +195,7 @@ Inside the page-one experience section, use:
   </ul>
 </article>
 <article class="job">
-  <div class="job-heading"><h3>Senior Executive</h3><span class="date">January 2020 — April 2025</span></div>
+  <div class="job-heading"><h3>Senior Executive</h3><span class="date">January 2020 - April 2025</span></div>
   <p class="company">Kurnia Holiday Travels</p>
   <ul>
     <li>Supported day-to-day IT infrastructure, hardware installation, and software maintenance across departments.</li>
@@ -204,7 +204,7 @@ Inside the page-one experience section, use:
   </ul>
 </article>
 <article class="job">
-  <div class="job-heading"><h3>Junior IT Officer</h3><span class="date">January 2019 — December 2019</span></div>
+  <div class="job-heading"><h3>Junior IT Officer</h3><span class="date">January 2019 - December 2019</span></div>
   <p class="company">Century Securities Limited</p>
   <ul>
     <li>Provided technical support and data management in a time-sensitive stock-exchange environment.</li>
@@ -244,7 +244,7 @@ Use this exact content order:
         <article class="education-item"><h3>IT Support Technician, Levels 1 &amp; 2</h3><p>Bangladesh-Korea Technical Training Centre, Chattogram · 2017</p></article>
       </section>
       <div class="details" role="group" aria-label="Additional details">
-        <section class="detail-block"><h3>Languages</h3><p>Bangla — Fluent<br>English — Good</p></section>
+        <section class="detail-block"><h3>Languages</h3><p>Bangla - Fluent<br>English - Good</p></section>
         <section class="detail-block"><h3>Availability</h3><p>Open to Technical Support, IT Support, and remote opportunities</p></section>
       </div>
     </div>
@@ -343,7 +343,7 @@ pdfinfo "public/Abdullah Al Mamun Resume.pdf"
 Expected fields:
 
 ```text
-Title:           Abdullah Al Mamun — Technical Support & IT Operations Professional Resume
+Title:           Abdullah Al Mamun - Technical Support & IT Operations Professional Resume
 Tagged:          yes
 Pages:           2
 Page size:       595.92 x 841.92 pts (A4)

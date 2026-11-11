@@ -6,9 +6,9 @@
 
 Reframe the portfolio's evidence section as developer evidence while preserving Abdullah Al Mamun's primary Technical Support Engineer positioning. Excluding the portfolio repository itself to avoid circular evidence, the three primary cards must use these strongest public project repositories, in this order:
 
-1. Noor Notes — `https://github.com/saamaamr/noor-notes`
-2. Emergency Medicine Finder — `https://github.com/saamaamr/emergency-medicine-finder`
-3. House Shifting Services — `https://github.com/saamaamr/house-shifting-services`
+1. Noor Notes - `https://github.com/saamaamr/noor-notes`
+2. Emergency Medicine Finder - `https://github.com/saamaamr/emergency-medicine-finder`
+3. House Shifting Services - `https://github.com/saamaamr/house-shifting-services`
 
 Below the primary cards, include PCIU CGPA Calculator as a compact collaborative contribution linked to `https://github.com/saamaamr/pciu-cgpa-calculator`.
 
