@@ -210,9 +210,9 @@ describe('Portfolio document', () => {
   it('uses local, truthful visuals for every evidence card', () => {
     const images = [...page.querySelectorAll('[data-evidence-card] img')];
     const expectedSources = [
-      '/assets/evidence/noor-notes-library.png',
-      '/assets/evidence/emergency-supportability.svg',
-      '/assets/evidence/house-shifting-collaboration.svg',
+      '/assets/evidence/noor-notes-editor.png',
+      '/assets/evidence/emergency-medicine-dashboard.jpg',
+      '/assets/evidence/house-shifting-services-demo.jpg',
     ];
 
     expect(images.map((image) => image.getAttribute('src'))).toEqual(expectedSources);

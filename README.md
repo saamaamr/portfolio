@@ -130,7 +130,7 @@ public/css/input.css      Tailwind entry point and stylesheet imports
 public/css/portfolio.css  Design tokens, component styles, responsive rules, and RTL support
 public/css/output.css     Generated minified production stylesheet
 public/js/                Theme, menus, forms, and progressive animation
-public/assets/evidence/   Reviewed screenshot and disclosure-safe evidence diagrams
+public/assets/evidence/   Authentic application screenshots using demonstration data
 public/resume.html        Printable two-page English resume source
 public/sitemap.xml        Search-engine routes for every supported language
 scripts/generate-pdf.js   Resume PDF generation
@@ -138,6 +138,8 @@ tests/                     Route, service, UI, localization, and accessibility t
 swagger.json              OpenAPI documentation for the portfolio and contact API
 vercel.json               Vercel serverless routing configuration
 ```
+
+See [project preview sources](docs/project-preview-sources.md) for screenshot provenance and demonstration data details.
 
 ## Contact API
 
